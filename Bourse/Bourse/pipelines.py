@@ -79,10 +79,10 @@ class BasePipeline(object):
             sql2 = "SELECT FilePath FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'],item['Date'])
             FilePath = execute_SqlServer_select(sql2)[0][0]
             if FilePath is None:
-                sql3 = "SELECT AnnouncementCode FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}'".format(
-                    item['Title'])
+                sql3 = "SELECT AnnouncementCode FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(
+                    item['Title'], item['Date'])
                 Code = execute_SqlServer_select(sql3)[0][0]
-                base_updata(item['url'], item['Date'], Code, FileType)
+                base_updata(item, Code, FileType)
             else:
                 print u"Announcement_LawsRegulations_Xbrl中已经存在此条数据!!!"
                 print item['Title']
