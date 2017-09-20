@@ -5,9 +5,9 @@ import sys
 import logging
 import datetime
 import pymssql
-from tools.logger import logger
+from logger import logger
 
-'''测试库'''
+'''正式库'''
 
 # sql server
 class SqlServer(object):

@@ -3,9 +3,9 @@
     工具方法
 '''
 import platform
-from myspider3.myspider3 import settings
+from Bourse import settings
 import pymysql
-from myspider3.tools.logger import logger
+from logger import logger
 import random
 from email.header import Header
 from email.mime.text import MIMEText
@@ -99,7 +99,7 @@ def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
         from_addr = '781816703@qq.com'
 
     if password is None:
-        password = ''
+        password = 'f'
 
     if to_addrs is None:
         to_addrs = ['retime123@163.com']
