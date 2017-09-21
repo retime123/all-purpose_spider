@@ -8,6 +8,7 @@ from datetime import datetime
 import os, copy
 from spider_conf import SPIDERR_SETTINGS
 
+__author__ = 'retime123'
 '''
 功能：全启动
 配置文件spider_conf里的day_data都会启动

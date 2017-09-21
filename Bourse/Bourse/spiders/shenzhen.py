@@ -3,6 +3,7 @@ import scrapy
 from Bourse.items import ShenZhenItem
 import re,time
 from Bourse.tools.logger import logger
+from Bourse.tools.e_mail import send_mail
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF-8')
@@ -16,9 +17,9 @@ from twisted.internet.error import TimeoutError, TCPTimedOutError
 class ShenzhenSpider(scrapy.Spider):
     name = 'shenzhen'
     allowed_domains = ['szse.cn']
-    custom_settings = {
-        'DOWNLOAD_DELAY': 10
-    }
+    # custom_settings = {
+    #     'DOWNLOAD_DELAY': 10
+    # }
 
 
     base_url = 'http://www.szse.cn'
@@ -137,4 +138,5 @@ class ShenzhenSpider(scrapy.Spider):
                 fp.write(u'超时抛出任务...{}'.format(now_time2) + '\n')
                 fp.write('{}'.format(request) + '\n')
                 fp.write('=' * 30 + '\n')
-
+            # 发送邮件
+            send_mail('超时抛出任务', '{}'.format(request))

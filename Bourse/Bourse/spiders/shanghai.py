@@ -5,6 +5,7 @@ import re, time
 import json
 import sys
 from Bourse.tools.logger import logger
+from Bourse.tools.e_mail import send_mail
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
@@ -123,3 +124,5 @@ class ShanghaiSpider(scrapy.Spider):
                 fp.write(u'超时抛出任务...{}'.format(now_time2) + '\n')
                 fp.write('{}'.format(request) + '\n')
                 fp.write('=' * 30 + '\n')
+            # 发送邮件
+            send_mail('超时抛出任务', '{}'.format(request))

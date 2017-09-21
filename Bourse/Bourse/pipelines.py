@@ -14,6 +14,7 @@ from tools.db1 import *
 import re
 import requests
 from tools.logger import logger
+from tools.e_mail import send_mail
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF-8')
@@ -74,7 +75,6 @@ class BasePipeline(object):
                     fp.write(u'插入数据库失败...{}'.format(now_time2) + '\n')
                     fp.write('{}\n{}'.format(sql, params) + '\n')
                     fp.write('=' * 30 + '\n')
-                # print u'插入数据库失败'
                 # logger().error(u'插入数据库失败')
                 return
 
@@ -85,8 +85,7 @@ class BasePipeline(object):
             FilePath = execute_SqlServer_select(sql2)
             if FilePath is None:
                 writing(sql2)
-                # print u'查询存储路径失败'
-                logger().error(u'查询存储路径失败')
+                logger().error(u'查询存储路径失败...')
                 return
             if FilePath[0][0] is None:
                 sql3 = "SELECT AnnouncementCode FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(
@@ -97,13 +96,6 @@ class BasePipeline(object):
             else:
                 print u"Announcement_LawsRegulations_Xbrl中已经存在此条数据!!!"
                 print item['Title']
-
-def writing(sql):
-    with open('error_bourse.log', 'ab+') as fp:
-        now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-        fp.write(u'操作数据库失败...{}'.format(now_time2) + '\n')
-        fp.write('{}'.format(sql) + '\n')
-        fp.write('=' * 30 + '\n')
 
 
 def base_updata(item, Code, FileType):
@@ -125,10 +117,18 @@ def base_updata(item, Code, FileType):
     sql_updata = "UPDATE Announcement_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}' WHERE AnnouncementCode = '{2}'".format(FilePath, FileSize, Code)
     if execute_SqlServer_updata(sql_updata) is None:
         writing(sql_updata)
-        # print u'更新数据库失败!'
         # logger().error(u'更新数据库失败!')
         return
     return True
+
+def writing(sql):
+    with open('error_bourse.log', 'ab+') as fp:
+        now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
+        fp.write(u'操作数据库失败...{}'.format(now_time2) + '\n')
+        fp.write('{}'.format(sql) + '\n')
+        fp.write('=' * 30 + '\n')
+    # 发送邮件
+    send_mail('操作数据库失败', '{}'.format(sql))
 
 def format_file_path(base_path, report_date, file_name, file_type):
     if file_type not in file_name:
