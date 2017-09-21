@@ -27,13 +27,13 @@ driver_path = './datapool'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-# 线程
-CONCURRENT_REQUESTS = 10
+# 线程数量，最大32
+CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# 下载延时
+
 DOWNLOAD_DELAY = 5
 
 # The download delay setting will honor only one of:
@@ -57,7 +57,7 @@ COOKIES_ENABLED = False
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-# 下载中间件
+
 DOWNLOADER_MIDDLEWARES = {
    'Bourse.middlewares.ChoiceAgent': 543,
     'Bourse.middlewares.HttpProxyMiddleware': 555,
@@ -110,12 +110,26 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # 超时时间
-DOWNLOAD_TIMEOUT = 20
+DOWNLOAD_TIMEOUT = 30
 
 LOG_ENABLED = True
 LOG_FORMAT = '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s'
 
 # LOG_STDOUT = True
+
+
+# # 抓取失败重试次数:自定义
+# RETRY_COUNT = 3
+#
+# # 失败任务重跑次数:自定义
+# RERUN_COUNT = 5
+
+# 指定失败后重复尝试的次数。超过这个设置的值，Request就会被丢弃。
+RETRY_TIMES = 5
+
+# 关闭重试:默认是开启的！
+# RETRY_ENABLED = False
+
 
 # IP代理接口
 PROXY_API = ''
@@ -234,3 +248,52 @@ MOBILE_USERAGENT = [
         'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10',
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; Titan)',
     ]
+
+#
+# Using errbacks to catch exceptions in request processing
+# The errback of a request is a function that will be called when an exception is raise while processing it.
+# It receives a Twisted Failure instance as first parameter and can be used to track connection establishment timeouts, DNS errors etc.
+# Here’s an example spider logging all errors and catching some specific errors if needed:
+# import scrapy
+#
+# from scrapy.spidermiddlewares.httperror import HttpError
+# from twisted.internet.error import DNSLookupError
+# from twisted.internet.error import TimeoutError, TCPTimedOutError
+#
+# class ErrbackSpider(scrapy.Spider):
+#     name = "errback_example"
+#     start_urls = [
+#         "http://www.httpbin.org/",              # HTTP 200 expected
+#         "http://www.httpbin.org/status/404",    # Not found error
+#         "http://www.httpbin.org/status/500",    # server issue
+#         "http://www.httpbin.org:12345/",        # non-responding host, timeout expected
+#         "http://www.httphttpbinbin.org/",       # DNS error expected
+#     ]
+#
+#     def start_requests(self):
+#         for u in self.start_urls:
+#             yield scrapy.Request(u, callback=self.parse_httpbin,
+#                                     errback=self.errback_httpbin,
+#                                     dont_filter=True)
+#
+#     def parse_httpbin(self, response):
+#         self.logger.info('Got successful response from {}'.format(response.url))
+#         # do something useful here...
+#
+#     def errback_httpbin(self, failure):
+#         # log all failures
+#         self.logger.error(repr(failure))
+#
+#         # in case you want to do something special for some errors,
+#         # you may need the failure's type:
+#
+#         if failure.check(HttpError):
+#             # these exceptions come from HttpError spider middleware
+#             # you can get the non-200 response
+#             response = failure.value.response
+#             self.logger.error('HttpError on %s', response.url)
+#
+#         elif failure.check(DNSLookupError):
+#             # this is the original request
+#             request = failure.request
+

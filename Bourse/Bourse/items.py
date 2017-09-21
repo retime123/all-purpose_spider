@@ -38,6 +38,7 @@ class BaseDataItem(BaseItem):
     Type1 = scrapy.Field()  # 一级分类
     Type2 = scrapy.Field()  # 二级分类
     Type3 = scrapy.Field()  # 三级分类
+
     url = scrapy.Field()    # 公告链接==下载、文件
     Title = scrapy.Field()  # 公告标题
     Date = scrapy.Field()   # 公告日期
@@ -57,3 +58,9 @@ class ShenZhenItem(BaseDataItem):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+class AastocksItem(BaseDataItem):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    pass
+

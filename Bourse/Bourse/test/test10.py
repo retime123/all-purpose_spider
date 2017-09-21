@@ -51,8 +51,12 @@ def loadRequest(*args, **kwargs):
         return reponse
 
 def loadhtml(data, filename):
-    if "images1" not in os.listdir('./'):
-        os.mkdir("./images1")
+    # os.makedirs() 方法用于递归创建目录。像 mkdir(), 但创建的所有intermediate-level文件夹需要包含子目录。
+    if not os.path.exists('./images1'):
+        os.makedirs('./images1')
+    # 报错
+    # if not os.path.exists('./images5/a/ad/d/f'):
+    #     os.mkdir('./images5/a/ad/d/f')
     with open('./images1/' + filename + '.html', 'wb') as f:
         f.write(data)
 

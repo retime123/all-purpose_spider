@@ -1,9 +1,7 @@
-# all-purpose_spider
-
 # python2.7
 # scrapy 1.4
 
-单机——版本1.0
+# 单机——版本1.0
 
 spider_conf配置参数
 
@@ -18,4 +16,8 @@ halfhourCrawl启动所有每小时爬取的spider
 RTcrawl启动所有实时爬取的spider
 
 single_main指定单一爬虫运行！
+
+---------------------------
+# V1.1
+实现超时时间、超时次数、超时记录(超时任务会被抛出Request！)
 

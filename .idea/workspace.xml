@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="919026a2-8de2-4289-bef0-8fbffa9428c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bourse/Bourse/pipelines.py" afterPath="$PROJECT_DIR$/Bourse/Bourse/pipelines.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/.idea/Bourse.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/items.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/middlewares.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/pipelines.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/spiders/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/spiders/shanghai.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/spiders/shenzhen.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/test/test10.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/test/test8.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/db.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/db1.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/e_mail.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/errors.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/logger.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/Bourse/tools/tool.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/RTcrawl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/dayCrawl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/halfhourCrawl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/hourCrawl.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/scrapy.cfg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/single_main.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bourse/spider_conf.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,73 +47,79 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dayCrawl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/dayCrawl.py">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="watch_status.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/watch_status.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="halfhourCrawl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/halfhourCrawl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hourCrawl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/hourCrawl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RTcrawl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/RTcrawl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shanghai.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/spiders/shanghai.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2640">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="middlewares.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/middlewares.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="e#168#194#0" expanded="true" />
+                <marker date="1505786735837" expanded="true" signature="14283:14550" ph="INSERT INTO `huox_task_order`... " />
+                <marker date="1505786735837" expanded="true" signature="15147:15198" ph="update huox_... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/db.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/db1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <marker date="1505972823476" expanded="true" signature="3163:3248" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
+                <marker date="1505972823476" expanded="true" signature="3309:3449" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="e_mail.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/e_mail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/logger.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tool.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/tool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="101" column="20" lean-forward="false" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+              <folding>
+                <element signature="e#41#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,30 +135,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/pipelines.py">
+      <file leaf-file-name="middlewares.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/middlewares.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-              <folding>
-                <element signature="e#193#207#0" expanded="true" />
-                <marker date="1505886069782" expanded="true" signature="1297:1410" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
-                <marker date="1505886069782" expanded="true" signature="1548:1855" ph="INSERT INTO Announcement_LawsRegulations_Xbrl... " />
-                <marker date="1505886069782" expanded="true" signature="2801:2914" ph="SELECT FileP... Announcement_LawsRegulations_Xbrl" />
-                <marker date="1505886069782" expanded="true" signature="3068:3161" ph="SELECT Annou... Announcement_LawsRegulations_Xbrl" />
-                <marker date="1505886069782" expanded="true" signature="3068:3189" ph="SELECT Annou... Announcement_LawsRegulations_Xbrl" />
-                <marker date="1505886069782" expanded="true" signature="4220:4330" ph="UPDATE Annou... " />
-              </folding>
+            <state relative-caret-position="94">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/__init__.py">
+      <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bourse/Bourse/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="477">
+              <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+              <folding>
+                <marker date="1505972823532" expanded="true" signature="1302:1415" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
+                <marker date="1505972823532" expanded="true" signature="1677:1984" ph="INSERT INTO Announcement_LawsRegulations_Xbrl... " />
+                <marker date="1505972823532" expanded="true" signature="2810:2923" ph="SELECT FileP... Announcement_LawsRegulations_Xbrl" />
+                <marker date="1505972823532" expanded="true" signature="3243:3364" ph="SELECT Annou... Announcement_LawsRegulations_Xbrl" />
+                <marker date="1505972823532" expanded="true" signature="4563:4673" ph="UPDATE Annou... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,10 +170,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Bourse/Bourse/Tools/e_mail.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Bourse/Bourse/Tools/db.py" />
         <option value="$PROJECT_DIR$/Bourse/Bourse/Tools/db1.py" />
         <option value="$PROJECT_DIR$/Bourse/Bourse/Tools/tool.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Bourse/Bourse/tools/db.py" />
+        <option value="$PROJECT_DIR$/Bourse/Bourse/tools/db1.py" />
+        <option value="$PROJECT_DIR$/Bourse/Bourse/tools/e_mail.py" />
         <option value="$PROJECT_DIR$/Bourse/Bourse/tools/tool.py" />
         <option value="$PROJECT_DIR$/Bourse/Bourse/pipelines.py" />
       </list>
@@ -152,8 +189,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="159" />
-    <option name="y" value="119" />
+    <option name="x" value="130" />
+    <option name="y" value="52" />
     <option name="width" value="1402" />
     <option name="height" value="711" />
   </component>
@@ -183,60 +220,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-purpose_spider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spiders" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -479,10 +462,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="159" y="119" width="1402" height="711" extended-state="0" />
-    <editor active="true" />
+    <frame x="130" y="52" width="1402" height="711" extended-state="1" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25735295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25735295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -573,9 +556,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -583,9 +564,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -657,9 +636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -667,9 +644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -690,20 +665,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/watch_status.py" />
     <entry file="file://$PROJECT_DIR$/Bourse/README.md" />
     <entry file="file://$PROJECT_DIR$/Bourse/spider_conf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -716,59 +682,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/tool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/errors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/e_mail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="e#24#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/db1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -828,21 +746,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#168#194#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bourse/Bourse/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/watch_status.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1505786735837" expanded="true" signature="14283:14550" ph="INSERT INTO `huox_task_order`... " />
+            <marker date="1505786735837" expanded="true" signature="15147:15198" ph="update huox_... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/db1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1505972823476" expanded="true" signature="3163:3248" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
+            <marker date="1505972823476" expanded="true" signature="3309:3449" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/e_mail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/tools/tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="101" column="20" lean-forward="false" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+          <folding>
+            <element signature="e#41#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -854,18 +826,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Bourse/Bourse/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bourse/Bourse/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+        <state relative-caret-position="477">
+          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
           <folding>
-            <element signature="e#193#207#0" expanded="true" />
-            <marker date="1505886069782" expanded="true" signature="1297:1410" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
-            <marker date="1505886069782" expanded="true" signature="1548:1855" ph="INSERT INTO Announcement_LawsRegulations_Xbrl... " />
-            <marker date="1505886069782" expanded="true" signature="2801:2914" ph="SELECT FileP... Announcement_LawsRegulations_Xbrl" />
-            <marker date="1505886069782" expanded="true" signature="3068:3161" ph="SELECT Annou... Announcement_LawsRegulations_Xbrl" />
-            <marker date="1505886069782" expanded="true" signature="3068:3189" ph="SELECT Annou... Announcement_LawsRegulations_Xbrl" />
-            <marker date="1505886069782" expanded="true" signature="4220:4330" ph="UPDATE Annou... " />
+            <marker date="1505972823532" expanded="true" signature="1302:1415" ph="SELECT COUNT... Announcement_LawsRegulations_Xbrl" />
+            <marker date="1505972823532" expanded="true" signature="1677:1984" ph="INSERT INTO Announcement_LawsRegulations_Xbrl... " />
+            <marker date="1505972823532" expanded="true" signature="2810:2923" ph="SELECT FileP... Announcement_LawsRegulations_Xbrl" />
+            <marker date="1505972823532" expanded="true" signature="3243:3364" ph="SELECT Annou... Announcement_LawsRegulations_Xbrl" />
+            <marker date="1505972823532" expanded="true" signature="4563:4673" ph="UPDATE Annou... " />
           </folding>
         </state>
       </provider>

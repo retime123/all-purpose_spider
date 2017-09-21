@@ -14,7 +14,10 @@ class SqlServer(object):
     def __new__(cls, *args, **kw):
             if not hasattr(cls, '_instance'):
                 cls._instance = pymssql.connect(
-
+                    host="db.alphainsight.ai",
+                    database="XBRL",
+                    user="crawl",
+                    password="/7yk3aAe"
                 )
             return cls._instance
 
@@ -28,10 +31,11 @@ def get_SqlServer_count(sqlstr):
         result = cursor.fetchall()[0]
         # db_conn.commit()
         # db_conn.close()
-        return result[0]
+        return result[0]# 一般是数字0,1...
     except Exception as e:
         # print('查询数量出错: {} SQL语句: {}'.format(e, sqlstr))
         logger().error('查询数量出错: {} \nSQL语句: {}'.format(e, sqlstr))
+        return
 
 # 执行SqlServer中的select语句
 def execute_SqlServer_select(sqlstr):
@@ -39,14 +43,14 @@ def execute_SqlServer_select(sqlstr):
         db_conn = SqlServer()
         cursor = db_conn.cursor()
         cursor.execute(sqlstr)
-        result = cursor.fetchall()#列表里面是元祖
-        db_conn.commit()
+        result = cursor.fetchall()#列表里面是元祖[( ,)]
+        # db_conn.commit()
         # db_conn.close()
         return result
     except Exception as e:
         # print('查询出错: {} SQL语句: {}'.format(e, sqlstr))
         logger().error('查询出错: {} \nSQL语句: {}'.format(e, sqlstr))
-        return None
+        return
 
 
 # 执行SqlServer中的insert语句
@@ -57,11 +61,13 @@ def execute_SqlServer_insert(sqlstr):
         cursor.execute(sqlstr)
         db_conn.commit()
         # db_conn.close()
-        print("插入成功...{}".format(sqlstr))
-        # logger().info("插入成功...{}".format(sqlstr))
+        # print("插入成功...{}".format(sqlstr))
+        logger().info("插入成功...{}".format(sqlstr))
+        return True
     except Exception as e:
         # print('插入失败 {} SQL语句: {}'.format(e, sqlstr))
         logger().error('插入失败 {} \nSQL语句: {}'.format(e, sqlstr))
+        return
 
 # 特殊！
 def DB_insert_to_and_ReportCode(sqlstr, params):
@@ -77,6 +83,7 @@ def DB_insert_to_and_ReportCode(sqlstr, params):
     except Exception as e:
         # print('插入失败 {} \n SQL语句: {} {}'.format(e, sqlstr,  params))
         logger().error('插入失败 {} \nSQL语句: {} {}'.format(e, sqlstr, params))
+        return
 
 
 # 执行SqlServer中的updata语句
@@ -89,10 +96,11 @@ def execute_SqlServer_updata(sqlstr):
         # db_conn.close()
         # print("更新成功...{}".format(sqlstr))
         logger().info("更新成功...{}".format(sqlstr))
+        return True
     except Exception as e:
         # print('更新失败 {} SQL语句: {}'.format(e, sqlstr))
         logger().error('更新失败 {} \nSQL语句: {}'.format(e, sqlstr))
-        return True
+        return
 
 
 # if __name__ == '__main__':
@@ -103,7 +111,10 @@ def execute_SqlServer_updata(sqlstr):
 #
 #     # sql2 = "SELECT ReportFileName FROM Report_ReportBaseInfo_Xbrl WHERE FileName = '{}'".format('ddd')
 #     # b = execute_SqlServer_select(sql2)
-#     sql3 = "SELECT FilePath FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}'".format('国务院办公厅转发国资委关于推进国有资本调整和国有企业重组指导意见的通知')
-#     a = execute_SqlServer_select(sql3)[0][0]
+#     sql3 = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}'".format('国务院办公厅转发国资委关于推进国有资本调整和国有企业重组指导意见的通知')
+#
+#     sql5 = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '中华人民共和国证券投资基金法（2015修正）'AND AnnouncementData = '2015-04-24'"
+#     a = get_SqlServer_count(sql5)
 #     # print type(a)
 #     print(a)
+

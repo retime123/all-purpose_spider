@@ -13,6 +13,7 @@ from Bourse.items import *
 from tools.db1 import *
 import re
 import requests
+from tools.logger import logger
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF-8')
@@ -22,7 +23,7 @@ sys.setdefaultencoding('UTF-8')
 
 # driver_path = './datapool'
 driver_path = settings.driver_path
-# spider.settings.get("参数")
+
 
 
 class BoursePipeline(object):
@@ -50,7 +51,11 @@ class BasePipeline(object):
 
         sql_count = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'], item['Date'])
         file_count = get_SqlServer_count(sql_count)
-        if file_count == 0:
+        if file_count is None:
+            writing(sql_count)
+            # logger().error(u'查询数量失败！')
+            return
+        elif file_count == 0:
 
             sql = "INSERT INTO Announcement_LawsRegulations_Xbrl" \
                   "(AnnouncementData, AnnouncementSource, AnnouncementTitle, AnnouncementType1, " \
@@ -60,58 +65,71 @@ class BasePipeline(object):
             params = (
                 item['Date'], item['Source'], item['Title'], item['Type1'], item['Type2'],
                 item['Type3'], item['url'], item['Auditmark'])
-            try:
-                Code = DB_insert_to_and_ReportCode(sql, params)
-                # print u'插入一条数据到Announcement_LawsRegulations_Xbrl...'
-            except Exception as e:
-                with open('error_waiwen.log', 'ab+') as fp:
+
+            Code = DB_insert_to_and_ReportCode(sql, params)
+
+            if Code is None:
+                with open('error_bourse.log', 'ab+') as fp:
                     now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
                     fp.write(u'插入数据库失败...{}'.format(now_time2) + '\n')
                     fp.write('{}\n{}'.format(sql, params) + '\n')
                     fp.write('=' * 30 + '\n')
-                print u'插入数据库失败'
-                print e
+                # print u'插入数据库失败'
+                # logger().error(u'插入数据库失败')
                 return
-            # 更新FilePath和FileSize
-            # spider.settings.get("driver_path")
-            base_updata(item, Code, FileType)
+
+            if base_updata(item, Code, FileType) is None:
+                return
         else:
             sql2 = "SELECT FilePath FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'],item['Date'])
-            FilePath = execute_SqlServer_select(sql2)[0][0]
+            FilePath = execute_SqlServer_select(sql2)
             if FilePath is None:
+                writing(sql2)
+                # print u'查询存储路径失败'
+                logger().error(u'查询存储路径失败')
+                return
+            if FilePath[0][0] is None:
                 sql3 = "SELECT AnnouncementCode FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(
                     item['Title'], item['Date'])
                 Code = execute_SqlServer_select(sql3)[0][0]
-                base_updata(item, Code, FileType)
+                if base_updata(item, Code, FileType) is None:
+                    return
             else:
                 print u"Announcement_LawsRegulations_Xbrl中已经存在此条数据!!!"
                 print item['Title']
-        # print "333",item['Type3']
-        # return item
+
+def writing(sql):
+    with open('error_bourse.log', 'ab+') as fp:
+        now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
+        fp.write(u'操作数据库失败...{}'.format(now_time2) + '\n')
+        fp.write('{}'.format(sql) + '\n')
+        fp.write('=' * 30 + '\n')
 
 
 def base_updata(item, Code, FileType):
     new_fileName = str(Code) + '_' +item['Date'].replace('-','')
-    # 存储地址
+
     base_path = None
-    # print 'driver_path', settings.driver_path
+
     if isinstance(item, ShangHaiItem):
-        base_path = driver_path + '/shse'
+        base_path = driver_path + '/see'
     elif isinstance(item, ShenZhenItem):
         base_path = driver_path + '/szse'
 
     attach_path, attach_full_path = format_file_path(base_path, item['Date'], new_fileName, FileType)
-    # 下载附件
+
     download_attachment(item['url'], attach_path, attach_full_path)
     FileSize = get_size(attach_full_path)
     FilePath = attach_full_path.replace(driver_path, "")
-    # 将FilePath和FileSize写入数据库
+
     sql_updata = "UPDATE Announcement_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}' WHERE AnnouncementCode = '{2}'".format(FilePath, FileSize, Code)
-    execute_SqlServer_updata(sql_updata)
-    pass
+    if execute_SqlServer_updata(sql_updata) is None:
+        writing(sql_updata)
+        # print u'更新数据库失败!'
+        # logger().error(u'更新数据库失败!')
+        return
+    return True
 
-
-# 附件存放路径
 def format_file_path(base_path, report_date, file_name, file_type):
     if file_type not in file_name:
         file_name = file_name +'.'+file_type
@@ -121,7 +139,6 @@ def format_file_path(base_path, report_date, file_name, file_type):
     return attach_path, attach_full_path
 
 
-# 下载附件
 def download_attachment(web_site_urls, attach_path, attach_full_path, times=5):
     try:
         if not os.path.exists(attach_path):
@@ -147,10 +164,11 @@ def download_attachment(web_site_urls, attach_path, attach_full_path, times=5):
                 times)
         else:
             print str(e)
-            with open('error_waiwen.log', 'ab+') as fp:
+            with open('error_bourse.log', 'ab+') as fp:
                 now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
                 fp.write(web_site_urls + u'下载附件时出错...{}'.format(now_time2) + '\n')
                 fp.write('=' * 30 + '\n')
+                return
 
 
 def get_size(attach_full_path):

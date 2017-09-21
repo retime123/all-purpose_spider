@@ -6,7 +6,8 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-import settings #导包方式不一样：settings.xx
+from scrapy.conf import settings #settings[""]
+# import settings #导包方式不一样：settings.xx
 import redis, json
 import time
 import random
@@ -60,12 +61,12 @@ class ChoiceAgent(object):
     """随机更换user-agent"""
     def process_request(self, request, spider):
         if spider.name == "HbSpider":
-            agent = random.choice(settings.MOBILE_USERAGENT)
+            agent = random.choice(settings['MOBILE_USERAGENT'])
             request.headers.setdefault('User-Agent', agent)
         else:
-            agent = random.choice(settings.PC_USERAGENT)
+            agent = random.choice(settings['PC_USERAGENT'])
             request.headers.setdefault('User-Agent', agent)
-        # print('向请求添加User-Agent',agent)
+        # print('向请求添加User-Agent')
 
 
 class HttpProxyMiddleware(object):
@@ -92,38 +93,32 @@ class HttpProxyMiddleware(object):
         # else:
         #     probability = 0.4
 
-        # 判断需要使用代理
-        # if not spider.use_proxy:
-        #     request.meta['proxy'] =None
-        # else:
-        #
-        if spider.use_proxy:
-            try:
-                thisip = self.get_proxy(spider)
-                if request.meta.get('proxy')  is not None:
-                    if thisip['code'] == "1":
-                        print("222222222222222222222222222222222")
-                        a = "http://145.22.33.44:5555"
-                        request.meta['proxy'] = a
-                else:
-                    # a = thisip['1']
-                    a = 'http://11.22.33.44:3333'
-                    request.meta['proxy'] = a
-                    #代理请求超时时间
-                    # request.meta['download_timeout'] = 15
-                spider.logger.info("[代理IP请求]{}".format(a))
 
-            except Exception as e:
-                spider.logger.info("[ERROR]代理IP添加失败！")
-                raise e
+        try:
+            thisip = self.get_proxy(spider)
+            if request.meta.get('proxy')  is not None:
+                if thisip['code'] == "1":
+                    print("222222222222222222222222222222222")
+                    a = "http://145.22.33.44:5555"
+                    request.meta['proxy'] = a
+            else:
+                # a = thisip['1']
+                a = 'http://11.22.33.44:3333'
+                request.meta['proxy'] = a
+                #代理请求超时时间
+                # request.meta['download_timeout'] = 15
+            spider.logger.info("[代理IP请求]{}".format(a))
+
+        except Exception as e:
+            spider.logger.info("[ERROR]代理IP添加失败！")
+            raise e
 
 
     def process_exception(self, request, exception, spider):
         """
         处理由于使用代理导致的连接异常 则重新换个代理继续请求
         """
-        # print(exception, '错误类型')
-        logger().error('错误类型  {}'.format(exception))
+        print(exception, '错误类型')
         if isinstance(exception, self.DONT_RETRY_ERRORS or isinstance(exception, TunnelError)):
             try:
                 new_request = request.copy()
@@ -143,20 +138,20 @@ class HttpProxyMiddleware(object):
             # return new_request
             # # return request
 
-    # def process_response(self, request, response, spider):
-    #     if response.status < 200 or response.status >= 400:
-    #         logger().info('状态码：{},{}'.format(response.status, response.url))
-    #         raise response.url
-    #
-    #     elif response.status == 302 and spider.name == "lianjia":
-    #         print('302' * 30)
-    #         pass
-    #     return response
+    def process_response(self, request, response, spider):
+        if response.status < 200 or response.status >= 400:
+            logger().info('状态码：{},{}'.format(response.status, response.url))
+            raise response.url
+
+        elif response.status == 302 and spider.name == "lianjia":
+            print('302' * 30)
+            pass
+        return response
 
 
     # 每次请求只有一个代理ip
     def get_proxy(self, spider):
-        for url in settings.PROXY_API:
+        for url in settings['PROXY_API']:
             try:
                 resp = requests.get(url)
                 if resp.status_code == 200:
