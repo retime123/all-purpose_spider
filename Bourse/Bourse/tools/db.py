@@ -14,10 +14,7 @@ class SqlServer(object):
     def __new__(cls, *args, **kw):
             if not hasattr(cls, '_instance'):
                 cls._instance = pymssql.connect(
-                    host="db.alphainsight.ai",
-                    database="XBRL",
-                    user="crawl",
-                    password="/7yk3aAe"
+
                 )
             return cls._instance
 

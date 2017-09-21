@@ -25,7 +25,7 @@ def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
         from_addr = '781816703@qq.com'
 
     if password is None:
-        password = 'mgtlpljtxrmlbfcf'
+        password = ''
 
     if to_addrs is None:# 收
         to_addrs = ['retime123@163.com']
