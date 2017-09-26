@@ -25,4 +25,4 @@ single_main指定单一爬虫运行！
 # V1.2
 增加发邮件功能！
 增加traceback
-每个spider增加监控功能！
+每个spider增加异常监控功能！
