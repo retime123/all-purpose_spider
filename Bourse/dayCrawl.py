@@ -16,7 +16,6 @@ __author__ = 'retime123'
 
 定时任务，，注意一定要进到文件下！！
 38 16 * * * cd /home/datapool/Bourse/Bourse2 && sudo /usr/bin/python dayCrawl.py >> /home/datapool/WindSpider/logs/bourse.log 2>&1
-
 '''
 
 
@@ -52,8 +51,9 @@ class StartSpider(object):
             for k, v in value.get('settings').items():
                 project_settings[k] = v
             crawl = Crawler(value.get('spidercls'), settings=project_settings)
-            process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')),
-                          use_proxy=value.get('use_proxy'), debug=self.debug)
+            # process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'), debug=self.debug)
+            process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'),
+                          debug=self.debug)
 
         process.start()
 

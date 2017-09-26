@@ -64,3 +64,7 @@ class AastocksItem(BaseDataItem):
     # name = scrapy.Field()
     pass
 
+class PpiItem(BaseDataItem):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    pass

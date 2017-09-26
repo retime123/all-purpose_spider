@@ -88,6 +88,24 @@ ITEM_PIPELINES = {
 
 }
 
+# # 1(必须). 使用了scrapy_redis的去重组件，在redis数据库里做去重
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# DUPEFILTER_CLASS = 'scrapy_redis.queue.SpiderPriorityQueue'
+
+# # 2(必须). 使用了scrapy_redis的调度器，在redis里分配请求
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
+# # 3(必须). 在redis中保持scrapy-redis用到的各个队列，从而允许暂停和暂停后恢复，也就是不清理redis queues
+# SCHEDULER_PERSIST = True
+
+
+# 5(必须). 指定redis数据库的连接参数，默认是db=0
+# REDIS_HOST = '192.168.1.114'
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = 6379
+REDIS_PW = None
+
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
@@ -109,13 +127,37 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-# 超时时间
-DOWNLOAD_TIMEOUT = 30
+SERVER_A = 'ip-10-188-2-110'
+SERVER_B = ''
+
+SERVERS = [SERVER_A,]
+
+if platform.uname()[1] in SERVERS:
+    LOG_LEVEL = 'INFO'
+else:
+    LOG_LEVEL = 'DEBUG'# 调试用
 
 LOG_ENABLED = True
 LOG_FORMAT = '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s'
+# 所有过程输出会出现在日志
+LOG_STDOUT = True
 
-# LOG_STDOUT = True
+
+# EXTENSIONS = {
+#     #官方说这个扩展类已经被弃用了
+#     # 'scrapy.contrib.statsmailer.StatsMailer': 500,
+#     'scrapy.extensions.statsmailer.StatsMailer': 500,
+# }
+#
+# STATSMAILER_RCPTS = ['retime123@163.com',]
+#
+# MAIL_FROM='781816703@qq.com'
+# MAIL_HOST='smtp.qq.com'
+# # MAIL_PORT= 587
+# MAIL_PORT= 465
+# MAIL_USER='781816703@qq.com'
+# MAIL_PASS=''
+
 
 
 # # 抓取失败重试次数:自定义
@@ -124,11 +166,15 @@ LOG_FORMAT = '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s'
 # # 失败任务重跑次数:自定义
 # RERUN_COUNT = 5
 
+# 超时时间
+DOWNLOAD_TIMEOUT = 30
+
 # 指定失败后重复尝试的次数。超过这个设置的值，Request就会被丢弃。
 RETRY_TIMES = 5
 
 # 关闭重试:默认是开启的！
 # RETRY_ENABLED = False
+
 
 
 # IP代理接口

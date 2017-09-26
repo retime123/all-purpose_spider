@@ -15,6 +15,7 @@ sys.setdefaultencoding('UTF-8')
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
+import traceback
 
 '''阿斯达克财经网，港股研究'''
 
@@ -99,14 +100,13 @@ class AastocksSpider(scrapy.Spider):
             request = failure.request
             print '1111', request
         elif failure.check(TimeoutError, TCPTimedOutError):
-            # 超时任务抛出
             request = failure.request
             # print u'超时抛出任务...',request
             logger().error(u'超时抛出任务...{}'.format(request))
             with open('error_bourse.log', 'ab+') as fp:
                 now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(u'超时抛出任务...{}'.format(now_time2) + '\n')
+                fp.write(u'[{}]超时抛出任务...{}'.format(self.name, now_time2) + '\n')
                 fp.write('{}'.format(request) + '\n')
                 fp.write('=' * 30 + '\n')
             # 发送邮件
-            send_mail('超时抛出任务', '{}'.format(request))
+            send_mail('[{}]超时抛出任务'.format(self.name), '{}'.format(request))

@@ -12,6 +12,7 @@ sys.setdefaultencoding('UTF-8')
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
+import traceback
 
 '''上海证券交易所，法律法规'''
 
@@ -86,20 +87,25 @@ class ShanghaiSpider(scrapy.Spider):
                                      callback=self.parse_detail)
 
     def parse_detail(self, response):
-        Type3 = response.meta["Type3"]
-        base_list = response.xpath('//div[@class="sse_list_1"]/dl/dd')
-        print Type3, u'数量', len(base_list)
-        for base in base_list:
-            item = ShangHaiItem()
-            item['Type1'] = response.meta["Type1"]
-            item['Type2'] = response.meta["Type2"]
-            item['Type3'] = Type3
-            item['Date'] = base.xpath('./span/text()').extract()[0]
-            item['Title'] = base.xpath('./a/text()').extract()[0].strip()
-            item['url'] = self.base_url + base.xpath('./a/@href').extract()[0]
-            item['Source'] = u'上海证券交易所'
-            item['Auditmark'] = '1'
-            yield item
+        try:
+            Type3 = response.meta["Type3"]
+            base_list = response.xpath('//div[@class="sse_list_1"]/dl/dd')
+            print Type3, u'数量', len(base_list)
+            for base in base_list:
+                item = ShangHaiItem()
+                item['Type1'] = response.meta["Type1"]
+                item['Type2'] = response.meta["Type2"]
+                item['Type3'] = Type3
+                item['Date'] = base.xpath('./span/text()').extract()[0]
+                item['Title'] = base.xpath('./a/text()').extract()[0].strip()
+                item['url'] = self.base_url + base.xpath('./a/@href').extract()[0]
+                item['Source'] = u'上海证券交易所'
+                item['Auditmark'] = '1'
+                yield item
+        except Exception as e:
+            logger().error('{}'.format(traceback.format_exc()))
+            # 发送邮件
+            send_mail('[{}]spider错误'.format(self.name), '{}'.format(traceback.format_exc()))
 
     def errback_httpbin(self, failure):
         self.logger.error(repr(failure))
@@ -115,14 +121,13 @@ class ShanghaiSpider(scrapy.Spider):
             request = failure.request
             print '1111', request
         elif failure.check(TimeoutError, TCPTimedOutError):
-            # 超时任务抛出
             request = failure.request
             # print u'超时抛出任务...',request
             logger().error(u'超时抛出任务...{}'.format(request))
             with open('error_bourse.log', 'ab+') as fp:
                 now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(u'超时抛出任务...{}'.format(now_time2) + '\n')
+                fp.write(u'[{}]超时抛出任务...{}'.format(self.name, now_time2) + '\n')
                 fp.write('{}'.format(request) + '\n')
                 fp.write('=' * 30 + '\n')
             # 发送邮件
-            send_mail('超时抛出任务', '{}'.format(request))
+            send_mail('[{}]超时抛出任务'.format(self.name), '{}'.format(request))

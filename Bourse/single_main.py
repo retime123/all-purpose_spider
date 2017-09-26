@@ -46,12 +46,9 @@ def main(task_type, num):
 
 
 if __name__ == '__main__':
-    main('day_data', 10)
+    # main('day_data', 10)
+    main('hour_data', 110)
 
-
-
-
-# 每天爬取一次，定时任务crontab
 
 # cmdline.execute('scrapy crawl shenzhen'.split())
 
