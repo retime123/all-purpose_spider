@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 from lxml import etree
 from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import send_mail
+from Bourse.tools.e_mail import *
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF-8')
@@ -35,56 +35,70 @@ class AastocksSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        pass
-        a = '<div>' + unicode(response.text) + '</div>'
-        q = etree.HTML(a)
-        # print a
-        b = q.xpath('//div/text()')[0]
-        Data_list = eval(b)
-        size = len(Data_list)
-        if isinstance(Data_list, list):
-            for index in range(0, size):
-                print u'睡眠1秒...'
-                time.sleep(1)
-                report_sid = Data_list[index]["sid"]
-                report_id = Data_list[index]["id"]
-                ReportDate = Data_list[index]["dt"]#时间
-                ReportOriginalTitle = unicode(Data_list[index]["h"])#标题
-                ResearchInstitute = unicode(Data_list[index]["s"])
-                tem = Data_list[index]["c"].strip()#摘要
-                # ss = re.sub(r'[►]', '', unicode(tem))
-                ss = tem.replace("►", "").replace("", "")
-                # print u'#####'+ unicode(ss)
-                ReportSummary = unicode(ss)
+        try:
+            a = '<div>' + unicode(response.text) + '</div>'
+            q = etree.HTML(a)
+            # print a
+            b = q.xpath('//div/text()')[0]
+            Data_list = eval(b)
+            size = len(Data_list)
+            if isinstance(Data_list, list):
+                for index in range(0, size):
+                    item = AastocksItem()
+                    report_sid = Data_list[index]["sid"]
+                    report_id = Data_list[index]["id"]
+                    tem = Data_list[index]["c"].strip()  # 摘要
+                    ss = tem.replace("►", "").replace("", "")
 
-                print u'ReportOriginalTitle: ' + ReportOriginalTitle
-                FileName = u'aa' + ReportDate.replace("/", "") + '_' + report_id
-                item = AastocksItem()
-                detail_url = 'http://www.aastocks.com/tc/stocks/news/research-content/{}/{}'.format(report_sid, report_id)
-                yield scrapy.Request(detail_url,
-                                    meta={"Type1": Type1, "Type2": Type2, "Type3": Type3},
+                    item['ReportDate'] = Data_list[index]["dt"].replace("/", "-")# 日期
+                    item['ReportOriginalTitle'] = unicode(Data_list[index]["h"])# 标题
+                    item['ResearchInstitute'] = unicode(Data_list[index]["s"])
+                    item['ReportSummary'] = unicode(ss)
+                    item['FileName'] = u'aa' + item['ReportDate'].replace("-", "") + '_' + report_id
+                    url = 'http://www.aastocks.com/tc/stocks/news/research-content/{}/{}'.format(report_sid, report_id)
+                    item['Auditmark'] = '1'
+                    item['ReportSource'] = u'阿斯达克财经网'
+                    item['PublishDate'] = item['ReportDate']# 发布日期
+                    yield scrapy.Request(url,
+                                         meta={'item':item},
                                      errback=self.errback_httpbin,
                                      callback=self.parse_detail)
-
-            if size >= 20:
-                self.page_num += 1
-                print u"已爬取一轮，休息1分钟..."
-                time.sleep(60)
-                day_url = 'http://www.aastocks.com/tc/resources/datafeed/getmorenews.ashx?cat=research&period=0&p={}'.format(self.page_num)
-                yield scrapy.Request(day_url,
+                if size >= 20:
+                    self.page_num += 1
+                    print u"已爬取一轮，休息1分钟..."
+                    time.sleep(60)
+                    day_url = 'http://www.aastocks.com/tc/resources/datafeed/getmorenews.ashx?cat=research&period=0&p={}'.format(self.page_num)
+                    yield scrapy.Request(day_url,
                                      errback=self.errback_httpbin,
                                      callback=self.parse)
+        except Exception as e:
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
+
 
     def parse_detail(self, response):
-        pass
-
-
-
-
-
-
-
-
+        try:
+            # item = AastocksItem()
+            down_link = response.xpath('//div[@class="grid_11"]//div[@id="cp_pDownloadPdf"]/a/@href').extract()
+            FileType = None
+            content = None
+            down_url = None
+            if down_link:
+                attach = re.search(r'(\d+)\.(.+)', down_link[0])
+                FileType = attach.group(2)
+                down_url = down_link[0]
+            else:
+                text = response.xpath('//div[@class="newscontent1 content_pad_l"]/div[@class="float_l"]').xpath('string()').extract()[0].replace('\n', '').replace(' ', '')
+                if text:
+                    content = text
+                    FileType = 'txt'
+            item = response.meta['item']
+            item['url'] = response.url
+            item['FileType'] = FileType
+            item['content'] = content
+            item['down_url'] = down_url
+            yield item
+        except Exception as e:
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
     def errback_httpbin(self, failure):
         self.logger.error(repr(failure))
@@ -102,11 +116,6 @@ class AastocksSpider(scrapy.Spider):
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request
-            logger().error(u'超时抛出任务...{}'.format(request))
-            with open('error_bourse.log', 'ab+') as fp:
-                now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(u'[{}]超时抛出任务...{}'.format(self.name, now_time2) + '\n')
-                fp.write('{}'.format(request) + '\n')
-                fp.write('=' * 30 + '\n')
-            # 发送邮件
-            send_mail('[{}]超时抛出任务'.format(self.name), '{}'.format(request))
+            send_timeout_write('超时抛出任务', '{}'.format(request), self.name)
+
+

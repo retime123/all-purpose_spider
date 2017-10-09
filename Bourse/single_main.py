@@ -9,6 +9,7 @@ from datetime import datetime
 import os,copy
 from spider_conf import SPIDERR_SETTINGS
 
+__author__ = 'retime123'
 '''
 功能：单个启动
 
@@ -38,20 +39,23 @@ def main(task_type, num):
     project_settings = settings.copy()
     for k, v in value.get('settings').items():
         project_settings[k] = v
+    print project_settings
     crawl = Crawler(value.get('spidercls'), settings=project_settings)
 
-    process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'),debug=0)
+    process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'))
 
     process.start()
 
 
 if __name__ == '__main__':
-    # main('day_data', 10)
-    main('hour_data', 110)
+    # main('day_data', 20)
+    # main('hour_data', 110)
+    # main('hour_data', 100)
+    main('hour_data', 120)
 
 
-# cmdline.execute('scrapy crawl shenzhen'.split())
-
-# cmdline.execute('scrapy crawl shanghai'.split())
+    # cmdline.execute('scrapy crawl shenzhen'.split())
+    # 只能单个运行。这样情况下，只会运行第一个！！
+    # cmdline.execute('scrapy crawl shanghai'.split())
 
 

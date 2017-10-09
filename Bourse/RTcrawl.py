@@ -8,7 +8,7 @@ from datetime import datetime
 import os, copy
 from spider_conf import SPIDERR_SETTINGS
 
-
+__author__ = 'retime123'
 '''
 功能：全启动
 配置文件spider_conf里的RT_data都会启动
@@ -49,7 +49,7 @@ class StartSpider(object):
             for k, v in value.get('settings').items():
                 project_settings[k] = v
             crawl = Crawler(value.get('spidercls'), settings=project_settings)
-            process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'), debug=self.debug)
+            process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'))
             # crawl = Crawler(ShanghaiSpider, settings=project_settings)
             # process.crawl(crawl, name="")#重新定义爬虫name属性
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     #     prefix, task_type, debug = sys.argv[1], sys.argv[2], sys.argv[3]
     # # 本机环境运行此代码
     # else:
-    prefix, task_type, debug = 2017, 'RT_data', 0
+    prefix, task_type = 2017, 'RT_data'
 
-    s = StartSpider(prefix, task_type, int(debug))
+    s = StartSpider(prefix, task_type)
     s.run()

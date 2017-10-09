@@ -5,7 +5,7 @@ import re, time
 import json
 import sys
 from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import send_mail
+from Bourse.tools.e_mail import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
@@ -103,9 +103,7 @@ class ShanghaiSpider(scrapy.Spider):
                 item['Auditmark'] = '1'
                 yield item
         except Exception as e:
-            logger().error('{}'.format(traceback.format_exc()))
-            # 发送邮件
-            send_mail('[{}]spider错误'.format(self.name), '{}'.format(traceback.format_exc()))
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
     def errback_httpbin(self, failure):
         self.logger.error(repr(failure))
@@ -123,11 +121,6 @@ class ShanghaiSpider(scrapy.Spider):
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request
-            logger().error(u'超时抛出任务...{}'.format(request))
-            with open('error_bourse.log', 'ab+') as fp:
-                now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(u'[{}]超时抛出任务...{}'.format(self.name, now_time2) + '\n')
-                fp.write('{}'.format(request) + '\n')
-                fp.write('=' * 30 + '\n')
-            # 发送邮件
-            send_mail('[{}]超时抛出任务'.format(self.name), '{}'.format(request))
+            send_timeout_write('超时抛出任务', '{}'.format(request), self.name)
+
+

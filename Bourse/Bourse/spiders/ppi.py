@@ -1,21 +1,29 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from Bourse.items import PpiItem
-from Bourse.items import PpiPriceItem
-import re, time
+# from Bourse.items import PpiPriceItem
+import re, time,datetime
 import json
 import sys
 from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import send_mail
+from Bourse.tools.e_mail import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
-
+from Bourse import settings
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
 import traceback
+from lxml import etree
 
-'''上海证券交易所，法律法规'''
+'''生意社，最新动态'''
+
+now=datetime.datetime.now()
+delta=datetime.timedelta(hours=7)
+n_days = now - delta
+end_time = n_days.strftime('%Y-%m-%d %H:%M:%S')
+
+
 
 class PpiSpider(scrapy.Spider):
     name = 'ppi'
@@ -23,69 +31,122 @@ class PpiSpider(scrapy.Spider):
     base_url = 'http://www.100ppi.com/'
     base1_url = 'http://www.100ppi.com/news/'
     start_urls = ['http://www.100ppi.com/news/list----1.html']
-
+    # start_urls = ['http://www.100ppi.com/news/detail-20170928-1132322.html']
+    custom_settings = {
+        'augmenter':True,
+        'DOWNLOADER_MIDDLEWARES':{
+            'Bourse.middlewares.ChoiceAgent': 543,
+            'Bourse.middlewares.HttpProxyMiddleware': None,
+        }
+    }
 
     def start_requests(self):
-        u = 'http://www.100ppi.com/news/list----1.html'
-        u2 = 'http://www.100ppi.com/price/'
-        # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
-        yield scrapy.Request(u, callback=self.parse,
-                             errback=self.errback_httpbin,
+        for u in self.start_urls:
+            # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
+            if settings.augmenter:
+                fun = self.parse_augmenter
+                print '##增量运行！'
+            else:
+                fun = self.parse
+            yield scrapy.Request(u,
+                                 callback=fun,
+                                 errback=self.errback_httpbin,
                                  dont_filter=True)
-        yield scrapy.Request(u2, callback=self.parse2,
-                             errback=self.errback_httpbin,
-                             dont_filter=True)
+
 
     def parse(self, response):
-        ul_list = response.xpath('//div[@class="list-c"]/ul')
-        for ul in ul_list:
-            li_list = ul.xpath('./li')
-            for li in li_list:
-                Dynamic = li.xpath('./a/text()').extract_first()
-                detail_url = self.base1_url + li.xpath('./a[2]/@href').extract()[0]
-                Title = self.base1_url + li.xpath('./a[2]/text()').extract()[0]
-                Date = li.xpath('./span/text()').extract()[0]
-                yield scrapy.Request(detail_url,
-                                    meta={"Dynamic": Dynamic, "Date": Date, "Title":Title},
+        # print '普通2'
+        try:
+            ul_list = response.xpath('//div[@class="list-c"]/ul')
+            for ul in ul_list:
+                li_list = ul.xpath('./li')
+                for li in li_list:
+                    Dynamic = li.xpath('./a/text()').extract_first()
+                    detail_url = self.base1_url + li.xpath('./a[2]/@href').extract()[0]
+                    Title = li.xpath('./a[2]/text()').extract()[0]
+                    Date = li.xpath('./span/text()').extract()[0]
+                    yield scrapy.Request(detail_url,
+                                        meta={"Dynamic": Dynamic, "Date": Date, "Title":Title},
+                                        errback=self.errback_httpbin,
+                                        callback=self.parse_detail,
+                                        dont_filter = True)
+        except Exception as e:
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
+        try:
+            # 翻页
+            base_pg = re.search(r'list.+?(\d+)\.html', response.url).group(1)
+            if int(base_pg) < 50:
+                list_url = self.base1_url + response.xpath('//div[@class="page-inc"]/a[last()]/@href').extract_first()
+                print list_url
+                yield scrapy.Request(list_url,
+                                    callback=self.parse,
                                     errback=self.errback_httpbin,
-                                    callback=self.parse_detail,
-                                    dont_filter = True)
-        # 翻页
-        # base_pg = re.search(r'list.+?(\d+)\.html', response.url).group(1)
-        # if int(base_pg) < 50:
-        #     list_url = self.base1_url + response.xpath('//div[@class="page-inc"]/a[last()]/@href').extract_first()
-        #     print list_url
-        #     yield scrapy.Request(list_url,
-        #                         callback=self.parse,
-        #                         errback=self.errback_httpbin,
-        #                         dont_filter=True)
+                                    dont_filter=True)
+        except Exception as e:
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
+
+
+    # 增量！！！
+    def parse_augmenter(self, response):
+        try:
+            Date_list = response.xpath('//tr[position()>1]/td[@width="13%"]/text()').extract()
+
+            ul_list = response.xpath('//div[@class="list-c"]/ul')
+            for ul in ul_list:
+                li_list = ul.xpath('./li')
+                for li in li_list:
+                    Dynamic = li.xpath('./a/text()').extract_first()
+                    detail_url = self.base1_url + li.xpath('./a[2]/@href').extract()[0]
+                    Title = li.xpath('./a[2]/text()').extract()[0]
+                    Date = li.xpath('./span/text()').extract()[0]
+                    yield scrapy.Request(detail_url,
+                                        meta={"Dynamic": Dynamic, "Date": Date, "Title":Title},
+                                        errback=self.errback_httpbin,
+                                        callback=self.parse_detail,
+                                        dont_filter = True)
+
+
+            temp = min(Date_list)
+            temp2 = min(temp, end_time)
+            if temp2 != end_time:
+                # 翻页
+                base_pg = re.search(r'list.+?(\d+)\.html', response.url).group(1)
+                if int(base_pg) < 50:
+                    list_url = self.base1_url + response.xpath('//div[@class="page-inc"]/a[last()]/@href').extract_first()
+                    print list_url
+                    yield scrapy.Request(list_url,
+                                        callback=self.parse_augmenter,
+                                        errback=self.errback_httpbin,
+                                        dont_filter=True)
+        except Exception as e:
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
     def parse_detail(self, response):
         try:
             item = PpiItem()
+            print response.url
             item['url'] = response.url
+            item['Name'] = re.search(r'com/(.+)\.', response.url).group(1).replace('/', '-')
             item['Dynamic'] = response.meta['Dynamic']
             item['Date'] = response.meta['Date']
             item['Title'] = response.meta['Title']
             data = response.xpath('//div[@class="news-detail"]').extract_first()
-            # data = re.search(r'<div class="news-detail"',response.text)
             data1 = response.xpath('//div[@class="news-detail"]/h1').extract_first()
             data2 = response.xpath('//div[@class="news-detail"]/div[@class="nd-info"]').extract_first()
             data3 = response.xpath('//div[@class="news-detail"]/div[@class="nd-c"]').extract_first()
             item['html'] = data1 + data2 + data3
-            item['Auditmark'] = 1
-            print data
-            print '=='*30
-            print item['html']
+            # a = etree.HTML(item['html'])
+            # img = a.xpath('//img/@src')
+            # print "***===", img
+            item['FileType'] = 'html'
+            item['Auditmark'] = '1'
+            item['Source'] = u'生意社：商品动态'
+            # print data
+            # print '=='*30
+            # print item['html']
             yield item
         except Exception as e:
-            logger().error('{}'.format(traceback.format_exc()))
-            # 发送邮件
-            send_mail('[{}]spider错误'.format(self.name), '{}'.format(traceback.format_exc()))
-
-    def parse2(self, response):
-        print '**'*30
-
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
 
     def errback_httpbin(self, failure):
@@ -104,11 +165,4 @@ class PpiSpider(scrapy.Spider):
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request
-            logger().error(u'超时抛出任务...{}'.format(request))
-            with open('error_bourse.log', 'ab+') as fp:
-                now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(u'[{}]超时抛出任务...{}'.format(self.name, now_time2) + '\n')
-                fp.write('{}'.format(request) + '\n')
-                fp.write('=' * 30 + '\n')
-            # 发送邮件
-            send_mail('[{}]超时抛出任务'.format(self.name), '{}'.format(request))
+            send_timeout_write('超时抛出任务', '{}'.format(request), self.name)

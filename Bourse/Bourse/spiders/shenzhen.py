@@ -3,8 +3,8 @@ import scrapy
 from Bourse.items import ShenZhenItem
 import re,time
 from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import send_mail
-import sys
+from Bourse.tools.e_mail import *
+import sys,os
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
@@ -46,9 +46,7 @@ class ShenzhenSpider(scrapy.Spider):
                                     errback=self.errback_httpbin,
                                     callback=self.parse_link)
         except Exception as e:
-            logger().error('{}'.format(traceback.format_exc()))
-            # 发送邮件
-            send_mail('[{}]spider错误'.format(self.name), '{}'.format(traceback.format_exc()))
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
     def parse_link(self, response):
         try:
@@ -98,14 +96,12 @@ class ShenzhenSpider(scrapy.Spider):
                 yield scrapy.FormRequest(
                     url = post_url,
                     formdata = formdata,
-                    meta={"Type1": Type1, "Type2": Type2, "Type3": Type3},
+                    meta={"Type1": Type1, "Type2": Type2, "Type3": Type3, 'formdata':formdata},
                     errback=self.errback_httpbin,
                     callback = self.parse_page
                     )
         except Exception as e:
-            logger().error('{}'.format(traceback.format_exc()))
-            # 发送邮件
-            send_mail('[{}]spider错误'.format(self.name), '{}'.format(traceback.format_exc()))
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
     def parse_page(self, response):
         try:
@@ -114,6 +110,11 @@ class ShenzhenSpider(scrapy.Spider):
             Type3 = response.meta["Type3"]
             base_list = response.xpath('//table[@class="td10"]/tbody/tr/td[@class="tdline2"]')
             print Type3, u'数量', len(base_list)
+            response.request
+            if len(base_list) == 0:
+                formdata = response.meta['formdata']
+                send_error_write('spider错误', '{}\n{}\n{}'.format('< POST >base_list数量为0！', response.url, formdata), self.name)
+                return
             for base in base_list:
                 item = ShenZhenItem()
                 item['Type1'] = Type1
@@ -126,9 +127,8 @@ class ShenzhenSpider(scrapy.Spider):
                 item['Auditmark'] = '1'
                 yield item
         except Exception as e:
-            logger().error('{}'.format(traceback.format_exc()))
-            # 发送邮件
-            send_mail('[{}]spider错误'.format(self.name), '{}'.format(traceback.format_exc()))
+            send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
+            # os._exit(0)
 
 
     def errback_httpbin(self, failure):
@@ -147,11 +147,4 @@ class ShenzhenSpider(scrapy.Spider):
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request
-            logger().error(u'超时抛出任务...{}'.format(request))
-            with open('error_bourse.log', 'ab+') as fp:
-                now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(u'[{}]超时抛出任务...{}'.format(self.name, now_time2) + '\n')
-                fp.write('{}'.format(request) + '\n')
-                fp.write('=' * 30 + '\n')
-            # 发送邮件
-            send_mail('[{}]超时抛出任务'.format(self.name), '{}'.format(request))
+            send_timeout_write('超时抛出任务', '{}'.format(request), self.name)
