@@ -12,13 +12,15 @@ import settings # settings.xx
 from Bourse.items import *
 from tools.db1 import *
 import re
+import traceback
 import requests
 from tools.logger import logger
-from tools.e_mail import send_mail
+from tools.e_mail import *
+from pyPdf import PdfFileReader
 import sys
 reload(sys)
 sys.setdefaultencoding('UTF-8')
-
+from scrapy.exceptions import DontCloseSpider, CloseSpider
 
 # now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
 
@@ -47,13 +49,96 @@ class BasePipeline(object):
             self.process_Ppi_data(item, spider)
         elif isinstance(item, PpiPriceItem):
             self.process_PpiPrice_data(item, spider)
+        elif isinstance(item, AastocksItem):
+            self.process_Aastocks_data(item, spider)
 
-    def process_Ppi_data(self, item, spider):
-        Name = re.match(r'com/(.+)\.', item['url']).group(1).replace('/','-')
-        sql_count = "SELECT COUNT(*) FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(Name)
+    def process_Aastocks_data(self, item, spider):
+        sql_count = "SELECT COUNT(*) FROM Report_ReportBaseInfo_Web_Xbrl WHERE FileName = '{}'".format(item['FileName'])  # 注意sql语句里面只能是单引号！
         file_count = get_SqlServer_count(sql_count)
         if file_count is None:
-            writing(sql_count, spider)
+            send_error_write(u'查询数量出错', sql_count, spider.name)
+            return
+        elif file_count == 0:
+            sql = "INSERT INTO Report_ReportBaseInfo_Web_Xbrl" \
+                  "(ReportDate, ReportSource, ReportOriginalTitle, ReportSummary, " \
+                  "ResearchInstitute, Auditmark, FileName, PublishDate, ReportUrl) " \
+                  "VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s) SELECT SCOPE_IDENTITY()"
+            params = (
+                item['ReportDate'], item['ReportSource'], item['ReportOriginalTitle'], item['ReportSummary'], item['ResearchInstitute'],
+                item['Auditmark'], item['FileName'], item['PublishDate'], item['url'])
+
+            ReportCode = DB_insert_to_and_ReportCode(sql, params)
+
+            if ReportCode is None:
+                send_error_write(u'插入数据库失败！', '{}\n{}'.format(sql, params), spider.name)
+                return
+            ClassName = u'港股研究'
+            sql_class = "INSERT INTO Report_ReportCategories_Other_Xbrl(ReportCode, ReportSource, ClassName, Auditmark) VALUES ('{0}','{1}','{2}','{3}')".format(
+                    ReportCode, item['ReportSource'], ClassName, item['Auditmark'])
+            if execute_SqlServer_insert(sql_class) is None:
+                send_error_write(u'插入数据出错！', sql_class, spider.name)
+                return
+            if Aastocks_update(item, ReportCode, spider) is None:
+                return
+
+        else:
+            sql2 = "SELECT ReportFileName FROM Report_ReportBaseInfo_Web_Xbrl WHERE FileName = '{}'".format(item['FileName'])
+            ReportFileName = execute_SqlServer_select(sql2)
+            if ReportFileName is None:
+                send_error_write(u'查询ReportFileName失败...', sql2, spider.name)
+                return
+            if ReportFileName[0][0] is None:
+                sql3 = "SELECT ReportCode FROM Report_ReportBaseInfo_Web_Xbrl WHERE FileName = '{}'".format(item['FileName'])
+                ReportCode = execute_SqlServer_select(sql3)[0][0]
+                if Aastocks_update(item, ReportCode, spider) is None:
+                    return
+            else:
+                print u"Report_ReportBaseInfo_Web_Xbrl中已经存在此条数据!!!"
+                print item['FileName']
+
+    def process_PpiPrice_data(self, item, spider):
+        sql_count = "SELECT COUNT(*) FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
+        file_count = get_SqlServer_count(sql_count)
+        if file_count is None:
+            send_error_write(u'查询数量出错', sql_count, spider.name)
+            return
+        elif file_count == 0:
+
+            sql = "INSERT INTO Ppi_LawsRegulations_Xbrl" \
+                  "(Data, Source, OfferType, ProductName, ProductType," \
+                  "URL, Auditmark, Name, OfferMSG, ContactWay, HistoricalQuote, Detail)" \
+                  "VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) SELECT SCOPE_IDENTITY()"
+
+            params = (
+                item['Date'], item['Source'], item['OfferType'], item['ProductName'],item['ProductType'], item['url'], item['Auditmark'], item['Name'], item['OfferMSG'],item['ContactWay'],item['HistoricalQuote'],item['Detail'])
+
+            Code = DB_insert_to_and_ReportCode(sql, params)
+            if Code is None:
+                send_error_write(u'插入数据库失败！', '{}\n{}'.format(sql, params), spider.name)
+                return
+            if ppi_update(item, Code, spider) is None:
+                return
+        else:
+            sql2 = "SELECT FilePath FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
+            FilePath = execute_SqlServer_select(sql2)
+            if FilePath is None:
+                send_error_write(u'查询存储路径失败...', sql2, spider.name)
+                return
+            if FilePath[0][0] is None:
+                sql3 = "SELECT Code FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
+                Code = execute_SqlServer_select(sql3)[0][0]
+                if ppi_update(item, Code, spider) is None:
+                    return
+            else:
+                print u"Ppi_LawsRegulations_Xbrl中已经存在此条数据!!!"
+                print item['Name']
+
+    def process_Ppi_data(self, item, spider):
+
+        sql_count = "SELECT COUNT(*) FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
+        file_count = get_SqlServer_count(sql_count)
+        if file_count is None:
+            send_error_write(u'查询数量出错', sql_count, spider.name)
             return
         elif file_count == 0:
             sql = "INSERT INTO Ppi_LawsRegulations_Xbrl" \
@@ -63,66 +148,29 @@ class BasePipeline(object):
 
             params = (
                 item['Date'], item['Source'], item['Title'], item['Dynamic'],
-                item['url'], item['Auditmark'], Name)
+                item['url'], item['Auditmark'], item['Name'])
 
             Code = DB_insert_to_and_ReportCode(sql, params)
-            if Code is None:
-                with open('error_ppi.log', 'ab+') as fp:
-                    now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                    fp.write(u'[{}]插入数据库失败...{}'.format(spider.name, now_time2) + '\n')
-                    fp.write('{}\n{}'.format(sql, params) + '\n')
-                    fp.write('=' * 30 + '\n')
-                # logger().error(u'插入数据库失败')
-                return
-            base_path = driver_path + '/ppi'
-            FileType = 'html'
-            attach_path, attach_full_path = format_file_path(base_path, item['Date'][:10], Name, FileType)
-            try:
-                if not os.path.exists(attach_path):
-                    os.makedirs(attach_path)
-                if os.path.exists(attach_full_path):
-                    print u"附件{}已存在...".format(attach_full_path)
-                else:
-                    with open(attach_full_path, 'wb') as f:
-                        f.write(item['html'])
-                        print u'附件{}生成完成！'.format(attach_full_path)
-            except Exception as e:
-                print str(e)
-                with open('error_ppi.log', 'ab+') as fp:
-                    now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                    fp.write(u'生成附件时出错...{}'.format(now_time2) + '\n')
-                    fp.write('=' * 30 + '\n')
-                    return
-            FileSize = get_size(attach_full_path)
-            FilePath = attach_full_path.replace(driver_path, "")
 
-            sql_updata = "UPDATE Ppi_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}' WHERE Code = '{2}'".format(
-                FilePath, FileSize, Code)
-            if execute_SqlServer_updata(sql_updata) is None:
-                writing(sql_updata, spider)
-                # logger().error(u'更新数据库失败!')
+            if Code is None:
+                send_error_write(u'插入数据库失败！', (sql, params), spider.name)
+                return
+            if ppi_update(item, Code, spider) is None:
                 return
         else:
-            sql2 = "SELECT FilePath FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(Name)
+            sql2 = "SELECT FilePath FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
             FilePath = execute_SqlServer_select(sql2)
             if FilePath is None:
-                writing(sql2, spider)
-                logger().error(u'查询存储路径失败...')
+                send_error_write(u'查询存储路径失败...', sql2, spider.name)
                 return
             if FilePath[0][0] is None:
-                sql3 = "SELECT Code FROM Ppi_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(
-                    item['Title'], item['Date'])
+                sql3 = "SELECT Code FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
                 Code = execute_SqlServer_select(sql3)[0][0]
-                if base_updata(item, Code, FileType, spider) is None:
-
+                if ppi_update(item, Code, spider) is None:
                     return
             else:
-                print u"Announcement_LawsRegulations_Xbrl中已经存在此条数据!!!"
-                print item['Title']
-
-    def process_PpiPrice_data(self, item, spider):
-        pass
-
+                print u"Ppi_LawsRegulations_Xbrl中已经存在此条数据!!!"
+                print item['Name']
 
     def process_ShangHai_ShenZhen_data(self, item, spider):
         FileType = re.search(ur'.+\.(.+)', item['url']).group(1).lower()
@@ -132,7 +180,7 @@ class BasePipeline(object):
         sql_count = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'], item['Date'])
         file_count = get_SqlServer_count(sql_count)
         if file_count is None:
-            writing(sql_count, spider)
+            send_error_write(u'查询数量失败！', sql_count, spider.name)
             # logger().error(u'查询数量失败！')
             return
         elif file_count == 0:
@@ -149,36 +197,80 @@ class BasePipeline(object):
             Code = DB_insert_to_and_ReportCode(sql, params)
 
             if Code is None:
-                with open('error_bourse.log', 'ab+') as fp:
-                    now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                    fp.write(u'[{}]插入数据库失败...{}'.format(spider.name, now_time2) + '\n')
-                    fp.write('{}\n{}'.format(sql, params) + '\n')
-                    fp.write('=' * 30 + '\n')
-                # logger().error(u'插入数据库失败')
+                send_error_write(u'插入数据库失败！', '{}\n{}'.format(sql, params), spider.name)
                 return
-
-            if base_updata(item, Code, FileType, spider) is None:
+            if base_update(item, Code, FileType, spider) is None:
                 return
         else:
             sql2 = "SELECT FilePath FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'],item['Date'])
             FilePath = execute_SqlServer_select(sql2)
             if FilePath is None:
-                writing(sql2, spider)
-                logger().error(u'查询存储路径失败...')
+                send_error_write(u'查询存储路径失败...', sql2, spider.name)
                 return
             if FilePath[0][0] is None:
                 sql3 = "SELECT AnnouncementCode FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(
                     item['Title'], item['Date'])
                 Code = execute_SqlServer_select(sql3)[0][0]
-                if base_updata(item, Code, FileType, spider) is None:
+                if base_update(item, Code, FileType, spider) is None:
                     return
             else:
                 print u"Announcement_LawsRegulations_Xbrl中已经存在此条数据!!!"
                 print item['Title']
 
+def Aastocks_update(item, ReportCode, spider):
+    nowadays = time.strftime('%Y-%m-%d', time.localtime(time.time()))  # 当天日期
+    sql1 = "SELECT GUID FROM Report_ReportBaseInfo_Web_Xbrl WHERE ReportCode = '{}'".format(ReportCode)
+    guid = execute_SqlServer_select(sql1)[0][0]
+    guid = str(guid).upper()
+    new_fileName = str(ReportCode) + '_' + nowadays.replace('-', '') + '_' + guid[:6]
+    print 'new_fileName____' + new_fileName
+    # 存储地址
+    base_path = driver_path + '/report/aastocks'
+    attach_path, attach_full_path = format_file_path(base_path, item['ReportDate'], new_fileName, item['FileType'])
+    # 下载附件
+    if item['down_url'] is not None:
+        if download_attachment(item['down_url'], attach_path, attach_full_path, spider) is None:
+            return
+    else:
+        if generate_attachment(attach_path, attach_full_path, item['content'], spider) is None:
+            return
 
-def base_updata(item, Code, FileType, spider):
-    new_fileName = str(Code) + '_' +item['Date'].replace('-','')
+    ReportSize = get_size(attach_full_path)
+    ReportPage = get_attach_page_num(attach_full_path, spider)
+
+    ReportOriginal = attach_full_path.replace(driver_path, "")
+    print "##", ReportOriginal
+    # 将ReportOriginal写入数据库
+    sql_updata = "UPDATE Report_ReportBaseInfo_Web_Xbrl SET ReportOriginal = '{0}', ReportFileName = '{1}', ReportSize = '{2}', ReportPage = '{3}', FileType = '{4}'  WHERE ReportCode = '{5}'".format(
+        ReportOriginal, new_fileName, ReportSize, ReportPage, item['FileType'], ReportCode)
+    if execute_SqlServer_updata(sql_updata) is None:
+        send_error_write('更新ReportName失败!', sql_updata, spider.name)
+        return
+    return True
+
+def ppi_update(item, Code, spider):
+    base_path = driver_path + '/ppi'
+    attach_path, attach_full_path = format_file_path(base_path, item['Date'][:10], item['Name'], item['FileType'])
+    if isinstance(item, PpiItem):
+        if generate_attachment(attach_path, attach_full_path, item['html'], spider) is None:
+            return
+    elif isinstance(item, PpiPriceItem):
+        if download_attachment(item['down_url'], attach_path, attach_full_path, spider) is None:
+            return
+
+    FileSize = get_size(attach_full_path)
+    FilePath = attach_full_path.replace(driver_path, "")
+
+    sql_updata = "UPDATE Ppi_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}', FileType = '{2}' WHERE Code = '{3}'".format(
+        FilePath, FileSize, item['FileType'], Code)
+    if execute_SqlServer_updata(sql_updata) is None:
+        send_error_write(u'数据库更新出错', sql_updata, spider.name)
+        return
+    return True
+
+
+def base_update(item, Code, FileType, spider):
+    new_fileName = str(Code) + '_' + item['Date'].replace('-','')
 
     base_path = None
     if isinstance(item, ShangHaiItem):
@@ -188,25 +280,17 @@ def base_updata(item, Code, FileType, spider):
 
     attach_path, attach_full_path = format_file_path(base_path, item['Date'], new_fileName, FileType)
 
-    download_attachment(item['url'], attach_path, attach_full_path)
+    if download_attachment(item['url'], attach_path, attach_full_path, spider) is None:
+        return
     FileSize = get_size(attach_full_path)
     FilePath = attach_full_path.replace(driver_path, "")
 
     sql_updata = "UPDATE Announcement_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}' WHERE AnnouncementCode = '{2}'".format(FilePath, FileSize, Code)
     if execute_SqlServer_updata(sql_updata) is None:
-        writing(sql_updata, spider)
-        # logger().error(u'更新数据库失败!')
+        send_error_write('更新数据库失败!', sql_updata, spider.name)
         return
     return True
 
-def writing(sql, spider):
-    with open('error_bourse.log', 'ab+') as fp:
-        now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-        fp.write(u'[{}]操作数据库失败...{}'.format(spider.name, now_time2) + '\n')
-        fp.write('{}'.format(sql) + '\n')
-        fp.write('=' * 30 + '\n')
-    # 发送邮件
-    send_mail('[{}]操作数据库失败'.format(spider.name), '{}'.format(sql))
 
 def format_file_path(base_path, report_date, file_name, file_type):
     if file_type not in file_name:
@@ -216,8 +300,23 @@ def format_file_path(base_path, report_date, file_name, file_type):
     attach_full_path = "/".join([base_path, report_date, file_name])
     return attach_path, attach_full_path
 
+def generate_attachment(attach_path, attach_full_path, content, spider):
+    try:
+        if not os.path.exists(attach_path):
+            os.makedirs(attach_path)
+        if os.path.exists(attach_full_path):
+            print u"附件{}已存在...".format(attach_full_path)
+        else:
+            with open(attach_full_path, 'wb') as f:
+                f.write(content)
+                print u'附件{}生成完成！'.format(attach_full_path)
+        return True
+    except Exception as e:
+        send_error_write(u'生成附件发生异常...', traceback.format_exc(), spider.name)
+        return
 
-def download_attachment(web_site_urls, attach_path, attach_full_path, times=5):
+def download_attachment(web_site_urls, attach_path, attach_full_path, spider, times=5):
+    '''下载附件'''
     try:
         if not os.path.exists(attach_path):
             os.makedirs(attach_path)
@@ -229,24 +328,22 @@ def download_attachment(web_site_urls, attach_path, attach_full_path, times=5):
             with open(attach_full_path, 'wb') as f:
                 f.write(content)
                 print u'附件{}下载完成！'.format(attach_full_path)
+        return True
     except Exception as e:
         print str(e)
-        print u'请求数据时发生异常，10秒后将重新请求' + str(web_site_urls)
-        time.sleep(10)
+        print u'请求数据时发生异常，5秒后重新请求{}，还有{}次'.format(web_site_urls, times)
+        time.sleep(5)
         times -= 1
         if times > 0:
             download_attachment(
                 web_site_urls,
                 attach_path,
                 attach_full_path,
+                spider,
                 times)
         else:
-            print str(e)
-            with open('error_bourse.log', 'ab+') as fp:
-                now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
-                fp.write(web_site_urls + u'下载附件时出错...{}'.format(now_time2) + '\n')
-                fp.write('=' * 30 + '\n')
-                return
+            send_timeout_write('下载附件请求数据时发生异常', '{}\n{}'.format(traceback.format_exc(), web_site_urls), spider.name)
+            return
 
 
 def get_size(attach_full_path):
@@ -269,4 +366,19 @@ def get_size(attach_full_path):
         size = size / (1024 * 1024 * 1024)
         size = round(size, 1)
         return str(size) + "GB"
+
+# 获取附件pdf页数
+def get_attach_page_num(attach_full_path, spider):
+    print 'attach_full_path页数 ' + attach_full_path
+    if attach_full_path.endswith('html') or attach_full_path.endswith('txt'):
+        return 1
+    else:
+        try:
+            reader = PdfFileReader(open(attach_full_path, 'rb'))
+            page_num = int(reader.getNumPages())
+            return page_num
+        except:
+            send_error_write(u'获取附件页数时失败', '{}\n{}'.format(traceback.format_exc(),attach_full_path), spider.name)
+            return 1
+
 

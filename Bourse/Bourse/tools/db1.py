@@ -14,7 +14,7 @@ class SqlServer(object):
     def __new__(cls, *args, **kw):
             if not hasattr(cls, '_instance'):
                 cls._instance = pymssql.connect(
-                   
+                    
                 )
             return cls._instance
 

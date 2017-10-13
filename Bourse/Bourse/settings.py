@@ -27,8 +27,8 @@ driver_path = './datapool'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-# 线程数量，最大32
-CONCURRENT_REQUESTS = 16
+#
+CONCURRENT_REQUESTS = 1000
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
@@ -44,6 +44,7 @@ DOWNLOAD_DELAY = 5
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
+# 关闭cookie
 COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
@@ -58,9 +59,27 @@ COOKIES_ENABLED = False
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+# DOWNLOADER_MIDDLEWARES_BASE = {
+#     'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware': 100,
+#     'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware': 300,
+#     'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
+#     'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': 400,
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': 500,
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 550,
+#     'scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware': 560,
+#     'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware': 580,
+#     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 590,
+#     'scrapy.downloadermiddlewares.redirect.RedirectMiddleware': 600,
+#     'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
+#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 750,
+#     'scrapy.downloadermiddlewares.stats.DownloaderStats': 850,
+#     'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
+# }
+
+
 DOWNLOADER_MIDDLEWARES = {
    'Bourse.middlewares.ChoiceAgent': 543,
-    'Bourse.middlewares.HttpProxyMiddleware': 555,
+    # 'Bourse.middlewares.HttpProxyMiddleware': None,
 }
 SPIDER_MIDDLEWARES = {
    'Bourse.middlewares.ProcessResponseMiddleware': 543,
@@ -127,6 +146,17 @@ REDIS_PW = None
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+# 关闭重定向
+REDIRECT_ENABLED = False
+# 发生指定数目的错误后停止爬虫
+# CLOSESPIDER_ERRORCOUNT = 1
+# CLOSESPIDER_TIMEOUT = 5
+
+
+# 增量
+augmenter = False
+
+
 SERVER_A = 'ip-10-188-2-110'
 SERVER_B = ''
 
@@ -156,7 +186,7 @@ LOG_STDOUT = True
 # # MAIL_PORT= 587
 # MAIL_PORT= 465
 # MAIL_USER='781816703@qq.com'
-# MAIL_PASS=''
+# MAIL_PASS='mgtlpljtxrmlbfcf'
 
 
 

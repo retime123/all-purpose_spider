@@ -75,28 +75,7 @@ class HttpProxyMiddleware(object):
         """
         将request设置为使用代理
         """
-        # 计算request的指纹
-        # fp = request_fingerprint(request)
-        # # 将request指纹存入redis, 返回0代表已经出现过
-        # is_first = spider.server.sadd('{}_dupefilter'.format(spider.name), fp)
-        #
-        # task = request.meta.get('task')
-        # request.meta['download_timeout'] = 15
-        #
-        # probability = 0
-        # if is_first:
-        #     if not spider.use_proxy:
-        #         probability = 1
-        #     else:
-        #         probability = 0.6
-        # else:
-        #     probability = 0.4
 
-        # 判断需要使用代理
-        # if not spider.use_proxy:
-        #     request.meta['proxy'] =None
-        # else:
-        #
         if spider.use_proxy:
             try:
                 thisip = self.get_proxy(spider)
@@ -119,10 +98,8 @@ class HttpProxyMiddleware(object):
 
 
     def process_exception(self, request, exception, spider):
-        """
-        处理由于使用代理导致的连接异常 则重新换个代理继续请求
-        """
-        # print(exception, '错误类型')
+
+        # print exception, u'错误类型'
         logger().error('错误类型  {}'.format(exception))
         if isinstance(exception, self.DONT_RETRY_ERRORS or isinstance(exception, TunnelError)):
             try:
@@ -139,10 +116,8 @@ class HttpProxyMiddleware(object):
                 # raise e；
                 pass
 
-            # new_request = request.copy()
-            # return new_request
-            # # return request
 
+    #
     # def process_response(self, request, response, spider):
     #     if response.status < 200 or response.status >= 400:
     #         logger().info('状态码：{},{}'.format(response.status, response.url))
@@ -154,7 +129,7 @@ class HttpProxyMiddleware(object):
     #     return response
 
 
-    # 每次请求只有一个代理ip
+
     def get_proxy(self, spider):
         for url in settings.PROXY_API:
             try:
@@ -164,10 +139,7 @@ class HttpProxyMiddleware(object):
                     proxy_ip = 'http://' + resp.text.strip()
                     spider.logger.info('从代理API获取代理IP: {}'.format(proxy_ip))
                     return {'code':'1',"1":proxy_ip}
-                    # else:
-                    #         # 放入ip代理池
-                    #         pass
-                    #         return {'code':'2',"2":proxy_pool}
+
 
             except Exception as e:
                 logger().error('未能从代理API获取代理IP')

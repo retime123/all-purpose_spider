@@ -93,15 +93,16 @@ headers = {
 
 url = 'http://www.100ppi.com/news/list----1.html'
 url2 = 'http://www.100ppi.com/news/detail-20170923-1129301.html'
-url3 = 'http://www.100ppi.com/news/detail-20170928-1132322.html'
+url3 = 'http://www.sse.com.cn/js/28full.js;pvabacf734c4e83bb7'
 
 
-resp = loadRequest(url3)
+# resp = loadRequest(url2)
 # print(resp)
-#
-# a = requests.get(url3).content
-#
-# print b
+
+a = requests.get(url2).content
+resp = etree.HTML(a)
+b = resp.xpath('//div[@class="news-detail"]')[0]
+print b
 # with open('shang222211.html', 'w') as f:
 #     f.write(b)
 
@@ -114,7 +115,7 @@ resp = loadRequest(url3)
 #     f.write(resp)
 
 
-loadhtml(resp,'w33333331')
+# loadhtml(resp,'w3333333')
 # f=open('mt.html', 'rb')
 # pattern = re.compile(r'<p.*?>(.*?)</p>', re.S)
 #
