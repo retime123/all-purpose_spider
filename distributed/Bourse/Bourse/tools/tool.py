@@ -3,14 +3,12 @@
     工具方法
 '''
 import datetime
-import logging
 import os
 import platform
 import re
 import smtplib
 import sys
 import traceback
-# from logger import logger
 from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import parseaddr, formataddr
@@ -19,42 +17,7 @@ import paramiko
 
 import db
 from Bourse import settings
-
-
-def loggers(log_level='debug'):
-    filename = '[{}]'.format(sys.argv[0][sys.argv[0].rfind(os.sep) + 1:])
-    logger = logging.getLogger(filename)
-    if log_level == 'debug':
-        logger.setLevel(logging.DEBUG)
-    elif log_level == 'warn':
-        logger.setLevel(logging.WARN)
-    elif log_level == 'error':
-        logger.setLevel(logging.ERROR)
-    elif log_level == 'critical':
-        logger.setLevel(logging.CRITICAL)
-    else:
-        logger.setLevel(logging.INFO)
-
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.DEBUG)
-
-    formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s: %(message)s')
-    ch.setFormatter(formatter)
-
-    logger.addHandler(ch)
-    return logger
-
-
-class logger(object):
-    def __new__(cls, *args, **kw):
-        if not hasattr(cls, '_instance'):
-            cls._instance = loggers()
-        return cls._instance
-
-
-
-
-
+from logger import logger
 
 
 # 执行mysql中的count语句
@@ -134,7 +97,7 @@ def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
         from_addr = '781816703@qq.com'
 
     if password is None:
-        password = 'mgtlpljtxrmlbfcf'
+        password = ''
 
     if to_addrs is None:
         to_addrs = ['retime123@163.com']

@@ -1,5 +1,5 @@
 # from Bourse.items import init_sparkle_comment_item
-from Bourse.spiders.super.super_spider import SuperSpider
+from Bourse import SuperSpider
 
 
 class SuperCommentSpider(SuperSpider):

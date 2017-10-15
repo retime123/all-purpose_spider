@@ -27,7 +27,7 @@ driver_path = './datapool'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#
+# 全局并发数
 CONCURRENT_REQUESTS = 1000
 
 # Configure a delay for requests for the same website (default: 0)
@@ -76,11 +76,14 @@ COOKIES_ENABLED = False
 #     'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware': 900,
 # }
 
+# 启用referer：默认是True
+REFERER_ENABLED = True
 
 DOWNLOADER_MIDDLEWARES = {
    'Bourse.middlewares.ChoiceAgent': 543,
-    # 'Bourse.middlewares.HttpProxyMiddleware': None,
+    'Bourse.middlewares.HttpProxyMiddleware': 555,
 }
+
 SPIDER_MIDDLEWARES = {
    'Bourse.middlewares.ProcessResponseMiddleware': 543,
 }
@@ -170,7 +173,7 @@ else:
 LOG_ENABLED = True
 LOG_FORMAT = '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s'
 # 所有过程输出会出现在日志
-LOG_STDOUT = True
+# LOG_STDOUT = True
 
 
 # EXTENSIONS = {
@@ -197,7 +200,7 @@ LOG_STDOUT = True
 # RERUN_COUNT = 5
 
 # 超时时间
-DOWNLOAD_TIMEOUT = 30
+DOWNLOAD_TIMEOUT = 50
 
 # 指定失败后重复尝试的次数。超过这个设置的值，Request就会被丢弃。
 RETRY_TIMES = 5
@@ -210,6 +213,11 @@ RETRY_TIMES = 5
 # IP代理接口
 PROXY_API = ''
 
+# scrapy的response只处理20x, 增加对以下状态码的处理
+HTTPERROR_ALLOWED_CODES = [404, 302, 502, 500, 301, 403]
+
+# retry机制，由于网络或者对方服务器的原因，对url重复处理
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 408, 404, 403]
 
 # 错误响应码到名字的映射
 ERRORSTATUS_NAME_MAP = {

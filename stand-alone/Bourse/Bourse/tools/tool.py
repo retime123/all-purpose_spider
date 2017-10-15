@@ -2,24 +2,22 @@
 '''
     工具方法
 '''
+import datetime
+import os
 import platform
-from Bourse import settings
-import pymysql
-from logger import logger
-import random
+import re
+import smtplib
+import sys
+import traceback
 from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import parseaddr, formataddr
-import smtplib
-import os
-import sys
-import logging
+
 import paramiko
-import re
-import platform
-import traceback
-import datetime
+
 import db
+from Bourse import settings
+from logger import logger
 
 
 # 执行mysql中的count语句

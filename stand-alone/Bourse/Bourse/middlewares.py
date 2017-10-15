@@ -5,21 +5,18 @@
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
-import settings #导包方式不一样：settings.xx
-import redis, json
-import time
 import random
-import base64
+import re
+
 import requests
-import sys,re
-from tools.logger import logger
-from scrapy.utils.request import request_fingerprint
-from scrapy.utils.project import get_project_settings
+from scrapy import signals
+from scrapy.core.downloader.handlers.http11 import TunnelError
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import TimeoutError, ConnectionRefusedError, ConnectError
-from scrapy.core.downloader.handlers.http11 import TunnelError
 from twisted.web._newclient import ResponseNeverReceived
+
+import settings  # 导包方式不一样：settings.xx
+from tools.logger import logger
 
 
 def decode_response(response, response_encoding='utf-8'):
@@ -119,6 +116,7 @@ class HttpProxyMiddleware(object):
 
     #
     # def process_response(self, request, response, spider):
+    #     '''process_request() 必须返回以下之一： 返回一个 Response 对象、返回一个 Request 对象或 raise 一个 IgnoreRequest 异常。'''
     #     if response.status < 200 or response.status >= 400:
     #         logger().info('状态码：{},{}'.format(response.status, response.url))
     #         raise response.url

@@ -1,5 +1,5 @@
 # from Bourse.items import init_sparkle_danmu_item
-from Bourse.spiders.super.super_spider import SuperSpider
+from Bourse import SuperSpider
 
 
 class SuperDanmuSpider(SuperSpider):

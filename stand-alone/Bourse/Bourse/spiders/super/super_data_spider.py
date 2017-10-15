@@ -1,6 +1,6 @@
 # from Bourse.items import init_sparkle_data_item
 # from Bourse.items import init_caas_data_item
-from Bourse.spiders.super.super_spider import SuperSpider
+from Bourse import SuperSpider
 
 
 class SuperDataSpider(SuperSpider):

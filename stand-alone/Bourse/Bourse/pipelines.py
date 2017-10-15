@@ -5,22 +5,20 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-import os,time
-import json
-import scrapy
-import settings # settings.xx
-from Bourse.items import *
-from tools.db1 import *
 import re
-import traceback
-import requests
-from tools.logger import logger
-from tools.e_mail import *
-from pyPdf import PdfFileReader
 import sys
+import traceback
+
+import requests
+from pyPdf import PdfFileReader
+
+import settings  # settings.xx
+from Bourse.items import *
+from tools.db1_sql import *
+from tools.e_mail import *
+
 reload(sys)
 sys.setdefaultencoding('UTF-8')
-from scrapy.exceptions import DontCloseSpider, CloseSpider
 
 # now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
 
@@ -54,7 +52,7 @@ class BasePipeline(object):
 
     def process_Aastocks_data(self, item, spider):
         sql_count = "SELECT COUNT(*) FROM Report_ReportBaseInfo_Web_Xbrl WHERE FileName = '{}'".format(item['FileName'])  # 注意sql语句里面只能是单引号！
-        file_count = get_SqlServer_count(sql_count)
+        file_count = get_Sql_count(sql_count)
         if file_count is None:
             send_error_write(u'查询数量出错', sql_count, spider.name)
             return
@@ -75,7 +73,7 @@ class BasePipeline(object):
             ClassName = u'港股研究'
             sql_class = "INSERT INTO Report_ReportCategories_Other_Xbrl(ReportCode, ReportSource, ClassName, Auditmark) VALUES ('{0}','{1}','{2}','{3}')".format(
                     ReportCode, item['ReportSource'], ClassName, item['Auditmark'])
-            if execute_SqlServer_insert(sql_class) is None:
+            if execute_Sql_insert(sql_class) is None:
                 send_error_write(u'插入数据出错！', sql_class, spider.name)
                 return
             if Aastocks_update(item, ReportCode, spider) is None:
@@ -83,13 +81,13 @@ class BasePipeline(object):
 
         else:
             sql2 = "SELECT ReportFileName FROM Report_ReportBaseInfo_Web_Xbrl WHERE FileName = '{}'".format(item['FileName'])
-            ReportFileName = execute_SqlServer_select(sql2)
+            ReportFileName = execute_Sql_select(sql2)
             if ReportFileName is None:
                 send_error_write(u'查询ReportFileName失败...', sql2, spider.name)
                 return
             if ReportFileName[0][0] is None:
                 sql3 = "SELECT ReportCode FROM Report_ReportBaseInfo_Web_Xbrl WHERE FileName = '{}'".format(item['FileName'])
-                ReportCode = execute_SqlServer_select(sql3)[0][0]
+                ReportCode = execute_Sql_select(sql3)[0][0]
                 if Aastocks_update(item, ReportCode, spider) is None:
                     return
             else:
@@ -98,7 +96,7 @@ class BasePipeline(object):
 
     def process_PpiPrice_data(self, item, spider):
         sql_count = "SELECT COUNT(*) FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
-        file_count = get_SqlServer_count(sql_count)
+        file_count = get_Sql_count(sql_count)
         if file_count is None:
             send_error_write(u'查询数量出错', sql_count, spider.name)
             return
@@ -120,13 +118,13 @@ class BasePipeline(object):
                 return
         else:
             sql2 = "SELECT FilePath FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
-            FilePath = execute_SqlServer_select(sql2)
+            FilePath = execute_Sql_select(sql2)
             if FilePath is None:
                 send_error_write(u'查询存储路径失败...', sql2, spider.name)
                 return
             if FilePath[0][0] is None:
                 sql3 = "SELECT Code FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
-                Code = execute_SqlServer_select(sql3)[0][0]
+                Code = execute_Sql_select(sql3)[0][0]
                 if ppi_update(item, Code, spider) is None:
                     return
             else:
@@ -136,7 +134,7 @@ class BasePipeline(object):
     def process_Ppi_data(self, item, spider):
 
         sql_count = "SELECT COUNT(*) FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
-        file_count = get_SqlServer_count(sql_count)
+        file_count = get_Sql_count(sql_count)
         if file_count is None:
             send_error_write(u'查询数量出错', sql_count, spider.name)
             return
@@ -159,13 +157,13 @@ class BasePipeline(object):
                 return
         else:
             sql2 = "SELECT FilePath FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
-            FilePath = execute_SqlServer_select(sql2)
+            FilePath = execute_Sql_select(sql2)
             if FilePath is None:
                 send_error_write(u'查询存储路径失败...', sql2, spider.name)
                 return
             if FilePath[0][0] is None:
                 sql3 = "SELECT Code FROM Ppi_LawsRegulations_Xbrl WHERE Name = '{}'".format(item['Name'])
-                Code = execute_SqlServer_select(sql3)[0][0]
+                Code = execute_Sql_select(sql3)[0][0]
                 if ppi_update(item, Code, spider) is None:
                     return
             else:
@@ -178,7 +176,7 @@ class BasePipeline(object):
             FileType = u'html'
 
         sql_count = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'], item['Date'])
-        file_count = get_SqlServer_count(sql_count)
+        file_count = get_Sql_count(sql_count)
         if file_count is None:
             send_error_write(u'查询数量失败！', sql_count, spider.name)
             # logger().error(u'查询数量失败！')
@@ -203,14 +201,14 @@ class BasePipeline(object):
                 return
         else:
             sql2 = "SELECT FilePath FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(item['Title'],item['Date'])
-            FilePath = execute_SqlServer_select(sql2)
+            FilePath = execute_Sql_select(sql2)
             if FilePath is None:
                 send_error_write(u'查询存储路径失败...', sql2, spider.name)
                 return
             if FilePath[0][0] is None:
                 sql3 = "SELECT AnnouncementCode FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}' AND AnnouncementData = '{}'".format(
                     item['Title'], item['Date'])
-                Code = execute_SqlServer_select(sql3)[0][0]
+                Code = execute_Sql_select(sql3)[0][0]
                 if base_update(item, Code, FileType, spider) is None:
                     return
             else:
@@ -220,7 +218,7 @@ class BasePipeline(object):
 def Aastocks_update(item, ReportCode, spider):
     nowadays = time.strftime('%Y-%m-%d', time.localtime(time.time()))  # 当天日期
     sql1 = "SELECT GUID FROM Report_ReportBaseInfo_Web_Xbrl WHERE ReportCode = '{}'".format(ReportCode)
-    guid = execute_SqlServer_select(sql1)[0][0]
+    guid = execute_Sql_select(sql1)[0][0]
     guid = str(guid).upper()
     new_fileName = str(ReportCode) + '_' + nowadays.replace('-', '') + '_' + guid[:6]
     print 'new_fileName____' + new_fileName
@@ -243,7 +241,7 @@ def Aastocks_update(item, ReportCode, spider):
     # 将ReportOriginal写入数据库
     sql_updata = "UPDATE Report_ReportBaseInfo_Web_Xbrl SET ReportOriginal = '{0}', ReportFileName = '{1}', ReportSize = '{2}', ReportPage = '{3}', FileType = '{4}'  WHERE ReportCode = '{5}'".format(
         ReportOriginal, new_fileName, ReportSize, ReportPage, item['FileType'], ReportCode)
-    if execute_SqlServer_updata(sql_updata) is None:
+    if execute_Sql_updata(sql_updata) is None:
         send_error_write('更新ReportName失败!', sql_updata, spider.name)
         return
     return True
@@ -263,7 +261,7 @@ def ppi_update(item, Code, spider):
 
     sql_updata = "UPDATE Ppi_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}', FileType = '{2}' WHERE Code = '{3}'".format(
         FilePath, FileSize, item['FileType'], Code)
-    if execute_SqlServer_updata(sql_updata) is None:
+    if execute_Sql_updata(sql_updata) is None:
         send_error_write(u'数据库更新出错', sql_updata, spider.name)
         return
     return True
@@ -286,7 +284,7 @@ def base_update(item, Code, FileType, spider):
     FilePath = attach_full_path.replace(driver_path, "")
 
     sql_updata = "UPDATE Announcement_LawsRegulations_Xbrl SET FilePath = '{0}', FileSize = '{1}' WHERE AnnouncementCode = '{2}'".format(FilePath, FileSize, Code)
-    if execute_SqlServer_updata(sql_updata) is None:
+    if execute_Sql_updata(sql_updata) is None:
         send_error_write('更新数据库失败!', sql_updata, spider.name)
         return
     return True

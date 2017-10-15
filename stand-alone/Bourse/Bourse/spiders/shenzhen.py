@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import re
+import sys
+import time
+
 import scrapy
+
 from Bourse.items import ShenZhenItem
-import re,time
-from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import *
-import sys,os
+
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 

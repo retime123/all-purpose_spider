@@ -7,20 +7,36 @@ import datetime
 import pymssql
 from logger import logger
 
-'''测试库'''
+'''sql server测试库'''
 
 # sql server
 class SqlServer(object):
     def __new__(cls, *args, **kw):
             if not hasattr(cls, '_instance'):
                 cls._instance = pymssql.connect(
-                  
+                    
                 )
             return cls._instance
 
 
+# # 执行SqlServer中的count语句
+# def get_Sql_count(sqlstr):
+#     try:
+#         db_conn = SqlServer()
+#         cursor = db_conn.cursor()
+#         cursor.execute(sqlstr)
+#         result = cursor.fetchall()[0]
+#         # db_conn.commit()
+#         # db_conn.close()
+#         return result[0]# 一般是数字0,1...
+#     except Exception as e:
+#         # print('查询数量出错: {} SQL语句: {}'.format(e, sqlstr))
+#         logger().error('查询数量出错: {} \nSQL语句: {}'.format(e, sqlstr))
+#         return
+
+
 # 执行SqlServer中的count语句
-def get_SqlServer_count(sqlstr):
+def get_Sql_count(sqlstr, times=2):
     try:
         db_conn = SqlServer()
         cursor = db_conn.cursor()
@@ -30,12 +46,15 @@ def get_SqlServer_count(sqlstr):
         # db_conn.close()
         return result[0]# 一般是数字0,1...
     except Exception as e:
+        times -= 1
+        if times > 0:
+            get_Sql_count(sqlstr, times)
         # print('查询数量出错: {} SQL语句: {}'.format(e, sqlstr))
         logger().error('查询数量出错: {} \nSQL语句: {}'.format(e, sqlstr))
         return
 
 # 执行SqlServer中的select语句
-def execute_SqlServer_select(sqlstr):
+def execute_Sql_select(sqlstr):
     try:
         db_conn = SqlServer()
         cursor = db_conn.cursor()
@@ -51,7 +70,7 @@ def execute_SqlServer_select(sqlstr):
 
 
 # 执行SqlServer中的insert语句
-def execute_SqlServer_insert(sqlstr):
+def execute_Sql_insert(sqlstr):
     try:
         db_conn = SqlServer()
         cursor = db_conn.cursor()
@@ -84,7 +103,7 @@ def DB_insert_to_and_ReportCode(sqlstr, params):
 
 
 # 执行SqlServer中的updata语句
-def execute_SqlServer_updata(sqlstr):
+def execute_Sql_updata(sqlstr):
     try:
         db_conn = SqlServer()
         cursor = db_conn.cursor()
@@ -104,14 +123,14 @@ if __name__ == '__main__':
     # 注意sql语句里面只能是单引号！
 
     # sql = "SELECT GUID FROM Report_ReportBaseInfo_Xbrl WHERE ReportCode = '{}'".format('300005479147')
-    # a = execute_SqlServer_select(sql)[0][0]
+    # a = execute_Sql_select(sql)[0][0]
 
     # sql2 = "SELECT ReportFileName FROM Report_ReportBaseInfo_Xbrl WHERE FileName = '{}'".format('ddd')
-    # b = execute_SqlServer_select(sql2)
+    # b = execute_Sql_select(sql2)
     sql3 = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '{}'".format('国务院办公厅转发国资委关于推进国有资本调整和国有企业重组指导意见的通知')
 
     sql5 = "SELECT COUNT(*) FROM Announcement_LawsRegulations_Xbrl WHERE AnnouncementTitle = '中华人民共和国证券投资基金法（2015修正）'AND AnnouncementData = '2015-04-24'"
-    a = get_SqlServer_count(sql5)
+    a = get_Sql_count(sql5)
     # print type(a)
     print(a)
 

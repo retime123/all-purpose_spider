@@ -1,29 +1,27 @@
 # -*- coding: utf-8 -*-
+import datetime
 import json
+import random
+import re
+import sys
+import traceback
+# from urllib.parse import urlparse# python3
+import urlparse
+
 from scrapy import signals
 from scrapy.exceptions import DontCloseSpider
+from scrapy.spidermiddlewares.httperror import HttpError
 from scrapy.spiders import Spider
 from scrapy_redis import connection
 from scrapy_redis import defaults
 from scrapy_redis.utils import bytes_to_str
-import datetime
-from Bourse.tools import db
-import redis
-from Bourse.tools.errors import *
-from Bourse.tools.tool import get_redis_key
-from Bourse import settings
-# from urllib.parse import urlparse# python3
-import urlparse
-import random
-import sys
-import traceback
-import re
-from scrapy.spidermiddlewares.httperror import HttpError
+from twisted.internet.error import ConnectionRefusedError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
-from twisted.internet.error import ConnectionRefusedError
-from Bourse.tools.tool import decode_response
-from Bourse.tools.tool import get_error_message
+
+from Bourse import settings
+from Bourse.tools.errors import *
+from Bourse.tools.tool import get_redis_key
 
 
 class RedisMixin(object):

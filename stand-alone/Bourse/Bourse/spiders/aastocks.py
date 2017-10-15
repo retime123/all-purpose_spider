@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-import scrapy
-from Bourse.items import AastocksItem
-import re,time
-import json
-import os
-from datetime import datetime
-from lxml import etree
-from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import *
+import re
 import sys
+import time
+
+import scrapy
+from lxml import etree
+
+from Bourse.items import AastocksItem
+
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 

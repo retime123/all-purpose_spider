@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
+import re
+import sys
+import time
+
 import scrapy
+
 # from Bourse.items import PpiItem
 from Bourse.items import PpiPriceItem
-import re, time
-import json
-import sys,os
-from Bourse.tools.logger import logger
-from Bourse.tools.e_mail import *
+
 reload(sys)
 sys.setdefaultencoding('UTF-8')
-from scrapy.exceptions import DontCloseSpider, CloseSpider
+from scrapy.exceptions import CloseSpider
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
 import traceback
-from Bourse.tools.re_db import dealstr
+from Bourse.tools import dealstr
 
 # from scrapy.xlib.pydispatch import dispatcher
 # # from scrapy import signals

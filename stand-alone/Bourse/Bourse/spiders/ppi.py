@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from Bourse.items import PpiItem
-# from Bourse.items import PpiPriceItem
 import re, time,datetime
 import json
 import sys
 from Bourse.tools.logger import logger
 from Bourse.tools.e_mail import *
+from lxml import etree
 reload(sys)
 sys.setdefaultencoding('UTF-8')
-from Bourse import settings
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
 import traceback
-from lxml import etree
 
 '''生意社，最新动态'''
 
@@ -24,30 +22,23 @@ n_days = now - delta
 end_time = n_days.strftime('%Y-%m-%d %H:%M:%S')
 
 
-
 class PpiSpider(scrapy.Spider):
     name = 'ppi'
     allowed_domains = ['ppi.com']
     base_url = 'http://www.100ppi.com/'
     base1_url = 'http://www.100ppi.com/news/'
     start_urls = ['http://www.100ppi.com/news/list----1.html']
-    # start_urls = ['http://www.100ppi.com/news/detail-20170928-1132322.html']
-    custom_settings = {
-        'augmenter':True,
-        'DOWNLOADER_MIDDLEWARES':{
-            'Bourse.middlewares.ChoiceAgent': 543,
-            'Bourse.middlewares.HttpProxyMiddleware': None,
-        }
-    }
+
 
     def start_requests(self):
         for u in self.start_urls:
             # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
-            if settings.augmenter:
+            if self.settings.augmenter:
                 fun = self.parse_augmenter
                 print '##增量运行！'
             else:
                 fun = self.parse
+                # print '普通2'
             yield scrapy.Request(u,
                                  callback=fun,
                                  errback=self.errback_httpbin,
@@ -55,7 +46,6 @@ class PpiSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        # print '普通2'
         try:
             ul_list = response.xpath('//div[@class="list-c"]/ul')
             for ul in ul_list:
@@ -135,9 +125,12 @@ class PpiSpider(scrapy.Spider):
             data2 = response.xpath('//div[@class="news-detail"]/div[@class="nd-info"]').extract_first()
             data3 = response.xpath('//div[@class="news-detail"]/div[@class="nd-c"]').extract_first()
             item['html'] = data1 + data2 + data3
-            # a = etree.HTML(item['html'])
-            # img = a.xpath('//img/@src')
-            # print "***===", img
+            try:
+                a = etree.HTML(item['html'])
+                img = a.xpath('//img/@src')
+                print "***===", img
+            except:
+                pass
             item['FileType'] = 'html'
             item['Auditmark'] = '1'
             item['Source'] = u'生意社：商品动态'
