@@ -160,10 +160,22 @@ REDIRECT_ENABLED = False
 augmenter = False
 
 
-SERVER_A = 'ip-10-188-2-110'
-SERVER_B = ''
+# 服务器信息
+MASTER_SERVER = 'ip-10-188-2-110'
 
-SERVERS = [SERVER_A,]
+MONITOR_A = 'iZ2zegrz5db6q3ev9m3u7lZ'
+MONITOR_B = 'iZ2zegrz5db6q3ev9m3u7lZ'
+MONITOR_C = 'iZ2zegrz5db6q3ev9m3u7lZ'
+MONITOR_D = 'iZ2zegrz5db6q3ev9m3u7lZ'
+
+ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
+            'MONITOR_B': 'iZ2ze8cy5ndiwte1bakim0Z',
+            'MONITOR_C': 'iZ2ze8cy5ndiwte1bakilmZ',
+            'MONITOR_D': 'iZ2ze8cy5ndiwte1bakilmZ',
+            }
+
+
+SERVERS = [MASTER_SERVER, MONITOR_A, MONITOR_B, MONITOR_C, MONITOR_D]
 
 if platform.uname()[1] in SERVERS:
     LOG_LEVEL = 'INFO'
