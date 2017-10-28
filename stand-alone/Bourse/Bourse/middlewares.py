@@ -61,7 +61,10 @@ class ChoiceAgent(object):
             request.headers.setdefault('User-Agent', agent)
         else:
             agent = random.choice(settings.PC_USERAGENT)
-            request.headers.setdefault('User-Agent', agent)
+            # 这种方式的有点坑！
+            # request.headers.setdefault('User-Agent', agent)
+            # 这才是正确的打开方式
+            request.headers['User-Agent'] = agent
         # print('向请求添加User-Agent',agent)
 
 
