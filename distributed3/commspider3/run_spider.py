@@ -2,7 +2,7 @@
 __author__ = 'retime123'
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from Bourse import settings as sg
+from commspider3 import settings as sg
 from scrapy.crawler import Crawler
 import sys,platform
 from datetime import datetime

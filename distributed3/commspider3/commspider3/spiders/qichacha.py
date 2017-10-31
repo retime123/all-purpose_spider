@@ -11,7 +11,7 @@ from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
 from twisted.internet.error import ConnectionRefusedError
 import traceback
-from yixun import settings
+from commspider3 import settings
 # 1. scrapy_redis.spiders 导入RedisSpider
 # from scrapy_redis.spiders import RedisSpider
 

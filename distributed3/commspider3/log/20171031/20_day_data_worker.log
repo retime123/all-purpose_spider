@@ -1,0 +1,193 @@
+2017-10-31 20:28:27,430  [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: commspider3)
+2017-10-31 20:28:27,430  [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'commspider3.spiders', 'SPIDER_MODULES': ['commspider3.spiders'], 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'CONCURRENT_REQUESTS': 1000, 'RETRY_HTTP_CODES': [500, 502, 503, 504, 400, 408, 404, 403], 'BOT_NAME': 'commspider3', 'DOWNLOAD_TIMEOUT': 50, 'COOKIES_ENABLED': False, 'RETRY_TIMES': 5, 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'LOG_FORMAT': '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s', 'LOG_FILE': 'log/20171031/20_day_data_worker.log', 'DOWNLOAD_DELAY': 5}
+2017-10-31 20:28:27,466  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-31 20:28:27,466  [baidu_finance] INFO: Reading start URLs from redis key 'baiduFinanceSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-10-31 20:28:27,646  [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 20:28:27,662  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-31 20:28:27,662  [ifeng] INFO: Reading start URLs from redis key 'ifengSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-10-31 20:28:27,664  [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 20:28:27,673  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-31 20:28:27,673  [sohu] INFO: Reading start URLs from redis key 'sohuSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-10-31 20:28:27,675  [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 20:29:58,886  [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: commspider3)
+2017-10-31 20:29:58,886  [scrapy.utils.log] INFO: Overridden settings: {'LOG_FILE': 'log/20171031/20_day_data_worker.log', 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'DOWNLOAD_TIMEOUT': 50, 'BOT_NAME': 'commspider3', 'CONCURRENT_REQUESTS': 1000, 'RETRY_TIMES': 5, 'SPIDER_MODULES': ['commspider3.spiders'], 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'NEWSPIDER_MODULE': 'commspider3.spiders', 'LOG_FORMAT': '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s', 'RETRY_HTTP_CODES': [500, 502, 503, 504, 400, 408, 404, 403], 'DOWNLOAD_DELAY': 5, 'COOKIES_ENABLED': False}
+2017-10-31 20:29:58,948  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-31 20:29:58,948  [baidu_finance] INFO: Reading start URLs from redis key 'baiduFinanceSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-10-31 20:29:59,38  [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'commspider3.middlewares.ChoiceAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'commspider3.middlewares.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-10-31 20:29:59,41  [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'commspider3.middlewares.ProcessResponseMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-10-31 20:29:59,47  [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 20:29:59,47  [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 77, in crawl
+    self.engine = self._create_engine()
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 102, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/scraper.py", line 71, in __init__
+    self.itemproc = itemproc_cls.from_crawler(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 58, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/utils/misc.py", line 44, in load_object
+    mod = import_module(module)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/python/Desktop/all-purpose_spider/distributed3/commspider3/commspider3/pipelines.py", line 12, in <module>
+    import pymongo
+ImportError: No module named 'pymongo'
+2017-10-31 20:29:59,58  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-31 20:29:59,58  [ifeng] INFO: Reading start URLs from redis key 'ifengSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-10-31 20:29:59,59  [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'commspider3.middlewares.ChoiceAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'commspider3.middlewares.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-10-31 20:29:59,60  [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'commspider3.middlewares.ProcessResponseMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-10-31 20:29:59,61  [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 20:29:59,61  [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 77, in crawl
+    self.engine = self._create_engine()
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 102, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/scraper.py", line 71, in __init__
+    self.itemproc = itemproc_cls.from_crawler(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 58, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/utils/misc.py", line 44, in load_object
+    mod = import_module(module)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/python/Desktop/all-purpose_spider/distributed3/commspider3/commspider3/pipelines.py", line 12, in <module>
+    import pymongo
+ImportError: No module named 'pymongo'
+2017-10-31 20:29:59,69  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-31 20:29:59,69  [sohu] INFO: Reading start URLs from redis key 'sohuSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-10-31 20:29:59,71  [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'commspider3.middlewares.ChoiceAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'commspider3.middlewares.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-10-31 20:29:59,73  [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'commspider3.middlewares.ProcessResponseMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-10-31 20:29:59,74  [twisted] CRITICAL: Unhandled error in Deferred:
+2017-10-31 20:29:59,74  [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 77, in crawl
+    self.engine = self._create_engine()
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/crawler.py", line 102, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/engine.py", line 70, in __init__
+    self.scraper = Scraper(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/scraper.py", line 71, in __init__
+    self.itemproc = itemproc_cls.from_crawler(crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 58, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/utils/misc.py", line 44, in load_object
+    mod = import_module(module)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 665, in exec_module
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/python/Desktop/all-purpose_spider/distributed3/commspider3/commspider3/pipelines.py", line 12, in <module>
+    import pymongo
+ImportError: No module named 'pymongo'

@@ -5,7 +5,7 @@ import asyncio
 import platform
 import datetime
 import traceback
-from Bourse import settings
+from commspider3 import settings
 import redis
 from tools.logger import logger
 from tools import db
