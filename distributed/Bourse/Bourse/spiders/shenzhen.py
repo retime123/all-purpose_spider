@@ -6,7 +6,7 @@ import time
 import scrapy
 
 from Bourse.items import ShenZhenItem
-
+from Bourse.tools.e_mail import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
@@ -33,7 +33,8 @@ class ShenzhenSpider(RedisSpider):
             # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
             yield scrapy.Request(u, callback=self.parse,
                                     errback=self.errback_httpbin,
-                                    dont_filter=True)
+                                    dont_filter=True
+                                 )
 
 
     # 获取需要的url, 法律规则
@@ -45,7 +46,9 @@ class ShenzhenSpider(RedisSpider):
                 print new_url
                 yield scrapy.Request(new_url,
                                     errback=self.errback_httpbin,
-                                    callback=self.parse_link)
+                                    callback=self.parse_link,
+                                     dont_filter=True
+                                     )
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
@@ -144,7 +147,7 @@ class ShenzhenSpider(RedisSpider):
         elif failure.check(DNSLookupError):
             # this is the original request
             request = failure.request
-            print '1111', request
+            logger().error('无法访问...\n{}'.format(request))
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request

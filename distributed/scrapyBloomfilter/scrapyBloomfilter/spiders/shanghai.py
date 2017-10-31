@@ -6,8 +6,8 @@ import time
 
 import scrapy
 
-from Bourse.items import ShangHaiItem
-from Bourse.tools.e_mail import *
+from ..items import ShangHaiItem
+# from Bourse.tools.e_mail import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
@@ -59,8 +59,7 @@ class ShanghaiSpider(RedisSpider):
             # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
             yield scrapy.Request(u, callback=self.parse,
                                  errback=self.errback_httpbin,
-                                 dont_filter=True
-                                 )
+                                 dont_filter=True)
 
     def parse(self, response):
         base_sub = re.match(r'(.+?)\{', response.text).group(1)
@@ -79,12 +78,11 @@ class ShanghaiSpider(RedisSpider):
             for j in Type3_list:
                 Type3 = base_data[j]['CHNLNAME']
                 url = self.base_url + base_data[j]['URL']
-                time.sleep(2)
+                time.sleep(1)
                 yield scrapy.Request(url,
                                      meta={"Type1": Type1, "Type2": Type2, "Type3": Type3},
                                      errback=self.errback_httpbin,
-                                     callback=self.parse_detail
-                                     )
+                                     callback=self.parse_detail)
 
     def parse_detail(self, response):
         try:

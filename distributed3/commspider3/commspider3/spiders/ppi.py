@@ -5,17 +5,16 @@ import sys
 
 import scrapy
 
-from Bourse.items import PpiItem
+from ..items import PpiItem
 from lxml import etree
-from Bourse.tools.e_mail import *
-reload(sys)
-sys.setdefaultencoding('UTF-8')
+from commspider3.tools.e_mail import *
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
+from twisted.internet.error import ConnectionRefusedError
 import traceback
 # 1. scrapy_redis.spiders 导入RedisSpider
-from scrapy_redis.spiders import RedisSpider
+# from scrapy_redis.spiders import RedisSpider
 
 '''生意社，最新动态'''
 
@@ -25,8 +24,8 @@ n_days = now - delta
 end_time = n_days.strftime('%Y-%m-%d %H:%M:%S')
 
 
-# class PpiSpider(scrapy.Spider):
-class PpiSpider(RedisSpider):
+class PpiSpider(scrapy.Spider):
+# class PpiSpider(RedisSpider):
     name = 'ppi'
     allowed_domains = ['ppi.com']
     base_url = 'http://www.100ppi.com/'
@@ -39,15 +38,14 @@ class PpiSpider(RedisSpider):
             # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
             if self.settings.get('augmenter'):
                 fun = self.parse_augmenter
-                print '##增量运行！'
+                print('##增量运行！')
             else:
                 fun = self.parse
                 # print '普通2'
             yield scrapy.Request(u,
                                  callback=fun,
                                  errback=self.errback_httpbin,
-                                 dont_filter=True
-                                 )
+                                 dont_filter=True)
 
 
     def parse(self, response):
@@ -64,8 +62,7 @@ class PpiSpider(RedisSpider):
                                         meta={"Dynamic": Dynamic, "Date": Date, "Title":Title},
                                         errback=self.errback_httpbin,
                                         callback=self.parse_detail,
-                                        # dont_filter = True
-                                         )
+                                        dont_filter = True)
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
         try:
@@ -73,12 +70,11 @@ class PpiSpider(RedisSpider):
             base_pg = re.search(r'list.+?(\d+)\.html', response.url).group(1)
             if int(base_pg) < 50:
                 list_url = self.base1_url + response.xpath('//div[@class="page-inc"]/a[last()]/@href').extract_first()
-                print list_url
+                print(list_url)
                 yield scrapy.Request(list_url,
                                     callback=self.parse,
                                     errback=self.errback_httpbin,
-                                    dont_filter=True
-                                     )
+                                    dont_filter=True)
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
@@ -100,8 +96,7 @@ class PpiSpider(RedisSpider):
                                         meta={"Dynamic": Dynamic, "Date": Date, "Title":Title},
                                         errback=self.errback_httpbin,
                                         callback=self.parse_detail,
-                                        # dont_filter = True
-                                         )
+                                        dont_filter = True)
 
 
             temp = min(Date_list)
@@ -111,19 +106,18 @@ class PpiSpider(RedisSpider):
                 base_pg = re.search(r'list.+?(\d+)\.html', response.url).group(1)
                 if int(base_pg) < 50:
                     list_url = self.base1_url + response.xpath('//div[@class="page-inc"]/a[last()]/@href').extract_first()
-                    print list_url
+                    print(list_url)
                     yield scrapy.Request(list_url,
                                         callback=self.parse_augmenter,
                                         errback=self.errback_httpbin,
-                                        dont_filter=True
-                                         )
+                                        dont_filter=True)
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
     def parse_detail(self, response):
         try:
             item = PpiItem()
-            print response.url
+            print(response.url)
             item['url'] = response.url
             item['Name'] = re.search(r'com/(.+)\.', response.url).group(1).replace('/', '-')
             item['Dynamic'] = response.meta['Dynamic']
@@ -137,7 +131,7 @@ class PpiSpider(RedisSpider):
             try:
                 a = etree.HTML(item['html'])
                 img = a.xpath('//img/@src')
-                print "***===", img
+                print("***===", img)
             except:
                 pass
             item['FileType'] = 'html'
@@ -150,18 +144,19 @@ class PpiSpider(RedisSpider):
 
     def errback_httpbin(self, failure):
         self.logger.error(repr(failure))
+        if failure.check(HttpError) and (failure.value.response.status == 404):
+            self.logger.error('页面404错误 响应码:{} 请求的url : {}'.format(failure.value.response.status, failure.value.response.url))
+        else:
+            if failure.check(HttpError):
+                response = failure.value.response
+                self.logger.error('HttpError on {} {}'.format(response.url, response.status))
 
-        if failure.check(HttpError):
-            # these exceptions come from HttpError spider middleware
-            # you can get the non-200 response
-            response = failure.value.response
-            self.logger.error('HttpError on %s', response.url)
+            elif failure.check(DNSLookupError):
+                # this is the original request
+                request = failure.request
+                logger().error('无法访问...\n{}'.format(request))
+            elif failure.check(TimeoutError, TCPTimedOutError):
+                request = failure.request
+                # print u'超时抛出任务...',request
+                send_timeout_write('超时抛出任务', '{}'.format(request), self.name)
 
-        elif failure.check(DNSLookupError):
-            # this is the original request
-            request = failure.request
-            logger().error('无法访问...\n{}'.format(request))
-        elif failure.check(TimeoutError, TCPTimedOutError):
-            request = failure.request
-            # print u'超时抛出任务...',request
-            send_timeout_write('超时抛出任务', '{}'.format(request), self.name)

@@ -7,7 +7,7 @@ import scrapy
 
 # from Bourse.items import PpiItem
 from Bourse.items import PpiPriceItem
-
+from Bourse.tools.e_mail import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 from scrapy.exceptions import CloseSpider
@@ -16,6 +16,7 @@ from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
 import traceback
 from Bourse.tools import dealstr
+from Bourse.tools.e_mail import *
 # 1. scrapy_redis.spiders 导入RedisSpider
 from scrapy_redis.spiders import RedisSpider
 
@@ -155,7 +156,8 @@ class PpiPriceSpider(RedisSpider):
             yield scrapy.Request(u,
                                  callback=fun,
                                  errback=self.errback_httpbin,
-                                 dont_filter=True)
+                                 dont_filter=True
+                                 )
 
     def parse(self, response):
         try:
@@ -171,7 +173,8 @@ class PpiPriceSpider(RedisSpider):
                                     meta={'Date':Date, 'OfferType':OfferType, 'ProductType':ProductType},
                                     errback=self.errback_httpbin,
                                     callback=self.parse_detail,
-                                    dont_filter = True)
+                                    # dont_filter = True
+                                     )
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
         try:
@@ -183,7 +186,8 @@ class PpiPriceSpider(RedisSpider):
                 yield scrapy.Request(list_url,
                                     callback=self.parse,
                                     errback=self.errback_httpbin,
-                                    dont_filter=True)
+                                    dont_filter=True
+                                     )
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
@@ -204,7 +208,8 @@ class PpiPriceSpider(RedisSpider):
                                      meta={'Date': Date, 'OfferType': OfferType, 'ProductType': ProductType},
                                      errback=self.errback_httpbin,
                                      callback=self.parse_detail,
-                                     dont_filter=True)
+                                     # dont_filter=True
+                                     )
             if num >= 40:
                 # 翻页
                 base_pg = response.xpath('//div[@class="page-inc"]/a[last()]/text()').extract_first().strip()
@@ -215,7 +220,8 @@ class PpiPriceSpider(RedisSpider):
                     yield scrapy.Request(list_url,
                                          callback=self.parse_augmenter,
                                          errback=self.errback_httpbin,
-                                         dont_filter=True)
+                                         dont_filter=True
+                                         )
 
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
@@ -284,7 +290,7 @@ class PpiPriceSpider(RedisSpider):
         elif failure.check(DNSLookupError):
             # this is the original request
             request = failure.request
-            print '1111', request
+            logger().error('无法访问...\n{}'.format(request))
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request

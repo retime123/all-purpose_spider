@@ -5,19 +5,20 @@
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
+from scrapy import signals
 import random
 import re
 
 import requests
-from scrapy import signals
 from scrapy.core.downloader.handlers.http11 import TunnelError
 from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import TimeoutError, ConnectionRefusedError, ConnectError
 from twisted.web._newclient import ResponseNeverReceived
 
-import settings  # 导包方式不一样：settings.xx
-from tools.logger import logger
-
+from commspider3 import settings  # 导包方式不一样：settings.xx
+from commspider3.tools.logger import logger
+# from commspider3.tools.sum_slide import driver_se
+from urllib.parse import urlparse # python3用法
 
 def decode_response(response, response_encoding='utf-8'):
     # print("check response start")
@@ -61,8 +62,28 @@ class ChoiceAgent(object):
             request.headers.setdefault('User-Agent', agent)
         else:
             agent = random.choice(settings.PC_USERAGENT)
-            request.headers.setdefault('User-Agent', agent)
-        # print('向请求添加User-Agent',agent)
+            # 这种方式的有点坑！
+            # request.headers.setdefault('User-Agent', agent)
+            # 这才是正确的打开方式
+            # request.headers['User-Agent'] = agent
+            # print(request.headers)
+            host = urlparse(request.url).netloc
+            # request.headers['Host'] = host
+            # print('2211',host)
+            headers = {
+                'User-Agent': agent,
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+                # 'Connection': 'keep-alive',
+                'Connection': 'close',
+                'Accept-Encoding': 'gzip, deflate',
+                'Host': host
+            }
+            for k, v in headers.items():
+                request.headers[k] = v
+
+            # request.headers.update(headers)
+            # print('向请求添加User-Agent',agent)
 
 
 class HttpProxyMiddleware(object):
@@ -97,7 +118,7 @@ class HttpProxyMiddleware(object):
     def process_exception(self, request, exception, spider):
 
         # print exception, u'错误类型'
-        logger().error('错误类型  {}'.format(exception))
+        logger().error('[{}]错误类型  {}\n{}'.format(spider.name, exception, request))
         if isinstance(exception, self.DONT_RETRY_ERRORS or isinstance(exception, TunnelError)):
             try:
                 new_request = request.copy()
@@ -115,16 +136,37 @@ class HttpProxyMiddleware(object):
 
 
     #
-    # def process_response(self, request, response, spider):
-    #     '''process_request() 必须返回以下之一： 返回一个 Response 对象、返回一个 Request 对象或 raise 一个 IgnoreRequest 异常。'''
-    #     if response.status < 200 or response.status >= 400:
-    #         logger().info('状态码：{},{}'.format(response.status, response.url))
-    #         raise response.url
-    #
-    #     elif response.status == 302 and spider.name == "lianjia":
-    #         print('302' * 30)
-    #         pass
-    #     return response
+    def process_response(self, request, response, spider):
+        '''process_request() 必须返回以下之一： 返回一个 Response 对象、返回一个 Request 对象或 raise 一个 IgnoreRequest 异常。'''
+        # if response.encoding.lower() != 'utf-8':
+        #     response = response.text.decode('utf-8')
+        #     return response
+
+        login = 'http://www.qichacha.com/user_login?back=/'
+        yanzm = "<script>window.location.href='http://www.qichacha.com"
+        if login in response.url:
+            print('需要登录')
+            new_request = request.copy()
+            new_request.meta['proxy'] = get_proxy_ip_port()
+            return new_request
+
+        if yanzm in response.text:
+            print('验证码')
+            driver_se(response.url)
+            # new_request = request.copy()
+            # new_request.meta['proxy'] = get_proxy_ip_port()
+            # return new_request
+
+        return response
+        #
+        # if response.status < 200 or response.status >= 400:
+        #     logger().info('状态码：{},{}'.format(response.status, response.url))
+        #     raise response.url
+        #
+        # elif response.status == 302 and spider.name == "lianjia":
+        #     print('302' * 30)
+        #     pass
+        # return response
 
 
 
@@ -143,4 +185,15 @@ class HttpProxyMiddleware(object):
                 logger().error('未能从代理API获取代理IP')
                 # print(e)
                 raise e
+
+
+# 测试代理IP接口
+def get_proxy_ip_port():
+    url = 'http://api.ip.data5u.com/dynamic/get.html?order=0781234207c80ddcb4fe55b82e8f5637&ttl=1&random=true'
+    resp = requests.get(url)
+    if resp.status_code == 200:
+        a = re.search(r'(.+?),',resp.text.strip()).group(1)
+        proxy_ip = 'http://' + a
+        print(u'从代理API获取代理IP: {}'.format(proxy_ip))
+        return  proxy_ip
 

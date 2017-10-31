@@ -7,7 +7,7 @@ import scrapy
 from lxml import etree
 
 from Bourse.items import AastocksItem
-
+from Bourse.tools.e_mail import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
@@ -34,7 +34,8 @@ class AastocksSpider(RedisSpider):
             # scrapy会对request的URL去重(RFPDupeFilter)，加上dont_filter则告诉它这个URL不参与去重。
             yield scrapy.Request(u, callback=self.parse,
                                  errback=self.errback_httpbin,
-                                 dont_filter=True)
+                                 dont_filter=True
+                                 )
 
     def parse(self, response):
         try:
@@ -72,7 +73,8 @@ class AastocksSpider(RedisSpider):
                     day_url = 'http://www.aastocks.com/tc/resources/datafeed/getmorenews.ashx?cat=research&period=0&p={}'.format(self.page_num)
                     yield scrapy.Request(day_url,
                                      errback=self.errback_httpbin,
-                                     callback=self.parse)
+                                     callback=self.parse
+                                         )
         except Exception as e:
             send_error_write('spider错误', '{}\n{}'.format(traceback.format_exc(), response.url), self.name)
 
@@ -114,7 +116,7 @@ class AastocksSpider(RedisSpider):
         elif failure.check(DNSLookupError):
             # this is the original request
             request = failure.request
-            print '1111', request
+            logger().error('无法访问...\n{}'.format(request))
         elif failure.check(TimeoutError, TCPTimedOutError):
             request = failure.request
             # print u'超时抛出任务...',request
