@@ -8,7 +8,7 @@
 from scrapy import signals
 import random
 import re
-
+import scrapy.extensions.logstats
 import requests
 from scrapy.core.downloader.handlers.http11 import TunnelError
 from scrapy.spidermiddlewares.httperror import HttpError

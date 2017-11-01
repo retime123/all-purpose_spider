@@ -12,6 +12,7 @@ from spider_conf import SPIDERR_SETTINGS
 __author__ = 'retime123'
 '''
 功能：单个启动
+可以作为单个调试使用！！！
 
 '''
 

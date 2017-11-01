@@ -100,6 +100,10 @@ COOKIES_ENABLED = False
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+# 定义request允许重定向的最大次数
+REDIRECT_MAX_TIMES = 5
+
+
 # 启用referer：默认是True
 REFERER_ENABLED = True
 
@@ -133,12 +137,6 @@ SCHEDULER_PERSIST = True
 #
 # 种子队列的信息
 # 5(必须). 指定redis数据库的连接参数，默认是db=0
-# REDIS_HOST = '10.16.3.41'# 测试库
-REDIS_HOST = '127.0.0.1'#本地库
-REDIS_PORT = 6379
-REDIS_PW = None
-
-REDIS_DB = 2
 
 # 去重队列的信息
 FILTER_URL = None
@@ -168,17 +166,17 @@ FILTER_DB = 2
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
-# 增量
-augmenter = False
+# 代码目录
+CODE_DIR = '/home/huanggencheng/yixun_spider'
 
+# 服务器信息platform.uname()[1]
+MASTER_SERVER = 'localhost.localdomain'
 
-# 服务器信息
-MASTER_SERVER = 'ip-10-188-2-110'
+SERVER_A = 'ubuntu'
+SERVER_B = 'iZ2ze66hn1pkopxrx9rov5Z'
+SERVER_C = 'iZ2zebruzaqhhiinv2aufpZ'
+SERVER_D = 'iZ2ze8cmmwy930vytli5l4Z'
 
-MONITOR_A = 'localhost.localdomain'
-MONITOR_B = 'iZ2zegrz5db6q3ev9m3u7lZ'
-MONITOR_C = 'iZ2zegrz5db6q3ev9m3u7lZ'
-MONITOR_D = 'iZ2zegrz5db6q3ev9m3u7lZ'
 
 ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
             'MONITOR_B': 'iZ2ze8cy5ndiwte1bakim0Z',
@@ -186,8 +184,92 @@ ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
             'MONITOR_D': 'iZ2ze8cy5ndiwte1bakilmZ',
             }
 
+# 服务器的参数
+SERVER_PARAM = {
+    MASTER_SERVER: {
+        'local': '10.16.3.39',
+        'internet': '172.17.42.1',
+        'pwd': 'eifm12345',
+        'name': 'huanggencheng'
+    },
+    SERVER_A: {
+        'local': '192.168.136.129',
+        'internet': '192.168.136.129',
+        'pwd': 'hgcheng123',
+        'name': 'python'
+    },
+    # SERVER_B: {
+    #     'local': '10.27.217.100',
+    #     'internet': '59.110.16.115',
+    #     'pwd': CODE_DIR,
+    #     'name': 'server_B'
+    # },
+    # SERVER_C: {
+    #     'local': '10.27.217.123',
+    #     'internet': '59.110.17.47',
+    #     'pwd': CODE_DIR,
+    #     'name': 'server_C'
+    # },
+    # SERVER_D: {
+    #     'local': '10.29.129.178',
+    #     'internet': '47.93.79.41',
+    #     'pwd': CODE_DIR,
+    #     'name': 'server_D'
+    # },
+}
 
-SERVERS = [MASTER_SERVER, MONITOR_A, MONITOR_B, MONITOR_C, MONITOR_D]
+# 所有服务器！
+# SERVERS = [MASTER_SERVER, SERVER_A, SERVER_B, SERVER_C, SERVER_D]
+SERVERS = [MASTER_SERVER, SERVER_A]
+
+# 根据机器名使用不同的参数
+if platform.uname()[1] in SERVERS:
+    # 使用 MASTER_SERVER 的redis存储爬虫任务
+    REDIS_HOST = '10.16.3.41'
+    REDIS_PORT = 6379
+    REDIS_AUTH = ''
+
+    # 使用阿里mongodb存储爬取结果
+    MONGODB_URI = 'mongodb://127.0.0.1:27017'
+    DEBUG_MONGODB_URI = ''
+
+    # 正式库
+    MYSQL_DATABASE = 'chengzi'
+    DEBUG_MYSQL_DATABASE = 'future_dev'
+
+    MYSQL_HOST = '10.16.3.41'
+    MYSQL_USER = 'huanggencheng'
+    MYSQL_PASSWORD = 'Jp123456'
+
+    # 获取代理IP的内网API
+    PROXY_API = ['']
+else:
+    # 使用本地redis存储爬虫任务
+    REDIS_HOST = '127.0.0.1'
+    REDIS_PORT = 6379
+    REDIS_AUTH = ''
+
+    # 使用本地mongodb存储爬取结果
+    MONGODB_URI = 'mongodb://127.0.0.1:27017'
+    # MONGODB_URI = 'mongodb://root:AHSKsxky2096@101.201.106.78:3717'
+
+    MYSQL_HOST = '10.16.3.41'
+    MYSQL_USER = 'huanggencheng'
+    MYSQL_PASSWORD = 'Jp123456'
+    # 测试库
+    MYSQL_DATABASE = 'chengzi'
+    DEBUG_MYSQL_DATABASE = 'future_dev'
+    # 获取代理IP的外网API
+    PROXY_API = ['']
+
+
+
+
+
+# 增量
+augmenter = False
+
+
 
 if platform.uname()[1] in SERVERS:
     LOG_LEVEL = 'INFO'
@@ -199,11 +281,14 @@ LOG_FORMAT = '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s'
 # 所有过程输出会出现在日志
 # LOG_STDOUT = True
 
-# # 抓取失败重试次数:自定义
-# RETRY_COUNT = 3
-#
-# # 失败任务重跑次数:自定义
-# RERUN_COUNT = 5
+
+# 失败任务重跑次数:自定义
+RERUN_COUNT = 5
+
+# 检测任务是否跑完的等待时间 (每加1增加1分钟):自定义
+WAIT_END_TIME = 3
+# 初始 判定被反爬或改版等待时间 (每加1增加1分钟):自定义
+WAIT_NO_GROWTH_COUNT = 20
 
 # 超时时间
 DOWNLOAD_TIMEOUT = 50
@@ -215,9 +300,6 @@ RETRY_TIMES = 5
 # RETRY_ENABLED = False
 
 
-
-# IP代理接口
-PROXY_API = ''
 
 # scrapy的response只处理20x, 增加对以下状态码的处理
 HTTPERROR_ALLOWED_CODES = [404, 302, 502, 500, 301, 403]

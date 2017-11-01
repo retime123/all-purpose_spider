@@ -12,7 +12,7 @@ import requests
 import pymongo
 from commspider3 import settings  # settings.xx
 from commspider3.items import *
-from commspider3.tools.db1_mysql import *
+from commspider3.tools.db_mysql import *
 from commspider3.tools.e_mail import *
 from commspider3.tools import db
 from scrapy.pipelines.images import ImagesPipeline

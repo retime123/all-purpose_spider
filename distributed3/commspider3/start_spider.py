@@ -59,8 +59,8 @@ class StartSpider(object):
 
 if __name__ == '__main__':
     
-    prefix, task_type = 2017, 'day_data'
+    prefix, task_type, debug = 2017, 'day_data', 0
     # prefix, task_type = 2017, 'hour_data'
 
-    s = StartSpider(prefix, task_type)
+    s = StartSpider(prefix, task_type, debug)
     s.run()

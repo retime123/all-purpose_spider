@@ -5,7 +5,8 @@ import sys
 import logging
 import datetime
 import pymssql
-from logger import logger
+from commspider3.tools.logger import logger
+import traceback
 
 '''sql server测试库'''
 
@@ -20,6 +21,16 @@ class SqlServer(object):
                     password="/7yk3aAe"
                 )
             return cls._instance
+
+# 使用pyodbc连接
+class odbc_SQL_server(object):
+    # conn = pyodbc.connect(r'DRIVER={SQL Server Native Client 11.0};SERVER=192.168.1.1,3433;DATABASE=test;UID=user;PWD=password')
+    def __new__(cls, *args, **kw):
+            if not hasattr(cls, '_instance'):
+                cls._instance = pyodbc.connect(
+                    'DRIVER={SQL Server};SERVER=192.168.1.130;DATABASE=Tab_JiaoYi;UID=grab;PWD=sld+1234')
+            return cls._instance
+
 
 
 # # 执行SqlServer中的count语句
@@ -52,8 +63,14 @@ def get_Sql_count(sqlstr, times=2):
         times -= 1
         if times > 0:
             get_Sql_count(sqlstr, times)
-        # print('查询数量出错: {} SQL语句: {}'.format(e, sqlstr))
-        logger().error('查询数量出错: {} \nSQL语句: {}'.format(e, sqlstr))
+        exc_type, exc_instance, exc_traceback = sys.exc_info()
+        formatted_traceback = ''.join(traceback.format_tb(exc_traceback))
+        sys_message = '\n{0}\n{1}:\n{2}\n'.format(
+            formatted_traceback,
+            exc_type.__name__,
+            exc_instance
+        )
+        logger().error('查询数量出错: {} \nSQL语句: {}'.format(sys_message, sqlstr))
         return
 
 # 执行SqlServer中的select语句

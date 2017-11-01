@@ -5,8 +5,9 @@ import asyncio
 import platform
 import datetime
 import traceback
-from commspider3 import settings
 import redis
+
+from commspider3 import settings
 from tools.logger import logger
 from tools import db
 from tools.tool import send_mail
@@ -99,8 +100,8 @@ class WatchStatus(object):
 
     # 启动所有spider
     def start_spider(self):
-        if self.task_type == 'caas_data':
-            servers = settings.CAAS_SERVERS
+        if self.task_type == 'day_data':
+            servers = settings.SERVERS
         else:
             servers = settings.SERVERS
         server_param = settings.SERVER_PARAM
@@ -110,13 +111,13 @@ class WatchStatus(object):
 
     # 关闭所有spider
     def shut_spider(self):
-        if self.task_type == 'caas_data':
-            servers = settings.CAAS_SERVERS
+        if self.task_type == 'day_data':
+            servers = settings.SERVERS
         else:
             servers = settings.SERVERS
         server_param = settings.SERVER_PARAM
         for key in servers:
-            if self.task_type != 'caas_data':
+            if self.task_type != 'day_data':
                 sshclient_execmd(
                     host=server_param[key], execmd='shut-{} {} {}-worker'.format(self.prefix, self.task_type, self.debug))
 
@@ -386,7 +387,7 @@ if __name__ == '__main__':
         prefix, task_type, platform_id, debug = get_params(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     # 本机环境运行此代码
     else:
-        prefix, task_type, platform_id, debug = get_params(2017, 'all_data', '[]', 0)
+        prefix, task_type, platform_id, debug = get_params(2017, 'day_data', '[]', 0)
 
     pt = WatchStatus(prefix=prefix, task_type=task_type, platform_id=platform_id, debug=debug)
     pt.run()

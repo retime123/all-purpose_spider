@@ -7,6 +7,7 @@ import os
 def loggers(log_level='debug'):
     filename = '[{}]'.format(sys.argv[0][sys.argv[0].rfind(os.sep) + 1:])
     logger = logging.getLogger(filename)
+    # logger = logging.getLogger(__name__)
     if log_level == 'debug':
         logger.setLevel(logging.DEBUG)
     elif log_level == 'warn':

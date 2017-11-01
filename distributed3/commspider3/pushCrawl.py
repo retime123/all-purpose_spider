@@ -11,7 +11,7 @@ from spider_conf import SPIDERR_SETTINGS
 __author__ = 'retime123'
 '''
 功能：全启动
-配置文件spider_conf里的hour_data都会启动
+配置文件spider_conf里的push_data都会启动
 用于每小时爬取的定时任务crontab
 
 '''
@@ -57,7 +57,7 @@ class StartSpider(object):
 
 if __name__ == '__main__':
 
-    prefix, task_type = 2017, 'hour_data'
+    prefix, task_type = 2017, 'push_data'
 
     s = StartSpider(prefix, task_type)
     s.run()

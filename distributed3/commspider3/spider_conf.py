@@ -43,7 +43,7 @@ SPIDERR_SETTINGS = {
         180: {'name': 'sohu',
             'settings': {
                 'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
-                'DOWNLOAD_DELAY': 0.5,
+                'DOWNLOAD_DELAY': 0.1,
                 'DOWNLOAD_TIMEOUT': 30,
                 'augmenter': False,
              },
@@ -51,8 +51,8 @@ SPIDERR_SETTINGS = {
             'use_proxy': False,
              },
     },
-    # 每小时爬取的任务
-    'hour_data': {
+    # push爬取的任务
+    'push_data': {
         # 100: {'name': 'aastocks',
         #     'settings': {
         #         'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
@@ -143,28 +143,16 @@ SPIDERR_SETTINGS = {
              },
 
     },
-    # 每半小时爬取的任务
-    'halfhour_data': {
-    #     200: {'name': 'ppi',
-    #           'settings': {
-    #               'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
-    #               'DOWNLOAD_DELAY': 2,
-    #               'DOWNLOAD_TIMEOUT': 30,
-    #           },
-    #           'spidercls': PpiSpider,
-    #           'use_proxy': False,
-    #           },
-    # },
-    # # 实时爬取的任务
-    # 'RT_data': {
-    #     300: {'name': 'shanghai',
-    #         'settings': {
-    #             'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
-    #             'DOWNLOAD_DELAY': 5,
-    #          },
-    #         'spidercls': ShanghaiSpider,
-    #         'use_proxy': False,
-    #          },
+    # 实时爬取的任务
+    'RT_data': {
+        300: {'name': 'shanghai',
+            'settings': {
+                'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
+                'DOWNLOAD_DELAY': 5,
+             },
+            'spidercls': ShanghaiSpider,
+            'use_proxy': False,
+             },
     },
 
 

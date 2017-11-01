@@ -6,7 +6,7 @@ from scrapy_redis import connection
 from scrapy_redis import defaults
 from scrapy_redis.utils import bytes_to_str
 import datetime
-from yixun.tools import db
+from commspider3.tools import db
 import redis
 from commspider3.errors import *
 from commspider3.tools.tool import get_redis_key
@@ -20,8 +20,8 @@ from scrapy.spidermiddlewares.httperror import HttpError
 from twisted.internet.error import DNSLookupError
 from twisted.internet.error import TimeoutError, TCPTimedOutError
 from twisted.internet.error import ConnectionRefusedError
-from yixun.tools.tool import decode_response
-from yixun.tools.tool import get_error_message
+from commspider3.tools.tool import decode_response
+from commspider3.tools.tool import get_error_message
 
 
 class RedisMixin(object):

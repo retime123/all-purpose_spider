@@ -1,23 +1,57 @@
-# -*- coding: utf-8 -*-
 '''
     工具方法
 '''
-import datetime
-import os
 import platform
-import re
-import smtplib
-import sys
-import traceback
+from commspider3 import settings
+import pymysql
+from commspider3.tools.logger import logger
+import random
 from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import parseaddr, formataddr
-
+import smtplib
+import os
+import sys
+import logging
 import paramiko
+import re
+import traceback
+import datetime
+import aiohttp
+from commspider3.tools.logger import logger
+from commspider3.tools import db
 
-import db
-from commspider3 import settings
-from logger import logger
+
+async def aio_request_get(**kwargs):
+    url = kwargs.get('url')
+    client = kwargs.get('client')
+    content = ''
+    while True:
+        try:
+            async with client.get(url) as resp:
+                assert resp.status == 200
+                content = await resp.text()
+                break
+        except Exception:
+            pass
+    return content
+
+async def aio_request_post(**kwargs):
+    url = kwargs.get('url')
+    client = kwargs.get('client')
+    data = kwargs.get('data')
+    async with client.post(url, data=data) as resp:
+        assert resp.status == 200
+        return await resp.text()
+
+
+# 异步的从url获取内容
+async def aiorequest(url, loop, data=None):
+    async with aiohttp.ClientSession(loop=loop) as client:
+        if data is None:
+            return await aio_request_get(url=url, client=client)
+        else:
+            return await aio_request_post(url=url, client=client, data=data)
 
 
 # 执行mysql中的count语句
@@ -76,7 +110,6 @@ def execute_mysql_insert(sqlstr, debug=0):
         logger().error('插入失败 {} SQL语句: {}'.format(e, sqlstr))
 
 
-
 def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
     '''
     发送邮件函数
@@ -93,21 +126,19 @@ def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
         name, addr = parseaddr(s)
         return formataddr((Header(name, 'utf-8').encode(), addr))
 
-    if from_addr is None:
-        from_addr = '781816703@qq.com'
+    if from_addr is None and password is None:# send
+        # from_addr, password = random.choice(from_msg)
+        from_addr, password = 'retime123@163.com', 'chengzi123'
 
-    if password is None:
-        password = 'mgtlpljtxrmlbfcf'
-
-    if to_addrs is None:
-        to_addrs = ['retime123@163.com']
+    if to_addrs is None:# 收
+        to_addrs = ['781816703@qq.com']
     else:
         # 判断是否列表
         if not isinstance(to_addrs, list):
             to_addrs = [to_addrs]
 
-    smtp_server = 'smtp.qq.com'
-    # smtp_server = 'smtp.163.com'
+    # smtp_server = 'smtp.qq.com'
+    smtp_server = 'smtp.163.com'
 
     msg = MIMEText(content, 'plain', 'utf-8')
     msg['From'] = _format_addr('发件人 <%s>' % from_addr)
@@ -125,22 +156,12 @@ def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
     server.quit()
 
 
-def make_dir(dir_path='/Bourse/log'):
-    today = datetime.datetime.now().strftime('%Y%m%d')
-    log_path = '{}/{}'.format(dir_path, today)
-    if not os.path.exists(log_path):
-        try:
-            os.makedirs(log_path)
-        except Exception:
-            pass
-
-
 def write_log(message, filename='spider'):
     now = datetime.datetime.now()
     make_dir()
     log_name = '{}/log/{}/{}.log'.format(settings.CODE_DIR, now.strftime('%Y%m%d'), filename)
     with open(log_name, 'a') as f:
-        print(message, f)
+        print(message, file=f)
 
 
 def search_file(search_name, file_dir=None):
@@ -185,11 +206,11 @@ def sshclient_execmd(host, port=22, username='root', password='AHSKsxky2096', ex
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
         if platform.uname()[1] == settings.MASTER_SERVER:
-            conn.connect(hostname=host.get('local'), port=port, username=username, password=password)
+            conn.connect(hostname=host.get('local'), port=port, username=host.get('name'), password=host.get('pwd'))
         else:
-            conn.connect(hostname=host.get('internet'), port=port, username=username, password=password)
+            conn.connect(hostname=host.get('internet'), port=port, username=host.get('name'), password=host.get('pwd'))
 
-        params = re.findall('(\\w+)_(\\w+)_(\\w+)', execmd)
+        params = re.findall('r(\w+)_(\w+)_(\w+)', execmd)
         if params:
             if params[0][2] == 'worker':
                 if params[0][0] == 'start':
@@ -221,11 +242,11 @@ def new_sshclient_execmd(host, port=22, username='root', password='AHSKsxky2096'
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
         if platform.uname()[1] == settings.MASTER_SERVER:
-            conn.connect(hostname=host.get('local'), port=port, username=username, password=password)
+            conn.connect(hostname=host.get('local'), port=port, username=host.get('name'), password=host.get('pwd'))
         else:
-            conn.connect(hostname=host.get('internet'), port=port, username=username, password=password)
+            conn.connect(hostname=host.get('internet'), port=port, username=host.get('name'), password=host.get('pwd'))
 
-        params = re.findall('(\\w+)-(.*?)-(\\w+)', execmd)
+        params = re.findall(r'(\w+)-(.*?)-(\w+)', execmd)
         if params:
             if params[0][2] == 'worker':
                 if params[0][0] == 'start':
@@ -297,3 +318,11 @@ def process_date(date, delta=1):
     return int(result.strftime("%Y%m%d"))
 
 
+def make_dir(dir_path='/home/yixun_spider/log'):
+    today = datetime.datetime.now().strftime('%Y%m%d')
+    log_path = '{}/{}'.format(dir_path, today)
+    if not os.path.exists(log_path):
+        try:
+            os.makedirs(log_path)
+        except Exception:
+            pass
