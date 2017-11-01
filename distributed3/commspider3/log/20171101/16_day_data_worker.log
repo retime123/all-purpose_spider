@@ -1,0 +1,1013 @@
+2017-11-01 16:32:14,119  [scrapy.utils.log] INFO: Scrapy 1.3.3 started (bot: commspider3)
+2017-11-01 16:32:14,119  [scrapy.utils.log] INFO: Overridden settings: {'BOT_NAME': 'commspider3', 'CONCURRENT_REQUESTS': 1000, 'COOKIES_ENABLED': False, 'DOWNLOAD_DELAY': 5, 'DOWNLOAD_TIMEOUT': 50, 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'LOG_FILE': 'log/20171101/16_day_data_worker.log', 'LOG_FORMAT': '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s', 'NEWSPIDER_MODULE': 'commspider3.spiders', 'REDIRECT_MAX_TIMES': 5, 'RETRY_HTTP_CODES': [500, 502, 503, 504, 400, 408, 404, 403], 'RETRY_TIMES': 5, 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'SPIDER_MODULES': ['commspider3.spiders']}
+2017-11-01 16:32:14,152  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2017-11-01 16:32:14,153  [2017_day_data_baidu_finance] INFO: Reading start URLs from redis key 'baiduFinanceSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-11-01 16:32:14,342  [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'commspider3.middlewares.ChoiceAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'commspider3.middlewares.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-11-01 16:32:14,344  [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'commspider3.middlewares.ProcessResponseMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-11-01 16:32:14,403  [scrapy.middleware] INFO: Enabled item pipelines:
+['commspider3.pipelines.BasePipeline']
+2017-11-01 16:32:14,403  [scrapy.core.engine] INFO: Spider opened
+2017-11-01 16:32:14,414  [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-11-01 16:32:14,415  [2017_day_data_baidu_finance] INFO: Spider opened: 2017_day_data_baidu_finance
+2017-11-01 16:32:14,415  [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-11-01 16:32:14,422  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2017-11-01 16:32:14,422  [2017_day_data_ifeng] INFO: Reading start URLs from redis key 'ifengSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-11-01 16:32:14,423  [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'commspider3.middlewares.ChoiceAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'commspider3.middlewares.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-11-01 16:32:14,424  [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'commspider3.middlewares.ProcessResponseMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-11-01 16:32:14,424  [scrapy.middleware] INFO: Enabled item pipelines:
+['commspider3.pipelines.BasePipeline']
+2017-11-01 16:32:14,424  [scrapy.core.engine] INFO: Spider opened
+2017-11-01 16:32:14,432  [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-11-01 16:32:14,433  [2017_day_data_ifeng] INFO: Spider opened: 2017_day_data_ifeng
+2017-11-01 16:32:14,433  [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6024
+2017-11-01 16:32:14,440  [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2017-11-01 16:32:14,440  [2017_day_data_sohu] INFO: Reading start URLs from redis key 'sohuSpider:start_urls' (batch size: 1000, encoding: utf-8
+2017-11-01 16:32:14,441  [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'commspider3.middlewares.ChoiceAgent',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'commspider3.middlewares.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-11-01 16:32:14,442  [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'commspider3.middlewares.ProcessResponseMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-11-01 16:32:14,442  [scrapy.middleware] INFO: Enabled item pipelines:
+['commspider3.pipelines.BasePipeline']
+2017-11-01 16:32:14,442  [scrapy.core.engine] INFO: Spider opened
+2017-11-01 16:32:14,451  [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-11-01 16:32:14,451  [2017_day_data_sohu] INFO: Spider opened: 2017_day_data_sohu
+2017-11-01 16:32:14,452  [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6025
+2017-11-01 16:32:14,519  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.sohu.com/> (referer: None)
+2017-11-01 16:32:14,526  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.baidu.com/finance> (referer: None)
+2017-11-01 16:32:14,546  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.ifeng.com/> (referer: None)
+2017-11-01 16:32:14,669  [scrapy_redis.dupefilter] DEBUG: Filtered duplicate request <GET http://www.sohu.com/a/201522519_220095> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2017-11-01 16:32:14,803  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201531604_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:14,826  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201474682_123753> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,841  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201251880_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:14,850  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52895590_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:14,856  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://gold.hexun.com/2017-11-01/191469759.html> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,861  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://stock.hexun.com/2017-11-01/191469610.html> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,879  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://finance.ifeng.com/a/20171101/15759886_0.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,885  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://auto.caijing.com.cn/2017/1101/4352739.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,888  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://money.163.com/17/1101/12/D25I7LQO00258169.html> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,892  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://finance.stockstar.com/SS2017110100000384.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,904  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://fund.stockstar.com/SS2017110100000304.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,913  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201531604_123753>
+None
+2017-11-01 16:32:14,917  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://stock.qq.com/a/20171101/003273.htm> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,927  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://finance.sina.com.cn/stock/s/2017-11-01/doc-ifynmnae0823495.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,931  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://tech.qq.com/a/20171101/003863.htm> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,937  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201474682_123753>
+None
+2017-11-01 16:32:14,945  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://tech.sina.com.cn/it/2017-11-01/doc-ifynhhaz0813773.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,953  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://business.sohu.com/20171101/n521130719.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,958  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201251880_123753>
+None
+2017-11-01 16:32:14,965  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.bjx.com.cn/html/20171101/858675.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:14,967  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201466581_612798> (referer: http://news.sohu.com/)
+2017-11-01 16:32:14,981  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('新华通讯社', 'http://news.ifeng.com/a/20171101/52895590_0.shtml', '十九大后总书记第一次离京，五个细节耐人寻味', '2017-11-01  16:01:18', '原标题：十九大后总书记第一次离京，五个细节耐人寻味【学习进行时】10月31日，在党的十九大胜利闭幕一周之际，习近平总书记带领中共中央政治局常委专程赶赴上海和嘉兴，瞻仰中共一大会址和南湖红船。一天的紧凑行程中，五个细节耐人寻味，令人深思。新华社《学习进行时》原创品牌栏目“讲习所”带您一起回顾。细节一复原的中共一大会场旧址：青色砖墙、红色窗棂、精致条桌、硬木椅、小圆凳、雕花茶杯、粉色花瓶、紫铜烟缸……习近平总书记凝视着、思索着。习近平总书记动情地说，毛泽东同志称这里是中国共产党的“产床”，这个比喻很形象，我看这里也是我们中国共产党人的精神家园。细节二浙江嘉兴南湖。总书记伫立岸边，久久眺望清波荡漾的远方。抚今追昔，习近平总书记感慨：“小小红船承载千钧，播下了中国革命的火种，开启了中国共产党的跨世纪航程。”小船，摆渡了暮霭沉沉的中国。在南湖革命纪念馆，习近平以铿锵有力的话语，再次强调了“红船精神”：开天辟地、敢为人先的首创精神；坚定理想、百折不挠的奋斗精神；立党为公、忠诚为民的奉献精神。习近平指出，我们要结合时代特点大力弘扬“红船精神”，让“红船精神”永放光芒。细节三在中共一大会址纪念馆，习近平等瞻仰了中共一大代表群像浮雕。习近平对着浮雕一一列数中共一大13名代表的姓名，感叹英雄辈出，也感叹大浪淘沙。习近平指出，中国共产党一开始就在自己的纲领文件中开宗明义确立了坚持马克思列宁主义，鲜明写下“工人阶级”“无产阶级”这些字句。尽管处于初创阶段，但奠定了我们党的前进方向和基石。细节四在中共一大会址纪念馆宣誓厅，面对党旗，习近平总书记带领其他常委同志一道举起右拳、庄严宣誓。“我志愿加入中国共产党，拥护党的纲领，遵守党的章程……”习近平强调，入党誓词字数不多，记住并不难，难的是终身坚守。每个党员要牢记入党誓词，经常加以对照，坚定不移，终生不渝。细节五中国一大会址纪念馆、南湖革命纪念馆，两个纪念馆，三幅相似的图片，习近平总书记久久凝视。一幅，中国近代时事漫画《时局图》。列强瓜分，熊、鹰、犬、蛤蟆盘踞中国版图……一幅，清末给列强赔款的惊人数字，白银令人痛心地如开闸河水般涌出国门。一幅，马克思观察中国国情后写下的一段话：“一个人口几乎占人类三分之一的大帝国，不顾时势，安于现状，人为地隔绝于世并因此竭力以天朝尽善尽美的幻想自欺。”习近平总书记连连感叹：“多屈辱啊！多耻辱啊！那时的中国是待宰的肥羊。”', 'news.ifeng.com', 'from ifeng', '', '吕凡 PN144')
+2017-11-01 16:32:14,981  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52895590_0.shtml>
+None
+2017-11-01 16:32:15,0  [scrapy.core.scraper] DEBUG: Scraped from <200 http://finance.stockstar.com/SS2017110100000384.shtml>
+None
+2017-11-01 16:32:15,26  [scrapy.core.scraper] DEBUG: Scraped from <200 http://stock.qq.com/a/20171101/003273.htm>
+None
+2017-11-01 16:32:15,39  [scrapy.core.scraper] ERROR: Spider error processing <GET http://finance.sina.com.cn/stock/s/2017-11-01/doc-ifynmnae0823495.shtml> (referer: http://news.baidu.com/finance)
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "D:\Anaconda3\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "D:\Anaconda3\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 22, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "D:\Anaconda3\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\Anaconda3\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\python_code\Spider3\distributed\commspider3\commspider3\spiders\baidu_finance.py", line 241, in parse_base
+    item['source'] = re.search(r'\s+(.+)').group(1) or ''
+TypeError: search() missing 1 required positional argument: 'string'
+2017-11-01 16:32:15,47  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://house.ifeng.com/detail/2017_11_01/51271055_0.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:15,58  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201520072_260616> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,67  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201520559_162522> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:15,75  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201466581_612798>
+None
+2017-11-01 16:32:15,146  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201522519_220095> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,166  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201520072_260616', '武汉一高校推行跑步App：计入期末体育成绩，代跑算作弊', '2017-11-01 07:30', '原标题：武汉一高校推行跑步App：计入期末体育成绩，代跑算作弊学生使用的跑步APP截图本文图均为校方供图武汉深秋的傍晚，凉意袭人，湖北经济学院腾龙大道路灯下，浩浩荡荡的“打卡大军”正在来回绕圈跑步。“再跑跑我就可以及格了。”新闻类Q1741班的学生刘越是“打卡大军”的一员，10月31日，她告诉澎湃新闻（www.thepaper.cn），自己每天都会打卡跑步至少3公里，这个新学期，她的跑步里程数已达47.64公里。10月16日起，湖北经济学院首次尝试在大一至大三学生中推行一款由专业技术公司为学校“量身”打造的跑步App，并将使用情况与学生本学期体育成绩和体质测试相关联。学生使用的跑步App截图采用定向越野趣味打卡模式根据校方本学期的规定，学生跑满30次即为及格，每多一次，有效成绩加3分，直至100分为止。大一、大二学生使用App跑步打卡的成绩占本学期体育成绩的30%；大三学使用App跑步打卡的成绩达到及格以上标准才可参与体质测试。而学生每天最多有1次运动记录关联体育成绩，超出部分仅做记录但不会关联成绩。截至10月26日后台数据显示，湖北经济学院全校已有11000余人参与跑步，人均里程超过10公里，大多数学生会选择在晚饭后再完成当天跑步“任务”。该跑步APP采用定向越野趣味打卡模式，在每日6时至22时之间，学生可在校园内使用APP跑步打卡。后台根据使用学生的起跑点，随机分配两个校园内的点，学生可通过查看地图，自行根据场地情况选择最优路线到分配点达打卡。“每人都有手机，使用APP既方便学生使用，也可以降低成本。（APP后台）根据GPS定位，自动完成打卡。”湖北经济学院体育经济与管理学院副院长崔高原向澎湃新闻介绍，学校采用这种方式的初衷是希望鼓励大学生走下网络、走出宿舍、走进操场，培养大家热爱体育、崇尚运动的健康观念，形成良好的锻炼习惯，提高身体素质，培养意志品质。学生使用的跑步APP截图代跑被发现将记录档案农银班的陈彤（化名）称，自己以前没有运动习惯，但如今每晚8点准时跑步打卡，“自从学校推行跑步APP后，跑步氛围浓厚，自然就想跑了”。在她看来，“随波逐流”的同学不少，但只要能达到锻炼的目的就是好事。此前刘越在采访中提到，自己曾经下载一款打卡运动软件，可由于自觉性不强，很快便放弃。“跑步与体育成绩挂钩后，可以督促我们自觉锻炼身体。”不过，对于学校推行跑步APP的做法，也有学生持不同看法。体育经济管理专业Q1641班学生李永恩称，自己在未推行打卡之前就一直坚持跑步，甚至每周去健身房四到五次。他认为，这款打卡APP带有任务性质，可能会影响运动质量。有打卡刷分，也难免会有学生想通过代打卡来钻空子。对此，崔高原表示，后台之所以将每次使用APP跑步打卡的点都设定为“随机分配”，就是为了减少甚至避免代跑现象。此外，学校相关规定中也表明，因跑步打卡与学校体育课程期末成绩相关，校方会通过督查组巡查、学生举报、大数据比对分析等途径进行监督。如发现学生有代跑等“违纪”行为，一经查证属实，将按考试作弊予以处理，并记录档案。同时，针对学生在使用跑步APP过程中也出现的打卡有效次数减少、定位不准、数据无法上传、数据错乱等问题，校方表示，已向APP后台技术公司反映，并考虑进一步引进固定考勤机，采用面部或指纹识别打卡，将移动端与固定端结合，使整个运动机制更完善。（湖北经济学院学生刘迅、杜晶文对本文亦有贡献）返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:15,167  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201520072_260616>
+None
+2017-11-01 16:32:15,175  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201520559_162522>
+None
+2017-11-01 16:32:15,252  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201522519_220095>
+None
+2017-11-01 16:32:15,290  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201533034_391294> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,336  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52883503_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:15,398  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201533034_391294>
+None
+2017-11-01 16:32:15,436  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201567299_115239> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,458  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52883503_0.shtml>
+None
+2017-11-01 16:32:15,461  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://finance.stockstar.com/SS2017110100000498.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:15,544  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201567299_115239', '迪丽热巴最新封面大片曝光 解锁秋日新风格', '2017-11-01 11:44', '原标题：迪丽热巴最新封面大片曝光解锁秋日新风格近日，新生代人气演员迪丽热巴受邀拍摄的一组杂志封面大片最新曝光，全新演绎了秋日新风格。或在蓝天背景下，变身冷面酷girl，或在秋日暖阳中，演绎光影中的惊艳美人，或在白色背板前，又变身灵动元气少女，迪丽热巴在不同风格间随意切换，每一面都新鲜又是惊喜，展现了超强时尚表现力。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:15,544  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201567299_115239>
+None
+2017-11-01 16:32:15,593  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201575727_260616> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,597  [scrapy.core.scraper] DEBUG: Scraped from <200 http://finance.stockstar.com/SS2017110100000498.shtml>
+None
+2017-11-01 16:32:15,697  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201575727_260616>
+None
+2017-11-01 16:32:15,715  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201584026_114988> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,786  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201522025_114778> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:15,820  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201584026_114988>
+None
+2017-11-01 16:32:15,854  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201584438_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:15,891  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52883960_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:15,899  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201522025_114778>
+None
+2017-11-01 16:32:15,963  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201584438_123753', '这部法律大修，关乎6亿中国人的生存', '2017-11-01 13:33', '原标题：这部法律大修，关乎6亿中国人的生存　　这部法律大修，关乎6亿中国人的生存时隔14年，《农村土地承包法》迎来大修。这并不是一件小事，它关乎中国6亿人口的生存问题。10月31日上午，《农村土地承包法修正案(草案)》(以下称，《草案》)提请十二届全国人大常委会第三十次会议初审。“三权分置”、耕地承包期届满后再延长三十年、经营权入股，等热门话题再次被提及。中国农业大学土地资源管理系主任朱道林表示，《草案》把一些问题通过法律的方式进一步细化和明确，很重要，也是一件好事。北京房地产法学会副会长兼秘书长、首都经济贸易大学教授赵秀池认为，《草案》能够使农民的利益得到进一步保护，也使农民的权利更清晰。耕地承包期届满后再延长三十年《草案》规定，国家依法保护农村土地承包关系稳定长久不变。为了给予农民稳定的土地承包经营预期，耕地承包期届满后再延长三十年。周长平摄在此之前，党的十九大报告提出，保持土地承包关系稳定并长久不变，第二轮土地承包到期后再延长三十年。农业部部长韩长赋认为，这一政策安排让农民既可以沉下心来搞生产，又可以放心流转土地经营权，还可以安心进城务工。同时，新型农业经营主体的预期也更稳定，可以放心投入、扩大生产，改善农田设施条件，有利于形成多种形式的适度规模经营，推进中国特色农业现代化。朱道林同意这一观点，他认为再延长三十年，是指承包制度不变，过程中经营权可以流转。三权分置农地用途不变三权分置是继家庭联产承包责任制后农村改革又一重大制度创新，是指土地“所有权、承包权、经营权”，三权分立。周长平摄改革开放之初，农村实行家庭联产承包责任制，土地所有权和承包经营权分设，所有权归集体，承包经营权归农户。随着农业现代化步伐加快，顺应农民保留土地承包权、流转土地经营权的意愿，国家推行土地三权分置，重点放活土地经营权。应该说，三权分置是规范土地经营和激活土地活力的重要一环。《草案》规定，以家庭承包方式取得的土地承包经营权在流转中分为土地承包权和土地经营权。土地承包权指农村集体经济组织成员依法享有的承包土地的权利。土地经营权指一定期限内占用承包地、自主组织生产耕作和处置产品，取得相应收益的权利。目前，农村已有30%以上的承包农户在流转承包地，流转面积4.79亿亩。在土地经营权流转后，为了加强对土地承包权的保护，《草案》规定，承包土地的经营权流转后，承包方与发包方的承包关系不变，承包方的土地承包权不变。中国房地产业协会副会长张力威告诉中新社国是直通车，三权分置，对城镇化的推动是非常有利的。他认为，中国已经到了实现农业现代化的时机，但联产承包阻碍了这一发展，土地经营权流转可以把农民从土地中解放出来，帮助实现农业规模化经营。“土地经营权流转获得稳定收入，再进城做点儿小生意，农民生活水平可以进一步提高。”张力威说。经营权入股并非唯一方式《草案》增加了土地经营权可以入股从事农业产业化经营的规定。周长平摄鉴于土地经营权入股发展农业产业化经营尚处于探索阶段，实践中的做法也不尽相同，为此，草案只作出原则性规定，具体可依实践发展需要再由行政法规规范。朱道林告诉中新社国是直通车，入股是一种方式，但并不唯一，国家应鼓励多种交易方式，并从法律的角度把每种交易方式解释清楚。比如，租赁十年，是一次性付租金还是按年付租金，这是两种不同的方式。“鼓励长约年租制，可以为农民提供一定的生活来源。”朱道林说。朱道林还特别强调，土地流转过程中不存在“一次性买断”这种说法。因为，经营权流转的前提是承包权，如果部分农户的承包权不存在了，相应的经营权自然不存在。全国人大农业与农村委员会副主任委员刘振伟在作草案说明时说，承包方连续两年以上弃耕抛荒承包地的，发包方可以收取一定费用，用于土地耕作；连续三年以上弃耕抛荒承包地的，发包方可以依法定程序收回承包地，重新发包。同样，土地经营权流转后第三方擅自改变承包地农业用途、弃耕抛荒两年以上、给承包地造成严重损害或者严重破坏承包地生态环境的，发包方或承包方有权要求终止土地经营权流转合同，收回土地经营权。朱道林还指出，尽管通过立法手段确保了农民的权益，但后续还需监管上加大力度。因为在土地利用过程中涉及利益主体的利益取向，做什么最挣钱，他们肯定有选择。“但可以明确的是，农业用地用于搞建设，肯定是不行的。”至于在土地流转过程中，采取哪种交易方式，朱道林认为，应该交给市场，交给相关的产权主体来决定，要相信市场本身的智慧。(张文绞)返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '这部法律大修，关乎6亿中国人的生存', '')
+2017-11-01 16:32:15,968  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201584438_123753>
+None
+2017-11-01 16:32:15,987  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52888036_0.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:16,11  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52883960_0.shtml>
+None
+2017-11-01 16:32:16,13  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201586194_535550> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,17  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://finance.stockstar.com/SS2017110100001083.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:16,84  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201588134_115479> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,120  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201586194_535550>
+None
+2017-11-01 16:32:16,129  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('中国证券网', 'http://finance.stockstar.com/SS2017110100001083.shtml', '财政部王毅：不具备条件的PPP项目未来将被清理出库', '2017-11-01 14:51:37', '（原标题：财政部王毅：不具备条件的PPP项目未来将被清理出库）在11月1日举办的2017第三届中国PPP融资论坛上，财政部金融司司长王毅提出PPP发展下一阶段的几个重要抓手，其中包括要对现有PPP项目进行清理管理。“对不具备条件、未规范开展’两个论证’的项目，特别是那些不属于公共产品供给体系、自己的资本金不到位、资本金穿透以后都不是自有资金、未来项目运行没有很好的绩效、过度依赖政府付费的项目，我们有考虑把它剔除。”他表示。在整顿不合规项目的同时，王毅表示，也要适度强化中央财政政策奖励强度，增强示范引导效应。此外，要加快建立健全PPP项目财政支出责任统计监测体系，强化财政承受能力10%“红线”的硬性约束。再者，要规范PPP项目公司资本金管理，坚持穿透原则，改变PPP项目高杠杆率的现状。加大信息披露力度，做到项目信息全流程公开透明。王毅透露，未来，财政部将推动PPP进入规范、有序发展的新阶段。具体要实现四个转变，从关注落地率到关注规范性，从增量为主到存量增量并重，从关注短期效应到关注中长期效应，从推动国内发展到拓展国际合作，更好服务“一带一路”建设。涨停敢死队“目标股”曝光标签：PPP王毅公共产品供给财政部金融司项目信息', 'finance.stockstar.com', 'from baidu', '', '')
+2017-11-01 16:32:16,130  [scrapy.core.scraper] DEBUG: Scraped from <200 http://finance.stockstar.com/SS2017110100001083.shtml>
+None
+2017-11-01 16:32:16,180  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201588259_115239> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,194  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201588134_115479', '希拉里密会本拉登照片流出 亲切握手合影？', '2017-11-01 13:54', '原标题：希拉里密会本拉登照片流出亲切握手合影？　　【编译/观察者网徐蕾】近日，希拉里·全世界都害我·克林顿又被爆料了，这次不是邮件门，也不是通俄，而是会见奥萨马·本拉登。不信？可是有照片为证啊：BBC截图这……要知道，本拉登一直是美国的死对头。作为基地组织的头号人物，本拉登曾被美国政府指控策划多起针对美国的恐怖袭击，尤其是2001年震惊世界的“911”。美国政府对本拉登可谓是“恨之入骨”，对其进行了长达十年的追杀，耗费无数兵力财力。2011年，在“911”发生十年后，本拉登终于被美国海豹突击队击毙。当时，美国总统奥巴马和白宫政要一起监测了这一惊心动魄的“击毙本拉登”行动。而时任国务卿的希拉里在照片中右手捂着嘴巴，眼睛紧盯屏幕。当地时间2011年5月1日，奥巴马与希拉里等人在白宫监测“击毙本拉登”行动图源：东方IC每次奥巴马谈及他当总统期间的政绩，一定不会忘记提一下本拉登，这个美国的头号敌人在他执政期间被击毙。可是，和奥巴马一起监测了这起猎杀行动，时任美国国务卿的希拉里竟然曾和本拉登亲切地握手？希拉里和本拉登握手的照片可不是刚刚被爆出来。早在去年，这张照片就已经在社交媒体上流传开了，而传播这张照片的，大多是俄罗斯的推特账号。这就很微妙了……自从特朗普击败希拉里赢得总统大选以来，不少西方媒体和专家就指责脸书、推特等社交媒体沦为“假新闻”的制造基地，帮助特朗普登上总统宝座。此前有报道称，俄罗斯在脸书、推特等社交媒体购买大量广告以干预美国大选。脸书在当地时间9月6日的一份声明中，也披露其已识别出约500个与俄罗斯有关联的“非原创”账户，这些账户在过去两年中共购买了约10万美元的广告，涵盖美国大选的；另外还有直接从俄罗斯用户账户上发起的约5万美元广告订单。而美国政界与俄罗斯的关系也一直扑朔迷离，除了特朗普一直被指控通俄外，前不久奥巴马不是也被爆出疑似通俄？奥巴马可是希拉里总统竞选的“头号支持者”啊。不过，这张由俄罗斯推特账号流出的“希拉里密会本拉登”照片，已经被证实为是假照片。据英国广播公司（BBC）当地时间10月31日辟谣称，照片中的本拉登是被P上去的，照片的原型是2004年希拉里会见音乐人ShubhashishMukherjee。当时，美国总统还是小布什，而希拉里是纽约的一名参议员。BBC截图可是，这张假照片为什么在时隔一年后又被翻了出来呢？其实是因为俄罗斯外交部的一位女发言人扎哈罗娃（MariaZakharova）在俄罗斯国家电视台的一个访谈节目上，谈起美国政府及其游说活动时，说了一句话……俄外交部一女发言人当地时间10月30日在访谈中提及本拉登与白宫关系图源：BBC截图毕竟，这是俄罗斯外交部发言人啊！对，就是她的一句话，让这张照片又被翻了出来。连俄罗斯外交部发言人也信以为真，这照片P得也是很6了……而美国调查网站Snopes分析发现，原来，这张照片来自一个名为FreakingNews.com的网站的ps大赛。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,194  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201588134_115479>
+None
+2017-11-01 16:32:16,288  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201588259_115239', '串串店一根鸡翅25根签子 老板:明看便宜 实际贵', '2017-11-01 13:56', '原标题：串串店一根鸡翅25根签子老板:明看便宜实际贵昨日，盐市口市场和质量监督管理所的执法人员对暑袜南街的串串店进行了突击检查工人正在给鸡翅穿签子“荤素每根2角，一块排骨12根签”，如此价格的串串着实不便宜。但同时，又让不少食客产生了“便宜”的错觉。而这样的消费落差正是来自另一句“一菜多签”的提醒，可到底是多少签呢？由此，让不少消费者对春熙路附近暑袜南街的串串店大为吐槽，甚至直言“太坑”。昨日下午，成都市锦江区市场和质量监督管理局盐市口市场和质量监督管理所的执法人员来到了暑袜南街，对该条街上的“魏记麻辣烫”、“赵记串串香”进行了现场调查。同时对两店老板以及同条街相似经营的“许哥串串”进行了约谈和行政告诫。执法人员认为，尽管其经营方式暂不构成消费欺诈，却侵犯了消费者的知情权，并提出了相应的整改要求。成都商报记者杜玉全摄影记者王勤现场调查2角一根签一串鸡中翅25根签“2角一根签，两女生吃了640根”，“一个鸡翅竟然25根签”……针对近期多名消费者对位于春熙路附近暑袜南街的“魏记麻辣烫”、“赵记串串香”两店的情况反映。昨日下午2时，成都市锦江区市场和质量监督管理局盐市口市场和质量监督管理所的执法人员再次对两店进行了实地调查，并现场对店内的营业证照和菜品情况及经营方式进行了了解取证。成都商报记者也全程参与了此次调查。在现场，记者再次对摆出的菜品及其每串的签数情况进行了了解。“魏记麻辣烫”店内，其签数最多的菜为无骨鸡爪，每串一个鸡爪，15根签，签数最少的为土豆，每串一片2根签。“赵记串串香”店内，签数和价格最高为鸡中翅，每串25根签，相当于5元一串，签数最少的菜品同样为土豆，不过记者也留意到，其看似便宜的韭菜则每串3根签，而韭菜数量仅有一根，相当于6角钱一根韭菜。在执法人员询问店员期间，针对其尽管张贴有“2角一根签”的提示牌，但顾客是否清楚每样菜品的具体签数时，两者均表示并未一一告知。“只有顾客有异议的时候才会解释每串穿了多少签子，或者他们不懂啥叫‘一串多签’的时候，会拿几样菜举例说明。”“魏记麻辣烫”老板魏女士说，“不可能百分百的给每一个人讲。”“赵记串串香”老板赵女士则称，当顾客问起时，一般会拿些土豆等来说明菜品是多个签子，但不会一一说明。而针对不少网友提出的不让本人拿菜的质疑，两家均表示，怕顾客拿乱摆好的菜篮，同时竹签太尖锐，以防伤着顾客。老板自曝“明看便宜实际贵”食客多为外地客成都商报记者对多位网友的意见梳理发现，消费者对其消费提出的质疑主要在于，看似“2角一根签”的便宜表象后，却是“签数惊人”，“消费高额”的买单现实，而其选菜又均为店员代取，加上“一菜多签”的数量模糊让不少人产生了被“坑”的想法。为什么不能对每样菜品的最终价格进行明示呢？对此，在面对记者质疑时，“赵记串串香”老板赵女士也不经意地向记者表露，“2角一根签会让人感觉便宜些，当然也有人会误解为2角一串，但这种情况我们会强调是一串多签的，其实是明看便宜实际贵嘛。”同时，在记者追问利润的情况下，赵女士称一个鸡中翅25根签5元一个，其成本则为1元一个。按照两家老板给出的大致消费情况，如果吃串串，消费数额根据人员多少，一般都在三四十元到几百元不等，换句话说，尽管看似“2角一根签”的“便宜”背后，产生的签数也均在百余根以上。赵女士也表示，曾有几位顾客吃了2000多根签子。那么，在这几家店就餐的食客主要来自哪里呢？“魏记麻辣烫”老板魏女士表示，本地和外地客各占一半，“赵记串串香”老板赵女士则称，本地客一样有不少，但的确多数为外地客。执法部门侵犯消费者知情权约谈三店行政告诫昨日下午，在实地对这条街上的“魏记麻辣烫”、“赵记串串香”进行现场调查后，执法人员还对两店老板以及同条街相似经营的“许哥串串”进行了约谈和行政告诫。为界定其经营方式是否存在违法行为或构成消费欺诈的问题，执法人员还邀请了律师及区市场和质量监督管理局政策法规科工作人员和消费者协会工作人员进行商讨。四川润方律师事务所律师李泓甫认为，消费欺诈行为是指经营者在提供商品或者服务的过程中，采取了虚假或者其他不正当的手段骗取误导消费者，使消费者的合法权益受到损害的行为。按照法律规定，一般可以从两个方面来判断经营者的行为是否构成消费欺诈：第一，在提供商品的过程中采用的手段，比如夸大或者隐瞒所提供商品的数量、质量等；第二，是经营者的行为是否误导消费者，一般根据一般消费者识别判别能力来判断。结合两者来看，目前无证据显示店家的经营构成消费欺诈。该说法同时得到了执法部门的认可。锦江区市场和质量监督管理局政策法规科科长吴静认为，尽管不构成消费欺诈，但商家的经营仍然在一定程度上侵犯了消费者的知情权。“虽然标了2角一串，一串多签，但由于串串是店家在拿，而消费者又不清楚每串的具体签数，并不知道一串土豆多少钱，一串牛肉多少钱，其消费多少在心里是没有底的，只有当菜煮好了端上桌了，吃的时候才能数出来，这个时候又不能再退。”要求整改必须明码标价对每串菜品签数进行公示经过约谈，执法部门也对暑袜南街被约谈的三家串串店的经营提出了整改要求。具体为：一是，店家仍可以不变化计价方式，但是需要向消费者解释清楚“一串多签”的意思；二是，需要对店内所售菜品每串的具体签数和价格进行明示，并张贴在店内醒目位置，让消费者能够清楚知晓其消费菜品的价格情况，明明白白消费；三是，为避免签数称重带来的其他争议，称数时需要有消费者在场，对于具体数额要现场告知，同时提醒消费者如对数目有异议，可以现场重数。对此，店家也现场承诺，将在接下来的几天内进行落实，特别是菜品签数价目的明示，将按照签数多少进行分类，公示在店内。“我们也会在后续的过程中，对店家的落实情况及后续经营进行检查监督，如再次发现网友投诉的情况，或者有其他侵犯消费者权益的行为，将依法依规进行处理。”吴静说，“地段及经营成本导致的价高可以理解，但经营行为必须符合规范。”原标题：串串店老板自曝：“明看便宜，实际贵”返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,290  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201588259_115239>
+None
+2017-11-01 16:32:16,299  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201589326_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,405  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201589326_123753', '发改委：“双11”前后将发布电子商务领域黑名单', '2017-11-01 14:00', '原标题：发改委：“双11”前后将发布电子商务领域黑名单showVrsPlayer({vid:,3350381,,width:,500,,height:,375,,autoplay:false,vars:{"enforceHTML5":false}});电子商务领域受惩黑名单首次发布　　中新网11月1日电据国家发改委网站消息，国家发改委财政金融司副司长陈洪宛昨日介绍，在“双11”前后，将发布电子商务领域黑名单，发布《电子商务领域信用风险“双11”预警报告》和《“双11”网络促销活动期间消费信用评估报告》。资料图：山西太原，一辆满载包裹的快递配送车。张云摄国家发展改革委昨日召开“双11”电子商务领域信用建设工作媒体通气会。发改委财政金融司副司长陈洪宛介绍，发改委作为社会信用体系建设部际联席会议牵头单位之一，协调有关部门大力推进社会信用体系建设取得积极成效。表现在以下方面：一是全面实施统一社会信用代码制度，截至目前，存量代码转换率达99.5%，存量证照换发率达71.5%。二是建立全国信用信息共享平台，归集信用信息量107亿条，联通42个部门和所有省区市。三是开通“信用中国”网站，向社会公众提供“一站式”的查询服务，公开各类信息1.4亿多条，日访问量突破600万人次。四是会同有关部门签署失信联合惩戒合作备忘录24个、守信联合激励合作备忘录4个，制定联合奖惩措施100多项，初步建立起“发起—响应—反馈”机制。五是《信用法》《公共信用信息管理条例》《统一社会信用代码管理办法》立法研究全面展开，地方信用立法工作加速推进，现已有陕西、湖北、上海、河北、浙江等5省市出台了地方性法规。六是组建全国社会信用标准技术委员会，已出台相关国家标准26个。他指出，当前，国家发改委正会同中央网信办、工信部、公安部、商务部、工商总局、质检总局、海关总署等部门开展电子商务领域严重失信问题专项治理工作。在“双11”前后，将发布电子商务领域黑名单，发布《电子商务领域信用风险“双11”预警报告》和《“双11”网络促销活动期间消费信用评估报告》，指导中国互联网协会和“反炒信”联盟成员企业开展“反炒信、树诚信”活动，组织第三方机构对“双11”活动期间各主要电商平台的相关承诺兑现情况进行数据跟踪与测评分析，委托信用服务机构在产品质量、产品销售与服务、产品价格、物流服务等各环节开展信用监测，完善电子商务领域信用记录。国家信息中心副主任周民介绍了电子商务领域严重失信黑名单有关情况。在全国信用信息共享平台上有关部门共享的黑名单信息中，经分析比对，共梳理出电子商务黑名单企业6440家，其中首批500家已在“信用中国”网站公布。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,406  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201589326_123753>
+None
+2017-11-01 16:32:16,431  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201591042_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,536  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201591042_123753>
+None
+2017-11-01 16:32:16,547  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52887009_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:16,562  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201598114_313745> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,641  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201602422_260616> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,665  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52887009_0.shtml>
+None
+2017-11-01 16:32:16,673  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201598114_313745', '纽约卡车恐袭嫌犯为优步司机 ISIS支持者发文“庆祝”', '2017-11-01 14:47', '原标题：纽约卡车恐袭嫌犯为优步司机ISIS支持者发文“庆祝”10月31日，美国纽约，被撞毁的校车。图片来源：视觉中国有关纽约曼哈顿卡车恐袭的29岁嫌犯、赛普夫（SayfulloHabibullaevicSaipov）更多细节陆续被媒体曝光。案发后警方在肇事卡车内发现了一张赛普夫留下的纸条，称发动袭击是为了“伊斯兰国”（ISIS）。据CBS新闻10月31日报道，优步公司（Uber）于周二晚发表声明，确认赛普夫曾做过优步司机。优步称赛普夫通过了优步的个人背景调查，在六个月内完成了1400多个订单。声明表示，优步对曼哈顿的恐袭感到“震惊，我们已与执法部门取得联系，以全力协助案件调查”。据美国媒体报道，赛普夫于2010年从乌兹别克斯坦前往美国并获得永久居民身份，之后先后在佛罗里达、俄亥俄和新泽西州居住。赛普夫的熟人透露，赛普夫在抵达美国一年后组建了家庭，还在佛罗里达开了一家卡车公司。现在，他是三个孩子的父亲。赛普夫。图片来源：网络据CNN报道，在周二的恐袭之前，赛普夫没有刑事犯罪记录，唯一的记录是违反交通法规。2016年10月，赛普夫触犯交通法规后未能按规定前往法院，被密苏里州公路巡警逮捕。事后，他缴纳了200美元的保释金。一位俄亥俄州的朋友在接受《纽约邮报》采访时对赛普夫制造卡车袭击表示震惊，这位朋友称赛普夫“非常友善，就像一个弟弟”。然而据警方透露，当局在赛普夫驾驶的肇事卡车中发现了一张用英语写的纸条，纸条上称发动袭击是为了ISIS。两名执法官员称，赛普夫在走出卡车时曾高喊“真主至大”。据《新闻周刊》报道，袭击发生后，ISIS支持者已经在社交媒体上发文“庆祝”，有留言使用了万圣节期间小孩讨要糖果时经常说的话:“不给甜头就有好看的。”当地时间10月31日下午，赛普夫在纽约曼哈顿下城区驾驶一辆皮卡汽车冲撞行人，造成至少8人死亡，11人受伤。已知死者中有5人为阿根廷公民，一人为比利时公民。一名随后赶到现场的警察开枪击中了赛普夫的腹部，据警方消息，赛普夫已接受了手术。分析人士推断，警方随后将调查赛普夫是否在近年内返回过乌兹别克斯坦。乌兹别克斯坦有两大圣战组织，其中之一的乌兹别克伊斯兰运动已宣布效忠ISIS。作者：界面天下返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,673  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201598114_313745>
+None
+2017-11-01 16:32:16,706  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201602931_420076> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,747  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201602422_260616', '家中办丧事忙乱未留意，江西奉新2岁女童走失14日未归', '2017-11-01 15:09', '原标题：家中办丧事忙乱未留意，江西奉新2岁女童走失14日未归已经走失14天的杨悦。受访者供图江西奉新县2岁女童杨悦10月18日上午从家中走失。11月1日，杨悦的母亲罗爱华告诉澎湃新闻（www.thepaper.cn），发现女儿走丢后，家人就报了警，目前，杨悦仍处于失联状态。罗爱华说，她住在上富镇金港村下洋湖组。10月18日上午，家里因为办丧事比较忙乱，未注意到杨悦。杨悦大约在当天上午7点至9点走失。家人发现杨悦不见了，赶忙报警。奉新县公安局10月20日发布的通报称，公安机关接到求助报警后，立即开展现场调查并组织搜寻，并出动无人机、请求省厅警犬基地出动警犬进行搜寻，会同当地党委、政府组织群众搜寻，调取周边监控查找，并将杨悦信息上传至公安部儿童失踪信息紧急发布平台，加大力度核查杨悦走失一事。当日，有公众号发布孩子在广东韶关的照片，经公安机关核实及孩子家人再三辨认，确认不是奉新走失女童杨悦。公安机关将继续全力查找。家人张贴的寻人启事。受访者供图罗爱华说，女儿身高约85厘米，体重12公斤。失踪时，身穿浅豆绿上衣，上衣里穿一件玫红色薄棉背心，下身穿玫红色花纹打底裤和一双崭新的红色鞋子。截至目前，杨悦仍下落不明。为帮助杨悦回家，台湾演员伊能静通过其认证微博账号表示，已提供3万元人民币奖励，用于征集线索。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,748  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201602422_260616>
+None
+2017-11-01 16:32:16,812  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201602931_420076', '遇害留日女生母亲将赴日本征签名:帮女儿讨公道', '2017-11-01 15:12', '原标题：遇害留日女生母亲将赴日本征签名:帮女儿讨公道原标题：遇害留日女生江歌母亲将赴日本征集签名：帮我女儿讨回公道法制晚报·看法新闻（记者任小佳）11月4日，遇害留日女学生江歌的母亲将从青岛赶赴东京，争取当地民众的请愿签名。近日，江歌妈妈因行李过重，向网友求助。江歌资料图10月31日，法制晚报·看法新闻记者采访到江歌妈妈江秋莲，她表示：“不知哪位好心的网友把截图发到了网上，但给大家填麻烦了，我决定压缩行李，还是自己带过去。”据江秋莲介绍，这些行李包括一万份的日语请愿传单、易拉宝，还有其他签名需要的宣传单等等。原本五件行李被压缩成四件，“为了节省超重的行李费，我现在需要再压缩下，现在四件行李，一共大约一百斤。”2016年11月3日凌晨，在东京留学的青岛姑娘江歌在公寓门口被室友的前男友连刺多刀身亡，之后犯罪嫌疑人陈世峰被日本警方逮捕，该案将于2017年12月11日在东京开庭。今年8月14日，江秋莲在微博上发起请求判决嫌犯陈世峰死刑的签名活动，截止10月29日，国内收到2249人邮寄过来的签名支持，网上签名人数还没有详细统计。“2249人，无一人要求我返还邮寄费用，甚至有人在信里夹带现金，很多人寄来了物品，很多人在信里留言安慰我。”“我失去了生命中唯一的希望和支柱，正是无数的善良的人、正义的人无私的关心、帮助、支持我，我才能活到现在，坚持到现在。从内心来说，实在不愿意给大家添麻烦，但是，没有大家，我根本活不下去，恳求大家能够继续支持我。”江秋莲告诉法制晚报·看法新闻记者。江秋莲将于11月4日前往日本再次征集签名，“我想得太简单了，为了省一些打印材料的费用，就在国内把单子都打了出来，现在日语的请愿签名大概印了一万份，听说在日本打印很贵，为了省钱，我就在国内打印的，但是行李一下子超重了，也要花费很多钱，超出一件行李加700元，第二件1000元，第三件行李加1500元，之前想着有没有一同前去东京的人，能帮忙带，后来觉得也是给别人填了太多麻烦，我现在就想着压缩一下，原本有五件行李，现在压缩成四件，还是自己带好了。”对于这个签名的活动到底能有多大作用，江秋莲叹了口气说：“我也不知道，但日本有这个先例，我不知道能有多大作用，只是做我能做的，帮我的女儿讨回公道。”被害女生江歌1992年出生于山东青岛，一岁半时父母离异，江歌随母亲与外婆生活。因为生活在单亲家庭，江歌一向都很懂事，在学习上也十分刻苦。江歌对待母亲孝顺体贴，对待学习认真勤奋。周围人都称赞她是一个“稳重又温柔的女孩”。2015年，江歌到日本语言学校开始留学生涯，2016年入读日本法政大学院硕士研究生一年级，遇害时年仅24岁。嫌犯陈世峰也是来自中国的留学生，案发前在日本大东文化大学就读硕士一年级。案件发生后，江歌的妈妈通过微博记录下悲痛的心情：“凶手多么恶毒。还我宝贝女儿。一切的希望都破灭了。无法用语言表达我的悲痛。”返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,813  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201602931_420076>
+None
+2017-11-01 16:32:16,826  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201603549_119562> (referer: http://news.sohu.com/)
+2017-11-01 16:32:16,933  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201603549_119562', '深圳“鹦鹉案”二审将开庭 律师:无罪辩护依据很充分', '2017-11-01 15:16', '原标题：深圳“鹦鹉案”二审将开庭律师:无罪辩护依据很充分　　深圳男子王鹏贩卖自养鹦鹉，被当地法院以非法出售珍贵、濒危野生动物罪，一审判处有期徒刑5年。小宝六个月的时候，一家三口去照了全家福。三天后，王鹏就出事了。10月31日，法制晚报·看法新闻记者从“鹦鹉案”当事人王鹏的妻子盼盼处了解到，10月30日下午，王鹏的辩护律师接到了深圳中院的电话通知，“下周一(11月6日)，鹦鹉案开庭审理”。盼盼说，书面通知目前还没收到，“据说要开庭的时间大约是一天半到两天。”对于即将到来的开庭，盼盼是又紧张又期待，她在坚持丈夫无罪的同时，表示愿意承担相应的行政处罚。忙于生计和照顾孩子，盼盼已经很久没有和王鹏联系了。不过今年十一期间，王鹏的一个朋友专门买了东西，去看望了盼盼和小宝，他让盼盼不要担心，说王鹏一切都好。平时是奶奶在照看小宝，奶奶忙的时候，小宝只能自己呆着11月1日，王鹏夫妻俩的孩子小宝就整两岁了，王鹏被抓的时候，小宝才6个月，如今，小宝已经可以指着墙上盼盼和王鹏的结婚照喊“爸爸”了，“因为是伤心事，所以我从来没有教过他喊爸爸。”盼盼说，应该是小宝的奶奶教的，“我婆婆会指着照片告诉小宝，这是爸爸。有些王鹏的东西，我婆婆也会告诉小宝，这是爸爸的东西。”有时候，盼盼听到奶奶和小宝唱儿歌，奶奶会问，“小蝌蚪找什么呀？”小宝会大声回答：“找爸爸。”奶奶就会接着问小宝，“谁是爸爸呀？”小宝就会站起来，指着墙上的照片，“这是爸爸。”尽管这两年，盼盼已经坚强了许多，但每到这个时候，她还是会不由自主地流眼泪。小宝指着墙上的照片喊爸爸王鹏的辩护律师斯伟江则告诉法制晚报·看法新闻记者，他和另一名辩护律师徐昕还是坚持给王鹏做无罪辩护。从9月通知开庭延期到现在，斯伟江和徐昕也做了充分的准备工作。斯伟江说，他们做无罪辩护的依据很充分，他们认为王鹏所售卖的鹦鹉是人工饲养的，不应该在被保护的范围内。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:16,933  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201603549_119562>
+None
+2017-11-01 16:32:16,966  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201605156_260616> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,73  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201605156_260616', '特朗普将开启25年来美总统最长亚太行，三艘航母或同期演习', '2017-11-01 15:23', '原标题：特朗普将开启25年来美总统最长亚太行，三艘航母或同期演习特朗普资料图10月31日，白宫高级官员就特朗普总统下周即将开启的对包括中国在内的亚洲五国的访问举行了简报会。据美媒报道，白宫官员表示，特朗普此次访问行程从11月3日一直持续到14日，将是25年来美国总统出访亚太地区时间最长的一次。白宫官员还表示，从没有一位总统像特朗普一样，一次造访这么多亚太国家。这次访问的国家数量，比2003年小布什总统出访亚太还要多。而上任以来，特朗普总统已经跟亚太地区的领导人们通了43通电话，这彰显了特朗普总统对亚太地区的重视。三艘航母或进行演习美国媒体援引白宫官员当日在简报会上的话说，11月5日和6日，特朗普将在日本会见安倍晋三首相，举办美日双边会议，商讨美日之间的贸易跟朝鲜问题，还将对驻日美军以及日本自卫队发表演说，并且将会见被朝鲜绑架的日本人的家属。他还将与安倍首相打高尔夫球。美联社报道称，白宫官员在当日的简报会上还表示，10月30日特朗普与日本首相安倍晋三通了电话，讨论了这次访问，也讨论了推进“自由开放的印-太地区”的重要性，保持密切联系，以及对朝施压等问题。据路透社报道，两名白宫官员还透露，目前在亚太地区的三艘航母可能会举行军事演习，以配合特朗普的访问。不过他们表示目前尚未作出决定，但他们指出，这将是自2007年以来第一次有3艘航母举行联合演习。一名匿名的美国国务院高级官员表示，美军军事力量的集结是特朗普对朝鲜“极限施压”策略的一部分。据中新社报道，此前美军宣布3艘航母将在时隔10年后聚首西太平洋，展开大规模联合军演。另外，1架B-2隐身战略轰炸机日前飞抵西太地区，美军2架F-35A隐身战机也于30日飞抵日本。不会前往朝韩非军事区11月7日到8日，特朗普将到访韩国。届时，他将会见韩国总统文在寅，商讨朝鲜问题，以及美韩自由贸易协定。不过据中新网转引美联社报道，白宫官员在简报会上表示，由于行程安排紧张，特朗普没有足够时间前往朝韩非军事区。他们提到，此前美国国务卿蒂勒森国防部长马蒂斯，以及副总统彭斯都已经访问过非军事区。自里根总统以来，除了老布什，历任美国总统都到访过朝韩非军事区。美国总统访问朝韩非军事区往往都会穿飞行夹克，并有军官陪同。不过，特朗普将造访位于韩国安亭里的美国陆军汉弗莱斯营（CampHumphreys）并发表演讲，以强调美韩之间的伙伴关系。路透社报道称，这里既是美军海外最大的基地，也被认为是坚固韩美同盟的象征。韩媒称，美国总统访问该基地属首次。另据美国媒体报道，10月8日，特朗普还将在韩国国会发表演说。美国媒体报道，参加简报会的白宫官员称，特朗普将在11月8号下午抵达北京。白宫官员还表示，双方将谈到的议题将聚焦在经济、双边关系，以及希望中国能建立不只是对美国公司，也包括对该区域的公司，一个基于市场经济原则的长期的公平贸易环境。参加东盟会议关注南海11月10日特朗普将前往越南岘港市参加亚太经合会并发表讲话。11月11号他将抵达河内，对越南进行国事访问。将会晤越南国家主席陈大光。11月12日，特朗普将前往菲律宾马尼拉，参加东盟50周年庆典，以及美国-东盟40周年庆祝活动。特朗普将首次与菲律宾总统杜特尔特举行会晤。白宫官员表示，特朗普可能会在会谈中向杜特尔特提及菲律宾正在进行的扫毒行动。不过，这名白宫官员表示，特朗普与杜特尔特此前的通话“融洽友好”。美国国务院负责东南亚事务的副助卿墨菲（PatrickMurphy）10月31日在华盛顿智库史汀生中心表示，特朗普在马尼拉参加东盟与东亚系列峰会期间将优先关注朝鲜、南海与反恐。墨菲将随同特朗普参加在马尼拉举行的一系列东盟与东亚峰会。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:17,76  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201605156_260616>
+None
+2017-11-01 16:32:17,92  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201606456_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,127  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52887525_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:17,199  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201606456_123753', '大学生点外卖留言“多加辣” 收到1袋新鲜辣椒', '2017-11-01 15:31', '原标题：大学生点外卖留言“多加辣”收到1袋新鲜辣椒　　云南网讯(记者熊强张彤)近日，云南一高校的周同学在点外卖时遭遇了一件哭笑不得的事，备注给商家的留言明明是“多点辣”，结果收到了一袋新鲜未经处理的小米辣，这怎么下口呢？云南网调查时发现，商家关注顾客的备注需求能成为“加分项”，但也不乏让送餐员帮忙带其它东西的奇葩顾客。周同学发朋友圈吐槽遭遇了耿直商家新鲜事点外卖备注多加点辣结果收到一袋新鲜未经处理的小米辣10月26日下午19点左右，云南师范大学大三的周同学打开外卖软件，在一家小吃店点了一份宣威小炒肉套饭，在付款时他习惯性备注了一句“多点辣，给点小米辣下饭，谢谢。”没想到收到外卖后打开一看，里面放着15个新鲜未经处理的红色小米辣，这让周同学哭笑不得，这简直无法下口。“难怪外卖员给我餐盒的时候问我是不是这种辣椒，我没听清就含糊答应了，没想到给了那么多新鲜小米辣，其实我想要的是那种腌制过的。”周同学说，自己经常点外卖，爱吃辣椒，基本每次都会备注上多加点辣椒，但送餐到达后口味并不是特别明显，这是第一次在这家饭店下单，就遇上这么耿直的商家，有种“受宠若惊”的感觉。10月30日，云南网按照周同学给的电话联系上了小吃店的店员，店员说基本上只要顾客有需求，他们都会满足，“其他辣椒不够辣，我们就放剁碎的小米辣。”当问道是否记得当日送的这份“加量未处理小米辣”时，他称时间过去太久自己不记得了，若没有剁碎，还送了那么多，一定不是自己家的外卖。惊不惊喜？意不意外？真。小米辣小调查商家关注顾客的备注需求能成为“加分项”云南网注意到，据《2016中国外卖O2O行业洞察报告》显示，在外卖备注留言中，排名前五位的分别是：多辣/加辣、不要香菜、不要辣、不要葱、不要姜。刚毕业的吴同学也是个无辣不欢的外卖常客。他说，每次结算时都会备注多放点辣椒，十次有九次都没什么区别，偶尔遇上一次店家单独给了一袋辣椒面，就会“很感动”。对于商家是否看备注，吴同学表示饭点都是比较繁忙的时段，若商家没理睬如“多加点香菜、辣椒，多双筷子”之类的请求，自己表示理解，不会给差评，只是体验感较差，“若商家注意到了，下次肯定还会点他家。”“这是商家应该做的，不能以繁忙为借口，如果我对某种食材过敏，误食问题就大了。”市民陈先生说，他点外卖的备注，大部分商家都会注意到，特别是“不加香菜”的请求。商家“河马河马肚肚大”提供的顾客备注内容图在云南网随机采访的几位外卖常客中，大部分顾客都会把“看备注”当成商家的加分项，商家的积极回应会是他们成为回头客的重要条件之一。在采访中，有商家表示，自己会注重客户的备注要求，但也不时会遇顾客让带超出经营范围东西的“奇葩”情况。曾在昆明市区开过面馆的网友“河马河马肚肚大”告诉说，对于顾客的备注信息，她不管多忙都会看且很注重。最常见的无非就是让多加佐料或让帮忙带东西，若不帮忙带超出营业范围的东西又怕对方给差评，“此前，有顾客备注留言称让带包烟去，然后我带了棒棒糖给他，并嘱咐少抽烟，对身体不好。”作者：熊强张彤返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:17,201  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201606456_123753>
+None
+2017-11-01 16:32:17,246  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52887525_0.shtml>
+None
+2017-11-01 16:32:17,261  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201606514_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,323  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201612803_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,370  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201606514_123753', '“共享”丛生：共享汽车出事故 租赁平台何责？', '2017-11-01 15:31', '原标题：“共享”丛生：共享汽车出事故租赁平台何责？　　共享汽车出事故，租赁平台何责？本报记者王学军10月8日，本市17岁男孩郑某在以伪造的证件租得一辆共享汽车发生事故后，弃车逃逸，后被抓捕归案。这一案件，与之前唐山发生的事故致人死亡事件，在“共享”丛生的当下，在法律层面上为我们敲响了警钟。共享汽车的相关法律问题天津击水律师事务所律师孙增近来，共享经济引发人们热议。“共享单车”自不用说，“共享雨伞”“共享充电宝”更是轮番成为舆论焦点。但是，与其他的共享经济不同，“共享汽车”共享的客体——汽车作为法律上的特殊动产有着与众不同之处。因此，共享汽车的一些特殊法律问题亟待解决。目前大家最为关心的一个问题是，当共享汽车发生交通事故时，责任如何认定？按照现行法律规定，机动车辆发生交通事故时，一般只由驾驶人承担事故责任，只有车辆本身存在问题时，车辆所有人才会承担相应责任。而对于普通用户而言，显然无法在取得租赁时查验清楚共享汽车是否存在问题。因此，如果一旦用户驾驶租赁车辆发生交通事故，车辆是否存在质量问题将会是双方诉讼举证的重点和难点。共享平台应承担无限连带责任蓟州区人民检察院检察官田彬“共享经济”已经成为时下潮流，很多城市路面上有了共享汽车。其实，共享汽车就等同于普通的汽车租赁，使用者与共享汽车提供者存在一种租赁关系，提供商要保证共享汽车基本状况良好、要有交强险和商业险，甚至可以设置面部识别，保证驾驶者是本人，最好安装一个录像设备防止有些人利用共享汽车从事违法活动。对于发生交通事故的情况，要第一时间通知共享汽车平台，按照普通汽车事故一样处理，按照交警部门认定的责任承担。当然共享汽车使用人也应该遵守使用约定和交通规则，对于交通违规也要承担罚款和扣分的责任。同时，共享汽车平台对使用人在交通事故中的赔偿，在保险赔偿的基础上，应该承担无限连带责任。平台在承担了无限连带责任后，可以对超出自己应承担赔偿的部分有权向使用人追偿。这样做，既可以借助共享汽车平台强大的资金保证事故当事人可以及时得到救助、赔偿，又可以给予平台一定的追偿权。共享汽车平台应严格审查天津财经大学法学院潘晓滨共享汽车在一定程度上缓解了资源闲置，但同时其背后的法律问题也备受关注。一方面，共享汽车平台作为服务提供者，作为租金的收益方，应当尽到对共享汽车审慎管理及维护保养的义务。因此，共享汽车出现交通肇事，首先要核实汽车是否具有质量问题，如果交通事故系由汽车质量所导致，要由汽车所有人承担主要的法律责任。另一方面，共享汽车使用平台也负有对客户资格严格审查的义务。使用共享汽车的第一步，用户需要在该平台上注册身份信息，而共享平台会要求申请人提供驾驶证、身份证、照片等信息，才能予以认证，与传统汽车租赁方式相比，共享汽车省去了面对面的人工审查，无形中放大了安全隐患。因此，在出现共享汽车交通肇事的情况下，在法律责任的划分中，还要看共享汽车平台是否事前已对驾驶人有无驾驶资格进行了严格审核，如果有确切证据证明共享平台没有尽到驾驶人资格审核责任，其也要承担相应的法律责任。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '共享汽车出事故，租赁平台何责？', '')
+2017-11-01 16:32:17,374  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201606514_123753>
+None
+2017-11-01 16:32:17,431  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201612803_123753', '铁总：积极开发站车Wi-Fi、高铁+共享汽车等新业务', '2017-11-01 15:59', '原标题：铁总：积极开发站车Wi-Fi、高铁+共享汽车等新业务　　铁总：推进铁路改革确保按期实现公司制改革目标经济日报-中国经济网北京11月1日讯10月27日，中国铁路总公司召开电视电话会议，对全路学习贯彻党的十九大精神进行动员部署。中国铁路总公司党组书记、总经理陆东福表示，要坚定不移地推进铁路改革，确保按期实现公司制改革目标。还要加快实施灵活的高铁价格策略，探索高铁快运新模式。陆东福要求，要以学习贯彻党的十九大精神为动力，毫不懈怠地抓好各项重点工作，全面完成今年铁路工作的各项任务目标，以优异成绩充分展示铁路系统贯彻落实十九大精神的新作为、新气象。一是牢固树立安全发展理念，确保运输安全持续稳定。要始终对高铁和客车安全保持如临深渊、如履薄冰的敬畏之心，完善“三位一体”安全保障体系，坚持“万无一失”的理念，把各项工作做扎实，要有针对性地抓好季节性安全，强化现场作业控制，落实施工安全、消防安全、环境安全措施，切实消除安全隐患；应用大数据技术，深入探索和把握高铁运营安全规律，提升高铁安全管理能力和管理水平。二是深化运输供给侧结构性改革，提高运输质量和服务质量。要坚持市场导向，增加客货产品有效供给，坚定不移巩固和扩大铁路运输市场份额；持续改进运输服务质量，进一步打造高铁服务品牌，提升客货运服务水平；加强运输市场营销，加快实施灵活的高铁价格策略，探索高铁快运新模式，增强铁路的市场竞争力；要确保重点物资运输，切实抓好电煤和粮食突击运输，保障经济社会发展需要。三是科学有序推进铁路建设，全面完成年度建设任务。要以年内投产项目和续建项目为重点，坚决完成全年投资任务；扎实做好铁路建设规划和项目前期工作，更好地为国家战略实施提供支撑；采取更严格更科学的质量安全监管措施，确保工程质量安全稳定。四是坚定不移地推进铁路改革，确保按期实现公司制改革目标。要按照时间节点，按期完成总公司、铁路局、总公司所属非运输企业改制任务，抓好新旧体制的平稳过渡和有序衔接，确保改革期间安全稳定、队伍稳定。五是充分发挥铁路资源资产优势，加大铁路市场化经营开发力度。要积极开展土地综合开发、站车Wi-Fi、“高铁+共享汽车”、金融保险等新兴业务，推进铁路传统非运输业务优化升级，提高国铁企业资本运作水平，通过市场化手段，把铁路资源转化为创效增收的资本和财富。六是加强企业经营管理，持续提升企业经营质量和效益。要强化全面预算管理，严格落实降本增效措施，加大预算执行状况的财务、审计检查监督力度，合理优化成本支出，巩固和扩大增运增收成果。七是以政治建设为统领，全面加强铁路党的建设。要始终把加强党的政治建设摆在首位，始终同以习近平同志为核心的党中央保持高度一致；从严从实抓好巡视整改措施落实，持之以恒抓好正风肃纪工作；强化公司制改革中的基层党组织建设，切实发挥党组织把方向、管大局、保落实作用；加强宣传思想和铁路文化建设工作，强化安全和工效挂钩考核，实现职工收入同步提高，持续改善职工生产生活条件，进一步凝聚起推进铁路改革发展的强大合力。陆东福强调，要以党的十九大精神为指针，认真思考谋划明年工作。要把铁路各项工作放在党和国家工作大局下思考定位，新时代铁路要有新作为。要紧密联系铁路工作实际，坚持目标和问题导向，把握好工作思路、重点任务目标和落实措施，在持续推进“强基达标、提质增效”的同时，更要突出改革和科技创新的引领作用，进一步激发企业发展的内生动力和市场活力。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '铁总：推进铁路改革 确保按期实现公司制改革目标', '')
+2017-11-01 16:32:17,434  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201612803_123753>
+None
+2017-11-01 16:32:17,455  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201446225_162522> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,550  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201465972_115479> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,560  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201446225_162522>
+None
+2017-11-01 16:32:17,652  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52888546_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:17,659  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201465972_115479>
+None
+2017-11-01 16:32:17,690  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201475406_403246> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,770  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52888546_0.shtml>
+None
+2017-11-01 16:32:17,794  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201475406_403246>
+None
+2017-11-01 16:32:17,822  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201519863_260616> (referer: http://news.sohu.com/)
+2017-11-01 16:32:17,929  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201519863_260616', '美军大举增兵西太：“早来的”F-35A，“泄密的”B-2', '2017-11-01 07:28', '原标题：美军大举增兵西太：“早来的”F-35A，“泄密的”B-2　　10月28日，美军宣布3艘航母将在时隔10年后聚首西太，展开大规模联合军演；10月30日，美媒披露美军1架B-2隐身战略轰炸机日前飞抵西太，具体行踪未加公布；10月30日，美军2架F-35A隐身战机于当晚飞抵日本，开启该型战机在西太地区部署的先河……美军在西太平洋的军事力量正以少见的速度聚集。而就在3天后的11月3日，特朗普将开始为期12天的首次亚洲之行，其间，他在夏威夷做两日停留后，将依次访问日本、韩国、中国、越南、菲律宾。“冷战后，美军在亚太地区还没有为配合总统出访进行如此大规模的造势。”军事专家王云飞对澎湃新闻（www.thepaper.cn）表示。F-35A赶在特朗普动身前到了首次在亚太战备部署的F-35A比此前报道来得要早一些。据日本共同社10月30日报道，经冲绳县有关方面确认，2架美国空军F-35A隐身战斗机飞抵冲绳县的驻日美军嘉手纳空军基地。据美军太平洋司令部消息，这是将在此部署的12架F-35A战机中的2架，也是美军在太平洋司令部辖区首次实战部署该型战机。此前，美国防务新闻网24日报道称，美国空军第34战斗机中队的300多名官兵和12架F-35A战斗机将于11月初前往亚太。但最新消息显示，这批F-35A战机的部署呈加速状态，有可能在美国总统特朗普开启首次亚太之行期间完成部署。“F-35A能使我们的战斗机编队拥有前所未有的全球精准打击能力”，太平洋空军司令部司令特伦斯·奥肖内西上将24日表示。在此之前，美国海军陆战队一个中队的16架F-35B短距垂直起降战机已从今年1月开始陆续部署至驻日美军岩国海军陆战队航空站，并在8月31日、9月18日和10月11日与美军在关岛部署的B-1B战略轰炸机一同飞抵朝鲜半岛上空，展开飞行演习和实弹轰炸演练。“（此举）与F-22A隐身战机之前首次部署日本的目的一样。”航空专家王亚男对澎湃新闻表示，“美国空军作为全球作战的军种，F-35A海外部署可以让战机和飞行员熟悉重要战略方向的空中态势。在潜在对手隐身战机还未普遍部署的情况下，F-35A从某种意义上就是一种战略威慑武器。”最神秘B-2A飞抵太平洋某基地不过，仅有F-35A，美军显然还嫌不够。据美国有线新闻网（CNN）10月30日报道，在特朗普东亚行之前，美国空军一架B-2A隐身战略轰炸机本周末被部署至太平洋某个基地。作为美军最具神秘色彩的战略核威慑力量之一，B-2A的动向此时由媒体放出，似乎别有深意。B-2A战略轰炸机与航母进行联合演习美国军方在声明中说，此次部署是为了“让轰炸机飞行员熟悉不同地域的空军基地和操作方式，使他们能够保持高度的戒备状态和熟练程度”，此次访问的目的是“对盟国履行承诺和加强地区安全。”B-2A是美国现役最先进和最昂贵的隐身战略轰炸机，可以携带B83、B61系列核炸弹。美国空军目前共装备了20架B-2A，其中有16架执行核打击任务。航空专家王亚男认为，B-2A此前曾多次部署关岛安德森空军基地，此次部署应该也是该基地。由于B-2A技术维护要求非常严格，无法长期部署安德森空军基地，因此应该仍像以往一样采用轮换部署的方式。值得注意的是，据全球防务网19日报道，在向关岛部署B-2A之前，10月18日晚上，美国空军3架B-2A隐性轰炸机与B-52轰炸机、E-3C预警机，以及KC-135、KC-10加油机在美国本土密苏里州杰弗森城附近靶场开展了利用精确制导武器实施对地攻击演习。B-2A在演习中罕见地用无线电明话实施通联，攻击目标是模拟某国军事指挥所。十年之后，三航母打击群再聚首但相比于美军航母的动作，美国空军的调度规模可谓小巫见大巫了。《日本时报》28日报道称，据其从美军方面获得的消息，3艘美军航母将于11月中旬与日本海上自卫队在西太平洋举行大规模联合军演——而上次美军3航母聚首西太还是在10年前。美国《海军时报》28日透露了更多信息。据报道，这3艘航母分别为常驻西太平洋的“里根号”、正从美国西海岸赶来的“罗斯福号”，以及从波斯湾东行的“尼米兹号”。这三个航母打击群规模庞大，由超过20000名水兵、200架军机，以及十余艘宙斯盾巡洋舰和驱逐舰组成。新美国安全研究中心高级研究员、前海军军官亨德里克斯对《海军时报》表示，对航母来说，“3”是一个具有魔力的数字。据悉，单艘航母一天可执行12至14小时的任务，之后必须进行甲板维护作业和人员休整。两艘航母虽可维持24小时值班，但只能持续6天；第七天时，其中一艘必须进行维护作业，另一艘的修整维护则在第八天进行。“当你有3艘航母时，理论上可以全年365天维持24小时的力量存在。”亨德里克斯说。“一般来说，美军1艘航母是为了展现力量存在，2艘航母是展现高强度威慑，3艘航母则意味着美军已处于动武边缘。”王云飞解释道。王云飞表示，美军此次演习很可能仍延续“海空一体战”的具体样式，即由航母与B-2A或其他型号战略轰炸机等合作展现对地对海打击能力。同时，一同参演的日本海上自卫队可能派出包括“出云号”在内的反潜力量，与美军协同展现威慑能力。不过，尽管《华盛顿观察报》27日报道称演习将在朝鲜半岛附近海域展开，但美军参谋长联席会议主席邓福德上周在韩国访问期间表示，航母群前来西太并非“特意针对朝鲜”，对盟国展现美国提供公共安全产品的决心与能力同样重要。“特朗普政府加强军事部署也是其既定政策的一部分。”中国国际战略研究基金会学术委员会主任张沱生对澎湃新闻表示，“加强军力部署既是为了施压促谈，也是为了以防万一。”崇尚军事力量的总统相比于曾因“废核”主张获得诺贝尔和平奖的前总统奥巴马，特朗普从角逐美国总统宝座伊始就对军事力量表现出格外的重视，并将前总统里根视为偶像，这引发了外界的担忧。在军力扩充方面，特朗普可谓“言出必行”。特朗普政府不仅推动近7000亿美元的军费预算获国会通过，而且不惜斥巨资为核武库进行更新换代，并着力推进海军舰队和陆军规模的扩大。目前，美国海军新一代“哥伦比亚”级战略核潜艇的建造被置于最为优先的地位，空军新型战略弹道导弹和巡航导弹项目也在持续推进。在其内阁成员中，以“疯狗”马蒂斯为代表的一批高级军官占据要职，为此前美国政府所罕见。美国“政治”新闻网25日刊文表示，特朗普过于倚重军人幕僚，使得人们对军队政治化的担忧升温，而特朗普“军人内阁”安全与外交政策的“军事化”也屡屡引外界不安。“在许多方面，特朗普都在效法里根（总统）。”张沱生不无担忧地表示，“但是，其所处的环境又与里根当年大相径庭，其战争边缘政策面临更多的不确定性和更高的风险。”“冷战后，美军在亚太地区还没有为配合总统出访进行如此大规模的造势。这既与地区热点问题息息相关，也凸显了特朗普个人性格当中对力量的渴望与崇拜。”军事专家王云飞感叹道。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:17,934  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201519863_260616>
+None
+2017-11-01 16:32:17,958  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201520275_600524> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,63  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201520275_600524>
+None
+2017-11-01 16:32:18,108  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201520691_162522> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,197  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201522334_591766> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,215  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201520691_162522', '印4米长“大肚”巨蟒反刍吐出整只大狗', '2017-11-01 07:36', '原标题：印4米长“大肚”巨蟒反刍吐出整只大狗　　【环球网综合报道】据英国《每日邮报》10月30日报道，近日，印度拉贾斯坦邦乌代布尔市Umarda村的村民们拍到了令人惊恐的一幕：一条身长13英尺(约4米)的“大肚”巨蟒在一片开阔的土地上反刍，竟吐出了一整只狗狗。当时，这条巨蟒正挺着滚圆的大肚子挣扎着靠近附近的一个牛棚，村民发现它后担心吃下去的食物太大会对其造成窒息的危险，于是便迅速将其带到一处开阔的平地上。当它被放置在空地上后，便开始反刍，接着便吐出了一整只大狗。非政府组织的主席索汉·辛格(SohanSinghSidodiya)说：“这条巨蟒一直在挣扎着移动。通常情况下，蟒蛇可以张开大嘴生吞下诸如整只山羊或者狗这样的动物，但它们无法将其消化，并有可能会因此窒息而亡。这种情况通常发生在蟒蛇挨饿好几天，或者即将进入冬眠时。我们不会强迫它们反刍，但在感受到人类的触摸后，它们会因害怕而自行开始反刍。”作者：冯煊返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:18,215  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201520691_162522>
+None
+2017-11-01 16:32:18,296  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52889188_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:18,303  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201522334_591766>
+None
+2017-11-01 16:32:18,319  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201526180_685257> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,414  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52889188_0.shtml>
+None
+2017-11-01 16:32:18,425  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201526180_685257>
+None
+2017-11-01 16:32:18,442  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201526858_119562> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,473  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://stock.stockstar.com/SS2017110100000630.shtml> (referer: http://news.baidu.com/finance)
+2017-11-01 16:32:18,549  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201526858_119562', '12岁男童跳桥自杀未遂 却压死22岁女驾驶', '2017-11-01 08:17', '原标题：12岁男童跳桥自杀未遂却压死22岁女驾驶　　原标题：12岁男童跳桥自杀未遂却压死22岁女驾驶东方网11月1日消息：一名12岁男孩周六（28日）在美国弗吉尼亚州从一座高架桥跳下，虽然身受重伤，但侥幸逃过死劫。不过，正巧开车路过的22岁女驾驶哈莉丝就没那么幸运了，由于男孩掉落在她车上，这未来自马里兰州的女性当场被压死。据美国全国广播公司网站报道，哈里斯现年22岁，事发当日她与男友正在车上行驶，男童摔下后压在驾驶座上方。邻坐的男友见状后，立即紧急煞车，并未受伤。救护人员抵达现场后，宣告哈里斯已经死亡。哈里斯的母亲称，女儿是弗吉尼亚州玛丽蒙特大学研究生，攻读的是临床咨询。她最近因为大学学术交流，才去了匈牙利首都布达佩斯一趟。由于这起意外发生，道路封闭了好几小时。目前并不清楚，男孩为何要自杀。根据美国疾病研究与控制中心统计，在1999-2015年间，美国有711名12岁孩童自杀，而其中有507名男孩，204名女孩。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:18,549  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201526858_119562>
+None
+2017-11-01 16:32:18,580  [scrapy.core.scraper] DEBUG: Scraped from <200 http://stock.stockstar.com/SS2017110100000630.shtml>
+None
+2017-11-01 16:32:18,606  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201528174_114731> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,696  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201530571_656058> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,711  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201528174_114731>
+None
+2017-11-01 16:32:18,760  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52889286_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:18,801  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201530571_656058>
+None
+2017-11-01 16:32:18,837  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201530685_115376> (referer: http://news.sohu.com/)
+2017-11-01 16:32:18,879  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52889286_0.shtml>
+None
+2017-11-01 16:32:18,942  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201530685_115376>
+None
+2017-11-01 16:32:18,979  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201531177_119562> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,85  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201531177_119562>
+None
+2017-11-01 16:32:19,111  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52890032_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:19,122  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201539242_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,221  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52890032_0.shtml>
+None
+2017-11-01 16:32:19,227  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201539242_123753>
+None
+2017-11-01 16:32:19,243  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201543546_685257> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,351  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201543546_685257>
+None
+2017-11-01 16:32:19,375  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201560053_255783> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,471  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201566192_420076> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,483  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201560053_255783', '警察蜀黍教育逆行女司机：我有心脏病 你跟我嚷嚷我就躺地上', '2017-11-01 11:08', '原标题：警察蜀黍教育逆行女司机：我有心脏病你跟我嚷嚷我就躺地上　　来源：看看新闻北京警察面对犟嘴的逆行女司机，法、理、情、哲学“四管齐下”。有理有力有面又不失风趣的执法，引起围观群众一片叫好甚至自发鼓掌。尤其是警察蜀黍的最后一句话亮了：“我告诉你我有心脏病，你跟我嚷嚷我就躺地下！”这段视频今天在网上引发关注，网友们纷纷为这位北京警察点赞：风趣的背后是对业务的熟悉、对法律的尊重、对人民的热爱。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:19,483  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201560053_255783>
+None
+2017-11-01 16:32:19,554  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201597357_601087> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,577  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201566192_420076', '美国28岁母亲带6岁女儿抢银行 逃跑时遭警方拦截', '2017-11-01 11:38', '原标题：美国28岁母亲带6岁女儿抢银行逃跑时遭警方拦截图为28岁的母亲黛安娜·玛里尼(DianaMarini)近日，美国纽约长岛一名28岁的年轻母亲带着6岁的女儿去抢劫银行，母女俩在逃跑时遭警方拦截，这名母亲被以抢劫罪和危害儿童福利罪名逮捕，女童则被亲属领回。据每日邮报消息，28岁的黛安娜·玛里尼(DianaMarini)在10月28日下午1时许进入位于纽约长岛的大通银行(Chasebank)，并且向柜台递出一张要求交出现金的抢劫信，而当时她的6岁女儿被她留在等候在外的出租车内。纽约州萨福克县(SuffolkCounty)警局介绍现场情况时称，在银行柜台行员将现金交给了玛里尼后，玛里尼从容离开银行，并乘坐了等候在外的出租车逃跑，但警方并没有透露玛里尼在银行抢了多少钱。接到报警后，警方很快拦停了正在逃离作案现场的出租车，并在车内发现了有一名6岁女童随行。这名母亲被警方以抢劫和危害儿童罪逮捕，6岁女童则在同日已被亲属领回。据了解，该地不久前曾出现过类似案件。萨福克县警局介绍，20岁的麦迪逊（MadisonMunoz）本月初曾带着10个月大的儿子前往布里奇汉普顿国家银行抢劫，当场被捕。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:19,578  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201566192_420076>
+None
+2017-11-01 16:32:19,646  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201597619_601087> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,660  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201597357_601087>
+None
+2017-11-01 16:32:19,751  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201597619_601087>
+None
+2017-11-01 16:32:19,786  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201598332_313745> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,820  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52890130_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:19,894  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201598332_313745', '全球最大商品交易所宣布四季度将推比特币期货交易', '2017-11-01 14:48', '原标题：全球最大商品交易所宣布四季度将推比特币期货交易图片来源：视觉中国文／姚瑶当地时间10月31日，美国芝加哥商品交易所（芝商所）宣布，计划在今年第四季度推出比特币期货交易，还有待监管的批准。消息过后，比特币价格突破6400美元，创历史新高。期货合约将以现金结算，芝商所CF比特币参考价（BRR）将作为每日参考定价，芝商所在2016年11月联合伦敦的交易平台CryptoFacilities发布了BRR，参考价在伦敦时间的每日下午四点公布，该参考定价集合了Bitstamp、GDAX、itBit和Kraken四个比特币交易平台交易流等数据来进行计算的。（Saluzzi社交平台发布的观点：“还记得金融危机中，那些包裹在次贷外面的CDO吗？套上一个包装并不会使它的风险减小。）Saluzzi表示，就像金融危机时债务抵押债券（CDO）中的次贷一般，比特币的价格很难确定，这将对市场带来实质性的风险。他的另一个担忧是，芝商所此举将有助于比特币合法化，并说服监管者对比特币ETF放行，如果散户参与进了比特币ETF市场，那么风险将很大。美国证监会此前否决了一只ETF，理由是比特币市场缺乏阻止市场操纵的监管机制。来源：21世纪经济报道原标题：全球最大商品交易所宣布四季度将推比特币期货交易作者：21世纪财经返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:19,894  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201598332_313745>
+None
+2017-11-01 16:32:19,911  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201035071_241223> (referer: http://news.sohu.com/)
+2017-11-01 16:32:19,937  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52890130_0.shtml>
+None
+2017-11-01 16:32:20,15  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201035071_241223>
+None
+2017-11-01 16:32:20,25  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201414976_585273> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,132  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201414976_585273>
+None
+2017-11-01 16:32:20,168  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201434942_488629> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,273  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201434942_488629>
+None
+2017-11-01 16:32:20,299  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201517445_557768> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,405  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201517445_557768>
+None
+2017-11-01 16:32:20,408  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201538763_461606> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,493  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201549410_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,517  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201538763_461606', '前瞻：辽宁战新疆郭少斗西热 青岛山西胜负难料', '2017-11-01 12:56', '原标题：前瞻：辽宁战新疆郭少斗西热青岛山西胜负难料（搜狐体育独家出品未经许可严禁转载）CBA常规赛次轮余下的五场比赛将在11月1日进行，重头戏当属新疆队与辽宁队的争夺，一支是卫冕冠军，一支是总冠军热门队伍，虽然新疆队阵容尚不完整，但本场比赛仍很有看头。另外，浙江德比战，青岛与山西队的交锋也值得期待。以下是对11月1日比赛的预测分析：□新疆[1胜0负]VS辽宁[1胜0负]新疆队与辽宁队历史交锋51次，新疆队战绩为34胜17负，占据上风。在上赛季季后赛半决赛中，新疆队以总比分4-1淘汰了辽宁队。卫冕冠军新疆队揭幕战胜吉林队，取得了新赛季开门红。从比赛来看，新疆队赢得并不轻松，上半场仅领先1分，下半场才凭整体优势拿下比赛。新疆队在周琦登陆NBA，布拉切忙于减肥的情况下，失去了内线防守大闸和策应、组织者，内线实力受到严重削弱，首战大外援肖恩-朗表现相当差，只得到6分、3个篮板。本土内线俞长栋得到20分、7个篮板，孙桐林拿到8分、14个篮板，发挥了很大的作用，在布拉切回归之前，俞长栋和孙桐林要担起内线的主要作用。与内线相比，新疆队的外线则好得多，亚当斯高砍38分、7次助攻，西热力江12分、6次助攻，外线对吉林队外援韦弗的限制做得也很好。辽宁队首轮客场胜四川队，全队有5人得分上双，其中大外援巴斯砍下30分、12个篮板，他的个人风格很适合辽宁队。从比赛来看，辽宁队赢得并不轻松，四川队大中锋哈达迪在场上时，辽宁队的进攻就显得畏首畏尾，不敢突，战术跑不出来，当哈达迪下场或者末节体能下降时，辽宁队才正常发挥，赢下了比赛。辽宁队后卫线实力雄厚，郭艾伦、赵继伟能攻能守能传能跑，轮番上阵限制四川队组织核心老将刘炜，战术很合理，也取得了效果。新疆与辽宁队是老对手，新赛季两队阵容上都有调整，相较来说，新疆队目前的问题更多，而辽宁队已补强了锋线，本轮若能正常发挥的话，辽宁队获胜的可能性更大一些。两队上赛季交锋记录[新疆队7战5胜2负]：常规赛：第11轮新疆112:107辽宁；第30轮辽宁106:100新疆1/2决赛:第1场新疆118:93辽宁；第2场新疆102:90辽宁；第3场辽宁108:116新疆第4场辽宁109:107新疆；第5场辽宁103:111新疆□浙江[1胜0负]VS广厦[1胜0负]浙江队与广厦队历史交锋24次，浙江队战绩为10胜14负。浙江队首轮客场险胜八一队，取得了新赛季开门红。是役，本土后卫吴前高砍32分，创了个人职业生涯单场得分新高，吴前不仅得分多，而且对节奏的控制以及组织都做得不错。吴前经过在国家队的历练迅速成长，浙江队有了这样的核心球员益处多多。从首战来看，浙江队双外援斯托克斯和威姆斯表现中规中矩，本土内线张大宇力量差，差不多被八一队的内线给完爆。没有内线的呼应，浙江队的比赛会很艰难。广厦队首轮主场胜福建队，全队有4人得分上双，其中，博洛西斯22分、12个篮板，能远投还能策应，他在防守端对王哲林的限制也做得很好，本土内线胡金秋12分、15个篮板。广厦队虽取得了胜利，但曝露出的问题也不容忽视，锋线的攻防明显比上赛季下降，外线投手集体手冷，赵岩昊和李京龙三分球合计12投仅2中，核心林志杰状态也不理想。本轮浙江德比战，两队的临场发挥很关键，哪队的外援和本土核心能爆发，哪队就能获得胜利。两队上赛季交锋记录[浙江队2战2负]：常规赛：第11轮浙江102:130广厦；第30轮广厦126:111浙江□青岛[1胜0负]VS山西[0胜1负]青岛队与山西队历史交锋20次，青岛队战绩为6胜14负，处于劣势。青岛队首轮主场胜天津队，取得了开门红。是役，双外援泰伦斯-琼斯和吉布森发挥了重要的作用，二人合力投中10个三分球，砍下了87分、25个篮板和5次助攻，而且这两位外援打球还不独，有机会就给外线做球，只是本土球员外线投篮不佳，三分球11投仅1中。青岛队首战大比分领先后，防守松懈，给了天津队很多空位三分机会，险遭逆转。山西队首轮客场惜败于山东队，全队有4人得分上双，其中本土球员邢志强砍下26分，创个人职业生涯单场得分新高。从比赛来看，山西队战术颇有针对性，二三联防限制了山东队的外线，五小阵容更是打花了山东队，全队在外线投中了19粒三分球。不过，也由于前面太拼，导致末节体能下降厉害，在詹宁斯下场时，山西队本土球员除了邢志强，其他人难以在进攻端提供火力支持，对丁彦雨航的防守做得也不够。本轮青岛队与山西队的交锋，是一场实力相当的较量，比赛可能会打得很焦灼，胜负难料。两队上赛季交锋记录[青岛队2战1胜1负]：常规赛：第17轮山西107:103青岛；第36轮青岛105:98山西□福建[0胜1负]VS江苏[1胜0负]福建队与江苏队历史交锋40次，福建队战绩为13胜27负，处于劣势。福建队首轮客场负于广厦队，是役，福建队有4人得分上双，其中小外援拉斯-史密斯高砍42分，送出6次助攻，更让人吃惊的是1米83的他居然抢到了16个篮板，比内线球员还多。从比赛来看，福建队的防守有所进步，但是进攻打得不好，本土球员除了王哲林、陈林坚外，赵泰隆和郭磊等其他本土球员在场上都缺乏存在感，基本都是打酱油的。大外援哈里斯还没有融入球队，首战表现不理想，只得到12分、6个篮板。假以时日，经过磨合的福建队应该会变得更好。江苏队首轮在主场击败北京队，全队有3人得分上双，小外援马尚-布鲁克斯35分，易立15分、11个篮板，侯逸凡10分。江苏队此战主要胜在双外援强于北京队的双外援，特别是马尚-布鲁克斯个人攻击力强，大外援拉杜利察则表现不佳，只得到9分、5个篮板。江苏队在胡雪峰退役的情况下，史鸿飞担任了本土传球组织者，首战来看，表现还可以。江苏队内线首战并未碰到真正的挑战，本轮客战福建队，除了王哲林以外，福建队的内线也没有好手。双方情况差不多，都是小外援攻击力强，大外援一般，本土球员的发挥将决定胜负。两队上赛季交锋记录[福建队2战1胜1负]：常规赛：第4轮江苏117:93福建；第23轮福建116:106江苏□吉林[0胜1负]VS八一[0胜1负]吉林队与八一队历史交锋44次，吉林队战绩为15胜29负，处于劣势。吉林队揭幕战客场负于卫冕冠军新疆队，东北虎上半场尚能紧紧咬住比分，但到了下半场特别是末节，体能下降，无力与对手相抗衡了。吉林队首战有4人得分上双，其中兰德里砍下35分、10个篮板，另一火箭旧将韦弗只得到17分、4个篮板，赛后据韩籍主帅金容植透露，韦弗前两天发热，身体不在最佳状态。特别值得一提的是国手崔晋铭，首发出战36分钟，13投0中，甚至上空篮都不进，没有得分，只有3个篮板、2次抢断、1次助攻和1次失误，表现非常糟糕，看来崔晋铭的膝伤还需要时间恢复。八一队常规赛首轮主场负于浙江队，虽然输掉了比赛，但八一队的表现相当好，可以说是虽败犹荣了。是役，全华班的八一队有6人得分上双，田宇翔、雷蒙和张祖铭三人外线10投7中，命中率非常高。从全场比赛来看，八一队整体节奏控制得很好，传导球也很流畅，但体能分配有点儿问题，导致最后2分钟出了问题。另外，还是老问题——篮板，篮板，篮板！八一全队只有11个篮板，比浙江队少了15个。从两队阵容上来看，吉林队主要强在双外援上，本土阵容不及八一队有冲劲儿，吉林队能否取得主场开门红，取决于韦弗和兰德里的发挥。两队上赛季交锋记录[吉林队2战2负]：常规赛：第12轮吉林102:109八一；第31轮八一97:87吉林（百合）（搜狐体育独家出品未经许可严禁转载）返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:20,522  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201538763_461606>
+None
+2017-11-01 16:32:20,601  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201549410_123753>
+None
+2017-11-01 16:32:20,604  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201562967_115124> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,709  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201562967_115124>
+None
+2017-11-01 16:32:20,742  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201566106_762805> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,847  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201566106_762805>
+None
+2017-11-01 16:32:20,857  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201567469_130887> (referer: http://news.sohu.com/)
+2017-11-01 16:32:20,962  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201567469_130887>
+None
+2017-11-01 16:32:20,965  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201575747_260616> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,69  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201575747_260616>
+None
+2017-11-01 16:32:21,94  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201582920_118392> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,161  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52893879_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:21,201  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201582920_118392', '国务院扶贫办：全国已有28个贫困县脱贫摘帽', '2017-11-01 13:20', '原标题：国务院扶贫办：全国已有28个贫困县脱贫摘帽今日，国务院扶贫办召开新闻发布会，公布全国第二批26个贫困县脱贫摘帽，这26个贫困县分别为：河北省望都县、海兴县、南皮县、江西省吉安县、河南省滑县，重庆市万州区、黔江区、丰都县、武隆区、秀山土家族苗族自治县，四川省南部县、广安区、贵州省赤水市，西藏自治区城关区、亚东县、卡若区、巴宜区、乃东区，青海省河南蒙古族自治县、同德县、都兰县，新疆维吾尔自治区巴里坤哈萨克自治县、民丰县、察布查尔锡伯自治县、托里县、青河县。此外，江西井冈山和河南兰考县作为第一批摘帽的贫困县已经于今年年初宣布脱贫，目前全国已有28个贫困县脱贫摘帽。为了保证脱真贫，真脱贫，贫困县退出程序严格，提出退出申请的贫困县需要通过初核、复核和评估专项检查，公示无异议才能退出，同时退出的标准也十分严格，国务院扶贫办考核评估司副司长杨炼介绍：中部地区贫困县贫困发生率降低到2%以下，西部地区贫困县贫困发生率降低到3%以下的，错退率低于2%，漏评率低于2%，群众认可度高于90%的，才可以退出，但是这四个指标都是单一否定指标，只要有一项指标不达标就不能退出。为了保证脱贫稳定性，贫困县脱贫后不脱政策，不脱帮扶，不脱措施，不脱投入，各项帮扶工作还会继续推进。（责编：朱轶琳）返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:21,201  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201582920_118392>
+None
+2017-11-01 16:32:21,204  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201584477_118622> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,280  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52893879_0.shtml>
+None
+2017-11-01 16:32:21,310  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201584477_118622>
+None
+2017-11-01 16:32:21,355  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201584610_118622> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,460  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201584610_118622>
+None
+2017-11-01 16:32:21,478  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201588390_118622> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,577  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201591268_115865> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,584  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201588390_118622>
+None
+2017-11-01 16:32:21,682  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201591268_115865>
+None
+2017-11-01 16:32:21,703  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201592479_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,800  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201593051_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:21,807  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201592479_123753>
+None
+2017-11-01 16:32:21,903  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52894076_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:21,913  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201593051_123753', '天津滨海新区加大养老事业投入 已运营养老机构22家', '2017-11-01 14:22', '原标题：天津滨海新区加大养老事业投入已运营养老机构22家日前，滨海新区第一老年养护院组织了多种活动，包括赏菊、品茗、书画欣赏等，让老人们欢度重阳节。本报记者王涛通讯员张雨田摄滨海新区加大养老事业投入运营养老机构22家总床位数近3000张将惠民措施普及到每位老人本报讯(记者王睿)尊老、爱老、敬老是中华民族的传统美德。近年来，滨海新区不断加大对养老事业的投入，这其中不仅包括硬件设施项目建设，还有对传统养老事业进行改革，努力扩大养老福利的覆盖面，将新区的惠民措施普及到每位老人。截至目前，新区已运营养老机构22家，其中，国办养老机构2家，公建企营1家，公建民营1家，社会办养老机构14家，农村敬老院4家，总床位数近3000张。养老事业创新改革刻不容缓今年3月25日，全市规模最大的养老机构滨海新区第一老年养护院投入运营，拥有床位近千张，目前收住自理和介助老人近百人，入住老人满意度达较高水平。据介绍，目前，第二老年养护院也已启动设施设备购置筹备工作，第三老年养护院进入主体施工阶段，这两家机构床位总和共达近千张。此外，汉沽老年大学已完成工程总量的90%，并已启动教学设备招采工作；汉沽社会福利院护理康复中心及汉沽河西托老所项目已完成初步设计审批，正在办理消防图审；中塘镇托老所项目也正在协调项目用地。采访中记者了解到，在社会老龄化的趋势下，养老机构建设及养老事业创新改革刻不容缓。按照民政部和市民政局的要求，区域内养老机构床位应达到每千名老人有35至40张床位，则基本能够满足老年人的入住需求。空港将建大型医养结合型营利性养老机构滨海新区民政局有关负责人介绍说，如今，传统的养老服务模式已经不能满足多元化的服务需求，新区一方面鼓励支持社会力量兴办养老机构，同时加快发展医养结合型的养老机构。今年上半年，共有3家新建民办养老机构获得设立许可，其中，爱心医养院、怡康老年养护院已开业运营，鑫诚养老院正在筹备运营，另有2家养老机构通过消防改造取得了消防许可。据透露，今年还审批通过在空港经济区筹建一所大型医养结合型营利性养老机构项目，该项目是新区首家营利性、面向高端人群，同时也是全市投资规模最大的养老机构。目前，滨海新区已启动国办养老机构“公建民营”机制改革调研。为稳妥实施汉沽社会福利院公建民营改革，滨海新区民政局领导率队多次与汉沽社会福利院召开专题会研究，并邀请北京大学医学院谢红教授领衔的养老服务系统化研究中心，实地调研汉沽社会福利院，共同研究国办养老机构“公建民营”改革的总体思路。将养老机构专业服务延伸至社区在“家”的传统文化影响下，目前选择社区养老的老人仍是大部分人群。如何将政府的各项福利政策延伸至社区？近年来，新区不断探索创新服务模式，让老人真正感受享受到新区的优厚民生福利。数据统计，今年上半年，新区为2.8万高龄老人发放健康关爱金2089.5万元，为2055名困难老人发放居家养老服务补贴501.5万元。为进一步探索农村困难老年人开展居家养老服务(护理)的内容、服务队伍建立和服务运营机制等，经前期多轮调研后，新区确定将胡家园街、茶淀街、中塘镇和小王庄镇作为首批试点街镇。经摸底评估，享受轻度、中度、重度照料等级的困难老人分别为554人、1188人、1220人，共计2962人，即将启动试点工作。此外，天同贻芳托老所、泰达国际养老院、枫叶正红养护院已申报并开展养老机构社区延伸服务(虚拟养老院)试点，将养老机构专业服务送至社区和老人家中。作者：王睿返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '滨海新区加大养老事业投入 运营养老机构22家 总床位数近3000张', '')
+2017-11-01 16:32:21,915  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201593051_123753>
+None
+2017-11-01 16:32:21,936  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201593459_561670> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,23  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52894076_0.shtml>
+None
+2017-11-01 16:32:22,40  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201593459_561670>
+None
+2017-11-01 16:32:22,67  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201597801_115124> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,176  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201597801_115124', '买房竟成洗钱通道？三部委强化房地产交易反洗钱监管', '2017-11-01 14:45', '原标题：买房竟成洗钱通道？三部委强化房地产交易反洗钱监管　　摘要：房地产行业洗钱呈隐蔽性强、渠道众多、转移资金迅速、被发现后容易逃脱法律制裁等特征，三部委的最新监管要求，能有效拦截房地产市场的“黑钱”吗？据财新报道，近几年上涨过快的房地产市场，有大量不明资金涌入，已经引起相关部门的警觉。9月30日，《国务院办公厅关于完善反洗钱、反恐怖融资、反逃税监管体制机制的意见》提出，适时扩大反洗钱和反恐怖融资监管范围。其中，央行将会同相关主管部门，共同研究房地产中介机构等的反洗钱制度规范。财新记者获悉，近期三部委已经联合部署加强对房地产交易全流程的反洗钱监管。财新记者了解到，住建部联合央行、银监会于9月末下发《关于规范购房融资和加强反洗钱工作的通知》（下称《通知》），对房地产开发商、中介、银行及交易环节均作出约束，要求加强房地产交易反洗钱工作的监督管理，但如何落地和效果如何，尚需观察。延伸阅读：房地产怎成洗钱重灾区？文/全景网《WE言堂》专栏特约周知客4月20日，央行营管部、北京市住建委以及银监会北京监管局三部门联合发布《关于房地产开发企业房地产经纪机构履行反洗钱义务的通知》，要求开发商和中介履行反洗钱义务。按照新规，开发商在售房、中介机构在二手房买卖经纪服务中，必须要求房屋交易当事人购房款以银行转账的方式支付，且必须使用出卖人和买受人的银行账户，通过预售资金、存量房交易资金监管专用账户进行资金支付。对当日单笔或累计交易人民币5万元以上（含5万元）的现金缴存报告大额交易。通知自2017年5月1日起试行。目前，房地产已经沦为洗钱重灾区。2010年，央行反洗钱课题组对中国近年来洗钱案例抽样调查显示，洗钱犯罪资金主要流入金融、房地产和投资领域，其中通过房地产领域洗钱的案例占35.9%，仅次于金融业。另一份官方数据显示，每年发生在中国境内的洗钱规模预计在3000亿~4000亿元之间。如按照上述比例计算，意味着每年房地产领域的洗钱规模约为1000-1400亿元。那么，不法分子是怎么利用房地产洗钱的呢？具体有如下三种典型方式：一、以他人名义投资房地产此种方法多见于公职人员，他们或以暗股、干股等方式加入已有的房地产公司；或利用自己所信任的人成立房地产公司，自己从幕后操纵。公司表面正常经营，开发新项目或跨地区投资开发，但暗地里抬高房价做假账，将大量黑钱变为公司合法收入。如果觉得国内不安全了，通过地下钱庄将资金向境外转移，自己也逃往国外。二、以炒房掩盖收入来源近年来，一二线城市房价暴涨，一些不法分子趁机以炒房成功名义掩盖其犯罪所得。1997年前后，曾绑架李嘉诚长子的香港“黑帮老大”张子强，就是多次指使手下在深圳等地购买商铺和住宅，并以商铺经营成功掩盖其犯罪所得。近年，在北上广深这类高房价一线城市，不乏一些用现金支付几百万、甚至上千万的购房现象，这些购房行为都存在洗钱嫌疑。三、以经营房地产掩盖贩毒贩毒集团的毒品交易需要大量资金，但如果没有合理的理由，巨额资金在银行账户的流动将引起怀疑。开一家房地产开发公司就是一个不错的掩护。这样毒资也得以洗白，之后再投入其他行业，形成巨大规模的集团式经营。利用多业经营，贩毒集团将账目做得复杂，很容易蒙混过关。为什么房地产会成为洗钱乐园？这一方面与行业特点有关，另一方面也因为国内法规体系不完善导致。房地产单价高，便于大额资金进入。近年来，房价节节上涨，投资房地产的保值、增值功能更加凸显。从行业规范角度来看，国内房地产行业信息不够透明，且房地产流转环节税种缺位，使得持有房产成本低。而在交易环节，国内过去对与交易所需的大额现金及账户不予监管、限制，也使借房地产洗钱行为更加有恃无恐。其实，利用房地产洗钱是个国际性的问题，世界各国是怎样遏制利用房地产洗钱的？英国《2003年反洗钱法规》规定，任何在英国境内从事房地产代理活动、提供房地产交易法律服务活动的主体必须履行客户身份识别、交易记录保存和嫌疑洗钱报告三项反洗钱义务。2001年欧盟发布的《反洗钱指令Ⅱ》，也将房地产代理商、为委托人的利益而代理从事金融交易或者房地产交易(包括资产评估)的公证人、法律服务人员、中介机构及其工作人员等，纳入负有防范洗钱犯罪义务的领域。加拿大联邦政府于2007年修订的《反洗钱与反恐怖融资法》C-25号法案规定，全国地产经纪人在接受房屋买家委托购房时必须确定交易双方的真实身份，若交易方为公司客户，则必须取得公司证明文件和法定代表人的信息，同时确定有无第三方参与交易；对没有委托经纪人代表以私人名义参与交易的第三方客户也应该进行客户身份识别，无法或不愿提供相关信息的客户将无法完成交易。美国全美房地产经纪人协会，则就洗钱给予区域风险（如恐怖主义盛行地区）、客户风险和交易风险等指引。要求房产经纪人必须对客户做尽职调查，遇到可疑交易情形，要向执法机构、联邦调查局、金融情报机构报告；并且要求，房地产交易中现金超过1万美元时要填报现金报告表。洗钱的背后，是各种违法犯罪活动的不当得利。这类资金大量进入楼市，不仅是掩盖了其不当来源，也对房地产经济和金融秩序造成干扰。在打击楼市泡沫的当下，北京要求房地产开发商和中介履行反洗钱义务，既能打击犯罪，也有利于维护楼市稳定，因此是好事。（本文作者田思，来自“周知客”）返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:22,177  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201597801_115124>
+None
+2017-11-01 16:32:22,204  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201599185_115124> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,226  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52894373_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:22,274  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201602430_461606> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,309  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201599185_115124>
+None
+2017-11-01 16:32:22,343  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52894373_0.shtml>
+None
+2017-11-01 16:32:22,381  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201602430_461606', '辽宁男篮客战新疆 赛前发布海报“王者荣耀”', '2017-11-01 15:09', '原标题：辽宁男篮客战新疆赛前发布海报“王者荣耀”（搜狐体育独家出品未经许可严禁转载）北京时间11月1日，CBA第二轮比赛继续进行，辽宁男篮客场对阵新疆队。赛前，辽宁男篮发布海报“王者荣耀”。并同时写道：“谁才是王者？”本赛季辽宁队携全运会夺冠之势，一心冲击CBA总冠军。在第二轮，他们就遇见上赛季冠军的获得者新疆队，可谓强强对话。在第一轮的比赛中，双方都取得胜利，不过，由于布拉切回美国疗伤，周琦远赴休斯顿，新疆队内线实力已经不如上个赛季。同时，“王者荣耀”正是现在十分流行的手机游戏，深受众多年轻人喜爱，很多球员也都在玩，不知在冠军的激励下，辽宁能否在客场带走胜利？（搜狐体育独家出品未经许可严禁转载）返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:22,381  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201602430_461606>
+None
+2017-11-01 16:32:22,412  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/200768133_99895282> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,491  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201549299_99967267> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,518  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/200768133_99895282>
+None
+2017-11-01 16:32:22,596  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201549299_99967267>
+None
+2017-11-01 16:32:22,632  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201582836_99967267> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,729  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201155085_109442> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,738  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201582836_99967267>
+None
+2017-11-01 16:32:22,766  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52895142_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:22,834  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201155085_109442>
+None
+2017-11-01 16:32:22,848  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201298998_114459> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,886  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('环球网', 'http://news.ifeng.com/a/20171101/52895142_0.shtml', '韩检方要求判处乐天集团总会长10年刑期 罚款17亿', '2017-11-01  15:33:46', '乐天集团总括会长辛格浩原标题：韩检方要求判处乐天集团总会长10年刑期罚款17亿【环球网综合报道】韩国检方1日要求判处涉嫌经营腐败的乐天集团总括会长辛格浩(95岁)10年有期徒刑，罚款3000亿韩元(约人民币17.8亿)。韩国《亚洲经济》11月1日报道称，辛格浩涉嫌向前乐天控股副会长辛东主一家支付非正常工资508亿韩元，将乐天电影院的事业权集中于第三任夫人徐美敬(57岁)及女儿辛英子(75岁)，造成公司损失778亿韩元。此前，检方还曾要求判处乐天集团会长辛东彬10年有期徒刑，1000亿韩元罚金;副会长辛东主5年有期徒刑，罚金125亿韩元。辛东彬曾表示自己无法逆父亲的心意行事，所犯所有罪行都是辛格浩总括会长指示的。', 'news.ifeng.com', 'from ifeng', '', '')
+2017-11-01 16:32:22,887  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52895142_0.shtml>
+None
+2017-11-01 16:32:22,951  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201407567_114977> (referer: http://news.sohu.com/)
+2017-11-01 16:32:22,958  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201298998_114459', '孩子从小要“抱抱”背后心理！今后对娃儿们好点吧', '2017-10-31 17:16', '原标题：孩子从小要“抱抱”背后心理！今后对娃儿们好点吧【幼儿说】原创，转载请标出处你有经常抱抱身边的孩子吗？我的“抱抱”小故事：某天，我在家里忙着收拾，刚才还睡得很香的二宝突然大哭起来。我递过去一个玩具，一个平时她最爱的玩具熊模型，她撇了一眼，没接，还是哭！我接着打开一个可爱的动画短视频，她平时看着会咯咯笑，但这次不灵了，并且哭得更起劲！我突然想到了什么，放下所有东西，弯腰把她抱起来，她的哭声立即停止，小脑袋靠在我的肩膀上，很快又睡着了。我不仅感叹：无论玩具和动画多么可爱，也不及妈妈一个“抱抱”。其实孩子们常常“使坏”，他们真正需要的，只是父母的一个“抱抱”啊。放下二宝，大宝回家了，他显得有点不高兴：“妈妈，我今天跟小朋友玩得不开心……”“来吧，抱抱！”我给了他一个有力的拥抱。没多久，大宝又开始眉开眼笑了。▷无论多少岁，孩子常常渴望父母的抱抱，为什么？1、抱抱=生存19世纪80年代美国孤儿院的婴儿死亡潮19世纪80年代，美国当时的育儿思想认为——成人与宝宝接触是“不卫生”的行为。孤儿院为了避免宝宝们生病，立志打造一个无菌的养育环境，规定护士们不能用肢体触碰婴儿，更不能拥抱婴儿，即使喂养婴儿也只能通过一些工具。结果孤儿院出现大批的婴儿死亡，死亡率从原本的32%一下子飙升至75%。医生们始终找不到确切原因。一直到20世纪30年代，美国心理学家们觉得孤儿院婴儿的大批死亡是因为缺乏“拥抱”，一位叫哈里·巴克温的儿科专家甚至指出，这些宝宝们患上了“原始情感饥渴症”，继而失去了生存下去的意志力。后来，在哈里·巴克温这些学者们的呼吁下，美国的孤儿院改变了养育环境，规定护士们不拥抱不能进房间，她们被要求一定要多抱抱婴儿，孤儿院的宝宝们慢慢恢复了活力。想想婴儿们的安全感“路径”便不难理解悲剧的原因：宝宝们在子宫内时是被羊水包围住的，母体的安全感“围墙”让宝宝感觉很温暖很舒服；当宝宝出生后，他们的安全感“围墙”突然消失了，他们嘶声力竭地啼哭表达自己的恐惧；如果这时妈妈熟悉的声音响起，抱抱宝宝、给宝宝哺乳，宝宝闻着妈妈的体味，感受到妈妈体肤的温暖，那么他们的安全感很快又回来了；倘若这些宝宝被妈妈抛弃，安全感“围墙”再次突然消失，宝宝们又一次掉进了安全感缺失的巨大恐惧中。那些“无菌环境”孤儿院的宝宝们，相当于又被护士们抛弃了一次，宝宝们心理上仅存的一点安全感最终被摧毁，他们被无助和恐惧吞噬，继而失去了求生的欲望。即使能存活下来的宝宝，也会表现得心如枯井。所以，婴儿期大人对宝宝的抱抱，意味着“生存”。2、抱抱=获得“能量”最近在小区听到一位二胎妈妈大谈“育儿经”，她说自己的大宝特别独立，她还把自己的“训练”方法告诉了别人：她家的二宝出生后，每次外出，2岁多的大宝都要抱。每要求一次，这位妈妈就让孩子伸出小手狠狠地抽打一次。“要打痛了才长记性”，这位妈妈说得眉飞色舞。看看她身边木讷的大孩子，我感觉很难过。这位妈妈不知道，孩子对父母拥抱的渴望，其实就是爱的确认。打得越狠，孩子内心对父母爱的渴求就会消失得越快。父母可以拒绝抱孩子，但是不仅不抱还要打，就太让人难过了。其实，即使孩子长大，也常常需要被爸妈抱抱才能保证内心安全感的。尤其是孩子们遭遇责骂、批评，或者在外遇到挫折和困难，孩子常常需要从父母处寻求爱的肯定，来重新搭建他们的自尊感和自信感，拥抱是爱的最真实的表达。所以，面对情绪不佳的孩子，爸妈的拥抱常常能给他们带来力量。有一次，我在路上遇见一对父女。小女孩3，4岁，可能因为犯了错误被爸爸责备了一句，孩子的表情显得很伤心，也不愿搭理爸爸。父女俩僵持了很久，小女孩突然抬头看着爸爸，一本认真地问：“爸爸，你爱我吗？”“爱呀，傻闺女，爸爸一直都爱你！”但小女孩显得有些犹豫，或许他觉得爸爸的回答不能让她满意。这时爸爸蹲下去把她抱在怀里，小女孩把头搭在爸爸肩膀上，发出如铃般的笑声，快乐瞬间表现得淋漓尽致。是呀，多美好的场景呀，孩子们常常需要爸妈的拥抱，来确认大人对自己的爱是否如从前，以此获得成长的力量。有人说，孩子最爱的行为是抱抱，最喜欢的话语是“过来我抱抱！”所以，请别忘记常常跟孩子说：“宝贝，过来我抱抱”，然后给Ta一个有力的拥抱吧！本文关键字：抱抱拥抱、爱与安全感、幼儿心理、家庭早教、养育孩子幼儿说，一枚亲子心理咨询师，专爱淘国外心理学家们有价值的育儿知识。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:22,962  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201298998_114459>
+None
+2017-11-01 16:32:23,39  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201451601_102771> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,55  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201407567_114977>
+None
+2017-11-01 16:32:23,116  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201456582_594404> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,145  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201451601_102771>
+None
+2017-11-01 16:32:23,172  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52895612_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:23,223  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201456582_594404>
+None
+2017-11-01 16:32:23,253  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201458179_543653> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,289  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('国际在线', 'http://news.ifeng.com/a/20171101/52895612_0.shtml', '美国家庭万圣节逼真布景吓坏邻居 警察救护车全出动', '2017-11-01  16:02:06', '原标题：万圣节逼真布景吓坏邻居警察救护车媒体全出动据智利Upsocl网站10月31日报道，为了营造万圣节的节日气氛，许多家庭精心布置房子，显示自己的独特的制造”惊悚“的才华。但不乏有些人“用力过猛”，产生了不小的误会——美国新泽西一户人家将自己的院子装扮成血淋淋的”车祸“现场。由于场景过于逼真，吓得邻居慌张报警，警察、医护人员和媒体都赶到现场，才发现这只是一个恶作剧。', 'news.ifeng.com', 'from ifeng', '', '王民和 PN141')
+2017-11-01 16:32:23,289  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52895612_0.shtml>
+None
+2017-11-01 16:32:23,359  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201458179_543653>
+None
+2017-11-01 16:32:23,371  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201473370_526374> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,479  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201473370_526374>
+None
+2017-11-01 16:32:23,502  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201507637_461392> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,597  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201507936_461392> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,607  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201507637_461392>
+None
+2017-11-01 16:32:23,703  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201507936_461392>
+None
+2017-11-01 16:32:23,749  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201508238_461392> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,855  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201508238_461392>
+None
+2017-11-01 16:32:23,885  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201545569_651089> (referer: http://news.sohu.com/)
+2017-11-01 16:32:23,965  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52895634_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:23,991  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201545569_651089>
+None
+2017-11-01 16:32:23,995  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201546552_415844> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,89  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('澎湃新闻网', 'http://news.ifeng.com/a/20171101/52895634_0.shtml', '大熊猫起源欧洲？浙大生科院教授：表述不严谨', '2017-11-01  16:05:01', '原标题：匈牙利现更古老化石，大熊猫起源欧洲？专家称表述不严谨近日，加拿大和法国科学家联合在《地球生物》期刊（Geobios）上发表文章称，他们在匈牙利发现了一组很可能是现代大熊猫祖先近亲的牙齿化石。经测算，这组牙齿化石形成于1000万年前的晚中新世，比中国在上世纪80年代在云南禄丰发现的800万年前的始熊猫化石还要早。《新科学家》学术期刊的官网10月27日报道称，这次发现佐证了大熊猫起源于欧洲，而非亚洲。此言一出，引发众多网友争论。有人表示不接受该结论，也有人认为争论起源并无意义。《新科学家》学术期刊官网报道截图“如果此次研究真实，那也只能说这是目前为止已经发现最早的熊猫化石，不能说它就是大熊猫的祖先，也并不意味着大熊猫就起源于欧洲。”10月31日，国家濒危野生动植物种质基因保护中心主任、浙江大学生命科学学院教授方盛国向澎湃新闻（www.thepaper.cn）称。“对于公众来讲，有情绪是正常的，但是科学研究应该是理性的：只要一天我们没有找到比他更早的化石，那只能暂且认为他们是最早的。我们只能与时俱进，慢慢完善。”方盛国表示。“更像是表亲”据《新科学家》报道，这组牙齿化石是在匈牙利的鲁多巴尼奥镇（Rudabanya）发现的。研究人员对比了牙齿化石与其他熊类的形状、结构以及磨损情况，发现这种类似大熊猫的熊也喜欢外表坚硬的植物，并将食物撕成条状而非嚼碎，进而磨损掉一些牙釉质。最终，科研团队判定，这组牙齿化石属于熊猫。由于这组牙齿化石属于一种从未发现过的熊猫，科研团队随后将其命名为Miomacipanonnicum。“Miomaci并不像现代大熊猫的直系祖先，更像是它们祖先的表亲，它们的血统很可能在中新世中期便分开了。”法国普瓦捷大学的研究人员路易·德·博尼斯称。有更古老的化石19世纪，国外科学家在中国发现了大熊猫，在世界范围内引发轰动。但至今，全球能在野外存活的大熊猫只生活在中国的四川、甘肃和陕西。大熊猫便一直被认为是“中国独有”的物种。不过，据《新科学家》报道，2012年，科学家在西班牙曾发现距今1160万年前大熊猫直系祖先的牙齿化石，暗示大熊猫的祖先起源于欧洲，而后迁徙至亚洲。因此，此次在匈牙利的发现再次成为“熊猫欧洲起源论”的佐证。然而，对于“熊猫欧洲起源论”，国家濒危野生动植物种质基因保护中心主任、浙江大学生命科学学院教授方盛国则坚定认为，“大熊猫起源于……”如此的表述从科学角度来看是不严谨、不合适的。“除非把地球上所有地方的化石都覆盖到，进行比较，才会有一个比较准确的判断。另外，值得注意的是，还有很多地方地质条件不适合保存化石，也许更早的信息无法被记录下来。所以如果此次研究真实，那也只能说这是目前为止已经发现最早的熊猫化石，不能说它就是大熊猫的祖先。假如以后又在其他地方发现年代更久远的化石，那就不对了。”“中新世晚期在欧洲和中国发现类似动物的化石，这一点非常有趣，这意味着这两个区域间有大量生物迁徙。”加拿大古人类学家大卫·贝根说。“大熊猫的直系祖先很可能就来自于亚洲，但是它们与欧洲更古老的种类也有联系，后者是它们灭绝的旁支。”法国科学家胡安·阿贝拉分析称。“大家都喜欢大熊猫，所以才争”方盛国认为，大家都喜欢大熊猫，所以才会去争，都希望它是在自己国家起源的，在科研方面也会有更大的动力去做研究。据他介绍，大熊猫在欧洲300多万年以前曾有分布。1万多年以前，越南、缅甸、老挝、泰国也有野外大熊猫，只不过随着气候变化、人类活动，野外大熊猫都完全消失。也就是说，大熊猫从前并不是中国独有的。对于此次国外科研团队的研究成果，方盛国表示尚未详细关注。不过，据他介绍，在此之前，一般认为大熊猫最早出现的时间是800万年前，是生活在中国云南禄丰的始熊猫。欧洲从前有一个熊猫的分支（葛氏郊熊猫），但是300多万年前就已经灭绝了。据方盛国介绍，距今800万年到300万年期间，始熊猫是比较普遍的，那个时候它们还是吃肉的，只有狐狸大小；距今240万年，时值第四纪大冰川期，气候急剧变化变得寒冷，大部分的熊猫都死去了，最后存活下来的是早期的小种大熊猫。为了适应环境，它们变成了开始吃竹子的熊猫，体型也比以前更大；距今70-50万年前，小种大熊猫才进化形成巴氏亚种大熊猫。随后，经过气候变化，大熊猫逐渐进化成现在的样子。', 'news.ifeng.com', 'from ifeng', '', '')
+2017-11-01 16:32:24,94  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52895634_0.shtml>
+None
+2017-11-01 16:32:24,101  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201546552_415844>
+None
+2017-11-01 16:32:24,119  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201552781_458722> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,223  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201552781_458722>
+None
+2017-11-01 16:32:24,258  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201554450_458722> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,365  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201554450_458722>
+None
+2017-11-01 16:32:24,396  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201562232_463728> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,502  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201562232_463728>
+None
+2017-11-01 16:32:24,531  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201564560_116917> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,608  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52895874_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:24,635  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201564560_116917>
+None
+2017-11-01 16:32:24,679  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201576227_102568> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,728  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('环球网', 'http://news.ifeng.com/a/20171101/52895874_0.shtml', '外交部回应纽约恐袭：暂未收到中国公民伤亡报告', '2017-11-01  16:24:35', '原标题：外交部回应纽约恐袭：对遇难者表哀悼暂未收到中国公民伤亡报告【环球网综合报道】2017年11月1日，中华人民共和国外交部发言人华春莹举行例行记者会。问：据报道，当地时间昨天下午，美国纽约曼哈顿突发一辆小型卡车冲撞路人及枪击事件，已造成8人死亡，11人受伤，肇事者已被警方拘捕。纽约市长德布拉西奥称，这是一起恐怖袭击事件。中方对此有何评论？是否有中国公民伤亡？答：我们对这起事件表示谴责，向遇难者表示哀悼，向伤者和遇难者家属表示慰问。我们注意到纽约市长将事件定性为恐怖袭击行径。恐怖主义是人类的公敌。中方反对一切形式的恐怖主义，主张国际社会加强反恐合作。事件发生后，中国外交部和驻纽约总领馆高度重视。中国驻纽约总领馆立即启动了应急机制，第一时间进行联系、了解和核实。我们迄未收到有中国公民伤亡的报告。我们将继续密切关注，及时为可能涉及到的中国公民提供协助。', 'news.ifeng.com', 'from ifeng', '', '陈思宇 PN121')
+2017-11-01 16:32:24,728  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52895874_0.shtml>
+None
+2017-11-01 16:32:24,784  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201576227_102568>
+None
+2017-11-01 16:32:24,797  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201580507_231683> (referer: http://news.sohu.com/)
+2017-11-01 16:32:24,905  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201580507_231683', '重大学生怒怼长安汽车人事：为什么重大学生工资比其他985低？', '2017-11-01 13:01', '原标题：重大学生怒怼长安汽车人事：为什么重大学生工资比其他985低？继美团、小米，苏宁之后，长安汽车也因校招歧视陷入舆论风波。10月31日，长安汽车在重庆大学校招宣讲时，遭场下学生反问：为什么我们重大学生工资比其他985高校低？是不是看不起我们重大？现场一位长安人事部副总回答称“我是川大的，我们川大比重大分高，所以工资高也是应该的”。知乎网友在网上针对此事提出了问题：还有知乎网友将两个学校的分数线找了出来。知乎网友@stringchild：首先，麻烦这位hr麻烦先确认一下您所面对的2014级(2018届)学生们当年高考的两所学校的分数线，以重庆为例。可以看到14年两校的平均分相差无几，同时在川大医学类专业拉高平均分的情况和重大优势的车辆，材料，机械等传统工科专业收分相对较高的情况下，从何而来川大比重大分数高，当然在这里并没有引战的意思。目前，长安汽车的微博并没有对此处做出声明。小编认为，面对一些企业招聘中名校“偏好”的现实，个人既不能盲目自信，也不必妄自菲薄，更不能执迷不悟，没必要“在一棵树上吊死”，企业不在大小，大有大的难处，小有小的优势，各有利弊，关键在于岗位和个人是否合适，能否充分发挥自己的长处和能力。找工作是一件需要天时地利人和的事情，学历在很多情况下确实是进入好企业的敲门砖，如果你没有好的学历，并不代表你永远没有机会进入大厂。在工作中积累经验，不断积累自己的能力，才是你最好的选择。本文素材来源：知乎如有侵权请联系删除校园司令整合报道返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:24,905  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201580507_231683>
+None
+2017-11-01 16:32:24,931  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/1/list.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:24,938  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201585516_111830> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,37  [scrapy_redis.dupefilter] DEBUG: Filtered duplicate request <GET http://news.ifeng.com/a/20171101/52890032_0.shtml> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2017-11-01 16:32:25,61  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201585516_111830', '考研英语 | 现阶段该如何提升写作水平?送上小技巧', '2017-11-01 13:38', '原标题：考研英语|现阶段该如何提升写作水平?送上小技巧临近研究生考试，对于英语这一科，大部分考生都将注意力集中到写作这一题型。就如同初高中考试一样，考生总是在最后的时间里才开始备考写作，但时间上来说还是很充足的，因为与其他题型相比，写作提分快且高。那么，在这段时间里，考生又应该如何准备写作，要注意那些问题以及如何快速提高写作水平，这都会在本文中一一呈现。1关注时事热点研究生考试时选拔人才的考试，而国家在进行选拔的时候，会考虑到很多因素，其中之一就是考生对时事热点的关注，以及他们对这些热点的看法、态度和解决办法等。举例来说就有2010年中国吉利收购了沃尔沃，而同年日本的丰田车出现问题，在全球范围内召回产品，所以在2011年考研英语二的写作中的图表就体现了这一点，但是如果不知道这一时事热点，可能就没有办法想到日系品牌销售量下降的原因，因为人们一般都认为日系的汽车质量很好，其销售量应该远远高于其他国家的品牌。由此可以得出，在备考英语写作时，还应该关注国家时事热点，并针对这些社会现象多加思考和练习，形成自己的模板。2小作文复习重点小作文考查的是考生信件书写和通知书写的能力，所以考生的复习有三个最为重要的点。首先，考生应该熟悉信件和通知的格式，因为格式正确是小作文得分的基础标准，而格式主要有开头结尾内容三个部分，开头即是对收信人的称呼，而这又分为知道收信人是谁和不知道收信人的情况，比如前一种情况可以有“DearJohn，”、“DearFriend，”、“DearManager，”等，而后者则为“ToWhomItMayConcern，”和“DearSirorMadam，”结尾则要注意署名是否还是“LiMing”，而整篇文章还要注意是要用缩进式还是齐头式，而且选择一种格式就要从一而终，从头到尾都是一种格式。其次，因为书信和通知的正式性，考生还应注意积累委婉的语言表达，比如在提建议或咨询时，可以说“itwouldbeappreciatedif...”，而在结尾部分可以用“Ihopethatyouwillfind...useful”等委婉语。此外，考生还应注意的是书信和通知的信息点，也就是考生书写的内容有哪些，整体而言，这些书信分为三段，都包括“写信目的、具体内容、表示期待”，而考生要去记忆的就是不同书信的具体信息点。3大作文复习重点短文写作考查的重点是语言的多样性，所以考生应注意在备考时积累词汇和句型，在写作时对同一个意思的词，要用不同的词汇进行替换，而不能重复使用一个词汇，而且为了让文章水平提高，应该运用包含不同语法点的句型。除语言积累外，考生的另一难点是写作思路，对于此点，考生应该多联系实际，可以从个人的角度出发考虑问题的原因和影响，从而能够得出写作的思路。拿2011年的真题为例，考虑国产品牌市场份额上升的原因，从个人的角度出发就是，为什么“我”会买国产品牌的汽车，联系到生活实际就是，国产品牌的汽车价格低廉、质量较好、个人的爱国意识。而这些原因又都是各个不同方面的努力所成的，价格低廉是因为有政府的支持，质量好是因为企业提高了技术水平、爱国意识是因为大众传媒的作用，由此就可以对从个人角度考虑出来的原因进行扩充，从而让句子更为丰富。而这也是适用于英语一的短文写作的。总结以上，考生在备考时，要谨记以上的重点，注意写作每一段的分步骤内容，并且最终形成自己的写作模板。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:25,66  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201585516_111830>
+None
+2017-11-01 16:32:25,86  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201589316_490529> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,192  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201589316_490529>
+None
+2017-11-01 16:32:25,233  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201591551_114607> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,341  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201591551_114607', '发脾气的孩子，像情绪失控的小怪兽？我说是家长一手促成的！', '2017-11-01 14:13', '原标题：发脾气的孩子，像情绪失控的小怪兽？我说是家长一手促成的！今天是西方的万圣节，不过这股西洋风早已吹进了我们的各个幼儿园、早教培训机构，亮起的南瓜灯、硕大的黑蜘蛛、血腥的丧尸装扮、让人脊背发凉的幽灵音乐……在这个举国“闹鬼”的日子里，袋鼠麻麻不想去说万圣节之类的话题，反而更想聊聊我们家长和孩子们心里住的那只“小怪兽”。前几天，袋鼠麻麻收到一条留言：“我女儿最近脾气越来越大：妹妹拿了她的娃娃，她竟然把娃娃抢过来扔在地上，还动手打了妹妹，我还没说她几句，她就开始哭了，最后两个孩子哭作一团，我也很烦躁，但是我好像找不到什么有效的解决方式……”这位妈妈遇到的事情不是个例，在我们生活中很常见，下面这些话你一定听说过：“你听妈妈跟你说，这是公共场合，你这么大声哭的话，会影响到别人的。”“好了好了，宝宝你看那边有你最爱吃的披萨，你要吃哪种口味的呢？”“别哭了，你烦不烦人啊？再哭妈妈不管你了啊！”……即使没有亲身经历过，我们也都见过这种场面。在很多家长看来，发脾气的孩子就如同情绪失控的小怪兽，时刻挑战着大人的底线。而这些司空见惯的“止哭”方式，其实隐含着很多问题。情绪都是有导火线的，即使是新生儿，也不会在需求都得到妥善满足的情况下，无端哭泣。也许你会说，有的时候即使满足了孩子的要求，他也同样会哭得停不下来。但是你也许忽视了几个问题：满足的态度是诚恳的吗？我有没有表现出对孩子各种需求的嫌弃呢？孩子是不是因为感受到了我的坏情绪才平复不了心情呢？如果没有帮孩子梳理好让他情绪失控、泣不成声的前因后果，久而久之，就会把孩子扯向两个极端：一种会变得越来越害怕冲突。会“察言观色”，为了不受到别人的指摘，宁愿选择压抑自己内心真实的想法，也要回避和别人的分歧，回避争议，逃避问题。另一种则变成了遇到难题后没办法冷静下来分析解决，控制不了自己的情绪，只顾肆无忌惮把责任全部推卸给别人，不守规矩没有责任感的“熊孩子”。俗话说“三岁看大，七岁看老”。我们如何处理自己的情绪，与小时候父母给我们怎样的教育方式密切相关。抚养教育孩子可谓是父母的再一次成长，观察孩子正在经历的，何尝不是童年的自己百思不得解的问题呢？孩子来到这个世界，在习得了各项技能的同时，也习得了生气、愤怒、自卑、害怕、受挫等各种情绪，这些都是父母不可忽视的部分，是爸爸妈妈们需要学习的功课之一。教育的目的，比起知识的薪火相传，教会孩子更好的管理情绪，拥有解决问题的能力，恐怕是更重要的部分。时值万圣节，是时候将孩子心中的“小怪兽”拉出来遛遛了！1.梳理情绪的第一步：道歉应该说道歉不是解决问题的方式，但却可以让冒火的情绪瞬间降温。在和孩子僵持不下的时候，爸爸妈妈首先要平复自己的心情，认真地和孩子轻声道歉，建立平等的关系。当你放低姿态和孩子沟通时，孩子对大人的抵触情绪也会缓和。父母真诚的歉意，孩子一定能接收到，不仅不会有嫌弃或者庆幸抓到父母软肋的痛快，相反会从父母诚恳的态度中，受到宽宥的熏陶。2.找对情绪失控原因，解决问题孩子情绪失控除了因为渴了、饿了、困了、身体不舒服等生理原因，大部分其实都来源于无知：没有经历过，不知道怎么解决；或者即使经历过，也没有学会怎么解决。可能你会说，孩子每次只要遇到某种情况就变得不可理喻，臣妾真的是做不到心平气和啊～但是，你能确定每次遇到这种情况时，已经帮孩子梳理好情绪并解决问题了吗？下面这些话，看看你对孩子说没说过：只要你不哭，我就抱抱你；（这是交换）你再哭我就不喜欢你了，再也不理你了；（这是威胁）只要你别哭了，什么都听你的……（这是妥协）上面这三种回答显然都是在“无脑”状态下顺嘴一说的。千万不要小看这些话，如果你常常这么说，那么积淀下来的错误处理经验，会让孩子一直处在这种气急败坏的情绪怪圈里，无法自拔。其实这时，最正确的方法，应该是先理解孩子，再帮孩子解决问题。比如，你可以告诉孩子，下次你再想发脾气的时候，可以先闭上眼睛做个深呼吸，或者从1数到10等等。让孩子先放松下来，把注意力集中到需要解决的问题上，再和孩子一起想办法解决。3.角色模仿，感同身受在对待孩子的情绪问题上，千万不要抱着哄好一次算一次的侥幸心理，平时就应该有针对性的培养孩子控制情绪的能力。大部分宝宝在6个月～3岁之间，会对父母或者其他经常照顾自己的人产生强烈的依恋关系，这种情况通常会在2岁左右达到顶峰，表现出来就是在强烈的拥有感和失去感之间无缝切换。不过这也是每个宝宝走向“独立”的必经阶段。这段时期，如果父母对宝宝的生理需求和情绪需求都积极响应，那么宝宝就会认为自己所处的环境是安全可信赖的，乐于与人相处，充满自信。反之，孩子就会感到焦虑、无所适从，对世界和周围人物的认知都会倾向于拒绝，不愿意与人交往。需要注意的是，尽管我们提倡尽可能满足孩子的情感诉求，但也要避免过度呵护孩子，比如孩子指什么，你马上就对孩子的需求做出应答，那么久而久之孩子就懒得张嘴说话了，所以满足的“度”要拿捏得准。亚伯拉罕·林肯说过一句话，“生活并允许对方生活”。这句话，不仅适合作为成年人的人生信条，同样也适用于教育孩子。孩子和大人一样，只是孩子更加敏感，在一些感性最容易崩溃的节点上，家长唯一要做的，就是堵住自己情绪的缺口，给孩子一个调整的时间，只要陪孩子一起平复心情，共同等待理性回归的时刻，就够了。桃李不言，下自成蹊。下次，试试在孩子内心的小怪兽失控的时候，多一些耐心，多一分同理心，用温和的爱浇灌孩子心里幼嫩的情绪管理种子，那么讲真：你离拥有一个从小情商在线、三观皆正的孩子，只有5分钟耐心的距离！转眼间马上就要立冬了，在没供暖的这段间隙，“蹬被子”、“踢被子”一时也成了妈妈们的热搜关键词。关注医知袋鼠微信公众号(jjkkczj)，发送关键字——踢被子，看看大家是如何对付宝宝踢被子问题、预防感冒的吧~返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:25,343  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201591551_114607>
+None
+2017-11-01 16:32:25,370  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201596556_163092> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,477  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201596556_163092', '宝宝肚子圆鼓鼓有时还响，别慌，逐一排查诊断！', '2017-11-01 14:40', '原标题：宝宝肚子圆鼓鼓有时还响，别慌，逐一排查诊断！问：宝宝的肚子看起来总是圆鼓鼓的，随便吃点东西，似乎就变得更大了，是宝宝吃太多？那宝宝小肚子有时还会咕噜咕噜的响，这是宝宝没吃饱、饿了，还是有肠胀气呢？我家宝宝现在已经七个月了，因为要上班，现在是配方粉喂养，可是最近肚子老是咕噜咕噜响，应该不是肠绞痛了吧？这到底是怎么回事？七个月配方粉喂养儿，肚子总咕咕叫。另外，孩子排气是否多？大便是否稀呢？答：宝宝肠胀气的主要原因与胃肠发育不成熟有关，也与乳糖不耐受、牛奶过敏等有关。乳糖不耐受会出现排气多，大便次数多且性状稀，大便不会带血，可影响生长。多于接触配方奶初期起即出现，无乳糖配方可纠正。牛奶过敏也会出现腹胀，腹泻，排气多，大便可带血，同时多有皮疹现象，深度水解配方可纠正。为尽可能提高婴儿对配方粉的耐受，有些婴儿配方粉变成部分水解；有的添加了益生菌。有报道益生菌有减轻婴儿肠胀气的作用。下面，我们将就婴幼儿肚子圆滚滚的原因，在不同阶段出现的腹胀，排气多情况时，需要如何区别护理，宝宝肚子咕噜咕噜叫是是否正常等相关知识，进行了补充回答！宝宝肚子看起来圆滚滚的正常吗？很多小宝宝的肚子看起都是圆鼓鼓的，像个小西瓜一样，这到底是正常的发育现象，还是宝宝哪里不舒服呢？①不少专家都说，宝宝的小肚子，看起来圆鼓鼓的，是因为他的腹壁肌肉尚未发育成熟，却要容纳和成人同样多的内脏器官。另外，我们还是要留意宝宝是否出现了腹胀。我们平常说的新生儿，尤其是早产儿腹胀，大多是“生理性腹胀”。原因：新生儿腹壁肌肉薄，张力低下，且消化道产气较多所致。特点：宝宝在喂奶后常可见到轻度或较明显的腹部隆起，有时还有溢乳，但宝宝安静，腹部柔软，摸不到肿块，排便正常，生长发育良好。注意：如果宝宝腹胀并伴有呕吐，生长缓慢等的现象，最好咨询专业医生。②6个月内的宝宝出现胀气应先考虑肠绞痛，6个月以上孩子出现腹胀哭闹，应考虑食物不耐受或过敏！6个月內的婴儿容易出现肠绞痛，它表现为频繁哭闹、睡眠不安、排便费力、吐奶和排气多、胀气、大便偏稀等。家长应尽可能保持婴儿处于舒服的体位，并协助孩子顺利排便。另外，益生菌、西甲硅油都可部分缓解症状，每日服用三次西甲硅油，每次10滴，持续2～3周，喂奶前直接滴入口腔即可。如果6个月以上的婴儿还会出现阵发性哭闹、睡眠不安或突然惊醒、腹胀并排气多等类似婴儿肠绞痛的现象时，应该首先考虑食物不耐受或过敏，比如乳糖不耐受、牛奶蛋白过敏等。遇到这种情况，应该留取孩子大便进行3～5次“大便常规+潜血”检查，带着检查结果咨询儿科医生，请医生做出诊断。图片内容非常重要，点击查阅或收藏！那宝宝肚子咕噜咕噜叫，是饿了，还是有其他疾病？其实，在医学上，肚子里发出的咕噜咕噜叫的响声被称为“肠鸣音”，是因为肠道在动的时候发出的声音。正常情况下，肠鸣音大约每分钟4~5次，其频率、声响和音调变异较大，餐后频繁而明显，休息时稀疏而微弱。正常情况下肚子叫得太响、太轻或消失，都有可能是肠道生病了。这也是为什么医生会在孩子肚子上进行听诊的原因。如果肚子老是咕噜咕噜叫，还伴有腹部不舒服、消化不良、影响宝宝生长发育等情况时，应该到医院去做相关诊治，大多可能是胃肠病和食物不耐受。如何应对乳糖不耐受腹泻？乳糖不耐受的宝宝，喝母乳和牛奶都会发生腹泻症状，而牛奶过敏的宝宝，改喝母乳后，症状可很快得到改善。长期缺乏乳糖，宝宝会产生营养不良及免疫力降低的状况，所以出现乳糖不耐受情况要积极应对。1.少量多次宝宝乳糖不耐受，并不代表一点含有乳糖的食物都不能吃了，即使是严重乳糖不耐受患儿，一次摄入125~250毫升以内的乳制品，也不会出现不适症状。妈妈可采取少量多次的方式喂养，每次50毫升以内，一天多次，记录好日摄入量，也能保证宝宝营养充足。2.与其他食物一起吃宝宝如果空腹喝奶，乳糖不耐受的症状会加重，最好同时吃点其他食物。添加辅食后，可在宝宝喝奶时同时吃少量肉类、脂肪类食物，能减轻乳糖不耐受症状。当然，过于油腻的食物会诱发腹泻，应当注意。1岁以上的宝宝，可用豆浆、酸奶等代替乳制品。3.适量添加乳糖酶对于乳糖不耐受比较严重的宝宝，上述方法若没有效果，可以在宝宝喝奶前或喝奶时加服乳糖酶，建议喂养前15分钟添加乳糖酶（效果最佳），母乳喂养儿也是如此。4.更改“腹泻配方奶粉”非常严重的乳糖不耐受宝宝，可以改用低乳糖或无乳糖的“腹泻配方奶”，以缓解腹泻症状。通常1~3周左右，宝宝胃肠道中的乳糖酶就能恢复，乳糖不耐受导致的腹泻症状也随之消失。腹泻奶粉不宜长期食用，应尽早换回普通奶粉，否则会影响宝宝发育，更换过程要循序渐进。提醒：如果宝宝持续腹泻，且每日超过4~6次，身高体重增长放缓，应及时求助医生，调整宝宝饮食。如果腹泻伴有脱水症状，则应及时就医。内部问题解决了，自然也不能忽视外部护理。广告其实每次便便后，宝宝的臀部护理，纸尿裤的选择真的很关键的，下面，科长要给大家推荐的是平台宝爸妈有口皆碑的日医PiPiHAPPi（屁屁嗨皮）纸尿裤。有些宝爸妈反应说，虽然购买过程稍稍复杂，但是价格和质量却绝对都是杠杠滴，也算是值了。作为一个在日本运营着100多家保育园的老牌企业来说，他们最看重的是产品质量，严格的销售途径管理，避免了假冒伪劣的出现。让宝宝更舒服，爸妈更放心！只是说说当然不够，大家最关心的还是一起来看看吧～吸水性瞬间吸收，强力锁水。▲吸水试验动态图尿湿显示▲宝宝排尿后，黄色变为蓝色透气性PiPiHAPPi纸尿裤在日医官网及事业子公司统一销售，无需担心假货问题。而且输入代码WS2RT4E2QW即可享受66折优惠！而且，订购纸尿裤会发送确认邮件至您的邮箱当中，邮件当中更有大礼，千万不要错过哦！！双11期间回购，更享超低价、折上折优惠信息就在邮件内容里面。喜欢的宝妈们可以试试：//www.jisuapp.cn/produce/id-3458126-a-2.html返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:25,481  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201596556_163092>
+None
+2017-11-01 16:32:25,517  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/198702500_99981660> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,622  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/198702500_99981660>
+None
+2017-11-01 16:32:25,649  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201584352_99910418> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,758  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201584352_99910418', '家长群为何变“马屁群”？怎样才是微信家长群的正确打开方式？', '2017-11-01 12:43', '原标题：家长群为何变“马屁群”？怎样才是微信家长群的正确打开方式？“排队”点赞、“盖楼”感谢老师、“炫耀式”晒娃、微商代购……原本作为老师发布通知、与家长沟通平台的ＱＱ、微信家长群，已经悄然变味，每天动辄几百上千条信息，让不少家长和老师直呼“受不了”。家长群意义何在？究竟如何引导规范？“中国网事”记者对此进行了调查。“一言不合”家长被老师“踢出”微信群近日，一篇题为“我今天被踢出微信家长群，过程令我很气愤，该怎么办？”的帖子在网上引起热议。该家长表示，就因为自己在家长群里质疑老师收礼、不公正地将身材矮小的儿子常年安排在教室最后一排，而被班主任“踢”出家长群。无独有偶，今年９月，浙江宁波一名家长因为反对由学生家长承担班级的装修费用，也被群主“踢出”家长群。对此，网友意见分为三派：“家长有理派”认为学校里不公平待遇很普遍，家长被“踢”正是老师心虚的表现；“老师有理派”提出，该家长发言影响班级融洽和老师威信，老师为什么不能“怼”；“各打一板派”则认为家长群已成小社会，家长老师都需自我约束。在ＱＱ、微信等社交平台上建立的家长群，原本是为了方便老师通报学生在校情况、发布作业通知。四川成都市杜甫草堂小学一位林姓语文老师告诉记者，ＱＱ群是班级官方群，平时主要用来发布作业、传送文件、发布通知，微信群是家长自建，可以畅所欲言随意聊天。但是，这种信息化交流平台在实际操作中有时会出现跑偏变味的情形。有的家长在群内晒娃求关注；有的家长过度示好老师点赞刷屏；有的老师随时在群内点评作业公布成绩，让家长“压力山大”。而一些老师对家长群也颇有怨言，表示有的家长不分时间、事无巨细地“＠”自己，感觉随时都在上班。于是，家长群到底该建不该建，也在网上形成了热烈讨论。一位中学老师认为，家长群并非必须要建，“以前没有微信群、ＱＱ群，我们不也一样教孩子吗？不也教得挺好吗？现在这种沟通平台，不一定能提高学生的成绩，却给了家长偷懒的机会。”而坚持认为有必要建群的家长则表示，家长群有助于及时了解孩子的学习状况。于是，在建与不建之间，家长群“野蛮生长”，遭遇各种问题和争议也就在所难免了。一位小学老师说：“我认为这位同行‘踢家长出群’确实欠妥。涉及老师行为评价、孩子成绩好坏的话题，确实不宜在群里讲，但有些家长就是要大大咧咧地讲出来。遇到这种情况，我们一般都是私下里打电话沟通好，将家长‘踢出群’只会加剧家校矛盾。”家长群变“马屁群”讨论无禁区“不翻脸”都难“排队”点赞、“盖楼”谢师、集赞、微商代购……不少家长表示，现在的一些家长群的确变了味道。江苏淮安市民葛雨表示，每次打开家长群都有超过500条未读消息，其中只有1条通知，剩下499条都是“好的，老师我收到了”“老师费心了”“非常感谢您”诸如此类应答。江苏南京市民崔宣说，可以理解老师的辛苦，但这类表达过多，就变得毫无“营养”，不仅让其他家长感到压力，更容易错过重要通知信息。为减少接收过多无效信息，部分家长也想办法建新群组，如有老师的、没老师的家长群，有老师、没老师的家委会群，等等。但是，这些高度相似的群同时存在，让家长每每想在群里发点内容都得小心翼翼，生怕点错了带来不必要的麻烦。有家长总结为：有老师在的家长群，大家讲话要得体，要体现家庭教育水平；老师发通知后，回复要及时，体现出对学校事务的热情参与。家长群变“名利场”确实让人不堪其扰，但更令很多家长恐惧和老师崩溃的则是毫无禁区的话题讨论。一些家长和老师接受采访时认为，像学生在校表现、考试成绩单、年级排名、课堂教学方式、老师行为作风等问题，都涉及隐私，较为敏感，最好点对点交流，不适合群议。“老师‘踢人’固然有错，但是否因为收了其他家长好处才导致这位家长的孩子坐在教室最后一排的墙角，还需要经过有关方面调查。这位家长在群里公开讨论这件事，在众目睽睽之下，这位老师也被逼到了墙角，不崩溃都难。”一名网友分析道。有家长希望老师在群里对自己的孩子能多些表扬、少些批评和尽量避免公布成绩排名。一些老师对此表示很委屈：“有时候是统一在群里发布了通知，家长直接在群里询问孩子情况，我们也就直接回答了。而且我们也希望能够得到家长的信任与支持，更好地开展班级管理工作。”规范引导还家长群“正能量”记者采访发现，不少受访者都希望对家长群的管理进行适当的规范。一位小学语文老师说，她为自己的班级群设置了三条规定：不在群里聊与孩子学习无关的事；除特别重要通知，家长不用回复“收到”；家长不能在群里吵架。“此后，群里安静多了，还有家长专门电话感谢。”中国教育学会学术委员纪大海认为，运用现代信息手段加强家校沟通，是时代的必然选择。在使用微信群、ＱＱ群时，要坚守底线原则，家长言行要文明，教师言行要遵守师德师风、遵循教育规律，这样才能让群里清清爽爽，共同打造平等、民主、和谐的网络交流空间。为加强家校在线交流平台规范运营，近日，上海市静安区教育局发布《静安区中小学班级微信群建设公约》，要求在班级微信群不得发布任何形式的广告、拉票、集赞等行为，杜绝批评学生、公布成绩与排名。今年４月，上海浦东新区也发布类似规定，要求班级微信群仅用于学校发布通知、家长信息沟通交流，不得发布与家校联系无关的消息、言论，不做聊天使用。今年９月，国家互联网信息办公室下发《互联网群组信息服务管理规定》，提出“谁建群谁负责”“谁管理谁负责”等规范管理要求。成都市武侯区龙祥路小学相关负责人表示，学校为此专门出台了家校ＱＱ群、微信群管理措施，明确建群宗旨和使用公约，对教师、家长在群内发言内容提出要求。同时建立分级分层管理、应对制度，分校级家委会ＱＱ群和班级家长ＱＱ群、微信群，通过对发布内容的分级分层管理，确保家长诉求得到及时回应。成都市教育局相关负责人认为，网络沟通工具并不是万能的，它只承担了家校沟通的部分功能，使用好这一全新沟通平台的关键，是要加强师德师风建设，提升教师尤其是班主任队伍的专业化水平和媒介素养能力，使这一新技术能成为促进家庭教育和学校教育有效衔接的纽带，完善家校共同育人机制，为学生健康成长营造良好环境。福利*在文末留言区留言参与互动，留言内容获点赞数高者即可获得本期送书《预见》，祝好运！来源：新华社记者：邱冰清吴晓颖叶含勇主编：孙爱东编辑：魏春宇返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '“排队”点赞、“盖楼”感谢老师、“炫耀式”晒娃、微商代购……', '')
+2017-11-01 16:32:25,760  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201584352_99910418>
+None
+2017-11-01 16:32:25,794  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201587460_99942605> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,900  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201587460_99942605>
+None
+2017-11-01 16:32:25,915  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201521016_100303> (referer: http://news.sohu.com/)
+2017-11-01 16:32:25,989  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201550241_114760> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,20  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201521016_100303>
+None
+2017-11-01 16:32:26,65  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171026/52804709_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:26,95  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201550241_114760>
+None
+2017-11-01 16:32:26,124  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201554201_580328> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,175  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171026/52804709_0.shtml>
+None
+2017-11-01 16:32:26,228  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201554201_580328>
+None
+2017-11-01 16:32:26,265  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201557131_117277> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,374  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201557131_117277', '一大波骷髅正向你靠近……在墨西哥城游走，感受亡灵节', '2017-11-01 10:53', '原标题：一大波骷髅正向你靠近……在墨西哥城游走，感受亡灵节对于纽约、巴黎或是伦敦人来说，死亡是他们轻易不会提起的，因为这个词会灼伤他们的嘴唇。然而墨西哥人却常把死亡挂在嘴边，他们调侃死亡、与死亡同寝、庆祝死亡。死亡是墨西哥人最钟爱的玩具之一，是他们永恒的爱。——墨西哥著名作家奥克塔维奥・帕斯亡灵节的起源3000多年前，在西班牙人还未来到美洲大陆的时候，生活在墨西哥的阿兹特克印第安人并不惧怕死亡。在他们看来，死亡不是生命的终点，而是亡魂去往新世界，开启新生活的起点。他们欢欣雀跃地庆祝一个生命周期的结束，期待下一个生命周期的到来。他们在每年7月底8月初的收获季节，都要花费整整一个月的时间对亡灵进行祭祀。印第安土著人认为，只有善待亡灵，那些逝去的先人才会保佑活着的人身体健康、平安喜乐，来年庄稼才会有好收成。因此，在亡灵节期间，人们更应该隆重地庆祝生者与亡魂一年一度的团圆。16世纪早期，西班牙殖民者征服阿兹特克帝国占领了现在的墨西哥区域，传教士强行推广西方的包括“诸圣节”和“万灵日”在内的节日。土著印第安人于两难中寻求解决方案，逐渐将西班牙文化融入自己的传统文化中，慢慢形成了如今的墨西哥亡灵节——融合了“诸圣节”、亡灵节以及印第安文化中陪葬及祭祀的风俗——日期定在11月1日和11月2日。在这两天，墨西哥人以欢乐祭奠亡灵，甚至通宵达旦地载歌载舞，意在与死去的亲人一起狂欢。2008年，墨西哥亡灵节已被联合国教科文组织纳入了世界非物质文化遗产名单。按照民间风俗，11月1日是幼灵节，用来怀念逝去的孩童，2日是成灵节，用来缅怀已故的成年人。节日期间，不论男女老幼，都会准备好玉米、面包、南瓜及故人生前爱吃的饮料与食品，去往墓地或祭坛进行祭祀活动。此外，人们还会在墓地通往城镇的路上洒满黄色的花瓣，让亡灵循迹归来；夜晚在家门口点亮南瓜灯笼，为亡灵指引回家路。祭祀完毕后，大家都纷纷装扮起来，穿上印有白骨的衣服，化上逼真的骷髅妆，上街狂欢，庆祝亡灵归来。亡灵节的骷髅文化正因为对死亡有不一样的理解，墨西哥人对亡灵不再惧怕，骷髅经过他们的精心改造也不再是惊悚的存在，而是充满生机、幽默诙谐的象征。精致的骷髅玩偶有的浅浅微笑，有的开怀大笑，有的唱着歌，有的跳着舞……它们就像活着的人，神情丰富多变，有自己的喜怒哀乐。Catrina是谁？▲墨西哥经典的骷髅扮相并非传统印第安人，而是这个名叫Catrina（意为上流人士，尤指女性）的头戴华丽宽檐帽的“欧洲”贵妇。18世纪末，亡灵节一度成为上层阶级崇洋媚外、攀比财富的好时机，他们仿照欧洲流行风格制作极尽奢华的服饰，在墓地间“走秀”。画家何塞·瓜达卢佩·波萨达（JoseGuadalupePosada）以嘲讽的方式创造了Catrina——一位被打扮成奢华法式风格的印第安妇女的骷髅，借此调侃一味模仿欧洲上流社会的墨西哥上层阶级：不论你活着的时候是什么样子的，是穷是富，是美是丑，死后都一样，最终会化作一堆白骨。如今的亡灵节期间，成千上万的女性用彩妆把脸画成骷髅头，再穿上华服模仿成Catrina走上街头，大方展示自己骷髅妆的别样美丽。此外，商家借此机会推出各种骷髅主题的玩偶、食物、服装和纪念品。此时走进墨西哥，就彷佛走进了一个骷髅的国度。面包？还是骷髅？▲亡灵节期间的面包怎么能与平时的一样呢？亡灵们艰难跋涉回到人间，想必又饥又渴，难道就用平时的普通面包来迎接他们么？当然不是，墨西哥人为了迎接死亡的亲人，特制了亡灵面包（PandeMuerto）。亡灵面包的经典款是简单的甜面包，上面会装饰有茴香种子和面团做的骨头，有时还会加入橙花水或橙皮调味。在经典款的基础上，亡灵面包还有很多丰富的“变形”，其不同的形状代表着不同的含义：有的做成“人”形；有的“人”形不带“腿”，表示“鬼魂”；有的做成螺旋状，象征生命的轮回；而做成千层饼形状，并带有装饰的面包，意在欢迎亡灵的归来。能在做面包的时候也融入骷髅的元素，恐怕也只有对死亡如此豁达的墨西哥人才可以做到吧。除了亡灵面包，商铺还会推出骷髅饼干、骷髅巧克力以及骷髅糖果等产品，这些无一例外都是美味，暗示死亡只是生命的一部分，它并不是苦涩的，而是甜的，我们都应以积极乐观的态度迎接死亡。跟着“亡灵”游走墨西哥城建立在曾经的阿兹特克首都遗迹之上的墨西哥城，不论是过去还是现在，始终是墨西哥的中心。亡灵节时，这里也是墨西哥最热闹的城市之一，期间全城狂欢，城中随处可见精心搭建的祭台，还有或是政府组织、或是民间自发的游行活动。柱基广场▲柱基广场（Zócalo，意思为基座）是墨西哥城的心脏，在19世纪之前这里还叫宪法广场（PlazadelaConstitución）。因曾计划在这里建造一座巨大的独立纪念碑，可惜计划搁浅，如今这里只留下纪念碑的基座，于是当地居民开始称之为柱基广场。地面开阔的中心广场充斥着各式各样当地的活动：从民众抗议的讨论场所，到免费户外溜冰场，从音乐会会场到新奇艺术展馆……当然，也少不了亡灵节狂欢这项重要的活动。设立祭坛是亡灵节一个很重要的仪式。在柱基广场的各个政府机构的大门厅里，都可以看到精心摆设的祭坛和展示品。祭坛除了会摆放水（给亡灵解渴）、食物、全家福和蜡烛之外，还会展出一些独具墨西哥特色的物品，如彩绘骷髅、亡灵面包、骷髅糖果及万寿菊等。此外，各家祭坛上，还会摆上玉米羹、面包、南瓜等食物，并用巧克力制成骷髅，写上已故亲人的名字，以此纪念亡灵，并让亡灵在长途跋涉之后享用一顿美味。亡灵节期间的柱基广场无疑是热闹的，整个广场被装饰得焕然一新，挂满了亡灵节特色的剪纸，堆满了黄色的万寿菊，你还可以看到宽阔的广场和周围的大街小巷里“挤”满了各式各样的骷髅雕塑，他们个个身着盛装，造型千奇百怪，如果忽略他们的骷髅脸，这就是一幅生动鲜活的图画，道出了百味人间的酸甜苦辣——有身着礼服步入婚姻殿堂的新娘新郎，有热情澎湃的乐队，有花枝招展的名媛……大神庙▲市中心柱基广场的东北角是墨西哥城的大神庙（TemploMayor）。一只雄鹰衔着一条蛇站在仙人掌上是阿兹特克人的象征，在神庙所在的位置是这一象征的确切地点。在他们的信仰中，这就是世界的中心。神庙遗址内有大神庙博物馆，其中展示了特诺奇蒂特兰（古代神庙）的模型和遗址出土的古器物。你还可以看到镇馆之宝——1978年发现的阿兹特克女神Coyolxauhqui浮雕，浮雕的面部有金铃，但被表现为斩首的形态。在大神庙，或许你可以更加深入地了解阿兹特克的文明，从而对亡灵节的起源、发展有更进一步的认识。改革大道▲改革大道（Reforma）是墨西哥最壮观的街道，是哈布斯堡王朝的马克西米连皇帝出资，铺设了这条连接查普特佩克山城堡和市中心的林荫大道。此外，这条大道上还有很多年代不同、风格不同的雕塑。其中，最高的是独立纪念碑——这是墨西哥城的象征。名为ElAndel的镀金胜利女像坐落在45米高的柱子上，是1910年为纪念独立百年而雕刻的。亡灵节的游行队伍从独立纪念碑出发，沿着改革大道前行，最后抵达柱基广场。大道两旁摆满了万寿菊，还有巨大无比的手绘骷髅头——骷髅头上绘着的不同图案展示着不同的场景和主题。此外，许多化妆师沿着改革大道从清早就开始摆摊，为成千上万参加游走的市民画墨西哥风的脸谱。当然，出镜率最高的脸谱，非Catrina脸谱莫属。从白天到夜晚，你会看到无数形态各异的Catrina在街道上载歌载舞。墓地▲亡灵节的另一个重要的活动是扫墓——与我们传统意义的扫墓是不尽相同的，墨西哥人的扫墓几乎就是一个狂欢的活动。人们成群结伴地前往墓地，他们手持鲜花，带着食物和水，一路唱着歌走到墓地，去拜访已经一年没有“见面”的亡亲。人们怀着愉快的心情为亡灵清扫墓地，插好祭祀鲜花，再摆上食物和水。之后，大家就在欢快的音乐下载歌载舞，像极了一次野餐聚会。亡灵节期间，墨西哥的墓地非常漂亮，还会有一些与众不同的墓碑——有汽车轮胎做的墓碑，有彩色房子般的墓碑，甚至还拿手推独轮车当做墓碑。想要体验墨西哥特有的墓地文化，不妨跟着当地人去参加一次亡灵节扫墓吧，在墓碑前点燃蜡烛、摆好祭品之后，他们会请你吃一块亡灵面包，再喝一杯热茶暖身子。在11月1日教堂的钟敲响12次之后，燃放鞭炮庆祝，欢迎小孩的亡灵归来；11月2日教堂的钟敲响12次之后，宣布送走孩童，迎来成人。米斯基镇▲位于首都墨西哥城东南的米斯基镇迄今已有900多年的历史，得名于掌管生命和死亡的印第安女神米斯科，因传统的亡灵节而闻名，素有"鬼村"之称。1403年，此镇成为当地印第安人的祭祀中心。如今，米斯基镇仍然保存着为死者"沐浴"的风俗——人们把亲人的尸骨从坟墓里挖掘出来，擦洗干净后再重新入殓。11月1日晚到2日凌晨，镇上的墓地里到处闪烁着烛光，鲜花随处可见。土著印第安人信奉水神，因此人们会在夜半时分装扮成亡灵，划着小船在湖里穿梭——船上载着空棺材，抵达岸边之后，他们再抬着棺材从岸边走到墓地里。这样，意味着从水里带来了生命。国立人类学博物馆▲国立人类学博物馆坐落在查普特佩克公园内，底层主要介绍了西班牙统治之前的墨西哥，上层则用来展示当今墨西哥人的生活状况及当代文化。此外，博物馆的建筑风格也可以充分体现出墨西哥人民的文化内涵——它将传统印第安风格和现代艺术风格融为一体，大门口的墙壁以巨石砌成，上面雕有各种图案及人像。博物馆门口有一座用整块大石雕成的“雨神”，院内还立有一根图腾大铜柱，柱上的巨大蘑菇顶蓄水之后会像“雨泉”一般向四周喷洒，用以代表古代墨西哥人对水的渴望，以及水在墨西哥文化中的重要作用。除了展示历史、文化等，人类学博物馆中还会展出大量的骷髅头，有些头骨用玉石片包裹成一张彩色的脸，有些骷髅头设计在太阳的光芒中，象征光明与黑暗，还有吐着舌头的骷髅头。你可以在这里看到很多有骷髅装饰的石雕，或许会更加理解墨西哥人对死亡的态度——死亡不是悲伤与终结，而是生命的必然周期，是新生活的开始。旅行须知入境航班目前，北京暂时没有直飞墨西哥城的航班，需要中转，上海有直飞墨西哥城的航班，票价7200元起。除了乘坐飞机，也可以从美国、危地马拉或伯利兹乘坐巴士进入墨西哥。境内交通墨西哥境内有60多个城市提供定期航班，乘坐飞机进行长线旅行是个不错的选择。此外，墨西哥有着完善的公路网，如果距离较近或者预算有限，可以考虑乘坐长途汽车旅行。签证办理1.持普通护照的中国公民赴墨西哥旅行需准备好签证材料之后，在Mexitel系统预约面谈时间，并在预约时间递交材料、采集生物信息。2.持有效两次或多次加拿大、美国、英国、日本签证，可免签进入墨西哥。3.进入墨西哥时，必须填写一份简明的文件，也就是墨西哥旅行许可卡，并由墨西哥移民局盖章生效，需要一直保存到离境。撰文|连钰编辑|肖男图片|来自网络·今·日·互·动·旅行中，你遇到过哪些当地节日？更/多/精/彩/猜/你/喜/欢/《旅行省钱攻略|LonelyPlanet2018十大最物有所值目的地，湖南上榜！》《旅行老司机榜单|LonelyPlanet2018十大最佳旅行地区》《拼颜值，靠实力，这些城市上榜LonelyPlanet年度TOP10！》《权威解释|2018LonelyPlanet十大最佳旅行国家“获奖理由”》《LonelyPlanet年度榜单揭晓：2018，和孤独星球一起踏上旅程》返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:26,378  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201557131_117277>
+None
+2017-11-01 16:32:26,410  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171026/52800690_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:26,412  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201577393_114778> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,504  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201582400_115978> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,523  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171026/52800690_0.shtml>
+None
+2017-11-01 16:32:26,529  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201577393_114778>
+None
+2017-11-01 16:32:26,578  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171027/52813163_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:26,595  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201582735_106789> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,609  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201582400_115978>
+None
+2017-11-01 16:32:26,688  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171027/52813163_0.shtml>
+None
+2017-11-01 16:32:26,701  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201582735_106789>
+None
+2017-11-01 16:32:26,719  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201583765_114778> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,732  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52892980_0.shtml> (referer: http://www.ifeng.com/)
+2017-11-01 16:32:26,824  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201583765_114778>
+None
+2017-11-01 16:32:26,848  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52892980_0.shtml>
+None
+2017-11-01 16:32:26,850  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201589186_123753> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,912  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201590606_114819> (referer: http://news.sohu.com/)
+2017-11-01 16:32:26,959  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201589186_123753', '发改委：“双11”前后将发布电子商务领域黑名单', '2017-11-01 14:02', '原标题：发改委：“双11”前后将发布电子商务领域黑名单　　中新网11月1日电据国家发改委网站消息，国家发改委财政金融司副司长陈洪宛昨日介绍，在“双11”前后，将发布电子商务领域黑名单，发布《电子商务领域信用风险“双11”预警报告》和《“双11”网络促销活动期间消费信用评估报告》。资料图：山西太原，一辆满载包裹的快递配送车。张云摄国家发展改革委昨日召开“双11”电子商务领域信用建设工作媒体通气会。发改委财政金融司副司长陈洪宛介绍，发改委作为社会信用体系建设部际联席会议牵头单位之一，协调有关部门大力推进社会信用体系建设取得积极成效。表现在以下方面：一是全面实施统一社会信用代码制度，截至目前，存量代码转换率达99.5%，存量证照换发率达71.5%。二是建立全国信用信息共享平台，归集信用信息量107亿条，联通42个部门和所有省区市。三是开通“信用中国”网站，向社会公众提供“一站式”的查询服务，公开各类信息1.4亿多条，日访问量突破600万人次。四是会同有关部门签署失信联合惩戒合作备忘录24个、守信联合激励合作备忘录4个，制定联合奖惩措施100多项，初步建立起“发起—响应—反馈”机制。五是《信用法》《公共信用信息管理条例》《统一社会信用代码管理办法》立法研究全面展开，地方信用立法工作加速推进，现已有陕西、湖北、上海、河北、浙江等5省市出台了地方性法规。六是组建全国社会信用标准技术委员会，已出台相关国家标准26个。他指出，当前，国家发改委正会同中央网信办、工信部、公安部、商务部、工商总局、质检总局、海关总署等部门开展电子商务领域严重失信问题专项治理工作。在“双11”前后，将发布电子商务领域黑名单，发布《电子商务领域信用风险“双11”预警报告》和《“双11”网络促销活动期间消费信用评估报告》，指导中国互联网协会和“反炒信”联盟成员企业开展“反炒信、树诚信”活动，组织第三方机构对“双11”活动期间各主要电商平台的相关承诺兑现情况进行数据跟踪与测评分析，委托信用服务机构在产品质量、产品销售与服务、产品价格、物流服务等各环节开展信用监测，完善电子商务领域信用记录。国家信息中心副主任周民介绍了电子商务领域严重失信黑名单有关情况。在全国信用信息共享平台上有关部门共享的黑名单信息中，经分析比对，共梳理出电子商务黑名单企业6440家，其中首批500家已在“信用中国”网站公布。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:26,959  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201589186_123753>
+None
+2017-11-01 16:32:27,17  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201590606_114819>
+None
+2017-11-01 16:32:27,44  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201591950_108060> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,150  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201591950_108060>
+None
+2017-11-01 16:32:27,183  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201592624_413980> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,285  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171027/52818990_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:27,292  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201592624_413980>
+None
+2017-11-01 16:32:27,295  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201595332_117869> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,382  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201597228_457614> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,396  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171027/52818990_0.shtml>
+None
+2017-11-01 16:32:27,408  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201595332_117869', '双十一首日24秒破亿！京东豪言：狂送优惠30亿，手机提供30天价保', '2017-11-01 14:33', '原标题：双十一首日24秒破亿！京东豪言：狂送优惠30亿，手机提供30天价保作者：虎龙吟“24秒破亿！105秒破3亿！”11月1日上午，也就是京东“11.11全球好物节”首日，京东集团副总裁胡胜利对外披露了此次大促首日京东3C的部分销售数据。就在前不久，号称“京东大本营”的京东3C事业部悄然更名为京东3C文旅事业部，京东文化和旅游板块也正式划归胡胜利统辖。由执掌3C板块多年、战绩赫赫的大将胡胜利担纲，意味着京东决心要全面发力图书文娱与生活旅行两大品类了。据悉，今年双11，京东3C文旅推出的线上线下联动大促将提供高达30亿元的优惠金额！为了打消消费者对于双十一促销期间产品价格波动的顾虑，胡胜利还当场宣布，所有京东手机自营商品30天内实现价保。此次大促，京东手机、电脑、数码、图书四大品类共将发布超过1640款新品，同时，130多家京东之家和3C专卖店，将同时举办11场线下粉丝嘉年华。很显然，这将是京东首次大规模的线上线下联动的无界零售模式的尝试。对于外界普遍关注的京东之家，胡胜利也给予了回应。他透露，截止今年11月1日，京东之家已经开了130家，到11月11日当天有望达到160家，而到年底更是会快速增长到300家！为此，京东之家智慧平台还将举行系列展示活动。其中，第一站已于10月28日在北京通州万达广场京东之家举行，后续10场将分别在重庆、东莞、沈阳、保定、济南、成都、深圳、西安、连云港、苏州举行。另据了解，今年双11期间，消费者还可以在28家重点城市的京东之家享受到免费的京东3C产品维护服务。另外，京东还联合当前最火热的两大游戏IP：《王者荣耀》和《英雄联盟》，为年轻消费者打造了三场游戏竞技盛宴。其中，京东3C此次举办的王者荣耀手游赛是2017年双十一大促的重要环节之一。本次大赛招募时间为10月9日-10月18日，共设立微信端、手Q端、外卡赛三大赛区。从10月26日起，斗鱼、熊猫、虎牙、企鹅电竞、京东直播等直播平台游戏大咖主播直播赛事，玩家们在观看比赛的同时，还将有机会获得由京东送出的1111个《王者荣耀》英雄皮肤。全国7个赛区5000多名选手的激烈鏖战，京东杯英雄联盟争霸赛于10月26日顺利闭幕，冠军即将参加腾讯LDL职业联赛，开启世界级电竞的征战之旅。当然，今年双11前后，京东3C文旅与百大品牌商进行的战略合作签约，尤其另业界瞩目。10月23日，京东集团董事局主席兼首席执行官刘强东，与惠普全球CEO在京东举行战略签约会，签订了基于“无界零售”的一揽子战略合作协议；26日，京东生活旅行与包括芬兰航空、戴斯酒店集团、北京壳牌、万达主题娱乐、凯莱酒店、时尚经典集团在内的八大品牌进行战略签约；30日，三星与京东签署了基于无界零售战略的合作协议；31日，京东集团携手中信出版集团战略合作协议签约；京东数码连续五天分别与爱国者、飞利浦、FILL、佳能、索尼、惠威、卡西欧等10家国内外知名品牌达成战略签约……对于此次双十一京东3C的目标，胡胜利霸气地表示，作为线上3C品类市场占有率第一名，今天我们真正关注的已经不是谁赢谁输的问题，而是如何让多边关系在京东无界零售战略中，实现共生共赢。欢迎关注虎龙吟搜狐号，看尽科技互联网大事小情。采访报道、爆料投稿、商务合作请邮件联系：001net@sina.com。虎龙吟，科技互联网领域独立观察家，全平台资深自媒体，覆盖千万读者群。微信关注公众号“虎龙吟”，随时奉上最新科技互联网台前幕后最劲爆消息和热辣点评。好内容，多分享。有想法？请评论！返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '虎龙吟', '')
+2017-11-01 16:32:27,413  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201595332_117869>
+None
+2017-11-01 16:32:27,491  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201597228_457614', '新加坡曾在1300公里外也有领土，如今在马来西亚门前有个岛屿', '2017-11-01 14:34', '原标题：新加坡曾在1300公里外也有领土，如今在马来西亚门前有个岛屿新加坡位于马来半岛南部、马六甲海峡东南部，是一组岛屿，面积716.1平方公里，约在中国第三大岛崇明岛和第四大岛舟山岛之间，大概是香港的2/3强。图-新加坡位置其实新加坡独立前，不只是一个岛屿群，它爪哇岛和苏门答腊岛南部还有两处岛屿群。图-新加坡空姐第一处是科科斯群岛，由27个珊瑚岛组成，位于苏门答腊岛西南方向的印度洋中，面积14.2平方公里，约为微山湖微山岛的1.5倍。图-新加坡两个岛屿位置第二处是圣诞岛，面积135平方公里，比福建金门岛稍小。该岛距爪哇岛约340公里，距新加坡约1310公里，距澳洲大陆约1540公里。图-新加坡空姐这两处海岛都是新加坡所在海峡殖民地的领土，二战后的1946年，新加坡从海峡殖民分离出来，科科斯群岛与圣诞岛都是新加坡领土。图-新加坡风景到了1950年代，新加坡逐渐有独立并加入马来西亚的倾向。于是英国在1955年，强行将科科斯群岛划给澳大利亚。1958年，以290万英镑的低价将圣诞岛卖给澳大利亚，当时新加坡还没独立，这笔钱进了英国统治阶层腰包。图-新加坡空姐科科斯群岛相对较小，失去该群岛仅是战略上的损失。圣诞岛就不同了，岛上有机场有港口，居民2000多人，七成是华人。二战时期日军占领爪哇岛后，继续南下占领圣诞岛，以获得岛上的磷矿资源。新加坡失去圣诞岛，与中国二战前失去东北一样，不过中国失而复得，新加坡却只能耿耿于怀。失之桑榆，收之东隅。新加坡失去这两组群岛，却在马来西亚柔佛州东南海域的岛礁中，取得一个白礁岛。图-新加坡现在的领土这组岛礁由一岛两礁组成，白礁岛随海水起伏，低潮时最大面积为0.00856平方公里，比一个足球场稍大。该岛距柔佛州约13公里，距新加坡本岛约64公里。中岩礁是两块相隔250米的礁石，在白礁岛以南约1公里，海拔在0.6至1米之间。南礁位于中岩礁西南部约3公里，退潮时才露出海面。图-新加坡空姐在殖民时期，英国与荷兰划分海域线，三个岛礁都属于英国。在1965年新加坡从马来西亚联邦分离出来前，这组岛礁不存在任何争议，都属马来西亚，与相邻的印尼无关。图-新加坡白礁岛这组岛礁位于新加坡海峡东出入口，白礁岛以南暗礁多，大型船只不能通过。所以英国人很早就在白礁岛上建了灯塔，为船只指明方向，从白礁岛北侧通过才安全，可见此岛战略地位之重要。图-新加坡空姐新加坡在白礁岛上加修了直升机降落坪、发电机房、海水淡化及军事通信设施，并派军舰巡逻，阻止马来西亚渔民在附近捕鱼。中岩礁海拔太低，随时有被大海淹没的可能，因此岛上没有任何设施。南礁就更不用提了，不可能把设施建在海平面以下。图-新加坡白礁岛2008年，荷兰海牙国际法庭裁决，白礁岛归新加坡，另两个礁属马来西亚。图-新加坡空姐新加坡本来一直实控最有价值白礁岛，通过国际法庭名正言顺拿到该岛，是个比较满意的结果。海上战略通道地位因此更加完整，在不损害马来西亚的前提下，一颗原子弹已不能毁灭新加坡所有领土。图-新加坡地图国旗马来西亚虽然获得两个无关痛痒的礁，所以一直没有放弃对白礁岛的主权要求，本来新加坡本岛就把马来西亚堵得慌，白礁岛等于给马来西亚添堵。返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:27,493  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201597228_457614>
+None
+2017-11-01 16:32:27,531  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201598479_610300> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,637  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201598479_610300>
+None
+2017-11-01 16:32:27,651  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201598921_610300> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,756  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201598921_610300>
+None
+2017-11-01 16:32:27,804  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201600508_118792> (referer: http://news.sohu.com/)
+2017-11-01 16:32:27,910  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201600508_118792>
+None
+2017-11-01 16:32:27,920  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171028/52828514_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:27,957  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201601441_308467> (referer: http://news.sohu.com/)
+2017-11-01 16:32:28,32  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171028/52828514_0.shtml>
+None
+2017-11-01 16:32:28,67  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201601441_308467', '安利一则深度学习新手神器：不用部署深度学习环境了！也不用上传数据集了！', '2017-11-01 15:04', '原标题：安利一则深度学习新手神器：不用部署深度学习环境了！也不用上传数据集了！大数据文摘作品作者：EmilWallnér编译：高宁、Happen、陈玲、Alieen深度学习的浪潮在五年前开始兴起。随着计算能力的爆炸型增长和几个成功的案例，深度学习引起了大肆宣传。深度学习技术可以用来驾驶车辆，在Atari游戏中进行人机对抗，以及诊断癌症。开始学习神经网络时，我花了两周的时间进行探索，选择合适的工具，对比不同的云服务以及检索在线课程。但回想起来，我还是希望我可以从第一天就能创建神经网络，这也是这篇文章的目的。你不需要有任何预备知识。当然如果你对Python，命令行和Jupyternotebook有基础的了解会对你有所帮助。深度学习是机器学习的一个分支，它被证明是一种可以在原始数据（如一幅图、或者一段声音）中找到固定模型的有效方法。如果你想对猫和狗的图像进行分类。不需要具体的编程，它首先会找到图片中的边，然后从不同的边中构建模式。接下来，它会检测到鼻子，尾巴和爪子。通过这样的方式，神经网络最终可以实现对猫和狗进行分类。但是，结构化的数据可以使用更好的机器学习算法。举个例子，如果你的excel表中记录了有序的客户数据，你希望可以预测他们的下一张订单，那么你可以使用传统的方法，使用一个更简单的机器学习算法。核心逻辑想象一个安装了很多随机调整齿轮的机器。这些齿轮堆叠在很多层上，而且会相互影响。最初，这个机器无法正常工作。然后随机地调整齿轮，直到调整到可以给出正确输出。然后一个工程师会开始检查所有的齿轮，然后标记出来哪些齿轮会造成误差。他会从最后一层的齿轮开始，因为这里是所有误差累计的结果。一旦他找到了最后一层的误差，他就会开始查看前一层。通过这种方法他可以计算出每一个齿轮对于误差的贡献值。我们把这个过程称为反向传播。然后这个工程师开始根据之前找到的误差对每一个齿轮进行调整，然后重新运行整个机器。运行机器，计算误差，调整齿轮，不断循环这个过程直到机器给出正确输出。预测–计算误差–调整预测值（训练周期）神经网络的运行方式也是如此，有输入和输出，然后通过调整齿轮来寻找输入和输出之前的关系。给定一个输入，通过调整齿轮来预测输出，然后将预测值和真实值进行对比。神经网络通过调整齿轮来追求最小误差（预测值与实际值之前的差异），它会不断调整齿轮，直到预测值与真实值之间的差异尽可能小。最小化误差的一个最佳方法是梯度下降，即通过误差函数、或者说成本函数来进行误差的计算。浅层神经网络许多人认为人工神经网络是我们大脑新皮质的数字化复制品。这是一个错误的观念。我们并不知道大脑如何能够做出这样的声明。这只是神经网络发明人弗兰克·罗森布拉特（FrankRosenblatt）的一个灵感源泉。浅层神经网络输入-权重-加和-判断–>（预测值-实际值）*学习率与神经网络模拟器玩一两个小时，你就可以获得对其的直观感受。我们将从实现一个简单的神经网络开始，以了解TFlearn中的语法。从经典的101问题开始，也就是OR运算符。虽然神经网络更适合于其他类型的数据，但这是了解其工作原理的一个很好的问题。所有的深度学习程序都遵循同样的核心逻辑：1.首先加载库，然后加载数据并清洗。不管是照片，音频还是知觉数据，所有的输入都会被转化为数字。这些很长的数字列表就是我们神经网络的输入。2.现在开始设计神经网络。选择你的神经网络层的类型和数量3.然后它会进入学习过程。4.神经网络知晓输入和输出，然后自行寻找二者之间的关系。最后会用训练好的模型中给到你一个预测值。下面是这个神经网络的程序：输出第一行以“#”开头的行表示备注，一般用来解释代码第二行加载TFlearn库通过这个语句我们可以使用谷歌Tensorflow的深度学习函数第五行和第六行将上述表中的数据存储在列表中每个数字末尾的点会将整数映射到浮点数。它存储具有十进制值的数字，使计算更加精确。第七行初始化神经网络，并指定输入数据的维度或者说尺寸所有的OR运算都是在一对数据中进行的，所以维度是2.空值是默认值，表示批量的大小第八行输出层激活函数将过程中的结果映射到输出层在这个例子中，我们使用Sigmoid函数将其映射到(0,1)区间范围内第十一行应用回归使用优化器选择合适的算法来最小化成本函数学习率决定了神经网络的调整速度，而损失变量决定了如何计算误差。第十二行选择使用哪个神经网络一般情况下也可以用来指定存储训练日志的位置第十三行训练你的神经网络和模型选择你的输入数据（OR）以及实际的标签（Y_truth）Epochs决定了你的神经网络运行数据的循环次数如果你设置snapshot=True，那么每次循环后都会进行模型验证第十四到十八行使用训练好的模型进行预测在这个例子中，返回的是结果是1/True的概率输出层第一个结果表示[0.]&[0.]组合为真的可能性为4%，以此类推。“Trainingstep”显示了你训练了多少批。在每一批中所有数据都将训练一次，类似于Epoch。如果数据相对内存较大，你需要停止分段训练。损失函数会计算每一次迭代的错误数量。SGD指随机梯度下降法及最小化代价函数方法。Iter指当前数据索引以及输入项的总和。你可以在大多数TFlearn神经网络中找到上述逻辑和语法。学习这段代码最好的方法就是修改代码并产生一些错误。损失曲线显示了每一次训练的错误量你可以通过Tensorboard来可视化每一次实验，并了解每一个参数是如何影响训练的。这里有一些你可以运行的例子的建议。我推荐你花费几小时练习这些例子，以更好地适应运行环境以及TFlearn中的参数。实验增加训练与迭代次数尝试添加或改变文档中提到的每一个函数的参数例如g=tflearn.fullyconnected(g,1,activation=’sigmoid’)改成tflearn.fullyconnected(g,1,activation=’sigmoid’,bias=False)在输入项增加整数改变输入层的形状改变输出层的激活函数使用不同的梯度下降方法改变神经网络计算代价的方式用X和Y来替代“AND”和“NOT”逻辑运算例如将最后一项Y_truth从[1.]改为[0.]。为了使其有效，你需要在网络中增加一层。使其学得更快想办法使得每一步学习都超过0.1秒新手入门结合Python来使用Tensorflow在深度学习中是最常见的手段。TFlearn是一个运行在Tensorflow之上的高层次框架。另一个常见的框架是Keras。这是一个更加健壮的库，但是我发现TFlearn的语法更加简洁易懂。它们都是运行在Tensorflow之上的高层次框架。你可以使用你的电脑CPU来运行简单的神经网络。但是大多数实验需要运行数个小时甚至几周。这也是为什么大多数人通过现代GPU云服务来进行深度学习。最简单的GPU云服务解决方案是FloydHub（https://www.floydhub.com/）。如果你掌握了基础的命令行技能，部署FloydHub将不会超过5分钟。使用FloyHub文档来安装floyd-cli命令行工具。FloydHub还为遇到问题的客户提供内部客服支持。让我们在FloyHub中使用TFlearn、JupyterNotebook以及Tensorboard来运行你的第一个神经网络吧！安装FloydHub并登陆，下载这份指南中所需的文件。打开终端，输入以下命令：进入文件夹并初始化FloydHub：FloydHub会在你的浏览器打开web面板，提示你创建一个名为101的新项目。完成后回到终端，再次输入初始化命令。现在你可以在FloydHub上运行你的神经网络任务了。你可以通过“floydrun”命令进行不同的设置。在我们的案例中，我们希望：o在FloydHub中增加一个已上传的公共数据集odataemilwallner/datasets/cifar-10/1:data指定数据目录。你可以在FloydHub上查看该数据集（以及许多其他公共数据集）。ogpu使用GPU云计算otensorboard激活TensorboardomodejupyterJupyterNotebook模式下运行任务OK，开始运行我们的任务：在浏览器中初始化Jupyter后，点击“start-here.ipnyb”文件。start-here.ipnyb包含了一个简单的神经网络，可以了解TFlearn语法。它学习了“OR”逻辑，随后解释了所有组合。点击菜单栏的“Kernel”下的“Restart&RunAll”。如果你能看到信息，说明它工作正常，你就可以去做其他事情了。前往你的FloydHub项目，找到Tensorboard链接。深度神经网络深度神经网络指的是包含一层以上隐藏层的神经网络。目前有非常多的关于CNN（卷积神经网络）工作原理的详细教程。因此，我们将关注适用于更多神经网络的高层次概念。注：该图不是一个深度神经网络。它需要一层以上隐藏层。你想训练神经网络来预测未经训练的数据。它需要能泛化的能力。这是一种介于学习与遗忘之间的平衡。你想它能学习如何将信号从噪声中分离，但是同时遗忘只在训练数据中出现的信号。如果神经网络未经充分学习，它会出现欠拟合现象。与之相反是过拟合现象。它指的是从训练数据学习过多。Regularization（正则化）是一种通过遗忘训练中的特定信号来减少过拟合的方法。为了进一步理解这些概念，我们在CIFAR-10数据集上开展实验。该数据集包含了10种类别6万张的图片，例如汽车、卡车和鸟。目标是预测一张新的图片属于哪种类别。CIFAR中的示例图片通常我们需要挖掘数据、清理数据以及过滤图片。但是为了简化过程，我们只关注神经网络。你可以在Jupyternotebook中运行安装的所有例子（https://github.com/emilwallner/Deep-Learning-101）。输入层输出层将图片分为10类。隐藏层混合了卷积层、pooling以及连接层。选择层数让我们来对比下只有一层的神经网络和有三层之间的区别。每一层包含卷积层，池层，和关联层。你可以通过点击在菜单栏中的Kernel>Restart&RunAll来运行这些脚本。接着再瞥一眼Tensorboard中的训练记录。你会发现有很多层的多准确了15%。较少层的拟合度低—证明它学的还不够。你可以运行你先前下载的文件夹中相同例子，同样包括接下来的试验。让我们看一眼准确度和验证集的准确度。深度学习中最好的实践是将数据集一分为二，一部分用作训练这个神经网络，剩下的则用作验证它。通过这种方法可以告诉我们神经网络在预测新数据中表现如何，或是类推的能力。就如你所见，训练数据的准确度高于验证数据集。这个神经网络包含了背景噪声和其他阻碍预测新图像的细节。为解决过拟合问题，你可以惩罚复杂方程并在神经网络中增加噪声。普遍解决这个的正则化技术有丢弃层和惩戒复杂方程。丢弃层我们可以对比一下丢弃正则化这样理解：一些强大的神经元并不决定最终结果，而是由他们分配权力。神经网络被迫使去学习一些独立的表现。当做最终的预测时，它则有一些不同的模型去学习。下面是一个有丢弃层的神经网络的例子。在这项对比中，两个神经网络是一样的除了其中一个有丢弃层，另一个没有。在神经网络中的每一层中，神经元变得更依赖于彼此。某些神经元比其他的更有影响力。丢弃层随机的丢弃部分神经元。这样，每一个神经元需要为最终输出提供不同的贡献。另一个流行的预防过拟合的方式是在每一层中运用L1或L2正则方程。L1&L2正则方程比方你想描述一匹马，如果这个描述太仔细，你则会排除掉太多不同形态的马。但是如果太笼统则可能包括进来很多别的动物。L1和L2正则化帮助我们的网络去做这种区分。如果我们与之前试验类似的对比，我们会得到相似的结果。有正则化方程的神经网络表现的比没有的要好。正则化方程L2惩戒方程太过复杂。它测量每一个方程对于最终输出的贡献量，接着惩罚系数大的方程。批量大小另一个重要参数是批量大小，在每一步训练中的数据量。下面是一组大批量数据与小批量数据的对比。就如你所见，大批量所需的周期更少但在训练中更精确。对比之下，小批量更随机但需要消耗更多步来补偿。大批量不需要很多学习步骤。但是，你需要更多存储空间和时间去计算每一步。学习率最后一个试验是对比大，中，小不同学习率的网络。学习率因其影响力被视为最重要的一个参数。它规范了如何在每一步学习过程中调节预测中的变化。如果这个学习率太高或者太低都无法收敛，就如上图的大学习率一般。设计神经网络没有特定的方式。很多是要通过试验来决定。看看别人如何增加层数和如何调节高阶参数的。如果你有强大的计算能力，你可以设计一个程序和调节高阶参数。当你完成了运行工作，你应当为你的GPU云降低运转速度比如通过取消FloydHub网页仪表盘来结束工作。后续在TFlearn的官方示例中（https://github.com/tflearn/tflearn/tree/master/examples/images），你能感受到一些表现优异的卷积神经网络。试着运用其中一些方式去提高CIFAR-10数据库的验证集准确率。目前最优的结果是96.53%（Graham，2014）。学习Python的语法和熟悉它的命令语句是非常值得的一件事。这可以有效减少不必要的认知负荷从而全神贯注于深度学习概念上。从Codecademy的Python课开始，接着做一些命令语句练习。如果只做这一件事，你花不到三天就能掌握。原文链接：https://medium.freecodecamp.org/deep-learning-for-developers-tools-you-can-use-to-code-neural-networks-on-day-1-34c4435ae6b返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:28,73  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201601441_308467>
+None
+2017-11-01 16:32:28,75  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201603392_376476> (referer: http://news.sohu.com/)
+2017-11-01 16:32:28,157  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.sohu.com/a/201605279_118792> (referer: http://news.sohu.com/)
+2017-11-01 16:32:28,186  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201603392_376476', '14家云视频厂商营收过亿，18家预测盈利，本土视频厂商正在崛起？', '2017-11-01 15:15', '原标题：14家云视频厂商营收过亿，18家预测盈利，本土视频厂商正在崛起？近日，牛透社对国内视频领域进行了盘点，梳理了30家本土厂商的发展情况。在这30家厂商中，一部分厂商保持沉默，一部分厂商未能联系到，一部分厂商提供了相关数据。从现有信息出发，我们可以管中窥豹，观察视频领域的发展现状和大体走势：整体营收持续增长，至少14家厂商预测过亿；整体盈利有所好转，至少18家厂商预测盈利，其中7家厂商盈利过亿或接近亿级；因为更理解用户需求、定价策略更灵活，以及产品迭代更快、响应更及时，本土厂商快速崛起；硬件视频会议和网络会议加速融合；野蛮生长的时期已经过去，整体市场格局基本形成，龙头企业正在提高市场占有率。14家厂商营收过亿，18家厂商预测盈利本次盘点，相关厂商对经营数据的反馈较少。结合公众公司的信披资料，以及对一部分非公众公司的了解，牛透社对2017年相关厂商的视频业务营收状况预测如下：14家厂商营收过亿：华为、中兴、科达、迪威、华平、捷视飞通、全时、亿联、随锐、会畅、CC、好视通、小鱼易连、展视互动（本条华为和中兴的营收指视频业务营收）；2家平台营收5000万-1亿元：威速V2、红杉树；2家平台营收3000万-5000万：华运通、网动；1家平台营收500-1000万：首云。多数云视频平台的盈利状况都还是核心机密，我们目前只能看到公众公司的账目，并在此基础上推测它们2017年的盈利状况：华为、中兴、科达和亿联盈利过亿：华为和中兴的财报并没有细分出视频业务的净利润，但基于两者的庞大营收规模和利润率，盈利过亿应该不是问题；科达、亿联此前已盈利过亿，今年以来两者基本面还没有传出向下影响业绩的信息，2017年盈利过亿是大概率事件；华平、迪威、捷视、随锐和会畅盈利千万级别：参见附文中相关公司的过往盈利状况（下同）；网动和华运通小幅盈利。此外，全时、威速V2、红杉树、CC、展视互动、好视通、小鱼易连等平台预测盈利。其中，好视通、全时的盈利水平向亿元靠拢。本土厂商快速崛起2010年前，在中国的云视频领域，国外厂商基本占据主导位置。但近几年来，由于对中国用户需求的理解更清晰，资费设计和定价策略更灵活，再加上产品迭代更快、响应更及时，本土厂商快速崛起。2016年以来，市场中主要的本土厂商都取得了不错的增长。好视通：资本的推动力很强劲。2016年好视通以5.6亿元的估值被齐心集团收购，对此后快速成长发挥了积极作用。2016年，好视通发布智能一体化会议终端——MeetingBox；组建海外事业部，搭建Eztalks产品线，立足东南亚，进军欧美市场；组建互动录播事业部，瞄准远程教育领域，拓展行业应用市场。齐心集团还帮助好视通拓展业务渠道，带来企业用户中ICT产品的最终用户资源，比如行政部门、会议管理部门等。好视通可借此拓展优质用户资源，增强办公领域的用户影响力，实现办公与多方通信业务的有效整合。接下来，齐心集团Saas业务的不断延伸，将给好视通带来更多应用场景和增长空间。全时：用户体验大幅提升。2016年，全时重点对全产品线进行了优化与整合，包括电话会议、硬件视频会议（2015年底推出的自研会议终端——全时盒子）、网络会议，再加上自主研发的移动办公协同软件“全时蜜蜂”，以及文件和知识共享平台，打通了企业通信的每一个环节。另外，全时还加大了行业整合方面的投入，通过“手术大师”应用进入远程医疗教学领域，希望通过“手术大师”将外科手术的影像资料保存下来，帮助平台上的医生学习和交流，提高远程医疗教学的实用性的互动性。尽管目前全时的营收依然以电话会议和网络会议服务为主，但未来它将以行业解决方案为突破口，提升视频与行业应用的结合，实现业务的升级与扩展。随锐：整合优势资源。随锐2016年的增长不错，尤其是与中国三大电信运营商建立了紧密的合作关系，随锐“瞩目”进入中国电信集团政企产品采购目录。2017年1月，随锐与上海理想信息产业（集团）有限公司（中国电信股份有限公司的全资子公司）、中国电信集团浙江分公司进行合作，“电信会易通”的推广任务纳入了中国电信相关部门的业务考核体系，这意味着中国电信将全力帮助随锐销售其网络会议产品。对云视频平台而言，与运营商合作是效率最高、成长最快的手段之一。运营商遍布省、市、县的强大组织体系，可帮助云视频平台将业务触角深入各地企业；运营商的国资背景和行政资源积累，可以帮助云视频平台获取更多的政府项目。尽管2016年随锐的网络会议收入不高，但未来有很大的发展潜力，有可能成为网络会议市场的主力队员之一。华为：从内部用起，聚集生态整合。作为一个拥有18万员工的大型企业，华为的日常办公已逐渐搬到了云上，如何满足员工的沟通和通信，是华为网络会议产品最好的试验田和应用案例。华为内部在推广的“WeLink”应用，就是基于华为的网络会议产品定制开发的应用，通过将华为内部业务流程和员工沟通工具打通，根据华为自身的业务特点和使用习惯，包装形成的个性化的企业通信产品。此外，华为聚焦于合作伙伴的整合，共建企业云通信生态圈，将华为的企业通信平台和网络会议产品开放给合作伙伴，合作伙伴除了转售华为的标准网络会议服务之外，还可以依托华为的开放云通信平台，为行业客户构建具有自身业务特点和满足个性化需求的网络会议产品。IDC的报告显示，2016年网络会议市场TOP5的服务商继续保持四家本土企业，增速前五名的服务商全部为本土企业，预测2017年的市场份额TOP5将全部为中国本土企业。外资厂商若想有所收获，在与本土伙伴的合作策略以及产品开放层面上，还需要采取更加灵活的态度。硬件视频会议和网络会议加速融合回顾近两年来视频领域的整体发展，以及各平台的具体表现，我们可以观察到以下几点变化。市场格局初现。根据IDC的统计报告，2016年网络会议市场前五名的平台，首次与2015年的名单一致，尽管排名位置有所变化和调整，但整体市场格局基本形成。网络会议市场野蛮生长的时期已经过去，具备优势的龙头企业以更优的产品和服务、更好的管理、更强的资本，正在逐步提高市场占有率，行业的“马太效应”正在显现。硬件视频会议和网络会议的融合继续加速。传统硬件视频会议厂商正在强势进入网络会议市场，原有网络会议厂商也加大硬件视频会议终端的研发。消费级硬件会议终端+云视频平台的应用模式已经成为行业共识，不论是在“端”还是在“云”，任何一侧的不足都将成为短板。未来智能硬件和云平台的融合，将驱动硬件视频会议厂商和网络会议服务商加速整合。值得一提的是，不论是采用独立运营还是合资合作的形式，未来会有越来越多的设备厂商参与到网络会议市场的整合中来，依托自身的产品和技术优势，为网络会议市场增加新的活力。而国内市场的并购方向也体现出了服务商、渠道商对视频技术和视频能力的渴求，收购方希望利用新的技术和服务深耕已有客户，而被收购方希望通过新的渠道和合作伙伴拓展业务边界，提高市场占有率。会议应用的智能化率快速提升。网络会议市场出现了大量智慧化创新应用，不论是线下的新一代智能语音跟踪镜头、无线投屏器等智能硬件，还是在线的会议语音控制系统、会议实时多语言翻译系统等云服务，网络会议应用的智能化率在快速提升。未来，网络会议的应用将更加贴近用户使用场景，每个场景将更加人性化，智慧化应用将有效提升用户体验，帮助服务商在行业应用领域深度拓展。垂直行业应用快速扩展。经过此前几年的不断探索与尝试，2016年已经有网络会议服务商，能够在教育、医疗、金融、政府等领域提供成熟的视频应用解决方案。未来，网络会议市场的增量将更多来自行业应用，而非传统的会议场景。如何找到更多的增量市场，并通过将数字化技术与业务进行有效整合、对业务流程和服务产品进行数字化改造，帮助用户拓展业务边界，将是未来网络会议市场增长的主要驱动力。牛透社认为，当前云视频领域还没有达到市场饱和、价格竞争的阶段，大家最需要解决的问题依然是做大规模、挖掘新的市场机会。在这个大浪淘沙的阶段，每家云视频平台都有改进和创新空间，只有不断优化业务方向和产品定位、适应市场和用户需求，才可能在竞争中保有一席之地。附表：云视频平台基本情况（按平台所属公司成立时间排序）*信息来源：相关云视频平台创始人；公开信息*客单价均为企业用户的客单价*公司成立日期来自附文：云视频平台全景（按平台所属公司成立时间排序）（一）华为华为是中国企业的荣耀，2016年营收5215亿元，同比增长32.0%；净利润370亿元，同比增长0.4%。华为预计全球市场将会涌现千亿美元级的视频产业，对硬件视频的投入也越来越大。根据IDC的报告，华为2016年的网络会议市场占有率为8.1%，增长率19.7%。公开信息显示，华为从咨询、合作、平台、网络等方面，帮助运营商打造以视频为基础业务的端到端网络，实现最佳视频业务体验。面向4K视频业务，华为与多家主流运营商合作部署4K承载网络。截至2016年底，华为已在全球超过100个国家累计部署190多张移动承载网络，服务全球三分之一的用户。华为还提出了跨业务、跨网络、跨地域的视频大网理念，实现通信视频与行业视频的融合发展；发布了全球首款“六合一”普及型云视讯终端TE10，结合云平台，实现视频业务在各行业的深入覆盖。2017年3月，华为成立云BU（BusinessUnit）,上线了网络会议业务。8月，华为将云BU提升为一级部门，归属集团直接管理和领导，体现了华为对云业务的决心和野心。（二）中兴中兴通讯也属于一代天骄。2016年，中兴通讯营收1012.3亿元，同比增长1.0%；净亏损23.6亿元（主要原因是公司与美国政府部门达成协议并对该资产负债表日后事项计提损失约8.92亿美元）。2017上半年，营收540.11亿元，同比增长13.09%；净利润22.93亿元，同比增长29.80%。在中兴看来，视频业务进入大视频时代，大视频对网络提出更高带宽要求。在产品战略上，以宽带为核心的5G、路由器、大数据、PTN、WDM、OTN、PON、IPTV、多媒体视讯、IDC、云计算、智能终端等产品系列仍然是中兴的主流发展方向。中兴发布面向网络重构的全场景光接入下一代旗舰平台OLTTITAN平台，全力支撑大视频时代，满足未来十年网络重构需求。在SaaS应用方面，承建中国移动RCS项目，完成基于Amazon云上部署，支持互联网业务转型升级，大视频解决方案在运营商市场得到规模商用。云计算及IT产品方面，中兴提供大视频4K+端到端解决方案。值得关注的是，中兴通讯还对全资子公司“中兴云服务”下属的“StarMeeting”品牌进行了优化整合，进一步明确了战略方向。（三）全时全时是中国远程会议服务的老牌厂商。目前在上海、深圳、西安等十几个城市及香港、新加坡、澳大利亚、日本、美国等地设有分公司，专业的运营网络和基础设施遍布全球50多个国家和地区，是全球500强中300多家企业的远程会议服务供应商。2016年8月，全时完成了迄今为止中国SaaS领域最大规模的并购——以近亿元的价格收购了国内视频会议领域的视高。在全时看来，这是一次极为互补的收购：一是产品定位的互补。全时产品的定位集中在PC和移动端的应用，视高产品定位更侧重会议室产品，收购后全时打通了所有端口。二是客户群体定位的互补。全时的目标客户定位是世界500强企业以及大中型本土企业，视高是中小企业，收购后全时的客户群体覆盖就相当完善。如今，全时进一步巩固了在网络会议行业内的地位，市场占有率处于前三位置。根据IDC的统计报告，全时2016年的网络会议市场占有率为11.8%，增长率37%。（四）视维山东（山大）联润信息科技有限公司由山东大学、将军控股有限公司、山大科技园发展有限公司及自然人股东共同创立，核心技术骨干来自山东大学计算机相关专业。目前，视维视频会议已打入北美、东南亚、台湾等地市场。（五）V2北京威速科技有限公司（简称威速V2）提供视频会议软件产品及各领域视频会议解决方案，在中国本土及海外设有32个办事处和办公机构，用户包括沃尔玛、可口可乐、中石油等全球500强企业。威速V2的视频会议产品一度占据较高市场份额，但近几年的发展速度似乎没那么快了。（六）星澜北京明道星澜科技有限公司专注于软件开发与服务，拥有视频会议、数字图书馆、信息管理系统、多媒体教学系统等15项软件著作权。星澜科技已建立15家分支机构，形成覆盖华北、西北、东北、西南、华东、华南的营销和服务体系。XView迅流视频会议系统在政府、军队、能源、交通、电信、金融、公安、税务、制造等各行业中部署10000多个用户。（七）迪威迪威视讯近几年的经营业绩稳步上升。2013-2016年，营收分别为2.17亿、2.34亿、3.36亿、4.46亿；净利润分别为539.47万、-935.80万、1001.34万、2938.57万。迪威定位于围绕城市智慧化演进趋势，面向客户提供规划、建设、运维运营一揽子服务的综合服务商。在业务和服务提供方面，公司首先强调以一体化平台为载体，实现城市基础设施和各类数据的集中、统一管理，着力解决分散式、烟囱式管理的弊端。而后以此为依托，在智慧型园区社区、智慧交通、智慧环保等多个应用领域提供专业化、定制化服务，最终实现1（一体化平台）+N（多个垂直应用）深度融合、相互促进的格局。（八）亿联亿联是统一通信解决方案提供商，主营视频会议和语音通信方案。公司在全球100多个国家提供音视频与协作等高品质网络通信产品，SIP话机市场占有率为中国第一、全球第二。亿联的经营业绩表现不错。2014-2016年，公司营收分别为4.88亿、6.62亿、9.24亿元，净利润分别为1.51亿、2.48亿、4.32亿元。2017年前三季度，预计净利润同比增长50%-60%，盈利4.53亿-4.83亿元。国内外市场竞争正在加剧，亿联也面临着来自国际国内企业的竞争，目前的主要竞争对手有Polycom、Cisco等国际巨头，有亿景、方位等国内企业。Polycom、Cisco等企业在技术、品牌、系统支持等方面具有明显优势，而国内企业在价格方面具有一定优势，亿联需要保持创新能力，及时准确地把握产品的发展趋势。亿联的产品主要销往海外，在国际市场拥有较多优质稳定的客户。而随着国际市场竞争日趋激烈，贸易摩擦日益增多，亿联也需要注意这方面的情况。（九）华运通华运通这几年的营收整体稳定，盈利较少。2014-2016年，公司营收分别为2884.96万、2317.20万、3023.33万元。根据公开信息，2015-2016年的净利润分别为163.16万、162.98万元，处于微利状态。2017上半年，华运通营收1543.22万元，同比增长2.20%；净利润-15.66万元，较去年同期的138.57万元下降111.30%。对比同行业公司,华运通的规模不算大，而且公司正将战略重心转向发展与音视频会议系统相关的云服务上（目前该类收入金额较小），因此,还需要提高抗风险能力。华运通的战略目标是推动可视化通信和商务直播两大核心业务，培育和发展适合各行业需求特点的行业解决方案市场。公开信息显示，公司将持续探索和发展PaaS、SaaS模式，逐步形成以Cansee可视云平台为中心的生态系统，获得基于产业链和生态系统的市场潜在商机。（十）华平2015-2016年，华平营收分别为3.31亿、3.42亿元；净利润分别为3350.50万、7072.15万元。2017年前三季度，预盈1458.81万–1750.50万元，同比增长50%-80%。华平以视音频通讯产品和图像智能化集成应用的研发设计为核心，为用户提供视频会议、应急指挥、智慧城市、在线教育、智慧医疗、视频银行等解决方案。2016年，华平视频会议系统在易用性和UI界面上得到了进一步提升，同时还推出了多款高性价比一体式嵌入式终端。在应用领域，公司结合大型金融类企业的常态化培训需求，推出可以通过遥控器一键完美操控，实现极简操作的“视频培训”系统。2017年上半年，华平视频会议业务主要侧重重点行业、重点客户的培育和开发，同时，公司推出小间距LED显示屏产品，丰富了公司视频通讯产业线，并在多个项目中落地应用。（十一）科达科达是视讯与安防产品及解决方案提供商，公司前身科达通信成立于1995年。2016年，科达营收14.49亿，同比增长18.55%；净利润1.74亿，同比增长46.37%。2017年上半年，营收6.83亿，同比增长21.78%；净利润7528.40万，同比增长7721.12%。在视频会议领域、视频监控领域，科达均拥有端到端的产品和解决方案，公司的平台、存储、后端应用单项及整体能力具备竞争优势，并且可以深度挖掘用户需求，融合视频会议和视频监控功能，为客户提供如可视指挥调度、侦查指挥、集控中心、会商研判，远程接访、远程医疗、远程审讯、远程培训等专业化解决方案的全套网络视讯设备和服务。2016年，科达子品牌“摩云视讯”推出了一系列针对云服务的硬件终端产品，进一步优化了产品和服务组合。（十二）CCCC视频是从技术转型到产品的公司，如今的定位是服务公司、服务客户，为客户群体在平台或者社群环境中形成更大的利益共享。在线教育行业是CC视频的重点关注领域，市场份额较高。CC视频平台80%都是标准化的产品，上传、转码、存储、加密、播放、管理、统计等都是标准化，同时又针对不同行业提供情景化的解决方案。（十三）随锐近年来，随锐的经营业绩表现不错。2016年，营收3.03亿元，同比增长73.92%；净利润3253.63万元，同比增长288.11%。2017年上半年，营收8571.84万元，同比增长6.92%；净利润1109.10万元，同比增长2.21%。2016年，随锐的公有云产品线、私有云产品线、通信云配件产品逐步成熟，瞩目直播、瞩目电话会议以及一些相关的硬件产品逐步推出。2017年上半年，随锐在江西德兴投资建立了3000平方米的随锐智能机器人生产组装基地，配套建立了完整的智能机器人生产、组装、测试、检验生产线，具备年生产数千台各类机器人的能力。未来，随锐将为电力、能源、化工、通信等行业，在办公场所、工厂园区等多种环境下，提供更加智能、便捷、高效的智能机器人产品解决方案。随锐2017年的工作规划与目标很清晰：贯彻新三年战略目标（2017-2018-2019），超过十万家年度付费的政企总数，超过十亿的年收入规模，超过百万政企客户群支撑的业务及伙伴发展平台，公司通信云产品与服务平台的日活跃政企用户数超过一千万；完成企业级通信产品研发；研发全面介入AI（人工智能）、通信云大数据运营分析与VR/AR（虚拟现实/增强现实）领域等。（十四）会畅近两年，会畅的营收比较稳定，但盈利增长不足。2016年，公司营收2.52亿元，同比增长0.79%；净利润3148.32万元，同比减少5.69%。2017年上半年，营收1.31亿元，同比增长5.06%；净利润1308.64万元，同比下降19.09%。2017年前三季度预计净利润同比下降13.42%–0.01%，盈利2408万元–2781万元（未经审计）。现阶段，多方通信业务市场尚处于初级阶段，客户需求以语音会议为主。会畅今年上半年的语音会议服务营收为9264.55万元（同比减少6.57%），占总营收的70.68%；网络会议收入3646.38万元，同比增长44.43%。会畅预计，网络会议将逐渐成为一种主要的多方通讯形式，预计公司未来网络会议服务收入的比重将进一步提升。值得注意的是，会畅的主要客户为世界500强企业在华机构，如果未来不能有效开拓其他客户，公司业绩可能会受到涉及。另外，会畅一直与InterCall保持战略合作伙伴关系，这种合作关系有助于公司短期内迅速在中国扩张市场，大量客户也习惯了由“InterCallSystem”支持的电话会议，如果合作生变，客户对电话会议服务的变化是否认同可能对公司经营产生影响。（十五）红杉树红杉树信息是赛伯乐投资集团旗下公司。红杉树通过整合视频云协同平台、大数据、物联网、AR/VR等技术，为行业提供Infoware应用解决方案，应用于工业、医疗、教育、政府、金融、能源等行业。（十六）捷视飞通捷视飞通2016年营收1.05亿元，同比增长53.42%；净利润1306.25万元，增长率为106.44%。2017年上半年，公司继续致力于视频会议系统、可视化指挥调度系统的研发及生产销售，营收3914.19万元，同比增长30.82%；净利润-827.17万元，由于上年净利润为负数，本期亏损较同比增加1.21倍。捷视飞通是华宇集团的参股企业，在国内建立了覆盖全国的营销网络，包括华北、西北、东北、华东、华中、华南、西南7个区域性营销和技术支持中心。捷视飞通视频通讯解决方案主要应用在日常沟通与应急协同两大方面，无边界全融合的多媒体视频通讯解决方案在政府、公安、教育、安监、执法等领域具有广泛应用。（十七）展视互动展视互动在互动直播市场占有较高份额，在全球拥有1000多家大中型企业及教育培训机构用户，而在线教育类用户占据公司用户的半壁江山，并带来了几千万的营收。2016年，展视互动成为二六三集团的一员，这也是中国互动直播行业的首次重要收购。迄今为止，本次收购给双方带来的量化影响很少见诸新闻，但相关的业务信息仍会传递出来。根据二六三2017年中报，今年上半年，二六三融合原展视互动的网络直播产品，新推出视频会议服务，263云通信服务得以进一步完善业务模块，形成以邮箱、网盘为主的数据服务和以即时通信、电话会议、网络会议、视频会议及网络直播为主的通信服务两大齐头并进的业务板块，形成邮件、会议、直播三大产品线。网络直播成为二六三新的业务增长点，公司收购展视互动后，坚持在网络直播市场精耕细作，专注商用互动直播云平台，提供在线教育直播课堂服务、互联网金融在线直播和企业直播室营销服务。根据IDC的统计报告，二六三的网络会议市场占有率8.9%，增长率61.2%。在牛透社看来，二六三取得这么高的增长率，有展视互动的很大贡献。（十八）网动北京网动网络科技股份有限公司主要提供综合云视讯产品及SaaS服务。近几年，网动的运营状况比较稳定。2012-2016年，营收分别为873万、1340.36万、1903.45万、2068.85万元、3167.45万元，同期净利润分别109.75万、18.86万、63.95万、99.50万、232.98万元。2017上半年，网动营收1390万元，同比增长60.35%；净利润70.63万元，同比增长123.24%（去年同期亏损300.88万）。网动的发展战略是加大投入两大核心支柱产品——基于渠道销售的私有云硬件会议及录播产品、基于SaaS模式的云硬件会议产品。在云视讯服务领域，公司将重心从纯软件会议转移到企业会议室级的云硬件高清会议产品；在云硬件服务领域，加速推广高清会议云盒。（十九）好视通深圳银澎云计算有限公司隶属于齐心集团。公司旗下好视通在中国大陆、中国香港、新加坡、美国等多个国家和地区部署了云平台入口，目前在全球市场有5万多家企业用户。齐心集团的信披资料显示，银澎成立了北京、上海、广州等18个办事处，覆盖了全国市场；海外部门先后组织参加了德国、英国、澳大利亚、美国、韩国、日本等国际展会，产品全面推向国际市场；持续增加研发投入，完成MeetingBOX及云会议产品的更新迭代，发布TV版及直播平台，丰富了产品服务内容；中标了中央国家机关2017-2018信息类产品协议供货采购项目等。近两年来，好视通的发展速度较快。根据IDC的统计报告，2016年好视通的网络会议市场增长率高达63.2%，以13.1%的市场占有率排名第一。据牛透社了解，好视通2016年盈利5000万左右，2017年盈利进一步向亿元靠拢。接下来，预计好视通会推出更多的硬件产品，进入到更多的细分领域，并加快推进全球化。（二十）华望云深圳华望技术有限公司是一家提供远程音视频业务的服务型企业，有视频会议、远程培训、互动教学、远程医疗四大服务体系。短短三年内，华望云平台线上活跃用户突破百万，包括欧洲、北美、东南亚等地区的用户。目前，华望业务领域已延伸至政府管理、IT通讯、金融信贷、物流连锁、建筑地产等领域，通过多元化合作提供一站式解决方案。（二十一）首云北京首云汇商金融信息服务有限公司是首都在线科技的控股子公司，通过提供从IaaS到PaaS的企业级服务，为企业从传统IT模式向云计算模式平滑过度提供保证。首云汇商依托公有云平台，打造企业云服务专区，面向企业提供基于PaaS的全新公有云服务模式。它有多个行业解决方案，包括金融云、电信云、教育云、智慧园区云、中小企业云、连锁零售云等，云视频是产品之一（二十二）星视通上海星视通云计算有限公司提供远程视频会议等协同办公和行业应用，在上海，北京、深圳、大连、重庆等地设有分支和服务机构。星视通与中国电信上海市信息网络有限公司有战略合作，后者由中国电信与上海市政府合资成立，主要运营宽带网络。星视通依托中国电信的视频云专用骨干网，提供运营级的服务架构。（二十三）科天云科天云由思科与TCL联手创立，采用思科的技术架构，在北京和广州自建数据中心。科天云WebEx更加本地化，产品也更灵活，相比思科的原型，科天云WebEx在应用场景和商务模式上都进行了改造。WebEx只是科天云的起点，从WebEx垂直切入到SaaS层的应用后，科天云还将聚焦S层，把WebEx平台化，为企业提供一体化的解决方案。科天云是思科重返中国市场的借道合资策略。2013年以前，思科已经开发了中国市场十几年，参与了几乎所有大型网络项目的建设。2013年，“棱镜门”揭秘者斯诺登宣称，美国国家安全局通过思科路由器监控中国的网络和电脑，引起了中国市场的极大反弹，中国的政府、国企等市场逐渐关上大门。2014年，思科合资打造科天云，旨在在中国落地公有商用云业务;2015年，籍着习近平访美的契机，思科又与浪潮签订了合作协议，研发网络技术与产品。借助TCL、浪潮多年以来服务国内政企的经验，以及对国内各行业需求的深度理解，思科希望弥补在本土化技术研发与服务方面的短板。2017年2月，科天云与腾讯企点又签署合作备忘录，双方宣布在产品层面深度整合，科天云的一系列协作云功能——语音通信、视频通信、网络会议、联络中心将完全整合在腾讯企点多平台的企业社交应用上。同时，思科与腾讯也建立全方位战略合作伙伴关系，共拓企业云服务市场，构建混合云和协作云生态体系。（二十四）小鱼易连仅仅两年时间，小鱼易连就在视频会议市场站稳了脚跟，并完成Pre-A、A、B轮超过3亿元的融资。小鱼易连的云视频平台在中国、东南亚、欧洲、北美等多地部署有服务节点，通过构建全球互联的云视频通讯平台，致力打造“云端+终端+服务+业务”的生态体系。目前，每一天在全球近百个国家、近千座城市，有数十万个企业/个人用户使用小鱼易连视频会议。据悉，2017年小鱼易连将有3、4款新产品诞生。对于一家成立还不到3年的公司来说，这样的发展速度还是相当快的。更多TOB干货，到TO必问！（专业的SaaS知识分享平台-www.tobwen.com）返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:28,187  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201603392_376476>
+None
+2017-11-01 16:32:28,264  [[D:/python_code/Spider3/distributed/commspider3/start_spider.py]] INFO: 插入成功...INSERT INTO news(source, link, title, time, content,type, about, author, edit)VALUES('', 'http://www.sohu.com/a/201605279_118792', '泰国时装电商Pomelo获1900万美元B轮融资，京东领投', '2017-11-01 15:25', '原标题：泰国时装电商Pomelo获1900万美元B轮融资，京东领投【猎云网（微信号：ilieyun）】11月1日报道（编译：福尔摩望）在线时装电商Pomelo于今天宣布获得1900万美元的融资，这一数字似乎打破了泰国有史以来最大B轮融资的记录。此轮融资由中国京东和印度尼西亚投资公司ProvidentCapitalPartners共同领投。美国私募股权公司LombardInvestments也参与了此轮融资。Pomelo成立于2014年、总部位于曼谷。最初，其通过销售韩国时装起步，现在逐步与设计师合作创立自有品牌。2014年9月，该公司在A轮前融资中筹得160万美元的资金，这对于处于早期的东南亚电商创企来说是不可思议的数目。截至去年10月，该公司在经历了由JungleVentures、500Startups等投资的A轮融资后，共获得1100万美元的资金。Pomelo在新闻稿中表示，这笔投资是目前泰国创企所经历的金额最大的B轮融资。此前这一纪录由支付企业Omise保持，该公司在去年7月的B轮融资中获得了1750万美元的投资。同样来自曼谷的竞争对手Zilingo在去年9月的B轮融资中获得了1700万美元的投资。京东对Pomelo的投资是值得注意的，因为中国企业对泰国及更广大东南亚地区的投资兴趣与日俱增。9月，京东与泰国实体零售巨头尚泰集团（CentralGroup）共同投资5亿美元成立了一家合资公司。此外，该公司还投资了印度尼西亚共乘公司Go-Jek。本文来自猎云网，如若转载，请注明出处：http://www.lieyunwang.com/archives/377830返回搜狐，查看更多责任编辑：', 'www.sohu.com', 'from sohu', '', '')
+2017-11-01 16:32:28,264  [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.sohu.com/a/201605279_118792>
+None
+2017-11-01 16:32:28,563  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171028/52832524_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:28,672  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171028/52832524_0.shtml>
+None
+2017-11-01 16:32:29,287  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171029/52840410_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:29,400  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171029/52840410_0.shtml>
+None
+2017-11-01 16:32:30,0  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171029/52842611_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:30,139  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171029/52842611_0.shtml>
+None
+2017-11-01 16:32:30,701  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171029/52844094_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:30,810  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171029/52844094_0.shtml>
+None
+2017-11-01 16:32:31,280  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171030/52858104_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:31,390  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171030/52858104_0.shtml>
+None
+2017-11-01 16:32:33,191  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171101/52887137_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:33,200  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171031/52878909_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:33,230  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171031/52869864_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:33,302  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171101/52887137_0.shtml>
+None
+2017-11-01 16:32:33,313  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171031/52878909_0.shtml>
+None
+2017-11-01 16:32:33,342  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171031/52869864_0.shtml>
+None
+2017-11-01 16:32:33,768  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52775234_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:33,877  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52775234_0.shtml>
+None
+2017-11-01 16:32:34,385  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52776169_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:34,494  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52776169_0.shtml>
+None
+2017-11-01 16:32:34,948  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171025/52784339_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:35,62  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171025/52784339_0.shtml>
+None
+2017-11-01 16:32:35,626  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171025/52784355_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:35,737  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171025/52784355_0.shtml>
+None
+2017-11-01 16:32:36,360  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171025/52787778_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:36,469  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171025/52787778_0.shtml>
+None
+2017-11-01 16:32:37,61  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171026/52799657_0.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:37,173  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171026/52799657_0.shtml>
+None
+2017-11-01 16:32:37,724  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml> (referer: http://news.ifeng.com/listpage/70374/1/list.shtml)
+2017-11-01 16:32:39,548  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171021/52739666_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:39,659  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171021/52739666_0.shtml>
+None
+2017-11-01 16:32:39,715  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171022/52740772_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:39,831  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171022/52740772_0.shtml>
+None
+2017-11-01 16:32:40,281  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171021/52739669_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:40,309  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171022/52742566_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:40,391  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171021/52739669_0.shtml>
+None
+2017-11-01 16:32:40,418  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171022/52742566_0.shtml>
+None
+2017-11-01 16:32:42,112  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171022/52747464_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:42,221  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171022/52747464_0.shtml>
+None
+2017-11-01 16:32:42,752  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171022/52748890_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:42,863  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171022/52748890_0.shtml>
+None
+2017-11-01 16:32:43,342  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171023/52751976_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:43,453  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171023/52751976_0.shtml>
+None
+2017-11-01 16:32:43,922  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171023/52752889_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:43,966  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171023/52757730_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:44,32  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171023/52752889_0.shtml>
+None
+2017-11-01 16:32:44,77  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171023/52757730_0.shtml>
+None
+2017-11-01 16:32:44,648  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52765969_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:44,758  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52765969_0.shtml>
+None
+2017-11-01 16:32:45,308  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52768047_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:45,421  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52768047_0.shtml>
+None
+2017-11-01 16:32:45,831  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52769098_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:45,942  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52769098_0.shtml>
+None
+2017-11-01 16:32:46,542  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171023/52755915_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:46,554  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52769719_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:46,652  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171023/52755915_0.shtml>
+None
+2017-11-01 16:32:46,666  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52769719_0.shtml>
+None
+2017-11-01 16:32:46,899  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52771425_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:47,10  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52771425_0.shtml>
+None
+2017-11-01 16:32:47,261  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171024/52772993_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:47,371  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171024/52772993_0.shtml>
+None
+2017-11-01 16:32:49,37  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171021/52731234_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:49,147  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171021/52731234_0.shtml>
+None
+2017-11-01 16:32:49,701  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171021/52734479_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:49,812  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171021/52734479_0.shtml>
+None
+2017-11-01 16:32:50,281  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171021/52734953_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:50,390  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171021/52734953_0.shtml>
+None
+2017-11-01 16:32:50,674  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171021/52735417_0.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:50,784  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171021/52735417_0.shtml>
+None
+2017-11-01 16:32:57,237  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml> (referer: http://news.ifeng.com/listpage/70374/2/1/52775234/list.shtml)
+2017-11-01 16:32:57,864  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171017/52673394_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:32:57,982  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171017/52673394_0.shtml>
+None
+2017-11-01 16:32:58,488  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171017/52673040_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:32:58,597  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171017/52673040_0.shtml>
+None
+2017-11-01 16:32:59,573  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171017/52678298_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:32:59,681  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171017/52678298_0.shtml>
+None
+2017-11-01 16:33:00,317  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171017/52678995_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:00,429  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171017/52678995_0.shtml>
+None
+2017-11-01 16:33:00,653  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171018/52688614_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:00,763  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171018/52688614_0.shtml>
+None
+2017-11-01 16:33:01,28  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171018/52687181_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:01,139  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171018/52687181_0.shtml>
+None
+2017-11-01 16:33:01,179  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171018/52688925_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:01,288  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171018/52688925_0.shtml>
+None
+2017-11-01 16:33:01,695  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171018/52694308_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:01,804  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171018/52694308_0.shtml>
+None
+2017-11-01 16:33:02,36  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171018/52694620_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:02,144  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171018/52694620_0.shtml>
+None
+2017-11-01 16:33:02,660  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171019/52700075_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:02,771  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171019/52700075_0.shtml>
+None
+2017-11-01 16:33:03,65  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171019/52700209_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:03,175  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171019/52700209_0.shtml>
+None
+2017-11-01 16:33:04,807  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171019/52703490_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:04,917  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171019/52703490_0.shtml>
+None
+2017-11-01 16:33:05,101  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171019/52705865_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:05,209  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171019/52705865_0.shtml>
+None
+2017-11-01 16:33:05,363  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171019/52704075_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:05,473  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171019/52704075_0.shtml>
+None
+2017-11-01 16:33:06,773  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171019/52708419_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:06,882  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171019/52708419_0.shtml>
+None
+2017-11-01 16:33:07,233  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171020/52714859_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:07,343  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171020/52714859_0.shtml>
+None
+2017-11-01 16:33:07,586  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171016/52657291_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:07,698  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171016/52657291_0.shtml>
+None
+2017-11-01 16:33:07,976  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171020/52715383_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:08,86  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171020/52715383_0.shtml>
+None
+2017-11-01 16:33:08,612  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171017/52670764_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:08,726  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171017/52670764_0.shtml>
+None
+2017-11-01 16:33:10,799  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171017/52670430_0.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:10,911  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171017/52670430_0.shtml>
+None
+2017-11-01 16:33:12,339  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml> (referer: http://news.ifeng.com/listpage/70374/3/1/52731234/52772993/list.shtml)
+2017-11-01 16:33:13,448  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171012/52603025_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:13,558  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171012/52603025_0.shtml>
+None
+2017-11-01 16:33:13,608  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171012/52594456_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:13,719  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171012/52594456_0.shtml>
+None
+2017-11-01 16:33:13,926  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171012/52599376_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:13,994  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171013/52614169_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:14,37  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171012/52599376_0.shtml>
+None
+2017-11-01 16:33:14,104  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171013/52614169_0.shtml>
+None
+2017-11-01 16:33:14,415  [scrapy.extensions.logstats] INFO: Crawled 22 pages (at 22 pages/min), scraped 8 items (at 8 items/min)
+2017-11-01 16:33:14,432  [scrapy.extensions.logstats] INFO: Crawled 86 pages (at 86 pages/min), scraped 81 items (at 81 items/min)
+2017-11-01 16:33:14,451  [scrapy.extensions.logstats] INFO: Crawled 113 pages (at 113 pages/min), scraped 112 items (at 112 items/min)
+2017-11-01 16:33:15,747  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171013/52618231_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:15,858  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171013/52618231_0.shtml>
+None
+2017-11-01 16:33:16,326  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171013/52621405_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:16,437  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171013/52621405_0.shtml>
+None
+2017-11-01 16:33:16,750  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171014/52636134_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:16,859  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171014/52636134_0.shtml>
+None
+2017-11-01 16:33:17,51  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171015/52640537_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:17,164  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171015/52640537_0.shtml>
+None
+2017-11-01 16:33:17,465  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171015/52641180_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:17,575  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171015/52641180_0.shtml>
+None
+2017-11-01 16:33:18,65  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171015/52644721_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:18,136  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171016/52649879_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:18,175  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171015/52644721_0.shtml>
+None
+2017-11-01 16:33:18,247  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171016/52649879_0.shtml>
+None
+2017-11-01 16:33:18,633  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171016/52648935_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:18,750  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171016/52648935_0.shtml>
+None
+2017-11-01 16:33:19,882  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171016/52652371_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:19,993  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171016/52652371_0.shtml>
+None
+2017-11-01 16:33:20,181  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171010/52540299_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:20,292  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171010/52540299_0.shtml>
+None
+2017-11-01 16:33:20,524  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171009/52525122_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:20,634  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171009/52525122_0.shtml>
+None
+2017-11-01 16:33:21,777  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171010/52543099_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:21,886  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171010/52543099_0.shtml>
+None
+2017-11-01 16:33:22,420  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171011/52580670_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:22,426  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171010/52554526_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:22,531  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171011/52580670_0.shtml>
+None
+2017-11-01 16:33:22,541  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171010/52554526_0.shtml>
+None
+2017-11-01 16:33:22,830  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171011/52565604_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:22,940  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171011/52565604_0.shtml>
+None
+2017-11-01 16:33:24,12  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171012/52587309_0.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:24,124  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171012/52587309_0.shtml>
+None
+2017-11-01 16:33:26,868  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml> (referer: http://news.ifeng.com/listpage/70374/4/1/52657291/52715383/list.shtml)
+2017-11-01 16:33:27,86  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171005/52339763_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:27,196  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171005/52339763_0.shtml>
+None
+2017-11-01 16:33:27,724  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171005/52340323_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:27,837  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171005/52340323_0.shtml>
+None
+2017-11-01 16:33:29,440  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171006/52356163_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:29,550  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171006/52356163_0.shtml>
+None
+2017-11-01 16:33:30,47  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171006/52361577_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:30,142  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171006/52370341_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:30,158  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171006/52361577_0.shtml>
+None
+2017-11-01 16:33:30,251  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171006/52370341_0.shtml>
+None
+2017-11-01 16:33:30,510  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171006/52365552_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:30,620  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171006/52365552_0.shtml>
+None
+2017-11-01 16:33:31,531  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171007/52404691_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:31,641  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171007/52404691_0.shtml>
+None
+2017-11-01 16:33:31,746  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171006/52390555_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:31,857  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171006/52390555_0.shtml>
+None
+2017-11-01 16:33:32,225  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171007/52407874_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:32,335  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171007/52407874_0.shtml>
+None
+2017-11-01 16:33:32,955  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171007/52420400_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:33,66  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171007/52420400_0.shtml>
+None
+2017-11-01 16:33:33,583  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171008/52453711_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:33,693  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171008/52453711_0.shtml>
+None
+2017-11-01 16:33:33,896  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171008/52484870_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:34,11  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171008/52484870_0.shtml>
+None
+2017-11-01 16:33:35,133  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171009/52504561_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:35,243  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171009/52504561_0.shtml>
+None
+2017-11-01 16:33:35,474  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171009/52493313_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:35,585  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171009/52493313_0.shtml>
+None
+2017-11-01 16:33:35,657  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171002/52275240_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:35,766  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171002/52275240_0.shtml>
+None
+2017-11-01 16:33:36,817  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171003/52289430_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:36,927  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171003/52289430_0.shtml>
+None
+2017-11-01 16:33:37,281  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171003/52288962_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:37,393  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171003/52288962_0.shtml>
+None
+2017-11-01 16:33:37,440  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171003/52295060_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:37,580  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171003/52295060_0.shtml>
+None
+2017-11-01 16:33:38,696  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171005/52334601_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:38,805  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171005/52334601_0.shtml>
+None
+2017-11-01 16:33:39,254  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171004/52313973_0.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:39,363  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171004/52313973_0.shtml>
+None
+2017-11-01 16:33:44,186  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml> (referer: http://news.ifeng.com/listpage/70374/5/1/52525122/52652371/list.shtml)
+2017-11-01 16:33:45,448  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170927/52182394_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:45,558  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170927/52182394_0.shtml>
+None
+2017-11-01 16:33:46,133  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170927/52182716_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:46,244  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170927/52182716_0.shtml>
+None
+2017-11-01 16:33:46,832  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170927/52184454_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:46,941  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170927/52184454_0.shtml>
+None
+2017-11-01 16:33:47,298  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170928/52210819_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:47,308  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170927/52186935_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:47,408  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170928/52210819_0.shtml>
+None
+2017-11-01 16:33:47,419  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170927/52186935_0.shtml>
+None
+2017-11-01 16:33:47,639  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170927/52191371_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:47,749  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170927/52191371_0.shtml>
+None
+2017-11-01 16:33:49,33  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170929/52218907_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:49,142  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170929/52218907_0.shtml>
+None
+2017-11-01 16:33:49,203  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170930/52239297_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:49,311  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170930/52239297_0.shtml>
+None
+2017-11-01 16:33:49,584  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170929/52230380_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:49,694  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170929/52230380_0.shtml>
+None
+2017-11-01 16:33:50,944  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170930/52241780_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:51,55  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170930/52241780_0.shtml>
+None
+2017-11-01 16:33:51,143  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171001/52259909_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:51,256  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171001/52259909_0.shtml>
+None
+2017-11-01 16:33:51,678  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170930/52246715_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:51,736  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171001/52264053_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:51,788  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170930/52246715_0.shtml>
+None
+2017-11-01 16:33:51,846  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171001/52264053_0.shtml>
+None
+2017-11-01 16:33:53,485  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171002/52272944_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:53,595  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171002/52272944_0.shtml>
+None
+2017-11-01 16:33:54,18  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20171002/52274389_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:54,129  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20171002/52274389_0.shtml>
+None
+2017-11-01 16:33:54,562  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170925/52154471_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:54,661  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170924/52141090_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:54,672  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170925/52154471_0.shtml>
+None
+2017-11-01 16:33:54,775  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170924/52141090_0.shtml>
+None
+2017-11-01 16:33:55,54  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170926/52164735_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:55,163  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170926/52164735_0.shtml>
+None
+2017-11-01 16:33:55,647  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170926/52165327_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:55,756  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170926/52165327_0.shtml>
+None
+2017-11-01 16:33:57,362  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170926/52172544_0.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:33:57,472  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170926/52172544_0.shtml>
+None
+2017-11-01 16:34:07,117  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml> (referer: http://news.ifeng.com/listpage/70374/6/1/52275240/52504561/list.shtml)
+2017-11-01 16:34:07,992  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170918/52067156_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:08,100  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170918/52067156_0.shtml>
+None
+2017-11-01 16:34:08,451  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170918/52041200_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:08,561  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170918/52041200_0.shtml>
+None
+2017-11-01 16:34:09,644  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170919/52075554_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:09,754  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170919/52075554_0.shtml>
+None
+2017-11-01 16:34:09,871  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170919/52078392_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:09,979  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170919/52078392_0.shtml>
+None
+2017-11-01 16:34:10,221  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170919/52077332_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:10,331  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170919/52077332_0.shtml>
+None
+2017-11-01 16:34:10,430  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170920/52090159_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:10,540  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170920/52090159_0.shtml>
+None
+2017-11-01 16:34:11,813  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170920/52094377_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:11,921  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170920/52094377_0.shtml>
+None
+2017-11-01 16:34:12,467  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170921/52103487_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:12,577  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170921/52103487_0.shtml>
+None
+2017-11-01 16:34:12,584  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170921/52108872_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:12,698  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170921/52108872_0.shtml>
+None
+2017-11-01 16:34:12,961  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170921/52105006_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:13,75  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170921/52105006_0.shtml>
+None
+2017-11-01 16:34:13,940  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170922/52117909_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:14,50  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170922/52117909_0.shtml>
+None
+2017-11-01 16:34:14,322  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170922/52112927_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:14,415  [scrapy.extensions.logstats] INFO: Crawled 22 pages (at 0 pages/min), scraped 8 items (at 0 items/min)
+2017-11-01 16:34:14,432  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170922/52112927_0.shtml>
+None
+2017-11-01 16:34:14,432  [scrapy.extensions.logstats] INFO: Crawled 157 pages (at 71 pages/min), scraped 149 items (at 68 items/min)
+2017-11-01 16:34:14,451  [scrapy.extensions.logstats] INFO: Crawled 113 pages (at 0 pages/min), scraped 112 items (at 0 items/min)
+2017-11-01 16:34:15,612  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170922/52118716_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:15,723  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170922/52118716_0.shtml>
+None
+2017-11-01 16:34:16,244  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170922/52126008_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:16,353  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170922/52126008_0.shtml>
+None
+2017-11-01 16:34:16,829  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170923/52134806_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:16,941  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170923/52134806_0.shtml>
+None
+2017-11-01 16:34:17,519  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170916/52018063_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:17,629  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170916/52018063_0.shtml>
+None
+2017-11-01 16:34:18,221  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170916/52021753_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:18,330  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170916/52021753_0.shtml>
+None
+2017-11-01 16:34:18,602  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170917/52027988_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:18,714  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170917/52027988_0.shtml>
+None
+2017-11-01 16:34:18,860  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170916/52023139_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:18,970  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170916/52023139_0.shtml>
+None
+2017-11-01 16:34:19,292  [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.ifeng.com/a/20170917/52030691_0.shtml> (referer: http://news.ifeng.com/listpage/70374/7/1/52141090/52274389/list.shtml)
+2017-11-01 16:34:19,404  [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.ifeng.com/a/20170917/52030691_0.shtml>
+None

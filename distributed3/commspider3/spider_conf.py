@@ -150,7 +150,7 @@ SPIDERR_SETTINGS = {
                 'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
                 'DOWNLOAD_DELAY': 5,
              },
-            'spidercls': ShanghaiSpider,
+            # 'spidercls': ShanghaiSpider,
             'use_proxy': False,
              },
     },

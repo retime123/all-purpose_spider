@@ -166,8 +166,7 @@ FILTER_DB = 2
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
-# 代码目录
-CODE_DIR = '/home/huanggencheng/yixun_spider'
+
 
 # 服务器信息platform.uname()[1]
 MASTER_SERVER = 'localhost.localdomain'
@@ -184,19 +183,30 @@ ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
             'MONITOR_D': 'iZ2ze8cy5ndiwte1bakilmZ',
             }
 
+# 代码目录
+CODE_DIR = '/home/huanggencheng/commspider3'
+# 爬虫正式运行时给所有人发运行报告
+if platform.uname()[1] == MASTER_SERVER:
+    REPORT_RECEIVER = ['781816703@qq.com']
+else:
+    REPORT_RECEIVER = ['781816703@qq.com']
+
+
 # 服务器的参数
 SERVER_PARAM = {
     MASTER_SERVER: {
         'local': '10.16.3.39',
         'internet': '172.17.42.1',
         'pwd': 'eifm12345',
-        'name': 'huanggencheng'
+        'name': 'huanggencheng',
+        'dir': CODE_DIR,
     },
     SERVER_A: {
         'local': '192.168.136.129',
         'internet': '192.168.136.129',
         'pwd': 'hgcheng123',
-        'name': 'python'
+        'name': 'python',
+        'dir': CODE_DIR,
     },
     # SERVER_B: {
     #     'local': '10.27.217.100',

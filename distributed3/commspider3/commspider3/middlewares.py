@@ -57,7 +57,7 @@ class ProcessResponseMiddleware(object):
 class ChoiceAgent(object):
     """随机更换user-agent"""
     def process_request(self, request, spider):
-        if spider.name == "HbSpider":
+        if  "HbSpider" in spider.name:
             agent = random.choice(settings.MOBILE_USERAGENT)
             request.headers.setdefault('User-Agent', agent)
         else:

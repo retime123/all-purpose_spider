@@ -370,7 +370,7 @@ def get_params(prefix, task_type, platform_id, debug):
         if 'sparkle' in task_type:
             platform_id = [160, 170, 180]
         elif 'caas' in task_type:
-            platform_id = [160, 170, 180]
+            platform_id = [49, 47, 50, 51, 77, 81, 58, 94, 95, 52, 78, 101, 64, 80]
     else:
         plist = []
         for elm in platform_id.strip('[]').split(','):
@@ -394,4 +394,3 @@ if __name__ == '__main__':
 
     pt = WatchStatus(prefix=prefix, task_type=task_type, platform_id=platform_id, debug=debug)
     pt.run()
-

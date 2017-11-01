@@ -51,16 +51,28 @@ class StartSpider(object):
             for k, v in value.get('settings').items():
                 project_settings[k] = v
             crawl = Crawler(value.get('spidercls'), settings=project_settings)
-            # process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'), debug=self.debug)
-            process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'))
+            process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'), debug=self.debug)
+            # process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'))
 
         process.start()
 
 
 if __name__ == '__main__':
-    
-    prefix, task_type = 2017, 'day_data'
-    # prefix, task_type = 2017, 'hour_data'
 
-    s = StartSpider(prefix, task_type)
+    # prefix, task_type = 2017, 'hour_data'
+    # 正式环境运行此代码
+    if platform.uname()[1] in sg.SERVERS:
+        # 启动方式 python3 start_spider 1 day_data 0
+        prefix = None
+        task_type = None
+        debug = None
+        if sys.argv[1] == '1' and sys.argv[2] == 'day_data' and sys.argv[3] == '0':
+            prefix, task_type, debug = sys.argv[1], sys.argv[2], sys.argv[3]
+        else:
+            print('参数不对！！！！')
+    # 本机环境运行此代码
+    else:
+        prefix, task_type, debug = 2017, 'day_data', 0
+
+    s = StartSpider(prefix, task_type, int(debug))
     s.run()
