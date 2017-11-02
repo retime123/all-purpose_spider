@@ -5,6 +5,7 @@ from email.utils import parseaddr, formataddr
 import smtplib
 import random,time
 from commspider3.tools.logger import logger
+from commspider3 import settings
 
 def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
     '''
@@ -61,26 +62,28 @@ def send_error_write(title, content, spider_name):
     :param spider_name: 爬虫名  type: str
     :return:
     '''
-    logger().error('{}...{}'.format(title, content))
-    send_mail('[{}]{}'.format(spider_name, title), '{}'.format(content))
-    with open('error_{}.log'.format(spider_name), 'a+', encoding='utf-8') as fp:
+    logger().error('[{}] {}...\n{}'.format(spider_name, title, content))
+    with open(settings.LOG_DIR + '/error_spider.log', 'a+', encoding='utf-8') as fp:
         now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
         fp.write('[{}]{}...{}'.format(spider_name, title, now_time2) + '\n')
         fp.write('{}'.format(content) + '\n')
         fp.write('=' * 30 + '\n')
+    send_mail('[{}] {}'.format(spider_name, title), '{}'.format(content))
+
 
 
 def send_timeout_write(title, content, spider_name):
     '''请求超时信息'''
-    logger().error('{}...{}'.format(title, content))
-    send_mail('[{}]{}'.format(spider_name, title), '{}'.format(content))
+    logger().error('[{}] {}...\n{}'.format(spider_name, title, content))
     with open('timeout_{}.log'.format(spider_name), 'a+', encoding='utf-8') as fp:
         now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
         fp.write('[{}]{}...{}'.format(spider_name, title, now_time2) + '\n')
         fp.write('{}'.format(content) + '\n')
         fp.write('=' * 30 + '\n')
+    send_mail('[{}] {}'.format(spider_name, title), '{}'.format(content))
+
 
 
 if __name__ == '__main__':
     # send_mail('fffff','nihao')
-    send_error_write('插入数量失败！', 'sss', 'name')
+    send_error_write('title插入数量失败！', 'content', 'name')

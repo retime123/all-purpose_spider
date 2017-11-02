@@ -243,24 +243,30 @@ def new_sshclient_execmd(host, port=22, username='root', password='AHSKsxky2096'
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     try:
         if platform.uname()[1] == settings.MASTER_SERVER:
+            return
+            # conn.connect(hostname=host.get('internet'), port=port, username=host.get('name'), password=host.get('pwd'))
+
+        elif platform.uname()[1] in settings.SERVERS:
             conn.connect(hostname=host.get('local'), port=port, username=host.get('name'), password=host.get('pwd'))
-        else:
-            conn.connect(hostname=host.get('internet'), port=port, username=host.get('name'), password=host.get('pwd'))
 
         params = re.findall(r'(\w+)-(.*?)-(\w+)', execmd)
         if params:
             if params[0][2] == 'worker':
                 if params[0][0] == 'start':
                     spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
-                    print(spider_id)
-                    shut_spider(spider_id, host, conn)
-                    start_result = conn.exec_command('cd {};python3 start_spider.py {} &'.format(
-                        host.get('dir'), params[0][1]))[1]
-                    spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
+
+                    print("ddd",spider_id)
                     if spider_id:
-                        logger().info('{} 启动spider进程 {}'.format(host.get('name'), spider_id))
+                        logger().info('{} 已启动spider进程 {}'.format(host.get('name'), spider_id))
                     else:
-                        logger().info('{} 启动spider失败'.format(host.get('name')))
+                        start_result = conn.exec_command('cd {};python3 start_spider.py {} &'.format(host.get('dir'), params[0][1]))[1]
+                        # 进程结束了，才会有结果！！
+                        # print(start_result.read())
+                        spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
+                        if spider_id:
+                            logger().info('{} 启动spider进程 {}'.format(host.get('name'), spider_id))
+                        else:
+                            logger().info('{} 启动spider失败'.format(host.get('name')))
                 else:
                     spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
                     shut_spider(spider_id, host, conn)
@@ -277,7 +283,7 @@ def new_sshclient_execmd(host, port=22, username='root', password='AHSKsxky2096'
                 git_result = conn.exec_command(execmd)[1]
                 logger().info('{} {}'.format(host.get('name'), git_result.read().decode('utf-8')))
     except Exception as e:
-        logger().error('{} 服务器执行 {} 命令失败 {}'.format(host.get('name'), execmd, e))
+        logger().error('{} 服务器执行 {} 命令失败 {}'.format(host.get('name'), execmd, traceback.format_exc()))
     conn.close()
 
 
@@ -304,7 +310,7 @@ def get_spider_id(conn, program_name):
     spider_id = None
     for line in spider_info.readlines():
         if '{}'.format(program_name) in line:
-            spider_id = re.findall('root\\s*(\\d+)\\s*.*', line)[0]
+            spider_id = re.findall('.+?\\s*(\\d+)\\s*.*', line)[0]
             break
     return spider_id
 
@@ -328,3 +334,17 @@ def make_dir(dir_path='/home/yixun_spider/log'):
             os.makedirs(log_path)
         except Exception:
             pass
+
+
+if __name__ == '__main__':
+    conn = paramiko.SSHClient()
+    conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    conn.connect(hostname='192.168.136.129', port=22, username='python', password='hgcheng123')
+    spider_id = get_spider_id(conn, 'start_spider.py 1 day_data 0')
+    print(spider_id)
+    CODE_DIR = '/home/python/Desktop/commspider3'
+    if not spider_id:
+        a = conn.exec_command('cd {};python3 start_spider.py {} &'.format(CODE_DIR, '1 day_data 0'))[1]
+        # print(a.read())
+    spider_id = get_spider_id(conn, 'start_spider.py 1 day_data 0')
+    print(spider_id)

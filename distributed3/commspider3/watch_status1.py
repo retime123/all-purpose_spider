@@ -15,8 +15,12 @@ from commspider3.tools.tool import write_log
 from commspider3.tools.tool import execute_mysql_insert
 from commspider3.tools.tool import new_sshclient_execmd as sshclient_execmd
 from commspider3.tools.tool import aiorequest
-# from commspider3 import caas_conf
 
+'''
+- 功能 -
+1.正式服务器环境下，settings里面的机器一键启动/停止
+# 2.git模式----> 判断spider进程>>>删除文件>>>然后下拉git
+'''
 
 class WatchStatus(object):
 
@@ -70,7 +74,6 @@ class WatchStatus(object):
     # 主函数
     def run(self):
         # 启动spider
-        print('333')
         # self.start_spider()
         if platform.uname()[1] in settings.SERVERS:
             self.start_spider()
@@ -79,32 +82,33 @@ class WatchStatus(object):
         tasks = []
         for pid in self.platform_id:
             tasks.append(self.watch_task(pid, self.task_type))
-
-        try:
-            # 开始执行异步任务
-            self.loop.run_until_complete(asyncio.wait(tasks))
-
-            # # 发送汇总报告
-            # self.send_summay_report()
-
-            # 删除redis中的键
-            self.delete_redis_key()
-
-            # 关闭spider
-            if platform.uname()[1] in settings.SERVERS:
-                self.shut_spider()
-
-            # 其他自定义操作
-            self.custom_operation()
-        except KeyboardInterrupt:
-            self.logger.info('手动退出')
-            exit(0)
+        #
+        # try:
+        #     # 开始执行异步任务
+        #     self.loop.run_until_complete(asyncio.wait(tasks))
+        #
+        #     # # 发送汇总报告
+        #     # self.send_summay_report()
+        #
+        #     # 删除redis中的键
+        #     self.delete_redis_key()
+        #
+        #     # 关闭spider
+        #     if platform.uname()[1] in settings.SERVERS:
+        #         self.shut_spider()
+        #
+        #     # 其他自定义操作
+        #     self.custom_operation()
+        # except KeyboardInterrupt:
+        #     self.logger.info('手动退出')
+        #     exit(0)
 
     # 启动所有spider
     def start_spider(self):
+        servers = None
         if self.task_type == 'day_data':
             servers = settings.SERVERS
-        else:
+        elif self.task_type == 'RT_data':
             servers = settings.SERVERS
         server_param = settings.SERVER_PARAM
         for key in servers:
@@ -119,9 +123,8 @@ class WatchStatus(object):
             servers = settings.SERVERS
         server_param = settings.SERVER_PARAM
         for key in servers:
-            if self.task_type != 'day_data':
-                sshclient_execmd(
-                    host=server_param[key], execmd='shut-{} {} {}-worker'.format(self.prefix, self.task_type, self.debug))
+            sshclient_execmd(
+                host=server_param[key], execmd='shut-{} {} {}-worker'.format(self.prefix, self.task_type, self.debug))
 
     # 清空redis中残留的键
     def delete_redis_key(self):
@@ -367,10 +370,10 @@ class WatchStatus(object):
 
 def get_params(prefix, task_type, platform_id, debug):
     if platform_id == '[]':
-        if 'sparkle' in task_type:
+        if 'day_data' in task_type:
             platform_id = [160, 170, 180]
-        elif 'caas' in task_type:
-            platform_id = [49, 47, 50, 51, 77, 81, 58, 94, 95, 52, 78, 101, 64, 80]
+        elif 'RT_data' in task_type:
+            platform_id = [160, 170, 180]
     else:
         plist = []
         for elm in platform_id.strip('[]').split(','):
@@ -381,12 +384,22 @@ def get_params(prefix, task_type, platform_id, debug):
 
 
 if __name__ == '__main__':
-    # prefix, task_type, database, sql, platform_id
-    # 2017XX sparkle_data mysql "select * from huox" []
+    '''
+            - 启动参数 -
+            :正式环境为服务器环境，settings里面的服务器机型才能启动正式环境
+            :param 启动方式: python3 start_spider 1 day_data 0
+
+            :param 其他电脑: python3 start_spider
+        '''
+
 
     # 正式环境运行此代码
     if platform.uname()[1] in settings.SERVERS:
-        # python3 watch_status 1 day_data [] 0
+        '''
+        :param spider启动:python3 watch_status.py 1 day_data [] 0
+        :param spider停止:python3 watch_status.py 1 day_data [] 0
+        :param git下拉:python3 watch_status.py 1 git_pull [] 0
+        '''
         prefix, task_type, platform_id, debug = get_params(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     # 本机环境运行此代码
     else:

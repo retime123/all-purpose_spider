@@ -17,13 +17,7 @@ BOT_NAME = 'commspider3'
 SPIDER_MODULES = ['commspider3.spiders']
 NEWSPIDER_MODULE = 'commspider3.spiders'
 
-driver_path = './datapool'
-project_dir = os.path.abspath(os.path.dirname(__file__))
-# 图片路径
-IMAGES_STORE = os.path.join(project_dir, 'images')
-# 用于过滤小图片
-IMAGENS_MIN_HEIGHT = 100
-IMAGENS_MIN_WIDTH = 100
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'commspider3 (+http://www.yourdomain.com)'
 
@@ -183,8 +177,7 @@ ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
             'MONITOR_D': 'iZ2ze8cy5ndiwte1bakilmZ',
             }
 
-# 代码目录
-CODE_DIR = '/home/huanggencheng/commspider3'
+
 # 爬虫正式运行时给所有人发运行报告
 if platform.uname()[1] == MASTER_SERVER:
     REPORT_RECEIVER = ['781816703@qq.com']
@@ -192,21 +185,38 @@ else:
     REPORT_RECEIVER = ['781816703@qq.com']
 
 
+
+driver_path = '../datapool'
+project_dir = os.path.abspath(os.path.dirname(__file__))
+# 图片路径
+IMAGES_STORE = os.path.join(project_dir, 'images')
+# 用于过滤小图片
+IMAGENS_MIN_HEIGHT = 100
+IMAGENS_MIN_WIDTH = 100
+
+# 代码目录
+CODE_DIR = '/home/huanggencheng/yixun_spider/commspider3'
+# log目录
+LOG_DIR = CODE_DIR.replace('commspider3','log')
+# git地址
+GIT_CLONE =''
+
+
 # 服务器的参数
 SERVER_PARAM = {
-    MASTER_SERVER: {
-        'local': '10.16.3.39',
-        'internet': '172.17.42.1',
-        'pwd': 'eifm12345',
-        'name': 'huanggencheng',
-        'dir': CODE_DIR,
-    },
+    # MASTER_SERVER: {
+    #     'local': '10.16.3.39',
+    #     'internet': '172.17.42.1',
+    #     'pwd': 'eifm12345',
+    #     'name': 'huanggencheng',
+    #     'dir': CODE_DIR,
+    # },
     SERVER_A: {
         'local': '192.168.136.129',
         'internet': '192.168.136.129',
         'pwd': 'hgcheng123',
         'name': 'python',
-        'dir': CODE_DIR,
+        'dir': '/home/python/Desktop/commspider3',
     },
     # SERVER_B: {
     #     'local': '10.27.217.100',
@@ -229,9 +239,9 @@ SERVER_PARAM = {
 }
 
 # 所有服务器！
-# SERVERS = [MASTER_SERVER, SERVER_A, SERVER_B, SERVER_C, SERVER_D]
-SERVERS = [MASTER_SERVER, SERVER_A]
-
+SERVERS = [MASTER_SERVER, SERVER_A, SERVER_B, SERVER_C, SERVER_D]
+SERVERSa = [SERVER_A]
+SERVERSb = [SERVER_A]
 # 根据机器名使用不同的参数
 if platform.uname()[1] in SERVERS:
     # 使用 MASTER_SERVER 的redis存储爬虫任务

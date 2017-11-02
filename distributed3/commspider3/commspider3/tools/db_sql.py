@@ -94,7 +94,7 @@ def execute_Sql_insert(sqlstr):
         db_conn.commit()
         # db_conn.close()
         # print("插入成功...{}".format(sqlstr))
-        logger().info("插入成功...{}".format(sqlstr))
+        # logger().info("插入成功...{}".format(sqlstr))
         return True
     except Exception as e:
         # print('插入失败 {} SQL语句: {}'.format(e, sqlstr))
@@ -127,7 +127,7 @@ def execute_Sql_updata(sqlstr):
         db_conn.commit()
         # db_conn.close()
         # print("更新成功...{}".format(sqlstr))
-        logger().info("更新成功...{}".format(sqlstr))
+        # logger().info("更新成功...{}".format(sqlstr))
         return True
     except Exception as e:
         # print('更新失败 {} SQL语句: {}'.format(e, sqlstr))
