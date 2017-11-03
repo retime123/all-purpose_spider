@@ -7,16 +7,20 @@ import datetime
 import traceback
 import redis
 
-from commspider3 import settings
-from commspider3.tools.logger import logger
-from commspider3.tools import db
-from commspider3.tools.tool import send_mail
-from commspider3.tools.tool import write_log
-from commspider3.tools.tool import execute_mysql_insert
-from commspider3.tools.tool import new_sshclient_execmd as sshclient_execmd
-from commspider3.tools.tool import aiorequest
-# from commspider3 import caas_conf
+import settings
+from tools.logger import logger
+from tools import db
+from tools.tool import send_mail
+from tools.tool import write_log
+from tools.tool import execute_mysql_insert
+from tools.tool import new_sshclient_execmd as sshclient_execmd
+from tools.tool import aiorequest
 
+'''
+- 功能 -
+1.正式服务器环境下,传参，settings里面的机器一键启动/停止
+# 2.git模式----> 判断spider进程>>>删除文件>>>然后下拉git
+'''
 
 class WatchStatus(object):
 
@@ -26,13 +30,13 @@ class WatchStatus(object):
     summary_report = []
     summary_error_count = {}
 
-    def __init__(self,  prefix=None, task_type=None, platform_id=None, debug=0):
+    def __init__(self,  prefix=None, role=None, task_type=None, platform_id=None, debug=0):
         self.redis_conn = redis.Redis(connection_pool=db.MyRedis())
 
         self.logger = logger()
 
         self.prefix = prefix
-
+        self.role = role
         self.task_type = task_type
 
         self.platform_id = platform_id
@@ -53,59 +57,65 @@ class WatchStatus(object):
 
         self.debug = debug
 
-    # 发送汇总报告
-    def send_summay_report(self):
-        error_type_str = ''
-        for k in self.summary_error_count:
-            error_type_str = error_type_str + k + ' ' + str(self.summary_error_count[k]) + ' 条  #  '
-
-        result_mail = 'redis总任务：  {}  成功数：  {}  失败数：  {} ({})'.format(
-            self.summary_all, self.summary_success, self.summary_fail, error_type_str)
-
-        for elm in self.summary_report:
-            result_mail = result_mail + '\n' + elm
-        email_title = '{}_{}_{}_爬虫运行报告'.format(datetime.datetime.now().strftime('%Y-%m-%d'), self.prefix, self.task_type)
-        send_mail(email_title, result_mail, to_addrs=self.get_mail_receiver())
+    # # 发送汇总报告
+    # def send_summay_report(self):
+    #     error_type_str = ''
+    #     for k in self.summary_error_count:
+    #         error_type_str = error_type_str + k + ' ' + str(self.summary_error_count[k]) + ' 条  #  '
+    #
+    #     result_mail = 'redis总任务：  {}  成功数：  {}  失败数：  {} ({})'.format(
+    #         self.summary_all, self.summary_success, self.summary_fail, error_type_str)
+    #
+    #     for elm in self.summary_report:
+    #         result_mail = result_mail + '\n' + elm
+    #     email_title = '{}_{}_{}_爬虫运行报告'.format(datetime.datetime.now().strftime('%Y-%m-%d'), self.prefix, self.task_type)
+    #     send_mail(email_title, result_mail, to_addrs=self.get_mail_receiver())
 
     # 主函数
     def run(self):
         # 启动spider
-        print('333')
-        # self.start_spider()
         if platform.uname()[1] in settings.SERVERS:
-            self.start_spider()
+            if self.role in ['git_pull']:
+                self.git_pull()
+            else:
+                if self.task_type in ['day_data', 'RT_data']:
+                    if self.role == 'start':
+                        self.start_spider()
+                    elif self.role in ['shut']:
+                        self.shut_spider()
 
-        # 异步的向redis中压任务
-        tasks = []
-        for pid in self.platform_id:
-            tasks.append(self.watch_task(pid, self.task_type))
-
-        try:
-            # 开始执行异步任务
-            self.loop.run_until_complete(asyncio.wait(tasks))
-
-            # # 发送汇总报告
-            # self.send_summay_report()
-
-            # 删除redis中的键
-            self.delete_redis_key()
-
-            # 关闭spider
-            if platform.uname()[1] in settings.SERVERS:
-                self.shut_spider()
-
-            # 其他自定义操作
-            self.custom_operation()
-        except KeyboardInterrupt:
-            self.logger.info('手动退出')
-            exit(0)
+        # # 异步的向redis中压任务
+        # tasks = []
+        # for pid in self.platform_id:
+        #     tasks.append(self.watch_task(pid, self.task_type))
+        # #
+        # try:
+        #     # 开始执行异步任务
+        #     self.loop.run_until_complete(asyncio.wait(tasks))
+        #
+        #     # # 发送汇总报告
+        #     # self.send_summay_report()
+        #
+        #     # 删除redis中的键
+        #     self.delete_redis_key()
+        #
+        #     # 关闭spider
+        #     if platform.uname()[1] in settings.SERVERS:
+        #         self.shut_spider()
+        #
+        #     # 其他自定义操作
+        #     self.custom_operation()
+        # except KeyboardInterrupt:
+        #     self.logger.info('手动退出')
+        #     exit(0)
 
     # 启动所有spider
     def start_spider(self):
+        servers = None
         if self.task_type == 'day_data':
-            servers = settings.SERVERS
-        else:
-            servers = settings.SERVERS
+            servers = settings.SERVERSa
+        elif self.task_type == 'RT_data':
+            servers = settings.SERVERSb
         server_param = settings.SERVER_PARAM
         for key in servers:
             sshclient_execmd(
@@ -113,15 +123,26 @@ class WatchStatus(object):
 
     # 关闭所有spider
     def shut_spider(self):
+        servers = None
         if self.task_type == 'day_data':
-            servers = settings.SERVERS
-        else:
-            servers = settings.SERVERS
+            servers = settings.SERVERSa
+        elif self.task_type == 'RT_data':
+            servers = settings.SERVERSb
         server_param = settings.SERVER_PARAM
         for key in servers:
-            if self.task_type != 'day_data':
-                sshclient_execmd(
-                    host=server_param[key], execmd='shut-{} {} {}-worker'.format(self.prefix, self.task_type, self.debug))
+            sshclient_execmd(
+                host=server_param[key], execmd='shut-{} {} {}-worker'.format(self.prefix, self.task_type, self.debug))
+
+    # git pull
+    def git_pull(self):
+        servers = settings.SERVERS
+        server_param = settings.SERVER_PARAM
+        for key in servers:
+            sshclient_execmd(
+                host=server_param[key],
+                execmd='git_pull')
+
+
 
     # 清空redis中残留的键
     def delete_redis_key(self):
@@ -365,11 +386,11 @@ class WatchStatus(object):
                     db.MyMongodb(debug=self.debug)[database][videos_table].update({'id': video_id}, {'$set': {'loop': loop}})
 
 
-def get_params(prefix, task_type, platform_id, debug):
+def get_params(prefix, role, task_type, platform_id, debug):
     if platform_id == '[]':
-        if 'sparkle' in task_type:
+        if 'day_data' in task_type:
             platform_id = [160, 170, 180]
-        elif 'caas' in task_type:
+        elif 'RT_data' in task_type:
             platform_id = [160, 170, 180]
     else:
         plist = []
@@ -377,21 +398,37 @@ def get_params(prefix, task_type, platform_id, debug):
             plist.append(int(elm))
         platform_id = plist
 
-    return prefix, task_type, platform_id, int(debug)
+    return prefix, role, task_type, platform_id, int(debug)
 
 
 if __name__ == '__main__':
-    # prefix, task_type, database, sql, platform_id
-    # 2017XX sparkle_data mysql "select * from huox" []
+    '''
+            - 启动参数 -
+            :正式环境为服务器环境，settings里面的服务器机型才能启动正式环境
+            :param 启动方式: 
+
+            :param 其他电脑: python3 start_spider
+        '''
+
 
     # 正式环境运行此代码
     if platform.uname()[1] in settings.SERVERS:
-        # python3 watch_status 1 day_data [] 0
-        prefix, task_type, platform_id, debug = get_params(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+        '''
+        :param spider启动:python3 watch_status.py start day_data
+        :param spider停止:python3 watch_status.py shut day_data
+        :param git下拉:python3 watch_status.py git_pull data
+        '''
+        prefix, role, task_type, platform_id, debug = get_params(1, sys.argv[1], sys.argv[2], '[]', 0)
     # 本机环境运行此代码
     else:
-        prefix, task_type, platform_id, debug = get_params(2017, 'day_data', '[]', 0)
+        prefix, role, task_type, platform_id, debug = get_params(2017, 'start', 'day_data', '[]', 0)
 
-    pt = WatchStatus(prefix=prefix, task_type=task_type, platform_id=platform_id, debug=debug)
+    pt = WatchStatus(prefix=prefix, role=role, task_type=task_type, platform_id=platform_id, debug=debug)
     pt.run()
-
+    '''
+    logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='log/%s.log' % (today,),
+                    filemode='w')
+                    '''

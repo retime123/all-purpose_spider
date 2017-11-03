@@ -57,8 +57,8 @@ class baiduSpider(scrapy.Spider):
                                  errback=self.errback_httpbin,
                                  dont_filter=True)
 
-    # def parse_augmenter(self, response):
-    #     pass
+    def parse_augmenter(self, response):
+        pass
 
     def parse(self, response):
         if 'ajax=json' in response.url:

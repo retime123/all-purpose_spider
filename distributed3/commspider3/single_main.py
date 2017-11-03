@@ -17,7 +17,7 @@ __author__ = 'retime123'
 '''
 
 
-def make_dir(dir_path='./log'):
+def make_dir(dir_path=sg.LOG_DIR):
     today = datetime.now().strftime('%Y%m%d')
     log_path = '{}/{}'.format(dir_path, today)
     if not os.path.exists(log_path):
@@ -34,7 +34,7 @@ def main(task_type, num):
     spider_settings = SPIDERR_SETTINGS.get(task_type)
 
     value = spider_settings[int(num)]
-    settings['LOG_FILE'] = 'log/{}/{}_{}_worker.log'.format(now.strftime('%Y%m%d'), now.strftime('%H'), value.get('name'))
+    settings['LOG_FILE'] = sg.LOG_DIR + '/{}/{}_{}_worker.log'.format(now.strftime('%Y%m%d'), now.strftime('%H'), task_type)
 
     process = CrawlerProcess(settings=settings)
     project_settings = settings.copy()
