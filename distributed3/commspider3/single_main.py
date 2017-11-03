@@ -49,14 +49,8 @@ def main(task_type, num):
 
 
 if __name__ == '__main__':
-    # main('day_data', 20)
-    # main('hour_data', 110)
 
-    # main('hour_data', 130)
-    # main('hour_data', 140)
-    # main('hour_data', 150)
-    # main('hour_data', 160)
-    main('hour_data', 180)
+    main('day_data', 180)
 
 
     # cmdline.execute('scrapy crawl shenzhen'.split())

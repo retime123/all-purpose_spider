@@ -27,7 +27,7 @@ class StartSpider(object):
         self.task_type = task_type
         self.debug = debug
 
-    def make_dir(self, dir_path = './log'):
+    def make_dir(self, dir_path = sg.LOG_DIR):
         today = datetime.now().strftime('%Y%m%d')
         log_path = '{}/{}'.format(dir_path, today)
         if not os.path.exists(log_path):
@@ -40,7 +40,7 @@ class StartSpider(object):
         settings = get_project_settings()
         self.make_dir()
         now = datetime.now()
-        settings['LOG_FILE'] = 'log/{}/{}_{}_worker.log'.format(now.strftime('%Y%m%d'), now.strftime('%H'), self.task_type)
+        settings['LOG_FILE'] = sg.LOG_DIR + '/{}/{}_{}_worker.log'.format(now.strftime('%Y%m%d'), now.strftime('%H'), self.task_type)
 
         process = CrawlerProcess(settings=settings)
 

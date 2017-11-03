@@ -195,11 +195,25 @@ IMAGES_STORE = os.path.join(project_dir, 'images')
 IMAGENS_MIN_HEIGHT = 100
 IMAGENS_MIN_WIDTH = 100
 
+
+
+# 所有服务器！
+# SERVERS = [MASTER_SERVER, SERVER_A, SERVER_B, SERVER_C, SERVER_D]
+SERVERS = [SERVER_A]
+
+SERVERSa = [SERVER_A]
+SERVERSb = [SERVER_A]
+
+
 # 代码目录---->启动目录下的start_spider.py
 # CODE_DIR = '/home/huanggencheng/spiders/yixun_spider/commspider3'
 CODE_DIR = '/home/python/Desktop/aa/yixun_spider/commspider3'
-# log目录/home/python/Desktop/aa/log
-LOG_DIR = CODE_DIR.replace('yixun_spider/commspider3','log')
+if platform.uname()[1] in SERVERS:
+    # log目录/home/python/Desktop/aa/log
+    LOG_DIR = CODE_DIR.replace('yixun_spider/commspider3','log')
+else:
+    # 本机的log日志目录
+    LOG_DIR = './log'
 # 删除目录/home/python/Desktop/aa/yixun_spider
 RM_DIR = CODE_DIR.replace('/commspider3','')
 # git下载地址
@@ -236,12 +250,6 @@ SERVER_PARAM = {
 
 }
 
-# 所有服务器！
-# SERVERS = [MASTER_SERVER, SERVER_A, SERVER_B, SERVER_C, SERVER_D]
-SERVERS = [SERVER_A]
-
-SERVERSa = [SERVER_A]
-SERVERSb = [SERVER_A]
 # 根据机器名使用不同的参数
 if platform.uname()[1] in SERVERS:
     # 使用 MASTER_SERVER 的redis存储爬虫任务
@@ -283,13 +291,6 @@ else:
     PROXY_API = ['']
 
 
-
-
-
-# 增量
-augmenter = False
-
-
 LOG_ENABLED = True
 LOG_FORMAT = '%(asctime)s,%(msecs)d  [%(name)s] %(levelname)s: %(message)s'
 
@@ -301,6 +302,10 @@ else:
     LOG_LEVEL = 'DEBUG'# 调试用
     # 所有过程输出会出现在日志
     LOG_STDOUT = False
+
+
+# 增量
+augmenter = False
 
 
 # 失败任务重跑次数:自定义
