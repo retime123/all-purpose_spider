@@ -83,7 +83,8 @@ class WatchStatus(object):
                         self.start_spider()
                     elif self.role in ['shut']:
                         self.shut_spider()
-
+        else:
+            print('不再settings内，直接启动 start_spider.py文件！！！')
         # # 异步的向redis中压任务
         # tasks = []
         # for pid in self.platform_id:
