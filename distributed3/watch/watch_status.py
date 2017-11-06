@@ -77,12 +77,15 @@ class WatchStatus(object):
         if platform.uname()[1] in settings.SERVERS:
             if self.role in ['git_pull']:
                 self.git_pull()
+            elif self.task_type in ['day_data', 'RT_data']:
+                if self.role == 'start':
+                    self.start_spider()
+                elif self.role in ['shut']:
+                    self.shut_spider()
+                else:
+                    print('参数错误...{}'.format(self.role))
             else:
-                if self.task_type in ['day_data', 'RT_data']:
-                    if self.role == 'start':
-                        self.start_spider()
-                    elif self.role in ['shut']:
-                        self.shut_spider()
+                print('参数错误...{}'.format(self.role))
         else:
             print('不再settings内，直接启动 start_spider.py文件！！！')
         # # 异步的向redis中压任务
