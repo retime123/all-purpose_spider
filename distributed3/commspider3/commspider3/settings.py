@@ -185,17 +185,6 @@ else:
     REPORT_RECEIVER = ['781816703@qq.com']
 
 
-''':留作后期使用'''
-# 文件路径
-driver_path = '../datapool'
-project_dir = os.path.abspath(os.path.dirname(__file__))
-# 图片路径:留作后期使用
-IMAGES_STORE = os.path.join(project_dir, 'images')
-# 用于过滤小图片
-IMAGENS_MIN_HEIGHT = 100
-IMAGENS_MIN_WIDTH = 100
-
-
 
 # 所有服务器！
 # SERVERS = [MASTER_SERVER, SERVER_A, SERVER_B, SERVER_C, SERVER_D]
@@ -220,6 +209,18 @@ RM_DIR = CODE_DIR.replace('/commspider3','')
 GIT_CLONE = 'https://github.com/retime123/yixun_spider.git'
 # /home/python/Desktop/aa
 GIT_DIR = CODE_DIR.replace('/yixun_spider/commspider3','')
+
+
+''':留作后期使用'''
+# 文件路径
+driver_path = '../datapool'
+project_dir = os.path.abspath(os.path.dirname(__file__))
+# 图片路径:留作后期使用
+IMAGES_STORE = os.path.join(project_dir, 'images')
+# 用于过滤小图片
+IMAGENS_MIN_HEIGHT = 100
+IMAGENS_MIN_WIDTH = 100
+
 
 # 服务器的参数
 SERVER_PARAM = {
