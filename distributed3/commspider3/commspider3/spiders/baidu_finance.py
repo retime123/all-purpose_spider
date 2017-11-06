@@ -29,7 +29,7 @@ class baiduFinanceSpider(RedisSpider):
         # 'http://finance.qq.com/a/20171029/022803.htm'
     ]
     redis_key = "baiduFinanceSpider:start_urls"
-    # redis - cli > lpush baiduFinanceSpider:start_urls http://www.ifeng.com/
+    # redis - cli > lpush baiduFinanceSpider:start_urls http://news.baidu.com/finance
 
     def start_requests(self):
         for u in self.start_urls:
@@ -41,6 +41,7 @@ class baiduFinanceSpider(RedisSpider):
                 fun = self.parse
                 # fun = self.parse_base
                 # print '普通1'
+            print('start baidu')
             yield scrapy.Request(u,
                                  callback=fun,
                                  errback=self.errback_httpbin,

@@ -39,6 +39,7 @@ class ifengSpider(RedisSpider):
                 fun = self.parse
                 # fun = self.parse_base
                 # print '普通1'
+            print('start ifeng')
             yield scrapy.Request(u,
                                  callback=fun,
                                  errback=self.errback_httpbin,

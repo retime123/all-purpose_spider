@@ -27,7 +27,7 @@ class sohuSpider(RedisSpider):
         'http://news.sohu.com/',
     ]
     redis_key = "sohuSpider:start_urls"
-    # redis - cli > lpush sohuSpider:start_urls http://www.ifeng.com/
+    # redis - cli > lpush sohuSpider:start_urls http://news.sohu.com/
 
     def start_requests(self):
         for u in self.start_urls:
@@ -39,6 +39,7 @@ class sohuSpider(RedisSpider):
                 fun = self.parse
                 # fun = self.parse_base
                 # print '普通1'
+            print('start sohu')
             yield scrapy.Request(u,
                                  callback=fun,
                                  errback=self.errback_httpbin,
