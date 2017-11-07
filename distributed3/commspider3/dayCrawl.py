@@ -29,7 +29,7 @@ class StartSpider(object):
 
     def make_dir(self, dir_path = sg.LOG_DIR):
         today = datetime.now().strftime('%Y%m%d')
-        log_path = '{}/{}'.format(dir_path, today)
+        log_path = '{}/{}/{}'.format(dir_path, self.task_type, today)
         if not os.path.exists(log_path):
             try:
                 os.makedirs(log_path)
@@ -38,23 +38,23 @@ class StartSpider(object):
 
     def run(self):
         settings = get_project_settings()
-        self.make_dir()
-        now = datetime.now()
-        settings['LOG_FILE'] = sg.LOG_DIR + '/{}/{}_{}_worker.log'.format(now.strftime('%Y%m%d'), now.strftime('%H'), self.task_type)
+        if self.task_type in [i for i in SPIDERR_SETTINGS.keys()]:
+            self.make_dir()
+            now = datetime.now()
+            settings['LOG_FILE'] = sg.LOG_DIR + '/{}/{}_{}_worker.log'.format(now.strftime('%Y%m%d'), now.strftime('%H'), self.task_type)
 
-        process = CrawlerProcess(settings=settings)
+            process = CrawlerProcess(settings=settings)
 
-        spider_settings = SPIDERR_SETTINGS.get(self.task_type)
-        for key in spider_settings:
-            value = spider_settings[key]
-            project_settings = settings.copy()
-            for k, v in value.get('settings').items():
-                project_settings[k] = v
-            crawl = Crawler(value.get('spidercls'), settings=project_settings)
-            process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'), debug=self.debug)
-            # process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'))
-
-        process.start()
+            spider_settings = SPIDERR_SETTINGS.get(self.task_type)
+            for key in spider_settings:
+                value = spider_settings[key]
+                project_settings = settings.copy()
+                for k, v in value.get('settings').items():
+                    project_settings[k] = v
+                crawl = Crawler(value.get('spidercls'), settings=project_settings)
+                process.crawl(crawl, name='{}_{}_{}'.format(self.prefix, self.task_type, value.get('name')), use_proxy=value.get('use_proxy'), debug=self.debug)
+                # process.crawl(crawl, name='{}'.format(value.get('name')), use_proxy=value.get('use_proxy'))
+            process.start()
 
 
 if __name__ == '__main__':

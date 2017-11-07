@@ -315,7 +315,8 @@ RETRY_TIMES = 5
 # 关闭重试:默认是开启的！
 # RETRY_ENABLED = False
 
-
+# 各系统的配置参数---spider_conf.py
+SPIDERR_SETTINGS = ['day_data', 'RT_data', 'push_data']
 
 # scrapy的response只处理20x, 增加对以下状态码的处理
 HTTPERROR_ALLOWED_CODES = [404, 302, 502, 500, 301, 403]
