@@ -55,11 +55,6 @@ COOKIES_ENABLED = False
 #    'commspider3.middlewares.Commspider3SpiderMiddleware': 543,
 #}
 
-# Enable or disable downloader middlewares
-# See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'commspider3.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -67,11 +62,6 @@ COOKIES_ENABLED = False
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
-# Configure item pipelines
-# See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'commspider3.pipelines.Commspider3Pipeline': 300,
-#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -107,7 +97,7 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 SPIDER_MIDDLEWARES = {
-   'commspider3.middlewares.ProcessResponseMiddleware': 543,
+   # 'commspider3.middlewares.ProcessResponseMiddleware': 543,
 }
 
 
@@ -171,10 +161,10 @@ SERVER_C = 'iZ2zebruzaqhhiinv2aufpZ'
 SERVER_D = 'iZ2ze8cmmwy930vytli5l4Z'
 
 
-ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
-            'MONITOR_B': 'iZ2ze8cy5ndiwte1bakim0Z',
-            'MONITOR_C': 'iZ2ze8cy5ndiwte1bakilmZ',
-            'MONITOR_D': 'iZ2ze8cy5ndiwte1bakilmZ',
+ser_info = {'MONITOR_A': SERVER_A,
+            'MONITOR_B': SERVER_B,
+            'MONITOR_C': SERVER_C,
+            'MONITOR_D': SERVER_D,
             }
 
 
@@ -195,14 +185,12 @@ SERVERSb = [SERVER_A]
 
 
 # 代码目录---->启动目录下的start_spider.py
-# CODE_DIR = '/home/huanggencheng/spiders/yixun_spider/commspider3'
+# CODE_DIR = '~/spiders/yixun_spider/commspider3'
 CODE_DIR = '/home/python/Desktop/aa/yixun_spider/commspider3'
-if platform.uname()[1] in SERVERS:
-    # log目录/home/python/Desktop/aa/log
-    LOG_DIR = CODE_DIR.replace('yixun_spider/commspider3','log')
-else:
-    # 本机的log日志目录
-    LOG_DIR = './log'
+
+# log目录/home/python/Desktop/aa/log
+LOG_DIR = CODE_DIR.replace('yixun_spider/commspider3','log')
+
 # 删除目录/home/python/Desktop/aa/yixun_spider
 RM_DIR = CODE_DIR.replace('/commspider3','')
 # git下载地址
@@ -233,8 +221,8 @@ SERVER_PARAM = {
     #     'dir': CODE_DIR,
     # },
     SERVER_A: {
-        'local': '192.168.136.129',
-        'internet': '192.168.136.129',
+        'local': '192.168.100.128',
+        'internet': '192.168.100.128',
         'username': 'python',
         'pwd': 'hgcheng123',
         'name': 'SERVER_A',

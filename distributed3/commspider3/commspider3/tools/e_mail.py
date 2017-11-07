@@ -75,6 +75,13 @@ def send_error_write(title, content, spider_name):
 def send_timeout_write(title, content, spider_name):
     '''请求超时信息'''
     logger().error('[{}] {}...\n{}'.format(spider_name, title, content))
+    # 记录到error_spider.log
+    with open(settings.LOG_DIR + '/error_spider.log', 'a+', encoding='utf-8') as fp:
+        now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
+        fp.write('[{}]{}...{}'.format(spider_name, title, now_time2) + '\n')
+        fp.write('{}'.format(content) + '\n')
+        fp.write('=' * 30 + '\n')
+    # 记录到timeout里面，后期处理
     with open(settings.LOG_DIR + '/timeout_{}.log'.format(spider_name), 'a+', encoding='utf-8') as fp:
         now_time2 = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
         fp.write('[{}]{}...{}'.format(spider_name, title, now_time2) + '\n')

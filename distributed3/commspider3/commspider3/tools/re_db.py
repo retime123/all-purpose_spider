@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import re,sys
 
-reload(sys)
-sys.setdefaultencoding('UTF-8')
+# reload(sys)
+# sys.setdefaultencoding('UTF-8')
 
 def dealstr(table1):
     table = table1.lower()

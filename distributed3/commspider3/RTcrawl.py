@@ -12,7 +12,7 @@ from commspider3.tools.tool import make_dir
 
 '''
 功能：全启动
-配置文件spider_conf里的_data都会启动
+配置文件spider_conf里的RT_data都会启动
 用于每天爬取的定时任务crontabRT
 
 定时任务，，注意一定要进到文件下！！crontab -e

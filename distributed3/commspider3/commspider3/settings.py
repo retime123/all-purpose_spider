@@ -49,17 +49,6 @@ COOKIES_ENABLED = False
 #   'Accept-Language': 'en',
 #}
 
-# Enable or disable spider middlewares
-# See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'commspider3.middlewares.Commspider3SpiderMiddleware': 543,
-#}
-
-# Enable or disable downloader middlewares
-# See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'commspider3.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -107,7 +96,7 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 SPIDER_MIDDLEWARES = {
-   'commspider3.middlewares.ProcessResponseMiddleware': 543,
+   # 'commspider3.middlewares.ProcessResponseMiddleware': 543,
 }
 
 
@@ -171,10 +160,10 @@ SERVER_C = 'iZ2zebruzaqhhiinv2aufpZ'
 SERVER_D = 'iZ2ze8cmmwy930vytli5l4Z'
 
 
-ser_info = {'MONITOR_A': 'iZ2zegrz5db6q3ev9m3u7lZ',
-            'MONITOR_B': 'iZ2ze8cy5ndiwte1bakim0Z',
-            'MONITOR_C': 'iZ2ze8cy5ndiwte1bakilmZ',
-            'MONITOR_D': 'iZ2ze8cy5ndiwte1bakilmZ',
+ser_info = {'MONITOR_A': SERVER_A,
+            'MONITOR_B': SERVER_B,
+            'MONITOR_C': SERVER_C,
+            'MONITOR_D': SERVER_D,
             }
 
 
@@ -195,7 +184,7 @@ SERVERSb = [SERVER_A]
 
 
 # 代码目录---->启动目录下的start_spider.py
-# CODE_DIR = '/home/huanggencheng/spiders/yixun_spider/commspider3'
+# CODE_DIR = '~/spiders/yixun_spider/commspider3'
 CODE_DIR = '/home/python/Desktop/aa/yixun_spider/commspider3'
 if platform.uname()[1] in SERVERS:
     # log目录/home/python/Desktop/aa/log
@@ -233,8 +222,8 @@ SERVER_PARAM = {
     #     'dir': CODE_DIR,
     # },
     SERVER_A: {
-        'local': '192.168.136.129',
-        'internet': '192.168.136.129',
+        'local': '192.168.100.128',
+        'internet': '192.168.100.128',
         'username': 'python',
         'pwd': 'hgcheng123',
         'name': 'SERVER_A',
@@ -287,7 +276,7 @@ else:
     MYSQL_PASSWORD = 'Jp123456'
     # 测试库
     MYSQL_DATABASE = 'chengzi'
-    DEBUG_MYSQL_DATABASE = 'future_dev'
+    # DEBUG_MYSQL_DATABASE = 'future_dev'
     # 获取代理IP的外网API
     PROXY_API = ['']
 

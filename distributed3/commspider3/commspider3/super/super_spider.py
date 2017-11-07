@@ -8,7 +8,7 @@ from scrapy_redis.utils import bytes_to_str
 import datetime
 from commspider3.tools import db
 import redis
-from commspider3.errors import *
+from commspider3.tools.errors import *
 from commspider3.tools.tool import get_redis_key
 from commspider3 import settings
 from urllib.parse import urlparse

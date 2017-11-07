@@ -216,19 +216,21 @@ def new_sshclient_execmd(host, port=22, username='root', password='AHSKsxky2096'
         if params:
             if params[0][2] == 'worker':
                 if params[0][0] == 'start':
-                    spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
+                    a = 'start_spider.py {}'.format(params[0][1])
+                    spider_id = get_spider_id(conn, a)
+                    print('[{}] '.format(host.get('name'))+ a)
                     if spider_id:
-                        logger().info('[{}] 已启动spider进程 {}'.format(host.get('name'), spider_id))
+                        print('[{}] 已启动spider进程 {}'.format(host.get('name'), spider_id))
                     else:
                         start_result = conn.exec_command('cd {};python3 start_spider.py {} &'.format(host.get('dir'), params[0][1]))[1]
                         # 进程结束了，才会有结果！！
                         # print(start_result.read())
-                        time.sleep(1)
+                        time.sleep(0.5)
                         spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
                         if spider_id:
-                            logger().info('[{}] 启动spider进程 {}'.format(host.get('name'), spider_id))
+                            print('[{}] 启动spider进程 {}'.format(host.get('name'), spider_id))
                         else:
-                            logger().info('[{}] 启动spider失败'.format(host.get('name')))
+                            print('[{}] 启动spider失败'.format(host.get('name')))
                 else:
                     spider_id = get_spider_id(conn, 'start_spider.py {}'.format(params[0][1]))
                     shut_spider(spider_id, host, conn)
@@ -241,12 +243,12 @@ def new_sshclient_execmd(host, port=22, username='root', password='AHSKsxky2096'
             if execmd == 'git_pull':
                 spider_id = get_spider_id(conn, 'start_spider.py 1')
                 if spider_id:
-                    logger().info('[{}] 请先shut：spider进程 {}'.format(host.get('name'), spider_id))
+                    print('[{}] 请先shut：spider进程 {}'.format(host.get('name'), spider_id))
                 else:
                     # git文件
                     git_pull_spider(host, conn)
     except Exception as e:
-        logger().error('[{}] 服务器执行 {} 命令失败 {}'.format(host.get('name'), execmd, e))
+        print('[{}] 服务器执行 {} 命令失败 {}'.format(host.get('name'), execmd, e))
     conn.close()
 
 
@@ -255,17 +257,17 @@ def start_spider(host, conn, program_name):
         host.get('pwd'), program_name))[1]
     spider_id = get_spider_id(conn, program_name)
     if spider_id:
-        logger().info('[{}] 启动spider进程 {}'.format(host.get('name'), spider_id))
+        print('[{}] 启动spider进程 {}'.format(host.get('name'), spider_id))
     else:
-        logger().info('[{}] 启动spider失败'.format(host.get('name')))
+        print('[{}] 启动spider失败'.format(host.get('name')))
 
 
 def shut_spider(spider_id, host, conn):
     if spider_id:
         kill_result = conn.exec_command('kill -9 {}'.format(spider_id))[1]
-        logger().info('[{}] 杀掉spider进程 {}'.format(host.get('name'), spider_id))
+        print('[{}] 杀掉spider进程 {}'.format(host.get('name'), spider_id))
     else:
-        logger().info('[{}] 没有spider运行'.format(host.get('name')))
+        print('[{}] 没有spider运行'.format(host.get('name')))
 
 def git_pull_spider(host, conn):
     if not os.path.exists(settings.GIT_DIR):
@@ -277,18 +279,18 @@ def git_pull_spider(host, conn):
         # 删除文件
         rm_result = conn.exec_command('rm {} -r'.format(
             settings.RM_DIR))[2].read().decode('utf-8')
-        logger().info('[{}] git正在下载... '.format(host.get('name')))
+        print('[{}] git正在下载... '.format(host.get('name')))
         git_result = conn.exec_command('cd {};git clone {}'.format(
             settings.GIT_DIR,settings.GIT_CLONE))[1].read().decode('utf-8')
-        logger().info('[{}] git下载成功! '.format(host.get('name')))
+        print('[{}] git下载成功! '.format(host.get('name')))
     except Exception as e:
-        logger().info('[{}] git出错 {}'.format(host.get('name'), traceback.format_exc()))
+        print('[{}] git出错 {}'.format(host.get('name'), traceback.format_exc()))
 
 
 def get_spider_id(conn, program_name):
-    spider_info = conn.exec_command('ps -ef|grep python3')[1]
+    spider_info = conn.exec_command('ps -ef|grep python')[1]
     spider_id = None
-    print(program_name)
+    # print(program_name)
     for line in spider_info.readlines():
         if '{}'.format(program_name) in line:
             spider_id = re.findall(r'.+?\s*(\d+)\s*.*', line)[0]
@@ -320,7 +322,7 @@ def make_dir(dir_path=settings.LOG_DIR):
 if __name__ == '__main__':
     conn = paramiko.SSHClient()
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    conn.connect(hostname='192.168.136.129', port=22, username='python', password='hgcheng123')
+    conn.connect(hostname='192.168.100.128', port=22, username='python', password='hgcheng123')
     # spider_id = get_spider_id(conn, 'start_spider.py 1 day_data 0')
     # print(spider_id)
     # CODE_DIR = '/home/python/Desktop/commspider3'

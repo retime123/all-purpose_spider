@@ -19,7 +19,7 @@ class PushTask(object):
 
     def __init__(self, prefix=None, task_type=None, database=None, sql=None, platform_id=None, debug=None):
         self.loop = asyncio.get_event_loop()
-        self.platform_name = settings.PLATFORMID_NAME_MAP
+        # self.platform_name = settings.PLATFORMID_NAME_MAP
         self.redis_conn = redis.Redis(connection_pool=db.MyRedis())
         self.logger = logger()
         self.task_count = {}

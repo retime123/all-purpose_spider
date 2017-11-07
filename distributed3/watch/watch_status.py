@@ -414,10 +414,11 @@ if __name__ == '__main__':
             :param 其他电脑: python3 start_spider
         '''
 
-
     # 正式环境运行此代码
     if platform.uname()[1] in settings.SERVERS:
         '''
+        :sys.argv[1]>>>start  shut   git_pull
+        :sys.argv[2]>>>day_data  RT_data
         :param spider启动:python3 watch_status.py start day_data
         :param spider停止:python3 watch_status.py shut day_data
         :param git下拉:python3 watch_status.py git_pull data
