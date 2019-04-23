@@ -129,10 +129,10 @@ def send_mail(title, content, to_addrs=None, from_addr=None, password=None):
 
     if from_addr is None and password is None:# send
         # from_addr, password = random.choice(from_msg)
-        from_addr, password = 'retime123@163.com', 'chengzi123'
+        from_addr, password = '@163.com', ''
 
     if to_addrs is None:# 收
-        to_addrs = ['781816703@qq.com']
+        to_addrs = ['@qq.com']
     else:
         # 判断是否列表
         if not isinstance(to_addrs, list):
@@ -322,7 +322,7 @@ def make_dir(dir_path=settings.LOG_DIR):
 if __name__ == '__main__':
     conn = paramiko.SSHClient()
     conn.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    conn.connect(hostname='192.168.100.128', port=22, username='python', password='hgcheng123')
+    conn.connect(hostname='192.168.100.128', port=22, username='python', password='123')
     # spider_id = get_spider_id(conn, 'start_spider.py 1 day_data 0')
     # print(spider_id)
     # CODE_DIR = '/home/python/Desktop/commspider3'
